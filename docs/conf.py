@@ -40,7 +40,7 @@ extensions = [
     'sphinxcontrib.partable',
 ]
 
-fortran_src = '../../../src/xbeachlibrary/'
+fortran_src = '../src/xbeachlibrary/'
 fortran_ext = ['F90', 'f90']
 
 #nitpicky = True

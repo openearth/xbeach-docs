@@ -6,9 +6,9 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 #BUILDDIR      = _build
-BUILDDIR      = ../../../../xbeach-docs
+BUILDDIR      = ../../xbeach-docs
 PDFBUILDDIR   = /tmp
-PDF           = ../../../../html/manual.pdf
+PDF           = ../../html/manual.pdf
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
