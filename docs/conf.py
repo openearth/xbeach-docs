@@ -33,10 +33,11 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.pngmath',
-#    'sphinx.ext.viewcode',
+    'sphinx.ext.viewcode',
     'sphinx.ext.linkcode',
     'sphinxfortran.fortran_domain',
     'sphinxfortran.fortran_autodoc',
+    'sphinxcontrib.bibtex',
     'sphinxcontrib.partable',
 ]
 

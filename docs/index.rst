@@ -15,6 +15,7 @@ Contents:
    modules_and_functions
    input_parameters
    output_variables
+   tools
    examples_and_tutorials
 
 Indices and tables
