@@ -127,7 +127,7 @@ Hydrodynamics options
 XBeach was originally developed as a short-wave averaged but wave-group
 resolving model, allowing resolving the short wave variations on the
 wave group scale and the long waves associated with them. Since the
-original paper by :cite:`Roelvink2009a` a number of additional model
+original paper by :cite:`Roelvink2009` a number of additional model
 options have been implemented, thereby allowing users to choose which
 time-scales to resolve:
 
@@ -174,7 +174,7 @@ variations. Processes that are resolved are wave propagation,
 directional spreading, shoaling, refraction, bottom dissipation and wave
 breaking, and a roller model is included; these processes are usually
 dominant in nearshore areas of limited extent. For the breaking
-dissipation we use the :cite:`Baldock1998a` model, which is valid for
+dissipation we use the :cite:`Baldock1998` model, which is valid for
 wave-averaged modeling. The radiation stress gradients from the wave and
 roller model force the shallow water equations, drive currents and lead
 to wave setdown and setup. Additionally, wind and tidal forcing can be
@@ -235,9 +235,9 @@ a time-dependent forcing of the HISWA equations (:cite:`Holthuijsen1989`).
 This equation solves the variation of short-waves envelope (wave
 height) on the scale of wave groups. It employs a dissipation model for
 use with wave groups (:cite:`Roelvink1993a,Daly2012`) and a roller
-model (:cite:`Svendsen1984,Nairn1990a,Stive1994a`) to
+model (:cite:`Svendsen1984,Nairn1990,Stive1994`) to
 represent momentum stored at the surface after breaking. These
-variations, through radiation stress gradients (:cite:`Longuet-Higgins1962a,LonguetHiggins1964`) exert a force on the water column and drive longer
+variations, through radiation stress gradients (:cite:`Longuet-Higgins1962,LonguetHiggins1964`) exert a force on the water column and drive longer
 period waves (infragravity waves) and unsteady currents, which are
 solved by the nonlinear shallow water equations (e.g. :cite:`Phillips1977,Svendsen2003`). Thus, wave-driven currents (longshore current, rip
 currents and undertow), and wind-driven currents (stationary and
@@ -365,7 +365,7 @@ model and no approximate local model or empirical formulation is
 required for these terms. Finally, in cases where diffraction is a
 dominant process, wave-resolving modeling is needed as it is neglected
 in the short wave averaged mode. The XBeach-G formulations for gravel
-beaches (:cite:`McCall2014a`) are based on the non-hydrostatic mode.
+beaches (:cite:`McCall2014`) are based on the non-hydrostatic mode.
 Although sandy morphology can be simulated using the wave-resolving
 mode, it has not been extensively validated and it is likely that
 changes in the sediment transport formulations will be implemented in
@@ -382,7 +382,7 @@ ships, see :ref:`sec-ship-induced-wave-motions`.
    :align: center
 
    Measured (black) and modeled (red) time series of overtopping during
-   BARDEX experiment, from :cite:`McCall2014a`.
+   BARDEX experiment, from :cite:`McCall2014`.
 
 Short wave action 
 ------------------
@@ -599,7 +599,7 @@ is selected by :par:`break` = *roelvink\_daly* and the second threshold,
 
    \left\{\begin{array}{l} {Q_{b} =1\quad if\quad H_{rms} >\gamma h} \\ {Q_{b} =0\quad if\quad H_{rms} <\gamma _{2} h} \end{array}\right.
 
-In case of stationary waves :cite:`Baldock1998a` is applied (keyword:
+In case of stationary waves :cite:`Baldock1998` is applied (keyword:
 :par:`break` = *baldock*), which is presented in . In this breaking formulation
 the fraction breaking waves :math:`{Q}_{b}` and breaking wave height
 :math:`{H}_{b}` are calculated differently compared to the breaking
@@ -646,7 +646,7 @@ The short wave dissipation by bottom friction is modeled as
 
 In the :math:`{f}_{w}` is the short-wave friction coefficient. This
 value only affects the wave action equation and is unrelated to bed
-friction in the flow equation. Studies conducted on reefs (e.g. :cite:`Lowe2007a`) indicate that :math:`{f}_{w}` should be an order of
+friction in the flow equation. Studies conducted on reefs (e.g. :cite:`Lowe2007`) indicate that :math:`{f}_{w}` should be an order of
 magnitude (or more) larger than the friction coefficient for flow
 (:math:`{c}_{f}`) due to the dependency of wave
 frictional dissipation rates on the frequency of the motion.
@@ -679,7 +679,7 @@ If we consider the slowly-varying dissipation in wave groups, we need
 only to average over a single wave period and we can use a monochromatic
 (regular wave) expression. If we want to have the time-average
 dissipation over a full spectrum we get the best approximation from
-considering a linear Gaussian distribution. :cite:`Guza1985a`
+considering a linear Gaussian distribution. :cite:`Guza1985`
 give pragmatic expressions for both cases.
 
 For the monochromatic case:
@@ -723,15 +723,15 @@ Vegetation
 The presence of aquatic vegetation within the area of wave propagation
 or wave breaking results in an additional dissipation mechanism for
 short waves. This is modeled using the approach of :cite:`Mendez2004a`,
-which was adjusted by :cite:`Suzuki2012a` to take into account
-vertically heterogeneous vegetation, see :cite:`VanRooijen2015a`. The
+which was adjusted by :cite:`Suzuki2012` to take into account
+vertically heterogeneous vegetation, see :cite:`VanRooijen2015`. The
 short wave dissipation due to vegetation is calculated as function of
 the local wave height and several vegetation parameters. The vegetation
 can be schematized in a number of vertical elements with each specific
 property. In this way the wave damping effect of vegetation such as
 mangrove trees, with a relatively dense root system but sparse stem
 area, can be modeled. The dissipation term is then computed as the sum
-of the dissipation per vegetation layer (:cite:`Suzuki2012a`):
+of the dissipation per vegetation layer (:cite:`Suzuki2012`):
 
 .. math::
    :label:
@@ -790,7 +790,7 @@ account:
    with the Ursell number. (keyword: :par:`waveform` = *ruessink\_vanrijn*)
 
 #. A formulation of :cite:`VanThieldeVries2009a` based on the parameterized
-   wave shape model of :cite:`Rienecker1981a` (keyword: :par:`waveform` =
+   wave shape model of :cite:`Rienecker1981` (keyword: :par:`waveform` =
    vanthiel)
 
 The formulation of :cite:`Ruessink2012` relies on parameterizations
@@ -821,7 +821,7 @@ of field observations.
    \begin{array}{c} {B=p_{1} +\frac{p_{2} -p_{1} }{1+\exp \frac{p_{3} -\log Ur}{p_{4} } } } \\ {\psi =-90+90\tanh (p_{5} /Ur^{p_{6} } )} \\ {} \\ {S_{k} =B\cos \psi {\; \; \; and\; \; \; }A_{s} =B\sin \psi } \end{array}
 
 Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the wave
-shape model of :cite:`Rienecker1981a`. In this model the short wave
+shape model of :cite:`Rienecker1981`. In this model the short wave
 shape is described by the weighted sum of eight sine and cosine
 functions
 
@@ -952,8 +952,8 @@ occur) and the point where the wave set-up and longshore current start
 to build. This transition zone effect is generally attributed to the
 temporary storage of shoreward momentum in the surface rollers. Several
 authors have analyzed the typical dimensions of such rollers and their
-effect on the radiation stress (e.g. :cite:`Longuet-Higgins1974a`,
-:cite:`Svendsen1984`, :cite:`Roelvink1989`, :cite:`Nairn1990a`, :cite:`Deigaard1993a`, :cite:`Stive1994a`).
+effect on the radiation stress (e.g. :cite:`Longuet-Higgins1974`,
+:cite:`Svendsen1984`, :cite:`Roelvink1989`, :cite:`Nairn1990`, :cite:`Deigaard1993a`, :cite:`Stive1994`).
 
 The rollers can be represented as a blob of water with cross-sectional
 area A that slides down the front slope of a breaking wave. The roller
@@ -1011,10 +1011,10 @@ in x-direction):
 
 However, this must be seen as an (unrealistic) upper limit on the
 radiation stress contribution as this can only be valid for
-:math:`{w}_{roller}=0`. :cite:`Nairn1990a` showed that the
+:math:`{w}_{roller}=0`. :cite:`Nairn1990` showed that the
 conceptual model of :cite:`Roelvink1989` would lead to a factor
 0.22 instead of 2. However, a ratio in the order of 1 seems more
-realistic. :cite:`Stive1994a` found a discrepancy between the
+realistic. :cite:`Stive1994` found a discrepancy between the
 roller shear stress derived from an energy balance and that derived from
 the momentum balance, in the order of a factor two. They explained this
 by a complicated analysis of the effect of water entering and leaving
@@ -1023,7 +1023,7 @@ roller energy balance by a factor two. As this leads to the unphysical
 result that rollers would propagate at twice the wave celerity, we
 believe that the discrepancy must be sought in the ratio between roller
 energy and radiation stress contribution. Therefore we stick to the
-roller energy balance suggested by :cite:`Nairn1990a` in
+roller energy balance suggested by :cite:`Nairn1990` in
 equation :eq:`roller-radiation` and the roller contribution to the radiation
 stress:
 
@@ -1243,7 +1243,7 @@ or wave breaking may not only result in short wave dissipation
 and/or mean flow. Since both long waves and mean flow are fully resolved
 with the nonlinear shallow water equations, the effect of vegetation can be
 modeled using a drag force (e.g. :cite:`Dalrymple1984`), which can be
-directly added to the momentum equations (:cite:`VanRooijen2015a`,
+directly added to the momentum equations (:cite:`VanRooijen2015`,
 equation :eq:`glm-momentum`):
 
 .. math::
@@ -1352,16 +1352,16 @@ continuity equation:
    \frac{\delta u}{\delta x} +\frac{w_{s} -w_{b} }{h} =0
 
 In order to improve the computed location and magnitude of wave
-breaking, the hydrostatic front approximation (HFA) of :cite:`Smit2014a`
+breaking, the hydrostatic front approximation (HFA) of :cite:`Smit2014`
 is applied, in which the pressure distribution under breaking
 bores is assumed to be hydrostatic. Following the recommendations of
-:cite:`Smit2014a`, we consider hydrostatic bores if
+:cite:`Smit2014`, we consider hydrostatic bores if
 :math:`\frac{\delta \eta }{\delta t} >0.6` and reform if
 :math:`\frac{\delta \eta }{\delta t} <0.3`. The values can respectively
 be changed with the keywords :par:`maxbrsteep` and :par:`secbrsteep`.
 
 Although this method greatly oversimplifies the complex hydrodynamics of
-plunging waves, :cite:`McCall2014a` shows that the application of this
+plunging waves, :cite:`McCall2014` shows that the application of this
 method provides sufficient skill to describe dominant characteristics of
 the flow, without requiring computationally expensive high-resolution
 discretization of the vertical and surface tracking of overturning
@@ -1405,7 +1405,7 @@ Equation of motions
 ~~~~~~~~~~~~~~~~~~~
 
 Laminar flow of an incompressible fluid through a homogeneous medium can
-be described using the well-known Law of :cite:`Darcy1856a`, valid for laminar
+be described using the well-known Law of :cite:`Darcy1856`, valid for laminar
 flow conditions (keyword: :par:`gwscheme` = *laminar*)
 
 .. math::
@@ -1423,7 +1423,7 @@ a method (keyword: :par:`gwscheme` = *turbulent*) that is comparable with the
 USGS MODFLOW-2005 groundwater model (:cite:`Harbaugh2005a`), in which the
 turbulent hydraulic conductivity is estimated based on the laminar
 hydraulic conductivity (:math:`{K}_{lam}`) and the Reynolds number
-at the start of turbulence (:math:`{Re}_{crit}`) (:cite:`Halford2000a`):
+at the start of turbulence (:math:`{Re}_{crit}`) (:cite:`Halford2000`):
 
 .. math::
    :label:
@@ -1486,7 +1486,7 @@ expense of numerical accuracy.
 *Non-hydrostatic approach*
 
 Groundwater flow in the swash and surf zone has been shown to be
-non-hydrostatic (e.g., :cite:`Li2000a`; :cite:`Lee2007a`). In order to
+non-hydrostatic (e.g., :cite:`Li2000`; :cite:`Lee2007a`). In order to
 capture this, it may be necessary in certain cases to reject the
 Dupuit–Forchheimer assumption of hydrostatic groundwater pressure.
 
@@ -1508,7 +1508,7 @@ two boundary conditions and one non-hydrostatic shape assumption:
    increases or decreases linearly from the bottom of the aquifer to the
    upper surface of the groundwater, or the non-hydrostatic head profile
    is hyperbolic (keyword: :par:`gwheadmodel` = *exponential*), cf.,
-   :cite:`Raubenheimer1999a`.
+   :cite:`Raubenheimer1999`.
 
 The vertical groundwater head approximation can be solved for the three
 imposed conditions by a vertical head function, shown here for the
@@ -1673,7 +1673,7 @@ Advection-diffusion equation
 
 Sediment concentrations in the water column are modeled using a
 depth-averaged advection-diffusion scheme with a source-sink term based
-on equilibrium sediment concentrations (:cite:`Galappatti1985`):
+on equilibrium sediment concentrations (:cite:`Galappatti1983`):
 
 .. math::
    :label:
@@ -1829,7 +1829,7 @@ Soulsby-Van Rijn
 ^^^^^^^^^^^^^^^^
 
 The first possible sediment transport formulation are the Soulsby-Van
-Rijn equations (keyword: :par:`form` = *soulsby\_vanrijn*) (:cite:`Soulsby1997b`; :cite:`VanRijn1985`). The equilibrium sediment concentrations are calculated
+Rijn equations (keyword: :par:`form` = *soulsby\_vanrijn*) (:cite:`Soulsby1997a`; :cite:`VanRijn1985`). The equilibrium sediment concentrations are calculated
 according to:
 
 .. math::
@@ -1867,7 +1867,7 @@ averaged velocity sediment motion is initiated:
 
 Finally the drag coefficient (:math:`{C}_{d}`) is calculated with
 equation :eq:`drag`. A drag coefficient is used to determine the equilibrium
-sediment concentrations. On top of that :cite:`Souslby1997b` gives a relation
+sediment concentrations. On top of that :cite:`Soulsby1997a` gives a relation
 between the bed shear stress of the depth-averaged current speed.
 
 .. math::
@@ -1878,18 +1878,18 @@ between the bed shear stress of the depth-averaged current speed.
 In this equation :math:`z_0` is used for the bed roughness length and is used as
 zero flow velocity level in the formulation of the sediment
 concentration. In XBeach this is a fixed value (keyword: :par:`z0`), but
-:cite:`Soulsby1997b` argues there is a relation between the Nikuradse and
+:cite:`Soulsby1997a` argues there is a relation between the Nikuradse and
 kinematic viscosity.
 
 Van Thiel-Van Rijn
 ^^^^^^^^^^^^^^^^^^
 
 The second possible sediment transport formulation are the Van Thiel-Van
-Rijn transport equations (keyword: :par:`form` = *vanthiel\_vanrijn*) (:cite:`vanRijn2007a`; :cite:`VanThieldeVries2009a`). The major difference between the
+Rijn transport equations (keyword: :par:`form` = *vanthiel\_vanrijn*) (:cite:`VanRijn2007a`; :cite:`VanThieldeVries2009a`). The major difference between the
 Soulsby – Van Rijn equations is twofold. First of all, there is no drag
 coefficient calculated anymore and secondly the critical velocity is
 determined by calculating separately the critical velocity for currents
-(:math:`{U}_{crc}`) according to :cite:`Shields1936a` and for waves
+(:math:`{U}_{crc}`) according to :cite:`Shields1936` and for waves
 (:math:`{U}_{crw}`) according to :cite:`Komar1975`.
 
 The equilibrium sediment concentrations are calculated according to
@@ -1915,7 +1915,7 @@ contributions by currents and waves (:cite:`VanRijn2007a`):
 
    U_{cr} =\beta U_{crc} +(1-\beta )U_{crw} {\; \; in\; which\; \; \; }\beta =\frac{v_{mg} }{v_{mg} +u_{rms} }
 
-The critical velocity for currents is based on :cite:`Shields1936a`:
+The critical velocity for currents is based on :cite:`Shields1936`:
 
 .. math::
    :label:
@@ -2022,7 +2022,7 @@ sediment transport. The first method is the default one in XBeach:
 This method could be applied on either the total sediment transport
 (keyword: :par:`bdslpeffmag` = *roelvink\_total*) or only on the bed load
 transport (keyword: :par:`bdslpeffmag` = *roelvink\_bed*). The second method is
-based on the engineering formula of :cite:`Soulsby1997b`:
+based on the engineering formula of :cite:`Soulsby1997a`:
 
 .. math::
    :label:
@@ -2052,7 +2052,7 @@ the bed load transport, the expressions of :cite:`VanBendegom1947` and
 
 Finally, it is possible to adjust the initiation of motion criteria for
 the total transport (keyword: :par:`bdslpeffini` = *total*) or the bed load
-transport only (keyword: :par:`bdslpeffini` = *bed*) through (:cite:`Soulsby1997b`):
+transport only (keyword: :par:`bdslpeffini` = *bed*) through (:cite:`Soulsby1997a`):
 
 .. math::
    :label:
@@ -2087,7 +2087,7 @@ according to:
    \frac{\partial z_{b} }{\partial t} +\frac{f_{mor} }{\left(1-p\right)} \left(\frac{\partial q_{x} }{\partial x} +\frac{\partial q_{y} }{\partial y} \right)=0
 
 In :math:`\rho` is the porosity, :math:`{f}_{mor}` (keyword:
-:par:`morfac`) is a morphological acceleration factor of O(1-10) (:cite:`Reniers2004c`) and :math:`{q}_{x}` and :math:`{q}_{y}` represent the
+:par:`morfac`) is a morphological acceleration factor of O(1-10) (:cite:`Reniers2004b`) and :math:`{q}_{x}` and :math:`{q}_{y}` represent the
 sediment transport rates in x- and y-direction respectively. Sediment
 transport can be activated with the keyword: :par:`sedtrans`.
 
@@ -2121,7 +2121,7 @@ modify the tidal currents.
    exaggerate what happens within a tidal cycle. As long as the
    evolution over a single tidal cycle is limited, the mean evolution
    over a tidal cycle using a morfac is very similar to running :par:`morfac`
-   tidal cycles without :par:`morfac`. See :cite:`Roelvink2006b` for a more
+   tidal cycles without :par:`morfac`. See :cite:`Roelvink2006` for a more
    detailed description of this approach. This option is enabled with
    keyword: :par:`morfacopt` = *0*.
 
