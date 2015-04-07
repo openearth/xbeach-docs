@@ -37,8 +37,8 @@
      :advanced:
      :description:   Smoothing distance for estimating umean (defined as nr of cells)
      :units:         -
-     :default:       par%ny+1
-     :range:         1 - par%ny+1
+     :default:       par\%ny+1
+     :range:         1 - par\%ny+1
    order
      :advanced:
      :description:   Switch for order of wave steering, 1 = first order wave steering (short wave energy only), 2 = second oder wave steering (bound long wave corresponding to short wave forcing is added)

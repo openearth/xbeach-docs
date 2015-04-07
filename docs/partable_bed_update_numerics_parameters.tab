@@ -17,7 +17,7 @@
      :description:   Index of layer with variable thickness
      :units:         -
      :default:       2
-     :range:         2 - par%nd
+     :range:         2 - par\%nd
    nsetbathy
      :advanced:
      :description:   Number of prescribed bed updates
@@ -26,6 +26,7 @@
      :range:         1 - 1000
    setbathyfile
      :advanced:
+     :required:
      :description:   Name of prescribed bed update file
      :units:         <file>
    split

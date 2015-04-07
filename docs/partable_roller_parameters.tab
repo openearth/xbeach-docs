@@ -8,7 +8,7 @@
      :range:         0.05 - 0.3
    rfb
      :advanced:
-     :description:   Switch to feed back maximum wave surface slope in roller energy balance, otherwise rfb = par%beta
+     :description:   Switch to feed back maximum wave surface slope in roller energy balance, otherwise rfb = par\%beta
      :units:         -
      :default:       0
      :range:         0 - 1

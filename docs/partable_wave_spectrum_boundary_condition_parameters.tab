@@ -44,7 +44,7 @@
      :description:   Number of input spectrum locations
      :units:         -
      :default:       1
-     :range:         1 - par%ny+1
+     :range:         1 - par\%ny+1
    nspr
      :advanced:
      :description:   Switch to enable long wave direction forced into centres of short wave bins
@@ -66,8 +66,8 @@
    rt
      :description:   Duration of wave spectrum at offshore boundary, in morphological time
      :units:         s
-     :default:       min(3600.d0
-     :range:         par%tstop - None
+     :default:       min(3600.d0,par\%tstop)
+     :range:         1200.0 - 7200.0
    sprdthr
      :advanced:
      :description:   Threshold ratio to maximum value of s above which spectrum densities are read in
@@ -76,7 +76,7 @@
      :range:         0.0 - 1.0
    trepfac
      :advanced:
-     :description:   Compute mean wave period over energy band: par%trepfac*maxval(sf) for instat jons, swan or vardens; converges to tm01 for trepfac = 0.0 and
+     :description:   Compute mean wave period over energy band: par\%trepfac*maxval(sf) for instat jons, swan or vardens; converges to tm01 for trepfac = 0.0 and
      :units:         -
      :default:       0.01
      :range:         0.0 - 1.0

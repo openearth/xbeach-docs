@@ -6,24 +6,33 @@
      :default:       0.0
      :range:         0.0 - 360.0
    depfile
+     :required:
+     :required:
+     :required:
      :description:   Name of the input bathymetry file
      :units:         <file>
    dtheta
+     :required:
      :description:   Directional resolution
      :units:         deg
      :default:       10.0
      :range:         0.1 - 20.0
    dtheta_s
+     :required:
      :description:   Directional resolution in case of stationary refraction 
      :units:         deg
      :default:       10.0
      :range:         0.1 - 20.0
    dx
+     :required:
+     :required:
      :description:   Regular grid spacing in x-direction
      :units:         m
      :default:       -1.0
      :range:         0.0 - 1000000000.0
    dy
+     :required:
+     :required:
      :description:   Regular grid spacing in y-direction
      :units:         m
      :default:       -1.0
@@ -34,11 +43,13 @@
      :default:       xbeach
      :range:         xbeach, delft3d
    nx
+     :required:
      :description:   Number of computational cell corners in x-direction
      :units:         -
      :default:       50
      :range:         2 - 10000
    ny
+     :required:
      :description:   Number of computational cell corners in y-direction
      :units:         -
      :default:       2
@@ -49,11 +60,13 @@
      :default:       1.0
      :range:         -1.0 - 1.0
    thetamax
+     :required:
      :description:   Higher directional limit (angle w.r.t computational x-axis)
      :units:         deg
      :default:       90.0
      :range:         -180.0 - 180.0
    thetamin
+     :required:
      :description:   Lower directional limit (angle w.r.t computational x-axis)
      :units:         deg
      :default:       -90.0
@@ -77,6 +90,7 @@
      :default:       0.0
      :range:         -1000000000.0 - 1000000000.0
    xyfile
+     :required:
      :description:   Name of the file containing delft3d xy-coordinates of the calculation grid
      :units:         <file>
    yfile

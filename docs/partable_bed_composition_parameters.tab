@@ -3,35 +3,35 @@
    D15
      :description:   D15 grain size per grain type
      :units:         m
-     :default:       1
-     :range:         size(par%D15 - None
+     :default:       0.00015
+     :range:         1e-05 - 0.0008
    D50
      :description:   D50 grain size per grain type
      :units:         m
-     :default:       1
-     :range:         size(par%D50 - None
+     :default:       0.0002
+     :range:         5e-05 - 0.0008
    D90
      :description:   D90 grain size per grain type
      :units:         m
-     :default:       1
-     :range:         size(par%D90 - None
+     :default:       0.0003
+     :range:         0.0001 - 0.0015
    dzg1
      :advanced:
      :description:   Thickness of top sediment class layers
      :units:         m
-     :default:       par%dzg1
+     :default:       par\%dzg1
      :range:         0.01 - 1.0
    dzg2
      :advanced:
      :description:   Nominal thickness of variable sediment class layer
      :units:         m
-     :default:       par%dzg1
+     :default:       par\%dzg1
      :range:         0.01 - 1.0
    dzg3
      :advanced:
      :description:   Thickness of bottom sediment class layers
      :units:         m
-     :default:       par%dzg1
+     :default:       par\%dzg1
      :range:         0.01 - 1.0
    nd
      :advanced:
@@ -58,12 +58,12 @@
      :advanced:
      :description:   Sediment transport calibration coefficient per grain type
      :units:         -
-     :default:       1
-     :range:         size(par%sedcal - None
+     :default:       1.0
+     :range:         0.0 - 2.0
    ucrcal
      :advanced:
      :description:   Critical velocity calibration coefficient per grain type
      :units:         -
-     :default:       1
-     :range:         size(par%ucrcal - None
+     :default:       1.0
+     :range:         0.0 - 2.0
 

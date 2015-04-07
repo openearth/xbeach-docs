@@ -12,12 +12,12 @@
      :advanced:
      :description:   Number of discharge locations
      :units:         -
-     :default:       par%ndischarge
+     :default:       par\%ndischarge
      :range:         0 - 100
    ntdischarge
      :advanced:
      :description:   Length of discharge time series
      :units:         -
-     :default:       par%ntdischarge
+     :default:       par\%ntdischarge
      :range:         0 - 100
 

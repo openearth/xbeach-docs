@@ -71,8 +71,8 @@
      :advanced:
      :description:   Minimum depth for determination of last wet point in runup gauge
      :units:         m
-     :default:       1
-     :range:         size(par%rugdepth - None
+     :default:       0.0
+     :range:         0.0 - 0.1
    timings
      :advanced:
      :description:   Switch enable progress output to screen
@@ -93,8 +93,8 @@
    tintm
      :description:   Interval time of mean, var, max, min output
      :units:         s
-     :default:       par%tstop-par%tstart
-     :range:         1.0 - par%tstop-par%tstart
+     :default:       par\%tstop-par\%tstart
+     :range:         1.0 - par\%tstop-par\%tstart
    tintp
      :description:   Interval time of point and runup gauge output
      :units:         s
@@ -104,26 +104,22 @@
      :advanced:
      :description:   Name of file containing timings of cross section output
      :units:         -
-     :default:       None
-     :range:         None - None
+     :default:       
    tsglobal
      :advanced:
      :description:   Name of file containing timings of global output
      :units:         -
-     :default:       None
-     :range:         None - None
+     :default:       
    tsmean
      :advanced:
      :description:   Name of file containing timings of mean, max, min and var output
      :units:         -
-     :default:       None
-     :range:         None - None
+     :default:       
    tspoints
      :advanced:
      :description:   Name of file containing timings of point output
      :units:         -
-     :default:       None
-     :range:         None - None
+     :default:       
    tstart
      :description:   Start time of output, in morphological time
      :units:         s

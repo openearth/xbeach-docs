@@ -21,7 +21,7 @@
    dispc
      :advanced:
      :description:   Coefficient in front of the vertical pressure gradient
-     :units:         ?
+     :units:         \?
      :default:       1.0
      :range:         0.1 - 2.0
    kdmin
@@ -46,14 +46,14 @@
      :advanced:
      :description:   Wave steepness criterium to reform after breaking
      :units:         -
-     :default:       0.25d0*par%maxbrsteep
-     :range:         0.0 - 0.95d0*par%maxbrsteep
+     :default:       0.25d0*par\%maxbrsteep
+     :range:         0.0 - 0.95d0*par\%maxbrsteep
    secbrsteep
      :advanced:
      :description:   Secondary maximum wave steepness criterium
      :units:         -
-     :default:       0.5d0*par%maxbrsteep
-     :range:         0.0 - 0.95d0*par%maxbrsteep
+     :default:       0.5d0*par\%maxbrsteep
+     :range:         0.0 - 0.95d0*par\%maxbrsteep
    solver
      :advanced:
      :description:   Solver used to solve the linear system

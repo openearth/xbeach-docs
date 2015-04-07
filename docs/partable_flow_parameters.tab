@@ -37,7 +37,7 @@
      :range:         0.0 - 1.0
    nuhv
      :advanced:
-     :description:   Longshore viscosity enhancement factor, following svendsen (?)
+     :description:   Longshore viscosity enhancement factor, following svendsen (\?)
      :units:         -
      :default:       1.0
      :range:         1.0 - 20.0
