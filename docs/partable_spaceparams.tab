@@ -1,4 +1,5 @@
 .. partable:: Overview of available output variables
+   :columns: description, dimensions, units
 
    As
      :description:   Asymmetry of short waves
