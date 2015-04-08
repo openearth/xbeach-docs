@@ -2597,7 +2597,7 @@ contribution to the boundaries:
 #. Four time-varying water level signals (keyword: :par:`tideloc` = *4*)
 
 For the option with a uniform water level the value specified in the
-params.txt is applied in the complete model domain (keyword: :par:`zs0`). For
+*params.txt* is applied in the complete model domain (keyword: :par:`zs0`). For
 the option with one time-varying water level signal the specified water
 level is applied (keyword: :par:`zs0file` = *<name\_of\_your\_time\_series\_file>*) to
 the offshore boundary and a fixed value is applied at the backshore
@@ -2691,13 +2691,13 @@ below:
 It is strongly recommended to specify as few parameters explicitly as
 possible and rely on the defaults for the other parameters. When running
 XBeach, a file called xbeach.log is created, which lists all the
-parameters set through the params.txt but also all parameters not set,
+parameters set through the *params.txt* file but also all parameters not set,
 for which the defaults are used. When the user starts the model, it
 generates a file named XBlog.txt. In this file all the different keyword
 available are determined. When no keyword is defined the default value
 will be applied.
 
-This chapter describes the possibilities of the *params.*\ txt file and
+This chapter describes the possibilities of the *params.txt* file and
 any auxiliary information files that are called from the *params.txt*
 file. The tables in this chapter contain a description of the keywords,
 the default values, its units and recommended value ranges, while the
@@ -3963,8 +3963,8 @@ files is:
    zCG = 30
    shiptrack = container_track.txt
    flying = 1
-   compute\_force = 1
-   compute\_motion = 1
+   compute_force = 1
+   compute_motion = 1
 
 **pannamax_geom.txt**
 
@@ -4239,11 +4239,11 @@ example of such irregular output time definition is given below.
 
 .. code-block:: text
                 
-   tsglobal= time series1.txt
-   tspoints = time series2.txt
-   tsmean= time series3.txt
+   tsglobal= time_series1.txt
+   tspoints = time_series2.txt
+   tsmean= time_series3.txt
 
-**time series1.txt**
+**time_series1.txt**
 
 .. code-block:: text
 
@@ -4289,7 +4289,7 @@ varying output time intervals is given below.
                 
    tstart = 100.
    tintg = 100.
-   tspoints = time series2.txt
+   tspoints = time_series2.txt
    tintm = 3600.
 
 Output format
@@ -4368,37 +4368,38 @@ the layout of the netcdf file is given below:
 .. code-block:: text
                 
    netcdf xboutput {
-   dimensions:
-   x = 565 ;
-   y = 101 ;
-   wave\_angle = 9 ;
-   bed\_layers = 3 ;
-   sediment\_classes = 1 ;
-   inout = 2 ;
-   globaltime = 2 ;
-   tidetime = 435 ;
-   tidecorners = 2 ;
-   windtime = 2 ;
-   variables:
-   double x(x) ;
-   x:units = “m” ;
-   x:long\_name = “local x coordinate” ;
-   double y(y) ;
-   y:units = “m” ;
-   y:long\_name = “local y coordinate” ;
-   double globaltime(globaltime) ;
-   globaltime:units = “s” ;
-   double H(globaltime, y, x) ;
-   H:units = “m” ;
-   H:long\_name = “wave height” ;
-   double zs(globaltime, y, x) ;
-   zs:units = “m” ;
-   zs:long\_name = “water level” ;
-   double zb(globaltime, y, x) ;
-   zb:units = “m” ;
-   zb:long\_name = “bed level” ;
-   double ue(globaltime, y, x) ;
-   ue:units = “m/s” ;
+      dimensions:
+         x = 565 ;
+         y = 101 ;
+         wave_angle = 9 ;
+         bed_layers = 3 ;
+         sediment_classes = 1 ;
+         inout = 2 ;
+         globaltime = 2 ;
+         tidetime = 435 ;
+         tidecorners = 2 ;
+         windtime = 2 ;
+      variables:
+         double x(x) ;
+            x:units = “m” ;
+            x:long_name = “local x coordinate” ;
+         double y(y) ;
+            y:units = “m” ;
+            y:long_name = “local y coordinate” ;
+         double globaltime(globaltime) ;
+            globaltime:units = “s” ;
+         double H(globaltime, y, x) ;
+            H:units = “m” ;
+            H:long_name = “wave height” ;
+         double zs(globaltime, y, x) ;
+            zs:units = “m” ;
+            zs:long_name = “water level” ;
+         double zb(globaltime, y, x) ;
+            zb:units = “m” ;
+            zb:long_name = “bed level” ;
+         double ue(globaltime, y, x) ;
+            ue:units = “m/s” ;
+   }
 
 Time parameters
 ---------------
@@ -4669,7 +4670,7 @@ You can work on the following assignments:
    are the circulation and sediment transport affected?
 
 #. What would happen if the lagoon was open at the southern end? Open
-   the structure file (keyword: ne\_layer=’reef.dep’) with the Quickin
+   the structure file (keyword: :par:`ne_layer` = *reef.dep*) with the Quickin
    tool and modify it to allow the southern end of the lagoon to be
    eroded. Modify the param.txt file to use this new structure file and
    run the model. Alternatively, remove the reef from the bathymetry and
