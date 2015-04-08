@@ -4,36 +4,37 @@ Introduction
 XBeach is an open-source numerical model which is originally developed
 to simulate hydrodynamic and morphodynamic processes and impacts on
 sandy coasts with a domain size of kilometers and on the time scale of
-storms. Since then, the model has been applied to other types of coasts
-and purposes.
+storms. Since then, the model has been applied to other types of
+coasts and purposes.
 
 The model includes the hydrodynamic processes of short wave
 transformation (refraction, shoaling and breaking), long wave
 (infragravity wave) transformation (generation, propagation and
 dissipation), wave-induced setup and unsteady currents, as well as
 overwash and inundation. The morphodynamic processes include bed load
-and suspended sediment transport, dune face avalanching, bed update and
-breaching. Effects of vegetation and of hard structures have been
+and suspended sediment transport, dune face avalanching, bed update
+and breaching. Effects of vegetation and of hard structures have been
 included. The model has been validated with a series of analytical,
 laboratory and field test cases using a standard set of parameter
 settings.
 
 XBeach has two modes: a hydrostatic and a non-hydrostatic mode. In the
 hydrostatic mode, the short wave amplitude variation is solved
-separately from the long waves, currents and morphological change. This
-saves considerable computational time, with the expense that the phase
-of the short waves is not simulated. A more complete model is the
-non-hydrostatic model which solves all processes including short wave
-motions, but with more computational demand.
+separately from the long waves, currents and morphological
+change. This saves considerable computational time, with the expense
+that the phase of the short waves is not simulated. A more complete
+model is the non-hydrostatic model which solves all processes
+including short wave motions, but with more computational demand.
 
 The original application, funded by the U.S. Corps of Engineers in the
-framework of the Morphos project and the U.S. Geological Survey, was to
-be able to assess hurricane impacts on sandy beaches. Since then with
-funding from the Dutch Public Works Department, the model has been
-extended, applied and validated for storm impacts on dune and urbanized
-coasts for the purpose of dune safety assessments. With support from the
-European Commission XBeach has been validated on a number of dissipative
-and reflective beaches bordering all regional seas in the EU.
+framework of the Morphos project and the U.S. Geological Survey, was
+to be able to assess hurricane impacts on sandy beaches. Since then
+with funding from the Dutch Public Works Department, the model has
+been extended, applied and validated for storm impacts on dune and
+urbanized coasts for the purpose of dune safety assessments. With
+support from the European Commission XBeach has been validated on a
+number of dissipative and reflective beaches bordering all regional
+seas in the EU.
 
 Beyond sandy coasts, the model has been applied to coral fringing and
 atoll reefs, in cooperation with and with funding by the University of
@@ -43,10 +44,11 @@ Office of Naval Research.
 
 The non-hydrostatic model has been developed initially by the TU Delft
 (as a prototype version of the SWASH model). For the purpose of
-simulating the morphodynamic processes on gravel beaches, the model was
-extended and validated with support from the University of Plymouth. In
-this mode, ship-induced waves can be simulated as well, demonstrating
-the flight that the model has taken since its first inception.
+simulating the morphodynamic processes on gravel beaches, the model
+was extended and validated with support from the University of
+Plymouth. In this mode, ship-induced waves can be simulated as well,
+demonstrating the flight that the model has taken since its first
+inception.
 
 This development of XBeach could not have been possible without all of
 the above mentioned funding agencies and partners. It would also not
@@ -54,11 +56,11 @@ have been possible without the enthusiastic, critical and constructive
 approach of all consultants, researchers, M.Sc. and Ph.D. students who
 have taken up XBeach, and made it into the tool that it is today.
 
-This manual serves as an introduction to the model and a reference guide
-to its many functionalities, options and parameters. We sincerely hope
-that this document will help existing and new researchers apply the
-model for their purposes and advance our knowledge of coastal hydro- and
-morphodynamics.
+This manual serves as an introduction to the model and a reference
+guide to its many functionalities, options and parameters. We
+sincerely hope that this document will help existing and new
+researchers apply the model for their purposes and advance our
+knowledge of coastal hydro- and morphodynamics.
 
 Processes and model formulation
 ===============================
@@ -71,17 +73,18 @@ Domain and definitions
 Coordinate system
 ~~~~~~~~~~~~~~~~~
 
-XBeach uses a coordinate system where the computational x-axis is always
-oriented towards the coast, approximately perpendicular to the
-coastline, and the y-axis is alongshore, see :numref:`fig-coordsys-rect` and :numref:`fig-coordsys-curvi`.
-This coordinate system is defined in world coordinates. The grid size in
-x- and y-direction may be variable but the grid must be curvilinear.
+XBeach uses a coordinate system where the computational x-axis is
+always oriented towards the coast, approximately perpendicular to the
+coastline, and the y-axis is alongshore, see
+:numref:`fig-coordsys-rect` and :numref:`fig-coordsys-curvi`.  This
+coordinate system is defined in world coordinates. The grid size in x-
+and y-direction may be variable but the grid must be curvilinear.
 Alternatively, in case of a rectangular grid (a special case of a
-curvilinear grid) the user can provide coordinates in a local coordinate
-system that is oriented with respect to world coordinates (xw, yw)
-through an origin (xori, yori) and an orientation (alfa) as depicted in
-:numref:`fig-coordsys-rect`. The orientation is defined counter-clockwise w.r.t. the
-xw-axis (East).
+curvilinear grid) the user can provide coordinates in a local
+coordinate system that is oriented with respect to world coordinates
+(xw, yw) through an origin (xori, yori) and an orientation (alfa) as
+depicted in :numref:`fig-coordsys-rect`. The orientation is defined
+counter-clockwise w.r.t. the xw-axis (East).
 
 .. _fig-coordsys-rect:
 
@@ -135,24 +138,26 @@ time-scales to resolve:
    efficiently solving wave-averaged equations but neglecting
    infragravity waves;
 
-#. Surfbeat mode (instationary) (keyword: :par:`wavemodel` = *surfbeat*), where
-   the short wave variations on the wave group scale (short wave
-   envelope) and the long waves associated with them are resolved;
+#. Surfbeat mode (instationary) (keyword: :par:`wavemodel` =
+   *surfbeat*), where the short wave variations on the wave group
+   scale (short wave envelope) and the long waves associated with them
+   are resolved;
 
-#. Non-hydrostatic mode (wave-resolving) (keyword: :par:`wavemodel` = *nonh*),
-   where a combination of the non-linear shallow water equations with a
-   pressure correction term is applied, allowing to model the
-   propagation and decay of individual waves.
+#. Non-hydrostatic mode (wave-resolving) (keyword: :par:`wavemodel` =
+   *nonh*), where a combination of the non-linear shallow water
+   equations with a pressure correction term is applied, allowing to
+   model the propagation and decay of individual waves.
 
 In the following these options are discussed in more detail. Important
 to note that all times in XBeach are prescribed on input in
 morphological time. If you apply a morphological acceleration factor
-(keyword: :par:`morfac`) all input time series and other time parameters are
-divided internally by :par:`morfac`. This way, you can specify the time
-series as real times, and vary the :par:`morfac` without changing the rest of
-the input files (keyword: :par:`morfacopt` = *1*).
+(keyword: :par:`morfac`) all input time series and other time
+parameters are divided internally by :par:`morfac`. This way, you can
+specify the time series as real times, and vary the :par:`morfac`
+without changing the rest of the input files (keyword:
+:par:`morfacopt` = *1*).
 
-.. _wave_processes:
+.. _Wave_processes:
 
 .. figure:: image10.png
    :width: 400px
@@ -166,19 +171,19 @@ Stationary mode
 .. seealso:: The stationary mode is implemented in :f:mod:`wave_stationary_module`.
              
 In stationary mode the wave-group variations and thereby all
-infragravity motions are neglected. This is useful for conditions where
-the incident waves are relatively small and/or short, and these motions
-would be small anyway. The model equations are similar to HISWA
-(:cite:`Holthuijsen1989`) but do not include wave growth or wave period
-variations. Processes that are resolved are wave propagation,
-directional spreading, shoaling, refraction, bottom dissipation and wave
-breaking, and a roller model is included; these processes are usually
-dominant in nearshore areas of limited extent. For the breaking
-dissipation we use the :cite:`Baldock1998` model, which is valid for
-wave-averaged modeling. The radiation stress gradients from the wave and
-roller model force the shallow water equations, drive currents and lead
-to wave setdown and setup. Additionally, wind and tidal forcing can be
-applied.
+infragravity motions are neglected. This is useful for conditions
+where the incident waves are relatively small and/or short, and these
+motions would be small anyway. The model equations are similar to
+HISWA (:cite:`Holthuijsen1989`) but do not include wave growth or wave
+period variations. Processes that are resolved are wave propagation,
+directional spreading, shoaling, refraction, bottom dissipation and
+wave breaking, and a roller model is included; these processes are
+usually dominant in nearshore areas of limited extent. For the
+breaking dissipation we use the :cite:`Baldock1998` model, which is
+valid for wave-averaged modeling. The radiation stress gradients from
+the wave and roller model force the shallow water equations, drive
+currents and lead to wave setdown and setup. Additionally, wind and
+tidal forcing can be applied.
 
 The mean return flow due to mass flux and roller is included in the
 model and affects the sediment transport, leading to an offshore
@@ -189,14 +194,15 @@ user to calibrate the profile shape resulting from these interactions.
 
 A typical application would be to model morphological changes during
 moderate wave conditions, often in combination with tides. The wave
-boundary conditions can be specified as constant (keyword: :par:`wbctype` =
-stat) or as a time-series of wave conditions (keyword: :par:`wbctype` =
-stat\_table). Typical examples of such model applications are given
-below for tombolo formation behind an offshore breakwater (left panel)
-and development of an ebb delta at a tidal inlet (right panel). A big
-advantage of the stationary XBeach wave model over other models is that
-the lateral boundaries are entirely without disturbance if the coast is
-longshore uniform near these boundaries.
+boundary conditions can be specified as constant (keyword:
+:par:`wbctype` = stat) or as a time-series of wave conditions
+(keyword: :par:`wbctype` = stat\_table). Typical examples of such
+model applications are given below for tombolo formation behind an
+offshore breakwater (left panel) and development of an ebb delta at a
+tidal inlet (right panel). A big advantage of the stationary XBeach
+wave model over other models is that the lateral boundaries are
+entirely without disturbance if the coast is longshore uniform near
+these boundaries.
 
 .. _stationary_examples1:
    :align: center
@@ -230,19 +236,23 @@ Surf beat mode (instationary)
 
 .. seealso:: The surfbeat mode is implemented in :f:mod:`wave_instationary_module`.
 
-The short-wave motion is solved using the wave action equation which is
-a time-dependent forcing of the HISWA equations (:cite:`Holthuijsen1989`).
-This equation solves the variation of short-waves envelope (wave
-height) on the scale of wave groups. It employs a dissipation model for
-use with wave groups (:cite:`Roelvink1993a,Daly2012`) and a roller
-model (:cite:`Svendsen1984,Nairn1990,Stive1994`) to
-represent momentum stored at the surface after breaking. These
-variations, through radiation stress gradients (:cite:`Longuet-Higgins1962,LonguetHiggins1964`) exert a force on the water column and drive longer
-period waves (infragravity waves) and unsteady currents, which are
-solved by the nonlinear shallow water equations (e.g. :cite:`Phillips1977,Svendsen2003`). Thus, wave-driven currents (longshore current, rip
-currents and undertow), and wind-driven currents (stationary and
-uniform) for local wind set-up, long (infragravity) waves, and runup and
-rundown of long waves (swash) are included.
+The short-wave motion is solved using the wave action equation which
+is a time-dependent forcing of the HISWA equations
+(:cite:`Holthuijsen1989`).  This equation solves the variation of
+short-waves envelope (wave height) on the scale of wave groups. It
+employs a dissipation model for use with wave groups
+(:cite:`Roelvink1993a,Daly2012`) and a roller model
+(:cite:`Svendsen1984,Nairn1990,Stive1994`) to represent momentum
+stored at the surface after breaking. These variations, through
+radiation stress gradients
+(:cite:`Longuet-Higgins1962,LonguetHiggins1964`) exert a force on the
+water column and drive longer period waves (infragravity waves) and
+unsteady currents, which are solved by the nonlinear shallow water
+equations (e.g. :cite:`Phillips1977`). Thus, wave-driven currents
+(longshore current, rip currents and undertow), and wind-driven
+currents (stationary and uniform) for local wind set-up, long
+(infragravity) waves, and runup and rundown of long waves (swash) are
+included.
 
 Using the surfbeat mode is necessary when the focus is on swash zone
 processes rather than time-averaged currents and setup. It is fully
@@ -254,20 +264,21 @@ predominantly in the infragravity band and so is the runup.
 Under this surfbeat mode, several options are available, depending on
 the circumstances:
 
-#. **1D cross-shore;** in this case the longshore gradients are ignored
-   and the domain reduces to a single gridline (keyword: :par:`ny` = *0*).
-   Within this mode the following options are available:
+#. **1D cross-shore;** in this case the longshore gradients are
+   ignored and the domain reduces to a single gridline (keyword:
+   :par:`ny` = *0*).  Within this mode the following options are
+   available:
 
    #. Retaining directional spreading (keyword: :par:`dtheta` <
-      :par:`thetamax` – :par:`thetamin`); this has a limited effect on the wave
-      heights because of refraction, but can also allow obliquely
-      incident waves and the resulting longshore currents;
+   :par:`thetamax` – :par:`thetamin`); this has a limited effect on
+   the wave heights because of refraction, but can also allow
+   obliquely incident waves and the resulting longshore currents;
 
-   #. Using a single directional bin (keyword: :par:`dtheta` = :par:`thetamax` –
-      :par:`thetamin`); this leads to perpendicular waves always and ignores
-      refraction. If the keyword :par:`snells` = *1* is applied, the mean wave
-      direction is determined based on Snell’s law. In this case also
-      longshore currents are generated.
+   #. Using a single directional bin (keyword: :par:`dtheta` =
+   :par:`thetamax` – :par:`thetamin`); this leads to perpendicular
+   waves always and ignores refraction. If the keyword :par:`snells` =
+   *1* is applied, the mean wave direction is determined based on
+   Snell’s law. In this case also longshore currents are generated.
 
 #. **2DH area;** the model is solved on a curvilinear staggered grid
    (rectilinear is a special case). The incoming short wave energy will
@@ -275,34 +286,35 @@ the circumstances:
    boundary conditions. This variation is propagated into the model
    domain. Within this mode the following options are available:
 
-   #. Resolving the wave refraction ’on the fly’ using the
-      propagation in wave directional space. For large directional
-      spreading or long distances this can lead to some smoothing of
-      groupiness since the waves from different directions do not
-      interfere but their energy is summed up. This option is possible
-      for arbitrary bathymetry and any wave direction. The user must
-      specify the width of the directional bins for the surfbeat mode
-      (keyword: :par:`dtheta`)
+   #. Resolving the wave refraction ’on the fly’ using the propagation
+      in wave directional space. For large directional spreading or
+      long distances this can lead to some smoothing of groupiness
+      since the waves from different directions do not interfere but
+      their energy is summed up. This option is possible for arbitrary
+      bathymetry and any wave direction. The user must specify the
+      width of the directional bins for the surfbeat mode (keyword:
+      :par:`dtheta`)
 
    #. Solving the wave direction at regular intervals using the
-      stationary solver, and then propagating the wave energy along the
-      mean wave direction. This preserves the groupiness of the waves
-      therefore leads to more forcing of the infragravity waves
-      (keyword: :par:`single_dir` = *1*). The user must now specify a single
-      directional bin for the instationary mode (:par:`dtheta` = :par:`thetamax` -
-      :par:`thetamin`) and a smaller bin size for the stationary solver
-      (keyword: :par:`dtheta_s`).
+      stationary solver, and then propagating the wave energy along
+      the mean wave direction. This preserves the groupiness of the
+      waves therefore leads to more forcing of the infragravity waves
+      (keyword: :par:`single_dir` = *1*). The user must now specify a
+      single directional bin for the instationary mode (:par:`dtheta`
+      = :par:`thetamax` - :par:`thetamin`) and a smaller bin size for
+      the stationary solver (keyword: :par:`dtheta_s`).
 
-   #. For schematic, longshore uniform cases the mean wave
-      direction can also be computed using Snell’s law (keyword: :par:`snells`
-      = 1). This will then give comparable results to the :par:`single_dir`
-      option.
+   #. For schematic, longshore uniform cases the mean wave direction
+      can also be computed using Snell’s law (keyword: :par:`snells` =
+      1). This will then give comparable results to the
+      :par:`single_dir` option.
 
 In the figures below some typical applications of 1D and 2D models are
 shown; a reproduction of a large-scale flume test, showing the ability
-of XBeach to model both short-wave (HF) and long-wave (LF) wave heights
-and velocities; and a recent 2DH simulation (:cite:`Nederhoff2015`) of
-the impact of hurricane Sandy on Camp Osborne, Brick, NJ.
+of XBeach to model both short-wave (HF) and long-wave (LF) wave
+heights and velocities; and a recent 2DH simulation
+(:cite:`Nederhoff2015`) of the impact of hurricane Sandy on Camp
+Osborne, Brick, NJ.
 
 .. _lip_tests:
 
@@ -327,22 +339,23 @@ the impact of hurricane Sandy on Camp Osborne, Brick, NJ.
 .. figure:: blank.png
 
    Pre (left) and post-Sandy (right) in a three dimensional plot with
-   both bed and water levels as simulated by XBeach (:cite:`Nederhoff2015`)
+   both bed and water levels as simulated by XBeach
+   (:cite:`Nederhoff2015`)
 
 Non-hydrostatic mode (wave resolving) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The non-hydrostatic mode is implemented in :f:mod:`nonh_module`.
              
-For non-hydrostatic XBeach calculations (keyword: :par:`wavemodel` = *nonh*)
-depth-averaged flow due to waves and currents are computed using the
-non-linear shallow water equations, including a non-hydrostatic
-pressure. The depth-averaged normalized dynamic pressure (:math:`q`) is
-derived in a method similar to a one-layer version of the SWASH model
-(:cite:`Zijlema2011a`). The depth averaged dynamic pressure is computed
-from the mean of the dynamic pressure at the surface and at the bed by
-assuming the dynamic pressure at the surface to be zero and a linear
-change over depth.
+For non-hydrostatic XBeach calculations (keyword: :par:`wavemodel` =
+*nonh*) depth-averaged flow due to waves and currents are computed
+using the non-linear shallow water equations, including a
+non-hydrostatic pressure. The depth-averaged normalized dynamic
+pressure (:math:`q`) is derived in a method similar to a one-layer
+version of the SWASH model (:cite:`Zijlema2011a`). The depth averaged
+dynamic pressure is computed from the mean of the dynamic pressure at
+the surface and at the bed by assuming the dynamic pressure at the
+surface to be zero and a linear change over depth.
 
 Under these formulations dispersive behavior is added to the long wave
 equations and the model can be used as a short-wave resolving model.
@@ -351,25 +364,25 @@ term when waves exceed a certain steepness, after which the bore-like
 breaking implicit in the momentum-conserving shallow water equations
 takes over.
 
-In case the non-hydrostatic mode is used, the short wave action balance
-is no longer required. This saves computation time. However, in the
-wave-resolving mode we need much higher spatial resolution and
+In case the non-hydrostatic mode is used, the short wave action
+balance is no longer required. This saves computation time. However,
+in the wave-resolving mode we need much higher spatial resolution and
 associated smaller time steps, making this mode much more
 computationally expensive than the surfbeat mode.
 
 The main advantages of the non-hydrostatic mode are that the
-incident-band (short wave) runup and overwashing are included, which is
-especially important on steep slopes such as gravel beaches. Another
-advantage is that the wave asymmetry and skewness are resolved by the
-model and no approximate local model or empirical formulation is
-required for these terms. Finally, in cases where diffraction is a
-dominant process, wave-resolving modeling is needed as it is neglected
-in the short wave averaged mode. The XBeach-G formulations for gravel
-beaches (:cite:`McCall2014`) are based on the non-hydrostatic mode.
-Although sandy morphology can be simulated using the wave-resolving
-mode, it has not been extensively validated and it is likely that
-changes in the sediment transport formulations will be implemented in
-the near future.
+incident-band (short wave) runup and overwashing are included, which
+is especially important on steep slopes such as gravel
+beaches. Another advantage is that the wave asymmetry and skewness are
+resolved by the model and no approximate local model or empirical
+formulation is required for these terms. Finally, in cases where
+diffraction is a dominant process, wave-resolving modeling is needed
+as it is neglected in the short wave averaged mode. The XBeach-G
+formulations for gravel beaches (:cite:`McCall2014`) are based on the
+non-hydrostatic mode.  Although sandy morphology can be simulated
+using the wave-resolving mode, it has not been extensively validated
+and it is likely that changes in the sediment transport formulations
+will be implemented in the near future.
 
 An interesting recent application that has been validated for a number
 of cases concerns the modeling of primary waves generated by large
@@ -395,13 +408,14 @@ Short wave action balance
 .. seealso:: The short wave action balance is implemented
              in :f:func:`wave_instationary_module/wave_instationary`.
 
-The wave forcing in the shallow water momentum equation is obtained from
-a time dependent version of the wave action balance equation. Similar to
-Delft University’s (stationary) HISWA model (:cite:`Holthuijsen1989`)
-the directional distribution of the action density is taken into
-account, whereas the frequency spectrum is represented by a frequency,
-best represented by the spectral parameter :math:`{f}_{m-1,0}`. The
-wave action balance (keyword: :par:`swave`) is then given by:
+The wave forcing in the shallow water momentum equation is obtained
+from a time dependent version of the wave action balance
+equation. Similar to Delft University’s (stationary) HISWA model
+(:cite:`Holthuijsen1989`) the directional distribution of the action
+density is taken into account, whereas the frequency spectrum is
+represented by a frequency, best represented by the spectral parameter
+:math:`{f}_{m-1,0}`. The wave action balance (keyword: :par:`swave`)
+is then given by:
 
 .. math::
    :label:
@@ -427,18 +441,19 @@ intrinsic frequency is for example obtained with:
 
    \sigma =\sqrt{gk\tanh kh}
 
-The wave action propagation speeds in :math:`x`, :math:`y` and directional space are
-given by:
+The wave action propagation speeds in :math:`x`, :math:`y` and
+directional space are given by:
 
 .. math::
    :label:
 
    \begin{array}{l} {c_{x} (x,y,t,\theta )=c_{g} \cos (\theta )} \\ {c_{y} (x,y,t,\theta )=c_{g} \sin (\theta )} \\ {c_{\theta } (x,y,t,\theta )=\frac{\sigma }{\sinh 2kh} \left(\frac{\partial h}{\partial x} \sin \theta -\frac{\partial h}{\partial y} \cos \theta \right)} \end{array}
 
-where :math:`h` represents the local water depth and :math:`k` the wave number. The
-intrinsic wave frequency :math:`\sigma` is determined without wave
-current interaction (keyword: :par:`wci` = *1*, see Section 2.3.1.1), which means
-it is equal to the absolute radial frequency :math:`\omega`.
+where :math:`h` represents the local water depth and :math:`k` the
+wave number. The intrinsic wave frequency :math:`\sigma` is determined
+without wave current interaction (keyword: :par:`wci` = *1*, see
+Section 2.3.1.1), which means it is equal to the absolute radial
+frequency :math:`\omega`.
 
 Wave-current interaction (wci)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -447,18 +462,18 @@ Wave-current interaction (wci)
              in :f:func:`wave_instationary_module/wave_instationary`.
 
 Wave-current interaction is the interaction between waves and the mean
-flow. The interaction implies an exchange of energy, so after the start
-of the interaction both the waves and the mean flow are affected by each
-other. This feature is especially of importance in gullies and
+flow. The interaction implies an exchange of energy, so after the
+start of the interaction both the waves and the mean flow are affected
+by each other. This feature is especially of importance in gullies and
 rip-currents (:cite:`Reniers2007a`).
 
-In XBeach this is taken into account by correcting the wave number :math:`k`
-with the use of Eikonal equations, which will have impact on the group
-and wave propagation speed (x, y, and directional space). The
-cross-shore and alongshore wave numbers, :math:`{k}_{x}` and
-:math:`{k}_{y}`, are defined according to equation :eq:`eikonal`. In these
-formulations the subscripts refer to the direction of the wave vector
-components.
+In XBeach this is taken into account by correcting the wave number
+:math:`k` with the use of Eikonal equations, which will have impact on
+the group and wave propagation speed (x, y, and directional
+space). The cross-shore and alongshore wave numbers, :math:`{k}_{x}`
+and :math:`{k}_{y}`, are defined according to equation
+:eq:`eikonal`. In these formulations the subscripts refer to the
+direction of the wave vector components.
 
 .. math::
    :label: eikonal
@@ -468,11 +483,11 @@ components.
      {k_{y} =k_{y}^{n-1} +k_{y}^{:} } \\
    \end{array}
 
-Where subscript :math:`n-1` refers the wave number of the previous time step,
-:math:`k_{x}^{:}` and :math:`k_{y}^{:}` are the wave number
-corrections and :math:`{k}_{x}` and :math:`{k}_{y}` are the
-corrected wave numbers that take into account the presence of a current.
-The correction terms are determined with a second set of equations, the
+Where subscript :math:`n-1` refers the wave number of the previous
+time step, :math:`k_{x}^{:}` and :math:`k_{y}^{:}` are the wave number
+corrections and :math:`{k}_{x}` and :math:`{k}_{y}` are the corrected
+wave numbers that take into account the presence of a current.  The
+correction terms are determined with a second set of equations, the
 Eikonal equations:
 
 .. math::
@@ -551,36 +566,37 @@ formulations can be selected using the keyword :par:`break`
    +-----------------------------+-----------------+------------------+
 
 For the surf beat approach the total wave energy dissipation, i.e.
-directionally integrated, due to wave breaking can be modeled according
-to :cite:`Roelvink1993a` (keyword: :par:`break` = *roelvink1*). In the formulation of
-the dissipation due to wave breaking the idea is to calculate the
-dissipation with a fraction of breaking waves (:math:`{Q}_{b}`)
-multiplied by the dissipation per breaking event. In this formulation
-:math:`\alpha` is applied as wave dissipation coefficient of O
-(keyword: :par:`alpha`), :math:`{T}_{rep}` is the representative wave
-period and :math:`{E}_{w}` is the energy of the wave. The fraction
-of wave breaking is determined with the root-mean-square wave height
+directionally integrated, due to wave breaking can be modeled
+according to :cite:`Roelvink1993a` (keyword: :par:`break` =
+*roelvink1*). In the formulation of the dissipation due to wave
+breaking the idea is to calculate the dissipation with a fraction of
+breaking waves (:math:`{Q}_{b}`) multiplied by the dissipation per
+breaking event. In this formulation :math:`\alpha` is applied as wave
+dissipation coefficient of O (keyword: :par:`alpha`),
+:math:`{T}_{rep}` is the representative wave period and
+:math:`{E}_{w}` is the energy of the wave. The fraction of wave
+breaking is determined with the root-mean-square wave height
 (:math:`{H}_{rms}`) and the maximum wave height
-(:math:`{H}_{max}`). The maximum wave height is calculated as ratio
-of the water depth (:math:`h`) plus a fraction of the wave height
-(:math:`\delta H_{rms}`, keyword: :par:`delta`) using a
-breaker index :math:`\gamma` (keyword: :par:`gamma`). In the formulation
-for :math:`{H}_{rms}` the :math:`\rho` represents the water
-density and g the gravitational constant. The total wave energy
-:math:`{E}_{w}` is calculated by integrating over the wave
-directional bins.
+(:math:`{H}_{max}`). The maximum wave height is calculated as ratio of
+the water depth (:math:`h`) plus a fraction of the wave height
+(:math:`\delta H_{rms}`, keyword: :par:`delta`) using a breaker index
+:math:`\gamma` (keyword: :par:`gamma`). In the formulation for
+:math:`{H}_{rms}` the :math:`\rho` represents the water density and g
+the gravitational constant. The total wave energy :math:`{E}_{w}` is
+calculated by integrating over the wave directional bins.
 
 .. math::
    :label:
 
    \begin{array}{c} {\bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} {\; }} \\ {Q_{b} {=1-exp}\left(-\left(\frac{H_{rms} }{H_{\max } } \right)^{n} \right),\quad H_{rms} =\sqrt{\frac{8E_{w} }{\rho g} } ,\quad H_{\max } =\gamma \cdot (h+\delta H_{rms} )} \\ {E_{w} (x,y,t)=\int _{0}^{2\pi }S_{w} (x,y,t,\theta )d\theta  } \end{array}
 
-In variation of , one could also use another wave breaking formulation,
-presented in . This formulation is somewhat different than the
-formulation of :cite:`Roelvink1993a` and selected using keyword
-:par:`break` = *roelvink2*. The main difference with the original formulation is
-that wave dissipation with :par:`break` = *roelvink2* is proportional to
-:math:`{H}^{3} / h` instead of :math:`{H}^{2}`.
+In variation of , one could also use another wave breaking
+formulation, presented in . This formulation is somewhat different
+than the formulation of :cite:`Roelvink1993a` and selected using
+keyword :par:`break` = *roelvink2*. The main difference with the
+original formulation is that wave dissipation with :par:`break` =
+*roelvink2* is proportional to :math:`{H}^{3} / h` instead of
+:math:`{H}^{2}`.
 
 .. math::
    :label:
@@ -590,8 +606,8 @@ that wave dissipation with :par:`break` = *roelvink2* is proportional to
 Alternatively the formulation of :cite:`Daly2010` states that waves
 are fully breaking if the wave height exceeds a threshold
 (:math:`\gamma`) and stop breaking if the wave height fall below
-another threshold (:math:`\gamma_{2}`). This formulation
-is selected by :par:`break` = *roelvink\_daly* and the second threshold,
+another threshold (:math:`\gamma_{2}`). This formulation is selected
+by :par:`break` = *roelvink\_daly* and the second threshold,
 :math:`\gamma_{2}`, can be set using keyword :par:`gamma2`.
 
 .. math::
@@ -600,22 +616,22 @@ is selected by :par:`break` = *roelvink\_daly* and the second threshold,
    \left\{\begin{array}{l} {Q_{b} =1\quad if\quad H_{rms} >\gamma h} \\ {Q_{b} =0\quad if\quad H_{rms} <\gamma _{2} h} \end{array}\right.
 
 In case of stationary waves :cite:`Baldock1998` is applied (keyword:
-:par:`break` = *baldock*), which is presented in . In this breaking formulation
-the fraction breaking waves :math:`{Q}_{b}` and breaking wave height
-:math:`{H}_{b}` are calculated differently compared to the breaking
-formulations used for the non-stationary situation. In :math:`\alpha`
-is applied as wave dissipation coefficient, :math:`{f}_{rep}`
-represents a representative intrinsic frequency and :math:`y` is a calibration
-factor.
+:par:`break` = *baldock*), which is presented in . In this breaking
+formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
+wave height :math:`{H}_{b}` are calculated differently compared to the
+breaking formulations used for the non-stationary situation. In
+:math:`\alpha` is applied as wave dissipation coefficient,
+:math:`{f}_{rep}` represents a representative intrinsic frequency and
+:math:`y` is a calibration factor.
 
 .. math::
    :label:
 
    \begin{array}{l} {\bar{D}_{w} =\frac{1}{4} \alpha Q_{b} \rho gf_{rep} \left(H_{b}^{2} +H_{rms}^{2} \right)} \\ {Q_{b} =\exp \left[-\left(\frac{H_{b}^{2} }{H_{rms}^{2} } \right)\right]{\; ,\; \; }H_{b} =\frac{0.88}{k} \tanh \left[\frac{\gamma kh}{0.88} \right]} \end{array}
 
-Finally, it is possible to use the :cite:`Janssen2007` formulation
-for wave breaking of stationary waves (keyword: :par:`break` = *janssen*). This
-formulation is a revision of Baldock’s formulation.
+Finally, it is possible to use the :cite:`Janssen2007` formulation for
+wave breaking of stationary waves (keyword: :par:`break` =
+*janssen*). This formulation is a revision of Baldock’s formulation.
 
 .. math::
    :label:
@@ -646,14 +662,15 @@ The short wave dissipation by bottom friction is modeled as
 
 In the :math:`{f}_{w}` is the short-wave friction coefficient. This
 value only affects the wave action equation and is unrelated to bed
-friction in the flow equation. Studies conducted on reefs (e.g. :cite:`Lowe2007`) indicate that :math:`{f}_{w}` should be an order of
-magnitude (or more) larger than the friction coefficient for flow
-(:math:`{c}_{f}`) due to the dependency of wave
-frictional dissipation rates on the frequency of the motion.
+friction in the flow equation. Studies conducted on reefs
+(e.g. :cite:`Lowe2007`) indicate that :math:`{f}_{w}` should be an
+order of magnitude (or more) larger than the friction coefficient for
+flow (:math:`{c}_{f}`) due to the dependency of wave frictional
+dissipation rates on the frequency of the motion.
 
-The derivation of the short wave dissipation term is based time-averaged
-instantaneous bottom dissipation using the Johnson friction factor
-:math:`{f}_{w}` of the bed shear stress:
+The derivation of the short wave dissipation term is based
+time-averaged instantaneous bottom dissipation using the Johnson
+friction factor :math:`{f}_{w}` of the bed shear stress:
 
 .. math::
    :label:
@@ -662,9 +679,9 @@ instantaneous bottom dissipation using the Johnson friction factor
 
 The evaluation of the term
 :math:`\left\langle\left|\tilde{u}\right|^{3}\right\rangle`, the
-so-called third even velocity moment, depends on the situation. First we
-need expressions for the orbital velocity amplitude, which is expressed
-as:
+so-called third even velocity moment, depends on the situation. First
+we need expressions for the orbital velocity amplitude, which is
+expressed as:
 
 .. math::
    :label:
@@ -672,15 +689,16 @@ as:
    u_{orb} =\frac{\pi H_{rms} }{T_{p} \sinh (kh)}
 
 In this formulation :math:`{T}_{p}` is the peak wave period,
-:math:`{H}_{rms}` is the root-mean-square wave height, :math:`k` is the
-wave number and :math:`h` is the local water depth.
+:math:`{H}_{rms}` is the root-mean-square wave height, :math:`k` is
+the wave number and :math:`h` is the local water depth.
 
 If we consider the slowly-varying dissipation in wave groups, we need
-only to average over a single wave period and we can use a monochromatic
-(regular wave) expression. If we want to have the time-average
-dissipation over a full spectrum we get the best approximation from
-considering a linear Gaussian distribution. :cite:`Guza1985`
-give pragmatic expressions for both cases.
+only to average over a single wave period and we can use a
+monochromatic (regular wave) expression. If we want to have the
+time-average dissipation over a full spectrum we get the best
+approximation from considering a linear Gaussian
+distribution. :cite:`Guza1985` give pragmatic expressions for both
+cases.
 
 For the monochromatic case:
 
@@ -1213,10 +1231,11 @@ and a typical :math:`{k}_{s}` value would be in the order of 0.01 - 0.15 m.
    c_{f} =\sqrt{\frac{g}{\left(18\log \left(\frac{12h}{k_{s} } \right)\right)^{2} } }
 
 The option of White-Colebrook based on the grain size is somewhat
-different than the other four formulations. This formulation is based on
-the relation between the :math:`{D}_{90}` of the top bed layer and the
-geometrical roughness of Nikuradse according to equation :eq:`dimensionless-nikuradse2`.
-The user doesn’t have to specify a value for the bed friction coefficient.
+different than the other four formulations. This formulation is based
+on the relation between the :math:`{D}_{90}` of the top bed layer and
+the geometrical roughness of Nikuradse according to equation
+:eq:`dimensionless-nikuradse2`.  The user doesn’t have to specify a
+value for the bed friction coefficient.
 
 .. math::
    :label: dimensionless-nikuradse2
@@ -1251,12 +1270,12 @@ equation :eq:`glm-momentum`):
 
    F_{v} =F_{D} =\frac{1}{2} \rho C_{D} b_{v} Nu\left|u\right|
 
-Where :math:`{C}_{D}` is a drag coefficient, :math:`{b}_{v}` is
-the vegetation stem diameter, :math:`N` is the vegetation density and :math:`u` is
-the wave or current related velocity. To take into account the velocity
-due to mean flow and infragravity waves, we use the Lagrangian velocity
-(:math:`{u}^{L}`) here. The vegetation-induced time
-varying drag force is then calculated as the sum of the
+Where :math:`{C}_{D}` is a drag coefficient, :math:`{b}_{v}` is the
+vegetation stem diameter, :math:`N` is the vegetation density and
+:math:`u` is the wave or current related velocity. To take into
+account the velocity due to mean flow and infragravity waves, we use
+the Lagrangian velocity (:math:`{u}^{L}`) here. The vegetation-induced
+time varying drag force is then calculated as the sum of the
 vegetation-induced drag force per vegetation layer:
 
 .. math::
@@ -2795,29 +2814,34 @@ bathymetry file has the following space-separated format:
    <z 1,ny+1> <z 2,ny+1> <z 3,ny+1> ... <z nx,ny+1> <z nx+1,ny+1>
 
 XBeach spatial grids can be equidistant or non-equidistant. In the
-former case the grid size is defined by the keywords :par:`dx` and :par:`dy`. In
-the latter case the keyword :par:`vardx` should be set to 1 and x- and
-y-coordinates of the grid cells should be provided through the files
-referenced by the :par:`xfile` and :par:`yfile` keywords. These files take exactly
-the same format as the :par:`depfile` file where all coordinates along the
-x-direction are in one row and each row represents a cell in
-y-direction. XBeach grids are defined in a coordinate system of choice
-and can be either rectangular or curvilinear grids as discussed in :ref:`sec-domain-definitions`.
+former case the grid size is defined by the keywords :par:`dx` and
+:par:`dy`. In the latter case the keyword :par:`vardx` should be set
+to 1 and x- and y-coordinates of the grid cells should be provided
+through the files referenced by the :par:`xfile` and :par:`yfile`
+keywords. These files take exactly the same format as the
+:par:`depfile` file where all coordinates along the x-direction are in
+one row and each row represents a cell in y-direction. XBeach grids
+are defined in a coordinate system of choice and can be either
+rectangular or curvilinear grids as discussed in
+:ref:`sec-domain-definitions`.
 
-Delft3D grids created with tools like RFGRID are also supported. To use
-Delft3D grids, choose :par:`gridform` = *delft3d* and provide a grid file via the
-keyword :par:`xyfile`. The format of Delft3D grids is not described here, but
-can be found in the Delft3D manual (:cite:`Usermanual2011`). Also forced
-updating of bathymetries is supported as described in :ref:`sec-bed-update`.
+Delft3D grids created with tools like RFGRID are also supported. To
+use Delft3D grids, choose :par:`gridform` = *delft3d* and provide a
+grid file via the keyword :par:`xyfile`. The format of Delft3D grids
+is not described here, but can be found in the Delft3D manual
+(:cite:`Usermanual2011`). Also forced updating of bathymetries is
+supported as described in :ref:`sec-bed-update`.
 
 Apart for the spatial grid, XBeach also uses a directional grid for
-short waves and rollers. The grid is determined by a minimum and maximum
-angle and a directional bin size using the keywords :par:`thetamin`,
-:par:`thetamax` and :par:`dtheta` respectively. The :par:`thetamin` and :par:`thetamax`
-angles are either defined according to the Cartesian convention (angle
-w.r.t. the computational x-axis) or according to the nautical convention
-(angle w.r.t. deg. N, so from W is 270 deg. N). The convention is chosen
-using the keyword :par:`thetanaut` (:par:`thetanaut` = *0* for Cartesian and :par:`thetanaut` = *1* for Nautical)
+short waves and rollers. The grid is determined by a minimum and
+maximum angle and a directional bin size using the keywords
+:par:`thetamin`, :par:`thetamax` and :par:`dtheta` respectively. The
+:par:`thetamin` and :par:`thetamax` angles are either defined
+according to the Cartesian convention (angle w.r.t. the computational
+x-axis) or according to the nautical convention (angle w.r.t. deg. N,
+so from W is 270 deg. N). The convention is chosen using the keyword
+:par:`thetanaut` (:par:`thetanaut` = *0* for Cartesian and
+:par:`thetanaut` = *1* for Nautical)
 
 Examples of typical input for a non-equidistant, fast 1D XBeach model,
 together with the *params.txt* example at the start of this chapter,
@@ -2852,18 +2876,21 @@ Waves input
 An XBeach model is generally forced by waves on its offshore boundary.
 These waves are described by the wave boundary conditions discussed in
 this section. The details of the wave motions within the model are
-described by the wave numerics in terms of the wave action balance (see :ref:`sec-short-wave-action-balance`), wave dissipation model (see 0) and wave roller model (see :ref:`sec-roller-energy-balance`)
+described by the wave numerics in terms of the wave action balance
+(see :ref:`sec-short-wave-action-balance`), wave dissipation model
+(see 0) and wave roller model (see :ref:`sec-roller-energy-balance`)
 
 XBeach supports a variety of wave boundary condition types that are
-divided in two main groups: stationary and spectral boundary conditions.
-The :par:`wbctype` keyword can be used to select one particular type of wave
-boundary conditions. :ref:`sec-waves` gives an overview of all types of wave boundary
-conditions available for XBeach. :numref:`fig-wbc-decision-tree` can be used to help
-determine what type of wave boundary conditions is appropriate for your
+divided in two main groups: stationary and spectral boundary
+conditions.  The :par:`wbctype` keyword can be used to select one
+particular type of wave boundary conditions. :ref:`sec-waves` gives an
+overview of all types of wave boundary conditions available for
+XBeach. :numref:`fig-wbc-decision-tree` can be used to help determine
+what type of wave boundary conditions is appropriate for your
 case. Each wave boundary condition type is explained in the following
 subsections. Note that most spectral wave boundary conditions can vary
-both in space and time using a *FILELIST* and/or *LOCLIST* construction
-as described in :ref:`sec-spatiotemporal-varying-wbc`.
+both in space and time using a *FILELIST* and/or *LOCLIST*
+construction as described in :ref:`sec-spatiotemporal-varying-wbc`.
 
 .. include:: partable_wave_boundary_condition_parameters.tab
 
@@ -2880,17 +2907,17 @@ as described in :ref:`sec-spatiotemporal-varying-wbc`.
 Spectral wave boundary conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Spectral wave boundary conditions are enabled using :par:`wbctype` values
-*jons*, *swan*, *vardens* or *jons\_table*. The conditions are defined
-in separate files referenced from the *params.txt* file using the
-:par:`bcfile` keyword. A spectral wave boundary condition describes a
-spectrum *shape* that XBeach uses to generate a (random) wave time
-series. The length and resolution of the generated time series is
-determined by the keywords :par:`rt` and :par:`dtbc` respectively. XBeach will
-reuse the generated time series until the simulation is completed. The
-resolution of the time series should be enough to accurately represent
-the bound long wave, but need not be as small as the time step used in
-XBeach.
+Spectral wave boundary conditions are enabled using :par:`wbctype`
+values *jons*, *swan*, *vardens* or *jons\_table*. The conditions are
+defined in separate files referenced from the *params.txt* file using
+the :par:`bcfile` keyword. A spectral wave boundary condition
+describes a spectrum *shape* that XBeach uses to generate a (random)
+wave time series. The length and resolution of the generated time
+series is determined by the keywords :par:`rt` and :par:`dtbc`
+respectively. XBeach will reuse the generated time series until the
+simulation is completed. The resolution of the time series should be
+enough to accurately represent the bound long wave, but need not be as
+small as the time step used in XBeach.
 
 An overview of all keywords relevant for spectral wave boundary
 conditions is given in the table below. The necessary file formats for
@@ -2902,14 +2929,14 @@ following subsections.
 JONSWAP wave spectra
 ^^^^^^^^^^^^^^^^^^^^
 
-JONSWAP spectrum input is enabled using :par:`wbctype` = *jons*. A JONSWAP
-wave spectrum is parametrically defined in a file that is referenced
-using the :par:`bcfile` keyword. This file contains a single parameter per
-line in arbitrary order. The parameters that can be defined are listed
-in :numref:`partable-jonswap`. All variables are optional. If no value is given, the
-default value as specified in the table is used. It is advised not to
-specify the keyword :par:`dfj` and allow XBeach to calculate the default
-value.
+JONSWAP spectrum input is enabled using :par:`wbctype` = *jons*. A
+JONSWAP wave spectrum is parametrically defined in a file that is
+referenced using the :par:`bcfile` keyword. This file contains a
+single parameter per line in arbitrary order. The parameters that can
+be defined are listed in :numref:`partable-jonswap`. All variables are
+optional. If no value is given, the default value as specified in the
+table is used. It is advised not to specify the keyword :par:`dfj` and
+allow XBeach to calculate the default value.
 
 A typical JONSWAP definition file looks as follows:
 
@@ -2943,17 +2970,17 @@ should be present in all lines:
                 
    <Hm0> <Tp> <mainang> <gammajsp> <s> <duration> <dtbc>
 
-Note that we refer to the keywords used in a regular JONSWAP definition
-file in this example, with three differences: 1) the peak period rather
-than the peak frequency is defined 2) the duration is added (similar to
-:par:`rt` in *params.txt*) 3) the time resolution is added (similar to :par:`dtbc`
-in *params.txt*). The duration and boundary condition time step in this
-file overrules :par:`rt` and :par:`dtbc` in *params.txt*. This format is also used
-for time-varying stationary wave boundary conditions as described in
-
-. As an example, the JONSWAP spectrum definition file presented above
-would look as follows if the significant wave height should be increased
-with 0.2 m every hour:
+Note that we refer to the keywords used in a regular JONSWAP
+definition file in this example, with three differences: 1) the peak
+period rather than the peak frequency is defined 2) the duration is
+added (similar to :par:`rt` in *params.txt*) 3) the time resolution is
+added (similar to :par:`dtbc` in *params.txt*). The duration and
+boundary condition time step in this file overrules :par:`rt` and
+:par:`dtbc` in *params.txt*. This format is also used for time-varying
+stationary wave boundary conditions as described in
+:ref:`sec-spatiotemporal-varying-wbc`. As an example, the JONSWAP
+spectrum definition file presented above would look as follows if the
+significant wave height should be increased with 0.2 m every hour:
 
 **jonswap.txt**
 
@@ -2964,9 +2991,10 @@ with 0.2 m every hour:
    1.2 8. 285. 3.3 10. 0.3 3600. 1
 
 A more generic way of providing time-varying spectral wave boundary
-conditions is using a FILELIST construction as described in :ref:`sec-spatiotemporal-varying-wbc`. This approach is compatible with all spectral wave boundary condition types
-as well as spatially varying boundary conditions as described in the
-same section.
+conditions is using a FILELIST construction as described in
+:ref:`sec-spatiotemporal-varying-wbc`. This approach is compatible
+with all spectral wave boundary condition types as well as spatially
+varying boundary conditions as described in the same section.
 
 The parameter s in the JONSWAP spectrum definition is related to the
 directional spreading (in deg.) through the following relation
@@ -3395,11 +3423,12 @@ Flow boundary conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Flow boundary conditions need to be specified on all sides of the
-domain. We will differentiate between the offshore, lateral and landward
-boundaries that are set using the keywords :par:`front`, :par:`back` and
-:par:`left` / :par:`right`, respectively. :numref:`tab-flow-bc-1`, :numref:`tab-flow-bc-2` and :numref:`tab-flow-bc-3` give an overview
-of the available flow boundary condition types for each of these
-boundaries.
+domain. We will differentiate between the offshore, lateral and
+landward boundaries that are set using the keywords :par:`front`,
+:par:`back` and :par:`left` / :par:`right`,
+respectively. :numref:`tab-flow-bc-1`, :numref:`tab-flow-bc-2` and
+:numref:`tab-flow-bc-3` give an overview of the available flow
+boundary condition types for each of these boundaries.
 
 The keyword :par:`freewave` can be used to switch from bound to free long
 waves, which can be useful when time series of the free long wave
@@ -3544,9 +3573,10 @@ simulation may simulate a dam break. The initialization of the water
 level in the model domain is governed by the keywords listed in the
 table below.
 
-The keyword :par:`zsinitfile` references an external file describing the
-initial water levels in the entire model domain. The file should have
-the same format as the bathymetry input files described in :ref:`sec-grid-bathymetry`.
+The keyword :par:`zsinitfile` references an external file describing
+the initial water levels in the entire model domain. The file should
+have the same format as the bathymetry input files described in
+:ref:`sec-grid-bathymetry`.
 
 .. include:: partable_initial_conditions.tab
 
@@ -3584,57 +3614,60 @@ This is different from how the sediment transport processes are handled
 in the model itself and that are described in :ref:`sec-sediment-transport`
 and :ref:`sec-bottom-updating`
 
-The simplest situation is an XBeach simulation with uniform sediment. In
-this case it is sufficient to specify the uniform grain size using the
-keyword :par:`D50` indicating the median grain size. The effects of a
-specific sediment distribution can be parametrically defined by
-additionally specifying values for :par:`D15` and :par:`D90` and optionally the
-bed composition can be fine-tuned by specifying the porosity and
-sediment density using the keywords :par:`por` and :par:`rhos` respectively. In
-this case no sorting of sediment will be simulated.
+The simplest situation is an XBeach simulation with uniform
+sediment. In this case it is sufficient to specify the uniform grain
+size using the keyword :par:`D50` indicating the median grain
+size. The effects of a specific sediment distribution can be
+parametrically defined by additionally specifying values for
+:par:`D15` and :par:`D90` and optionally the bed composition can be
+fine-tuned by specifying the porosity and sediment density using the
+keywords :par:`por` and :par:`rhos` respectively. In this case no
+sorting of sediment will be simulated.
 
-If the effect of different sediment fractions, sorting and armoring are
-of importance, multiple sediment fractions can be defined. The number of
-sediment fraction is determined by the keyword :par:`ngd`. For each sediment
-fraction a value for :par:`D50`, and optionally :par:`D15` and :par:`D90`, should be
-defined separated by a space. Moreover, when using multiple sediment
-fractions, multiple bed layers are needed as well. The number of bed
-layers can be defined using the keyword :par:`nd`.
+If the effect of different sediment fractions, sorting and armoring
+are of importance, multiple sediment fractions can be defined. The
+number of sediment fraction is determined by the keyword
+:par:`ngd`. For each sediment fraction a value for :par:`D50`, and
+optionally :par:`D15` and :par:`D90`, should be defined separated by a
+space. Moreover, when using multiple sediment fractions, multiple bed
+layers are needed as well. The number of bed layers can be defined
+using the keyword :par:`nd`.
 
 Three types of bed layers are distinguished: 1) the top layer 2) the
-variable or “breathing” layer and 3) the bottom layers. At least one of
-each type of bed layer is needed, which makes that at least three bed
-layers are required (see :ref:`sec-bed-composition`). Each bed layer has a thickness.
-Choosing bed layer thicknesses that are in balance with the expected
-erosion and deposition during the simulation should keep the numerical
-mixing to a minimum. A bed layer thickness that is too large will result
-in relatively uniform behavior, while a bed layer thickness that is too
-small will result in a lot of shifting and thus numerical mixing. The
-bed layer thicknesses are determined by the three keywords :par:`dzg1`,
-:par:`dzg2` and :par:`dzg3` for the top, variable and bottom layers respectively.
+variable or “breathing” layer and 3) the bottom layers. At least one
+of each type of bed layer is needed, which makes that at least three
+bed layers are required (see :ref:`sec-bed-composition`). Each bed
+layer has a thickness.  Choosing bed layer thicknesses that are in
+balance with the expected erosion and deposition during the simulation
+should keep the numerical mixing to a minimum. A bed layer thickness
+that is too large will result in relatively uniform behavior, while a
+bed layer thickness that is too small will result in a lot of shifting
+and thus numerical mixing. The bed layer thicknesses are determined by
+the three keywords :par:`dzg1`, :par:`dzg2` and :par:`dzg3` for the
+top, variable and bottom layers respectively.
 
 Apart from the discretization of the grain size distribution and the
 vertical structure of the bed, the initial bed composition needs to be
 defined. The bed composition is defined using external files that are
 not explicitly referenced from *params.txt*, but are assumed to be
 located in the working directory of the model (next to *params.txt*).
-There is one file for each sediment fraction specified by :par:`ngd`. The
-file corresponding to the first sediment fraction is named *gdist1.inp*,
-the second *gdist2.inp*, et cetera.
+There is one file for each sediment fraction specified by
+:par:`ngd`. The file corresponding to the first sediment fraction is
+named *gdist1.inp*, the second *gdist2.inp*, et cetera.
 
 The bed composition files hold information on how much sediment of a
-specific fraction is in each grid cell and bed layer at the start of the
-simulation. The values are a volumetric fraction that implies that they
-should add up to unity over all fractions. For example, if a specific
-grid cell is filled with the first sediment fraction only, the value
-corresponding to this grid cell will be one in the *gdist1.inp* file and
-zero in all others. Alternatively, if we defined five sediment fractions
-and a specific grid cell is filled equally with all fractions, the value
-corresponding to this grid cell will be 1/5 = 0.2 in all files. The
-*gidst\ < N >.inp* files are formatted comparable to
-the bathymetry files (see :ref:`sec-grid-bathymetry`), but now holds values
-over the three dimensions x (nx+1), y (ny+1) and the bed layers (nd).
-The file format is as follows:
+specific fraction is in each grid cell and bed layer at the start of
+the simulation. The values are a volumetric fraction that implies that
+they should add up to unity over all fractions. For example, if a
+specific grid cell is filled with the first sediment fraction only,
+the value corresponding to this grid cell will be one in the
+*gdist1.inp* file and zero in all others. Alternatively, if we defined
+five sediment fractions and a specific grid cell is filled equally
+with all fractions, the value corresponding to this grid cell will be
+1/5 = 0.2 in all files. The *gidst\ < N >.inp* files are formatted
+comparable to the bathymetry files (see :ref:`sec-grid-bathymetry`),
+but now holds values over the three dimensions x (nx+1), y (ny+1) and
+the bed layers (nd).  The file format is as follows:
 
 **gdist1.inp**
 
@@ -3681,20 +3714,21 @@ Vegetation input
 
 Short wave dissipation, long wave dissipation and flow interaction due
 to vegetation is supported. The user can define multiple vegetation
-species. The number of vegetation species is set by the keyword :par:`nveg`.
-Furthermore, two files should be created and specified in the
-params.txt-file: a vegetation characteristics file (keyword:
-:par:`veggiefile`) and a vegetation location file (keyword: :par:`veggiemapfile`).
+species. The number of vegetation species is set by the keyword
+:par:`nveg`.  Furthermore, two files should be created and specified
+in the params.txt-file: a vegetation characteristics file (keyword:
+:par:`veggiefile`) and a vegetation location file (keyword:
+:par:`veggiemapfile`).
 
 The veggiefile is a text file listing the names of the vegetation
 characteristics files that should be created for every individual
 vegetation species that should be accounted for. These property files
 contain the vegetation parameters *nsec*, *ah*, *Cd*, *bv* and *N*
-that represent the number of vertical
-sections, height of vegetation section relative to the bed , the drag
-coefficient, stem diameter and vegetation density per vegetation
-section, respectively. An example of a set of files describing two
-different vegetation species is given below.
+that represent the number of vertical sections, height of vegetation
+section relative to the bed , the drag coefficient, stem diameter and
+vegetation density per vegetation section, respectively. An example of
+a set of files describing two different vegetation species is given
+below.
 
 **veggiefile.txt**
 
@@ -3995,397 +4029,31 @@ overview of all keywords related to model output:
 Output types
 ~~~~~~~~~~~~
 
-XBeach supports four different types of output: 1) instantaneous spatial
-output 2) time-averaged spatial output 3) fixed point output or 4)
-run-up gauge output. In principle any variable in XBeach can be
+XBeach supports four different types of output: 1) instantaneous
+spatial output 2) time-averaged spatial output 3) fixed point output
+or 4) run-up gauge output. In principle any variable in XBeach can be
 outputted as long as it is part of the *spaceparams* structure defined
 in *spaceparams.tmpl* in the XBeach source code. An overview of all
-currently supported parameters in this file is presented in :numref:`tab-output-parameters`.
+currently supported parameters in this file is presented in
+:numref:`tab-output-parameters`.
 
 The amount of output variables used for each type is determined by the
-keywords :par:`nglobalvar`, :par:`nmeanvar`, :par:`npoints` and :par:`nrugauge`. Each of
-these keywords takes a number indicating the number of parameters or
-locations that should be written to file. If any of the keywords is set
-to zero, the output type is effectively disabled. If :par:`nglovalvar` is set
-to *-1* then a standard set of output variables is used, being *H, zs,
-zs0, zb, hh, u, v, ue, ve, urms, Fc, Fy, ccg, ceqsg, ceqbg, Susg, Svsg,
-E, R, D* and *DR*. If :par:`nglobalvar` is not set it defaults to *-1*. The
-lines in the *params.txt* file immediately following these keywords
-determine what parameters or locations are used, as will be explained in
-more detail in the following subsections.
+keywords :par:`nglobalvar`, :par:`nmeanvar`, :par:`npoints` and
+:par:`nrugauge`. Each of these keywords takes a number indicating the
+number of parameters or locations that should be written to file. If
+any of the keywords is set to zero, the output type is effectively
+disabled. If :par:`nglovalvar` is set to *-1* then a standard set of
+output variables is used, being *H, zs, zs0, zb, hh, u, v, ue, ve,
+urms, Fc, Fy, ccg, ceqsg, ceqbg, Susg, Svsg, E, R, D* and *DR*. If
+:par:`nglobalvar` is not set it defaults to *-1*. The lines in the
+*params.txt* file immediately following these keywords determine what
+parameters or locations are used, as will be explained in more detail
+in the following subsections.
 
 .. _tab-output-parameters:
 
-.. table:: Possible output parameters*
-
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Name          | Explanation                                                                                           | Unit             |
-   +===============+=======================================================================================================+==================+
-   | As            | asymmetry of short waves                                                                              | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | bi            | incoming bound long wave                                                                              | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | BR            | maximum wave surface slope used in roller dissipation formulation                                     | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | c             | wave celerity                                                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ccbg          | depth-averaged bed concentration for each sediment fraction                                           | [m3/m3]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ccg           | depth-averaged suspended concentration for each sediment fraction                                     | [m3/m3]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cctot         | Sediment concentration integrated over bed load and suspended and for all sediment grains             | [m3/m3]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ceqbg         | depth-averaged bed equilibrium concentration for each sediment class                                  | [m3/m3]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ceqsg         | depth-averaged suspended equilibrium concentration for each sediment class                            | [m3/m3]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cf            | Friction coefficient flow                                                                             | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cg            | group velocity                                                                                        | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cgx           | group velocity, x-component                                                                           | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cgy           | group velocity, y-component                                                                           | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | costh         | cos of wave angles relative to grid direction                                                         | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ctheta        | wave celerity theta-direction (refraction)                                                            | [rad/s]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cx            | wave celerity, x-component                                                                            | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | cy            | wave celerity, y-component                                                                            | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | D             | dissipation                                                                                           | [W/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | D50           | D50 grain diameters for all sediment classes                                                          | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | D50top        | Friction coefficient flow                                                                             | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | D90           | D90 grain diameters for all sediment classes                                                          | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | D90top        | Friction coefficient flow                                                                             | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Dc            | diffusion coefficient                                                                                 | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dcbdx         | bed concentration gradient x-dir.                                                                     | [kg/m3/m]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dcbdy         | bed concentration gradient y-dir.                                                                     | [kg/m3/m]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dcsdx         | suspended concentration gradient x-dir.                                                               | [kg/m3/m]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dcsdy         | suspended concentration gradient y-dir.                                                               | [kg/m3/m]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | depo\_ex      | explicit bed deposition rate per fraction                                                             | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | depo\_im      | implicit bed deposition rate per fraction                                                             | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Df            | dissipation rate due to bed friction                                                                  | [W/m^2]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dinfil        | Infiltration layer depth used in quasi-vertical flow model for groundwater                            | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dnc           | grid distance in n-direction, centered around c-point                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dnu           | grid distance in n-direction, centered around u-point                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dnv           | grid distance in n-direction, centered around v-point                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dnz           | grid distance in n-direction, centered around z-point (=eta-point)                                    | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Dp            | dissipation rate in the swash due to transformation of kinetic wave energy to potential wave energy   | [W/m^2]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | DR            | roller energy dissipation                                                                             | [W/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsc           | grid distance in s-direction, centered around c-point                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsdnui        | inverse of grid cell surface, centered around u-point                                                 | [1/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsdnvi        | inverse of grid cell surface, centered around v-point                                                 | [1/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsdnzi        | inverse of grid cell surface, centered around z-point                                                 | [1/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsu           | grid distance in s-direction, centered around u-point                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsv           | grid distance in s-direction, centered around v-point                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dsz           | grid distance in s-direction, centered around z-point (=eta-point)                                    | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzav          | total bed level change due to avalanching                                                             | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzbdt         | rate of change bed level                                                                              | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzbdx         | bed level gradient in x-direction                                                                     | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzbdy         | bed level gradient in y-direction                                                                     | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzbed         | bed level gradient                                                                                    | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzsdt         | rate of change water level                                                                            | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzsdx         | water surface gradient in x-direction                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | dzsdy         | water surface gradient in y-direction                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | E             | wave energy                                                                                           | [Nm/m2]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ee            | directionally distributed wave energy                                                                 | [J/m2/rad]       |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ero           | bed erosion rate per fraction                                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Fx            | wave force, x-component                                                                               | [N/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Fy            | wave force, y-component                                                                               | [N/m2]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gw0back       | boundary condition back boundary for groundwater head                                                 | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gwbottom      | level of the bottom of the aquifer                                                                    | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gwhead        | groundwater head (differs from gwlevel)                                                               | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gwheight      | vertical size of aquifer through which groundwater can flow                                           | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gwlevel       | groundwater table                                                                                     | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gwu           | groundwater flow in x-direction                                                                       | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gwv           | groundwater flow in y-direction                                                                       | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | gww           | groundwater flow in z-direction (interaction between surface and ground water)                        | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | H             | Hrms wave height based on instantaneous wave energy                                                   | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | hh            | water depth                                                                                           | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | hold          | water depth previous time step                                                                        | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | hu            | water depth in u-points                                                                               | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | hum           | water depth in u-points                                                                               | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | hv            | water depth in v-points                                                                               | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | hvm           | water depth in v-points                                                                               | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | idrift        | Drifter x-coordinate in grid space                                                                    | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | jdrift        | Drifter y-coordinate in grid space                                                                    | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | k             | wave number                                                                                           | [rad/m]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | kb            | near bed turbulence intensity due to depth induces breaking                                           | [m^2/s^2]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | kturb         | depth averaged turbulence intensity due to long wave breaking                                         | [m^2/s^2]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | L1            | wave length (used in dispersion relation)                                                             | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | maxzs         | maximum elevation in simulation                                                                       | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | minzs         | minimum elevation in simulation                                                                       | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | n             | ratio group velocity/wave celerity                                                                    | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | nd            | number of bed layers (can be different for each computational cell)                                   | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ndist         | cum. distance from right boundary along n-direction                                                   | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | nuh           | horizontal viscosity coefficient                                                                      | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | pdisch        | Discharge locations                                                                                   | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ph            | pressure head due to ship                                                                             | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | pntdisch      | Point discharge locations (no momentum)                                                               | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | pres          | normalized dynamic pressure                                                                           | [m^2/s^2]        |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Qb            | fraction breaking waves                                                                               | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | qdisch        | Discharges                                                                                            | [m^2/s]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | qx            | discharge in u-points, x-component                                                                    | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | qy            | discharge in u-points, y-component                                                                    | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | R             | roller energy                                                                                         | [Nm/m2]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | rolthick      | long wave roller thickness                                                                            | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | rr            | directionally distributed roller energy                                                               | [J/m2/rad]       |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | sdist         | cum. distance from offshore boundary along s-direction                                                | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | sedero        | cum. sedimentation/erosion                                                                            | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | sigm          | mean frequency                                                                                        | [rad/s]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | sigt          | relative frequency                                                                                    | [rad/s]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | sinth         | sin of wave angles relative to grid direction                                                         | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Sk            | skewness of short waves                                                                               | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | structdepth   | Depth of structure in relation to instantaneous bed level                                             | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Subg          | bed sediment transport for each sediment class (excluding pores), x-component                         | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Susg          | suspended sediment transport for each sediment class (excluding pores), x-component                   | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Sutot         | Sediment transport integrated over bed load and suspended and for all sediment grains, x-component    | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Svbg          | bed sediment transport for each sediment class (excluding pores), y-component                         | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Svsg          | suspended sediment transport for each sediment class (excluding pores), y-component                   | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Svtot         | Sediment transport integrated over bed load and suspended and for all sediment grains, y-component    | [m2/s]           |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Sxx           | radiation stress, x-component                                                                         | [N/m]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Sxy           | radiation stress, y-component                                                                         | [N/m]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Syy           | radiation stress, y-component                                                                         | [N/m]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | taubx         | bed shear stress, x-component                                                                         | [N/m^2]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tauby         | bed shear stress, y-component                                                                         | [N/m^2]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Tbore         | wave period interval associated with breaking induced turbulence                                      | [s]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tdisch        | Discharge time series                                                                                 | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tdrifter      | Drifter retrieval time                                                                                | [s]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | theta         | wave angles                                                                                           | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | theta         | wave angles directional distribution w.r.t. comp. x-axis                                              | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | theta0        | mean incident wave angle                                                                              | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | thetamax      | minimum angle of computational wave grid (cart. in rad)                                               | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | thetamean     | mean wave angle                                                                                       | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | thetamin      | minimum angle of computational wave grid (cart. in rad)                                               | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tideinpt      | input time of input tidal signal                                                                      | [s]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tideinpz      | input tidal signal                                                                                    | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tidelen       | length of tide time series                                                                            | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | tm            | mean wave direction                                                                                   | [rad]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | Tsg           | sediment response time for each sediment class                                                        | [s]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | u             | GLM velocity in cell center, x-component                                                              | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ua            | time averaged flow velocity due to wave asymmetry                                                     | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ucrcal        | calibration factor for u critical for each sediment class                                             | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ue            | Eulerian velocity in cell center, x-component                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ueu           | Eulerian velocity in u-points, x-component                                                            | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ui            | incident bound wave velocity in, x-component                                                          | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | umean         | long-term mean velocity at bnds in u-points, x-component                                              | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | umwci         | velocity (time-averaged) for wci, x-component                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ur            | reflected velocity at bnds in u-points                                                                | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | urepb         | representative flow velocity for sediment advection and diffusion, x-component                        | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ureps         | representative flow velocity for sediment advection and diffusion, x-component                        | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | urms          | orbital velocity                                                                                      | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | usd           | return flow due to roller after breaker delay                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ust           | Stokes drift                                                                                          | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ustr          | return flow due to roller                                                                             | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | uu            | GLM velocity in u-points, x-component                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | uv            | GLM velocity in v-points, x-component                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | uwf           | Stokes drift, x-component                                                                             | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | v             | GLM velocity in cell center, y-component                                                              | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vardx         | 0 = uniform grid size, 1 = variable grid size                                                         | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ve            | Eulerian velocity in cell center, y-component                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vev           | Eulerian velocity in u-points, y-component                                                            | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vi            | incident bound wave velocity in, y-component                                                          | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmag          | velocity magnitude in cell center                                                                     | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmageu        | Eulerian velocity magnitude u-points                                                                  | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmagev        | Eulerian velocity magnitude v-points                                                                  | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmagu         | GLM velocity magnitude u-points                                                                       | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmagv         | GLM velocity magnitude v-points                                                                       | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmean         | long-term mean velocity at bnds in u-points, y-component                                              | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vmwci         | velocity (time-averaged) for wci, y-component                                                         | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vrepb         | representative flow velocity for sediment advection and diffusion, y-component                        | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vreps         | representative flow velocity for sediment advection and diffusion, y-component                        | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vu            | GLM velocity in u-points, y-component                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vv            | GLM velocity in v-points, y-component                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | vwf           | Stokes drift, y-component                                                                             | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | wb            | vertical velocity at the bottom                                                                       | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | wetu          | mask wet/dry u-points                                                                                 | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | wetv          | mask wet/dry v-points                                                                                 | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | wetz          | mask wet/dry eta-points                                                                               | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | wi            | Vertical velocity at boundary due to (short) waves                                                    | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | winddirts     | input wind direction                                                                                  | [deg nautical]   |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windinpt      | input time of input wind signal                                                                       | [s]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windlen       | length of tide time series                                                                            | [-]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windnv        | wind velocity in N direction in v point at current time step                                          | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windsu        | wind velocity in S direction in u point at current time step                                          | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windvelts     | input wind velocity                                                                                   | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windxts       | time series of input wind velocity (not S direction), x-component                                     | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | windyts       | time series of input wind velocity (not N direction), y-component                                     | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | wm            | mean abs frequency                                                                                    | [rad/s]          |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | ws            | vertical velocity at the free surface                                                                 | [m/s]            |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | zb            | bed level                                                                                             | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | zb0           | initial bed level                                                                                     | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | zi            | Surface elevation at boundary due to (short) waves                                                    | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | zs            | water level                                                                                           | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-   | zswci         | water level (time-averaged) for wci                                                                   | [m]              |
-   +---------------+-------------------------------------------------------------------------------------------------------+------------------+
-
+.. include:: partable_spaceparams.tab
+             
 Instantaneous spatial output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -4520,20 +4188,22 @@ or a combination of both.
 Output at fixed intervals
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The user should define a point in time after the start of the simulation
-at which the first output is generated for fixed interval output. The
-user can do this by using the :par:`tstart` keyword in *params.txt*. All
-output that is being generated at fixed intervals uses :par:`tstart` as their
-base. The interval for instantaneous spatial output is given by the
-:par:`tintg` keyword. The keywords for the interval of time-averaged spatial
-output and point output are :par:`tintm` and :par:`tintp` respectively, where
-:par:`tintp` is used both for fixed point and run-up gauge output. Note that
-:par:`tintg`, :par:`tintm` and :par:`tintp` supersede the older :par:`tint` parameter that
-is valid for all types of output. The default value of :par:`tintg` is one
-second. If :par:`tintp` or :par:`tintm` is not stated, but output is declared
-(:par:`npoints`, :par:`nrugauge` or :par:`nmeanvar` is stated larger than zero), XBeach
-assumes the same output interval as :par:`tintg`. An example of the
-definition of fixed intervals is given below.
+The user should define a point in time after the start of the
+simulation at which the first output is generated for fixed interval
+output. The user can do this by using the :par:`tstart` keyword in
+*params.txt*. All output that is being generated at fixed intervals
+uses :par:`tstart` as their base. The interval for instantaneous
+spatial output is given by the :par:`tintg` keyword. The keywords for
+the interval of time-averaged spatial output and point output are
+:par:`tintm` and :par:`tintp` respectively, where :par:`tintp` is used
+both for fixed point and run-up gauge output. Note that :par:`tintg`,
+:par:`tintm` and :par:`tintp` supersede the older :par:`tint`
+parameter that is valid for all types of output. The default value of
+:par:`tintg` is one second. If :par:`tintp` or :par:`tintm` is not
+stated, but output is declared (:par:`npoints`, :par:`nrugauge` or
+:par:`nmeanvar` is stated larger than zero), XBeach assumes the same
+output interval as :par:`tintg`. An example of the definition of fixed
+intervals is given below.
 
 **params.txt**
 
@@ -4554,16 +4224,16 @@ Output times defined by external file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The user is given the option to have output at a set of points in time
-that are not separated by regular intervals. In this case the user must
-supply an additional file for each output type. The user specifies the
-name of the output time series file for instantaneous spatial output
-using the :par:`tsglobal` keyword. The keywords for time series files for
-time-averaged spatial output and point output are :par:`tsmean` and :par:`tspoint`
-respectively, where :par:`tspoint` is again used for both fixed point and
-run-up gauge output. All time series files must contain on the first
-line the number of output times followed by every output time on a new
-line. An example of such irregular output time definition is given
-below.
+that are not separated by regular intervals. In this case the user
+must supply an additional file for each output type. The user
+specifies the name of the output time series file for instantaneous
+spatial output using the :par:`tsglobal` keyword. The keywords for
+time series files for time-averaged spatial output and point output
+are :par:`tsmean` and :par:`tspoint` respectively, where
+:par:`tspoint` is again used for both fixed point and run-up gauge
+output. All time series files must contain on the first line the
+number of output times followed by every output time on a new line. An
+example of such irregular output time definition is given below.
 
 **params.txt**
 
@@ -5365,17 +5035,19 @@ Grid set-up
 ~~~~~~~~~~~
 
 The new implementation utilizes a curvilinear, staggered grid where
-depths, water levels, wave action and sediment concentrations are given
-in the cell centers (denoted by subscript z) and velocities and sediment
-fluxes at the cell interfaces (denoted by subscript u or v). In :numref:`fig-staggered-grid` the z, u, v and c (corner) points with the same numbering are shown.
-The grid directions are named s and n; grid distances are denoted by
-:math:`\Delta s`\ and :math:`\Delta n`, with subscripts referring to the
-point where they are defined. A finite-volume approach is utilized where
-mass, momentum and wave action are strictly conserved. In the middle
-panel of :numref:`fig-staggered-grid`, the control volume for the mass balance is shown
-with the corresponding grid distances around the *u-* and *v-*\ points.
-The right panel explains the numbering of the fluxes *Q* and the volume
-*V*.
+depths, water levels, wave action and sediment concentrations are
+given in the cell centers (denoted by subscript z) and velocities and
+sediment fluxes at the cell interfaces (denoted by subscript u or
+v). In :numref:`fig-staggered-grid` the z, u, v and c (corner) points
+with the same numbering are shown.  The grid directions are named s
+and n; grid distances are denoted by :math:`\Delta s`\ and
+:math:`\Delta n`, with subscripts referring to the point where they
+are defined. A finite-volume approach is utilized where mass, momentum
+and wave action are strictly conserved. In the middle panel of
+:numref:`fig-staggered-grid`, the control volume for the mass balance
+is shown with the corresponding grid distances around the *u-* and
+*v-*\ points.  The right panel explains the numbering of the fluxes
+*Q* and the volume *V*.
 
 .. _fig-staggered-grid:
 
@@ -5399,24 +5071,26 @@ The time-varying wave action balance solved in XBeach is as follows:
 
    \frac{\partial E}{\partial t} +\frac{\partial EC_{g,u} }{\partial s} +\frac{\partial EC_{g,v} }{\partial n} +\frac{\partial EC_{\vartheta } }{\partial \vartheta } =-Sink
 
-Where :math:`E` is the wave energy or wave action, :math:`C_g` is the group velocity,
-:math:`C_{\vartheta}`\ the refraction speed in theta-space and :math:`Sink`
-refers to effects of wave breaking and bottom friction.
+Where :math:`E` is the wave energy or wave action, :math:`C_g` is the
+group velocity, :math:`C_{\vartheta}`\ the refraction speed in
+theta-space and :math:`Sink` refers to effects of wave breaking and
+bottom friction.
 
-Again, the advection terms are the only ones affected by the curvilinear
-scheme so we will discuss their treatment in detail. The control volume
-is the same as for the mass balance. In equation :eq:`wave-energy-flux` the procedure to
-compute the wave energy fluxes across the cell boundaries is outlined.
-All variables should also have an index :math:`itheta` referring to the
-directional grid, but for brevity these are omitted here.
+Again, the advection terms are the only ones affected by the
+curvilinear scheme so we will discuss their treatment in detail. The
+control volume is the same as for the mass balance. In equation
+:eq:`wave-energy-flux` the procedure to compute the wave energy fluxes
+across the cell boundaries is outlined.  All variables should also
+have an index :math:`itheta` referring to the directional grid, but
+for brevity these are omitted here.
 
-The component of the group velocity normal to the cell boundary, at the
-cell boundary, is interpolated from the two adjacent cell center points.
-Depending on the direction of this component, the wave energy at the
-cell boundary is computed using linear extrapolation based on the two
-upwind points, taking into account their grid distances. This second
-order upwind discretization preserves the propagation of wave groups
-with little numerical diffusion.
+The component of the group velocity normal to the cell boundary, at
+the cell boundary, is interpolated from the two adjacent cell center
+points.  Depending on the direction of this component, the wave energy
+at the cell boundary is computed using linear extrapolation based on
+the two upwind points, taking into account their grid distances. This
+second order upwind discretization preserves the propagation of wave
+groups with little numerical diffusion.
 
 .. math::
    :label: wave-energy-flux
@@ -5470,23 +5144,22 @@ This is discretized according to:
 
    \begin{array}{l} {A_{z}^{i,j} \frac{z_{s}^{i,j,n+1} -z_{s}^{i,j,n} }{\Delta t} =u_{u}^{i,j,n+1/2} h_{u}^{i,j,n} \Delta n_{u}^{i,j} -u_{u}^{i-1,j,n+1/2} h_{u}^{i-1,j,n} \Delta n_{u}^{i-1,j} } \\ {\, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, +v_{v}^{i,j,n+1/2} h_{v}^{i,j,n} \Delta s_{v}^{i,j} -v_{v}^{i,j-1,n+1/2} h_{v}^{i,j-1,n} \Delta s_{v}^{i,j-1} } \end{array}
 
-Here, :math:`{A}_{z}` is the area of the cell around the cell
-centre, :math:`{z}_{s}` is the surface elevation,
-:math:`{u}_{u}` is the u-velocity in the u-point,
-:math:`{h}_{u}` the water depth in the u-point and
-:math:`{v}_{v}` the v-velocity in the v-point. The indices :math:`i,j`
-refer to the grid number in u resp. v direction; the index :math:`n` refers to
-the time step.
+Here, :math:`{A}_{z}` is the area of the cell around the cell centre,
+:math:`{z}_{s}` is the surface elevation, :math:`{u}_{u}` is the
+u-velocity in the u-point, :math:`{h}_{u}` the water depth in the
+u-point and :math:`{v}_{v}` the v-velocity in the v-point. The indices
+:math:`i,j` refer to the grid number in u resp. v direction; the index
+:math:`n` refers to the time step.
 
 Momentum balance equation
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Second, we will outline the derivation of the u-momentum balance. The
-control volume is given in :numref:`fig-momentum-and-fluxes`. It is centeredaround the u-point.
-We now consider the rate of change of the momentum in the local
-u-direction as follows:
+control volume is given in :numref:`fig-momentum-and-fluxes`. It is
+centeredaround the u-point.  We now consider the rate of change of the
+momentum in the local u-direction as follows:
 
-.. math::
+.. Math::
    :label:
 
    \frac{d\left(Vu\right)}{dt} -\sum Q_{in} u_{in}  +\sum Q_{out} u +Vg\frac{\partial z_{s} }{\partial s} +A\frac{\tau _{b,u} }{\rho } =A\frac{\tau _{s,u} }{\rho } +A\frac{F_{u} }{\rho }
@@ -6450,275 +6123,6 @@ Hermetian relation used in :cite:`Smit2008`.
 .. bibliography:: xbeach.bib
    :cited:
    :style: alpha
-           
-.. .. [Andrews1978] Andrews, D. G., & Mcintyre, M. E. (1978). An exact theory of nonlinear
-..    waves on a Lagrangian-mean flow. Journal of Fluid Mechanics, 89, 609.
-..    doi:10.1017/S0022112078002773
-..    
-..    Baldock, T. E., Holmes, P., Bunker, S., & van Weert, P. (1998).
-..    Cross-shore hydrodynamics within an unsaturated surfzone. Coastal
-..    Engineering, 34, 173–196.
-..    
-..    Battjes, J. A. (1975). Modelling of turbulence in the surfzone.
-..    Symposium on Modelling Techniques, San Francisco, 1050–1061.
-..    
-.. .. [Daly2010] Daly, C., Roelvink, J. A., van Dongeren, A. R., & McCall, R. T. (2010).
-..    Short wave breaking effects on law frequency waves. Proceedings 30th
-..    International Conference on Coastal Engineering, San Diego, 1–13.
-..    
-..    Daly, C., Roelvink, J. A., van Dongeren, A. R., van Thiel de Vries, J.
-.. .. [Daly2012] S. M., & McCall, R. T. (2012). Validation of an advective-deterministic
-..    approach to short wave breaking in a surf-beat model. Coastal
-..    Engineering, 60, 69–83. doi:10.1016/j.coastaleng.2011.08.001
-..    
-..    Darcy, H. (1856). Les fontaines publiques de la ville de dijon. Tech.
-..    Rep., Dalmont, Paris.
-..    
-..    De Jong, M. P. C., Roelvink, J. A., & Breederveld, C. (2013). Numerical
-..    modelling of passing-ship effects in complex geometries and on shallow
-..    water. Pianc Smart Rivers 2013.
-..    
-..    De Vet, P. L. M. (2014). Modelling sediment transport and morphology
-..    during overwash and breaching events. MSc thesis, Delft University of
-..    Technology, Delft.
-..    
-..    Deigaard, R. (1993). A note on the three-dimensional shear stress
-..    distribution in a surf zone. Coastal Engineering, 20, 157–171.
-..    doi:10.1016/0378-383990059-H
-..    
-..    Deltares. (2011). Delft3D-FLOW: user manual.
-..    
-..    Den Adel, H. (1987). Heranalyse doorlatendheidsmetingen door middel van
-..    de forchheimer relatie. Technical Report M 1795/H 195, CO 272550/56,
-..    Grondmechanica Delft, Waterloopkundig Laboratorium. Dutch.
-..    
-..    Galappatti, R., & Vreugdenhill, C. B. (1985). A depth integrated model
-..    for suspended transport. Journal for Hydraulic Research, 23, 359–377.
-..    
-..    Guza, R. T., & Thornton, E. B. (1985). Velocity moments in the
-..    nearshore. Coastal Engineering, 111, 235–256.
-..    
-..    Halford, K. (2000). Simulation and interpretation of borehole flowmeter
-..    results under laminar and turbulent flow conditions. Proceedings of the
-..    Seventh International Symposium on Logging for Minerals and Geotechnical
-..    Applications, Golden, Colorado, The Minerals and Geotechnical Logging
-..    Society, 157–168.
-..    
-..    Hallermeier, R. J. (1981). Terminal settling velocity of commonly
-..    occurring sand grains. Sedimentology, 28, 859–865.
-..    
-..    Harbaugh, A. W. (2005). MODFLOW-2005 , The USGS Modular Ground-Water
-..    Model. U.S. Geological Survey Techniques and Methods, 253.
-..    
-..    Holthuijsen, L. H., Booij, N., & Herbers, T. H. C. (1989). A prediction
-..    model for stationary, short-crested waves in shallow water with ambient
-..    currents. Coastal Engineering, 13, 23–54. doi:10.1016/0378-383990031-8
-..    
-..    Janssen, T. T., & Battjes, J. A. (2007). A note on wave energy
-..    dissipation over steep beaches. Coastal Engineering, 54, 711–716.
-..    doi:10.1016/j.coastaleng.2007.05.006
-..    
-..    Komar, P. D., & Miller, M. C. (1975). On the comparison between the
-..    threshold of sediment motion under waves under unidirectional currents
-..    with a discussion of the practical evaluation of the threshold. Journal
-..    of Sedimentary Research, 362–367.
-..    
-..    Lam, D. C. L., & Simpson, R. B. (1976). Centered differencing and the
-..    box scheme for diffusion convection problems. Journal of Computational
-..    Physics, 22, 486–500.
-..    
-..    Lee, K. H., Mizutani, N., Hur, D. S., & Kamiya, A. (2007). The effect of
-..    groundwater on topographic changes in a gravel beach. Ocean Engineering,
-..    34, 605–615. doi:10.1016/j.oceaneng.2005.10.026
-..    
-..    Li, L., & Barry, D. A. (2000). Wave-induced beach groundwater flow.
-..    Advances in Water Resources, 23, 325–337. doi:10.1016/S0309-170800032-9
-..    
-..    Longuet-Higgins, M. S., & Stewart, R. W. (1962). Radiation stress and
-..    mass transport in gravity waves, with application to “surf beats.”
-..    Journal of Fluid Mechanics, 13, 481–504.
-..    
-..    Longuet-Higgins, M. S., & Stewart, R. W. (1964). Radiation stress in
-..    water waves: a physical discussion with applications. Deep-Sea Research,
-..    529–562.
-..    
-..    Longuet-Higgins, M. S., & Turner, J. S. (1974). An “entraining plume”
-..    model of a spilling breaker. Journal of Fluid Mechanics, 63, 1–20.
-..    
-..    Lowe, R. J., Falter, J. L., Koseff, J. R., Monismith, S. G., & Atkinson,
-..    M. J. (2007). Spectral wave flow attenuation within submerged canopies:
-..    Implications for wave energy dissipation. Journal of Geophysical
-..    Research: Oceans, 112, 1–14. doi:10.1029/2006JC003605
-..    
-..    McCall, R. T., Masselink, G., Poate, T. G., Roelvink, J. a., Almeida, L.
-..    P., Davidson, M., & Russell, P. E. (2014). Modelling storm hydrodynamics
-..    on gravel beaches with XBeach-G. Coastal Engineering, 91, 231–250.
-..    doi:10.1016/j.coastaleng.2014.06.007
-..    
-..    Mendez, F. J., & Losada, I. J. (2004). An empirical model to estimate
-..    the propagation of random breaking and nonbreaking waves over vegetation
-..    fields. Coastal Engineering, 51, 103–118.
-..    doi:10.1016/j.coastaleng.2003.11.003
-..    
-..    Nairn, R. B., Roelvink, J. A., & Southgate, H. N. (1990). Transition
-..    zone width and implications for modeling surfzone hydrodynamics.
-..    Proceedings 22th International Conference on Coastal Engineering, 68–81.
-..    doi:10.9753/icce.v22.
-..    
-..    Nederhoff, C. M., Lodder, Q. J., Boers, M., Den Bieman, J. P., & Miller,
-..    J. K. (2015). Modeling the effects of hard structures on dune erosion
-..    and overwash - a case study of the impact of Hurricane Sandy on the New
-..    Jersey coast. Proceedings Coastal Sediments, San Diego, CA.
-..    
-..    Phan, L., van Thiel de Vries, J. S. M., & Stive, M. J. F. (2014).
-..    Coastal Mangrove Squeeze in the Mekong Delta. Journal of Coastal
-..    Research.
-..    
-..    Phillips, O. M. (1977). The dynamics of the upper ocean. Cambridge
-..    University Press, 366.
-..    
-..    Raubenheimer, B., Guza, R. T., & Elgar, S. (1999). Tidal water table
-..    fluctuations in a sandy ocean beach. Water Resources Research, 35, 2313.
-..    doi:10.1029/1999WR900105
-..    
-..    Reniers, A. J. H. M., MacMahan, J. H., Thornton, E. B., & Stanton, T. P.
-..    (2007). Modeling of very low frequency motions during RIPEX. Journal of
-..    Geophysical Research: Oceans, 112(February), 1–14.
-..    doi:10.1029/2005JC003122
-..    
-..    Reniers, A. J. H. M., Roelvink, J. A., & Thornton, E. B. (2004).
-..    Morphodynamic modeling of an embayed beach under wave group forcing.
-..    Journal of Geophysical Research, 109, 1–22. doi:10.1029/2002JC001586
-..    
-..    Rienecker, M. M., & Fenton, J. D. (1981). A Fourier approximation method
-..    for steady water waves. Journal of Fluid Mechanics, 104, 119.
-..    doi:10.1017/S0022112081002851
-..    
-.. .. [Roelvink1993a] Roelvink, J. A. (1993a). Dissipation in random wave group incident on a
-..    beach. Coastal Engineering, 19, 127–150.
-..    
-.. .. [Roelvink1993b] Roelvink, J. A. (1993b). Surf beat and its effect on cross-shore
-..    profiles. PhD thesis, Delft Unversity of Technology, Delft.
-..    
-.. .. [Roelvink2006] Roelvink, J. A. (2006). Coastal morphodynamic evolution techniques.
-..    Coastal Engineering, 53, 277–287. doi:10.1016/j.coastaleng.2005.10.015
-..    
-.. .. [Roelvink1989] Roelvink, J. A., & Stive, M. J. F. (1989). Bar-generating cross-shore
-..    flow mechanisms on a beach. Journal of Geophysical Research, 94,
-..    4785–4800.
-..    
-..    Rowe, P. N. (1987). A convenient empirical equation for estimation of
-..    the richardson-zaki exponent. Chemical Engineering Science, 42, 2795 –
-..    2796.
-..    
-..    Ruessink, B. G., Miles, J. R., Feddersen, F., Guza, R. T., & Elgar, S.
-..    (2001). Modeling the alongshore current on barred beaches. Journal of
-..    Geophysical Research, 106, 451–463.
-..    
-..    Ruessink, B. G., Ramaekers, G., & van Rijn, L. C. (2012). On the
-..    parameterization of the free-stream non-linear wave orbital motion in
-..    nearshore morphodynamic models. Coastal Engineering, 65, 56–63.
-..    doi:10.1016/j.coastaleng.2012.03.006
-..    
-..    Schroevers, M., Huisman, B. J., van der Wal, A., & Terwindt, J. (2011).
-..    Measuring ship induced waves and currents on a tidal flat in the Western
-..    Scheldt Estuary. Current, Waves and Turbulence Measurements (CWTM), 2011
-..    IEEE/OES 10th, 123–129.
-..    
-..    Shields, A. (1936). Anwendung der Aehnlichkeitsmechanik under der
-..    Turbulenzforschung auf die Geschiebebewegung. Preussischen
-..    Versuchsanstalt Fur Wasserbau and Schiffbau, 26, 524–526.
-..    
-..    Smagorinsky, J. (1963). General circulation experiments wiht the
-..    primitive equations I. The basic experiment. Monthly Weather Review, 91,
-..    99–164. doi:10.1126/science.27.693.594
-..    
-..    Smit, P. B., Janssen, T. T., Holthuijsen, L. H., & Smith, J. (2014).
-..    Non-hydrostatic modeling of surf zone wave dynamics. Coastal
-..    Engineering, 83, 36–48. doi:10.1016/j.coastaleng.2013.09.005
-..    
-..    Soulsby, R. L. (1997). Dynamics of Marine Sands. London: Thomas Telford
-..    Publications.
-..    
-..    Stelling, G. S., & Zijlema, M. (2003). An accurate and efficient
-..    finite-difference algorithm for non-hydrostatic free-surface flow with
-..    application to wave propagation. International Journal for Numerical
-..    Methods in Fluids, 43, 1–23.
-..    
-..    Stive, M. J. F., & De Vriend, H. J. (1994). Shear stresses and mean flow
-..    in shoaling and breaking waves. Proceedings 24th International
-..    Conference on Coastal Engineering, 594–608. doi:10.9753/icce.v24.
-..    
-..    Suzuki, T., Zijlema, M., Burger, B., Meijer, M. C., & Narayan, S.
-..    (2012). Wave dissipation by vegetation with layer schematization in
-..    SWAN. Coastal Engineering, 59, 64–71.
-..    doi:10.1016/j.coastaleng.2011.07.006
-..    
-..    Svendsen, I. A. (1984a). Mass flux and undertow in a surf zone. Coastal
-..    Engineering, 8, 347–365.
-..    
-..    Svendsen, I. A. (1984b). Wave heights and set-up in a surf zone. Coastal
-..    Engineering, 8, 303–329. doi:10.1016/0378-383990028-0
-..    
-..    Talmon, A. M., van Mierlo, M. C., & Struiksma, N. (1995). Laboratory
-..    measurements of the direction of sediment transport on transverse
-..    alluvial-bed slope. Journal of Hydraulic Research, 33, 495–517.
-..    
-..    Van Bendegom, L. (1947). Enige beschouwingen over riviermorphologie en
-..    rivierverbetering.
-..    
-..    Van der Zwaag, J. (2014). Modelling sediment sorting near the large
-..    scale nourishment ’ The Sand Motor ’. MSc thesis, Delft University of
-..    Technology, Delft.
-..    
-..    Van Dongeren, A. R., & Svendsen, I. A. (1997). Absorbing-generating
-..    boundary condition for shallow water models. Journal of Waterway, Port,
-..    Coastal and Ocean Engeering, , 303–313.
-..    
-..    Van Rhee, C. (2010). Sediment entrainment at high flow velocity. Journal
-..    of Hydraulic Engineering, 136, 572–582.
-..    
-..    Van Rijn, L. C. (1985). Sediment transport, part III: bed forms and
-..    alluvial roughness. Journal of Hydraulic Engineering, 110, 1733–1754.
-..    
-..    Van Rijn, L. C. (2007). Unified View of Sediment Transport by Currents
-..    and Waves: part I and II. Journal of Hydraulic Engineering, (June),
-..    649–667.
-..    
-..    Van Rooijen, A. A., Van Thiel de Vries, J. S. M., McCall, R. T., van
-..    Dongeren, A. R., Roelvink, J. A., & Reniers, A. J. H. M. (2015).
-..    Modeling of wave attenuation by vegetation with XBeach. E-Proceedings of
-..    the 36th IAHR World Congress 28 June – 3 July, 2015, The Hague, The
-..    Netherlands.
-..    
-..    Van Thiel de Vries, J. S. M. (2009). Dune erosion during storm surges.
-..    PhD thesis, Delft Unversity of Technology, Delft.
-..    
-..    Verboom, G. K., Stelling, G. S., & Officer, M. J. (1981). Boundary
-..    conditions for the shallow water equations. Engineering Applications of
-..    Computational Hydraulics, 230–262.
-..    
-..    Walstra, D. J. R., Roelvink, J. A., & Groeneweg, J. (2000). Calculation
-..    of wave-driven currents in a 3D mean flow model. In Proceedings 27th
-..    International Conference on Coastal Engineering (pp. 1050–1063).
-..    
-..    Walstra, D. J. R., van Rijn, L. C., Van Ormondt, M., Briere, C., &
-..    Talmon, A. M. (2007). The Effects of Bed Slope and Wave Skewness on
-..    Sediment Transport and Morphology (pp. 137–150).
-..    
-..    Zhou, M., Roelvink, J. A., Verheij, H. J., & Ligteringen, H. (2013).
-..    Study of Passing Ship Effects along a Bank by Delft3D-FLOW and XBeach.
-..    International Workshop on Nautical Traffic Models 2013, Delft, The
-..    Netherlands, July 5-7, 2013. Delft University of Technology.
-..    
-..    Zhou, M., Roelvink, J. A., Zou, Z., & van Wijhe, H. J. (2014). Effects
-..    of Passing Ship With a Drift Angle on a Moored Ship. ASME 2014 33rd
-..    International Conference on Ocean, Offshore and Arctic Engineering.
-..    
-.. .. [Zijlema2011a] Zijlema, M., Stelling, G. S., & Smit, P. B. (2011). SWASH: An
-..    operational public domain code for simulating wave fields and rapidly
-..    varied flows in coastal waters. Coastal Engineering, 58, 992–1012.
-..    doi:10.1016/j.coastaleng.2011.05.015
 
 .. rubric:: Footnotes
    
