@@ -17,6 +17,7 @@ Contents:
    output_variables
    tools
    examples_and_tutorials
+   cheatsheet
 
 Indices and tables
 ==================
