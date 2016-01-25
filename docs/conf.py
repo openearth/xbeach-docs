@@ -35,14 +35,18 @@ extensions = [
     'sphinx.ext.pngmath',
     'sphinx.ext.viewcode',
     'sphinx.ext.linkcode',
-    'sphinxfortran.fortran_domain',
-    'sphinxfortran.fortran_autodoc',
+#    'sphinxfortran.fortran_domain',
+#    'sphinxfortran.fortran_autodoc',
     'sphinxcontrib.bibtex',
     'sphinxcontrib.partable',
+    'breathe',
 ]
 
 fortran_src = '../src/xbeachlibrary/'
 fortran_ext = ['F90', 'f90']
+
+breathe_projects = {'xbeach': 'doxygen/xml/'}
+breathe_default_project = 'xbeach'
 
 #nitpicky = True
 

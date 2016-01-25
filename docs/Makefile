@@ -5,10 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
-#BUILDDIR      = _build
 BUILDDIR      = ../../xbeach-docs
-PDFBUILDDIR   = /tmp
-PDF           = ../../html/manual.pdf
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -114,11 +111,10 @@ latex:
 	      "(use \`make latexpdf' here to do that automatically)."
 
 latexpdf:
-	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(PDFBUILDDIR)/latex
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
-	$(MAKE) -C $(PDFBUILDDIR)/latex all-pdf
-	cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
-	@echo "pdflatex finished; the PDF files are in $(PDFBUILDDIR)/latex."
+	$(MAKE) -C $(BUILDDIR)/latex all-pdf
+	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 latexpdfja:
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
@@ -179,3 +175,8 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+commit:
+	@git --git-dir=$(BUILDDIR)/html/.git --work-tree=$(BUILDDIR)/html add .
+	@git --git-dir=$(BUILDDIR)/html/.git --work-tree=$(BUILDDIR)/html commit -a -m "Updated docs"
+	@git --git-dir=$(BUILDDIR)/html/.git --work-tree=$(BUILDDIR)/html push
