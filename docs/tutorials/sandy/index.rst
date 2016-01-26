@@ -64,7 +64,7 @@ We need the following tools:
       
 * This tutorial data folder with scripts, data and model set-up
    
-  * Can be retrieved via: https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/sandy
+  * Can be retrieved via: https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/sandy/files
       
 * Add the files in the folder ``Functions`` to your Matlab
   folder. Antoher option is to ad the entire path of
