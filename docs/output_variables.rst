@@ -1,4 +1,4 @@
 Output variables
 ================
 
-.. include:: partable_spaceparams.tab
+.. include:: tables/partable_spaceparams.tab

@@ -88,7 +88,7 @@ counter-clockwise w.r.t. the xw-axis (East).
 
 .. _fig-coordsys-rect:
 
-.. figure:: image8.png
+.. figure:: images/image8.png
    :width: 400px
    :align: center
 
@@ -118,7 +118,7 @@ and flow boundary conditions.
 
 .. _fig-coordsys-curvi:
 
-.. figure:: image9.png
+.. figure:: images/image9.png
    :width: 400px
    :align: center
 
@@ -159,7 +159,7 @@ without changing the rest of the input files (keyword:
 
 .. _Wave_processes:
 
-.. figure:: image10.png
+.. figure:: images/image10.png
    :width: 400px
    :align: center
 
@@ -207,24 +207,24 @@ these boundaries.
 .. _stationary_examples1:
    :align: center
 
-   .. image:: image11.png
+   .. image:: images/image11.png
       :width: 200px
 
-   .. image:: image12.png
+   .. image:: images/image12.png
       :width: 200px
 
 .. _stationary_examples2:
    :align: center
 
-   .. image:: image13.png
+   .. image:: images/image13.png
       :width: 200px
 
-   .. image:: image14.png
+   .. image:: images/image14.png
       :width: 200px
 
 .. _stationary_examples:
 
-.. figure:: blank.png
+.. figure:: images/blank.png
    :width: 0px
            
    Root-mean square wave height (left panels) and final bathymetry
@@ -318,7 +318,7 @@ Osborne, Brick, NJ.
 
 .. _lip_tests:
 
-.. figure:: image15.png
+.. figure:: images/image15.png
    :width: 400px
    :align: center
 
@@ -328,15 +328,15 @@ Osborne, Brick, NJ.
 
 .. _sandy_example1:
 
-   .. image:: image16.png
+   .. image:: images/image16.png
       :width: 200px
               
-   .. image:: image17.png
+   .. image:: images/image17.png
       :width: 200px
 
 .. _sandy_example:
 
-.. figure:: blank.png
+.. figure:: images/blank.png
 
    Pre (left) and post-Sandy (right) in a three dimensional plot with
    both bed and water levels as simulated by XBeach
@@ -390,7 +390,7 @@ ships, see :ref:`sec-ship-induced-wave-motions`.
 
 .. _bardex_example:
 
-.. figure:: image18.png
+.. figure:: images/image18.png
    :width: 400px
    :align: center
 
@@ -2237,7 +2237,7 @@ mixing (:numref:`fig-sediment-diffusion`).
 
 .. _fig-sediment-diffusion:
 
-.. figure:: image19.png
+.. figure:: images/image19.png
    :width: 400px
    :align: center
 
@@ -2281,15 +2281,15 @@ filtered to focus on the computation of the primary ship wave.
 
 .. _fig-ship-example1:
 
-   .. image:: image20.png
+   .. image:: images/image20.png
       :width: 200px
               
-   .. image:: image21.png
+   .. image:: images/image21.png
       :width: 200px
 
 .. _fig-ship-example:
 
-.. figure:: blank.png
+.. figure:: images/blank.png
 
    Example XBeach setup (left) and result (right) for a ship
    wave simulation in the Scheldt Estuary (The Netherlands). The ship track
@@ -2298,7 +2298,7 @@ filtered to focus on the computation of the primary ship wave.
 
 .. _fig-ship-waves-example:
 
-.. figure:: image22.png
+.. figure:: images/image22.png
    :width: 400px
    :align: center
 
@@ -2456,7 +2456,7 @@ shown in :numref:`fig-wave-boundary-conditions`.
 
 .. _fig-wave-boundary-conditions:
 
-.. figure:: image23.png
+.. figure:: images/image23.png
    :width: 400px
    :align: center
 
@@ -2774,7 +2774,7 @@ process can be switched on or off. The commonly used processes are
 turned on by default. The table below lists the keywords used to switch
 on or off physical processes in XBeach.
 
-.. include:: partable_physical_processes.tab
+.. include:: tables/partable_physical_processes.tab
 
 .. _sec-grid-bathymetry:
 
@@ -2868,7 +2868,7 @@ are:
 All keywords related to grid and bathymetry input are listed in the
 following table:
 
-.. include:: partable_grid_parameters.tab
+.. include:: tables/partable_grid_parameters.tab
 
 Waves input
 -----------
@@ -2892,11 +2892,11 @@ subsections. Note that most spectral wave boundary conditions can vary
 both in space and time using a *FILELIST* and/or *LOCLIST*
 construction as described in :ref:`sec-spatiotemporal-varying-wbc`.
 
-.. include:: partable_wave_boundary_condition_parameters.tab
+.. include:: tables/partable_wave_boundary_condition_parameters.tab
 
 .. _fig-wbc-decision-tree:
 
-.. figure:: image24.png
+.. figure:: images/image24.png
    :width: 600px
    :align: center
 
@@ -2924,7 +2924,7 @@ conditions is given in the table below. The necessary file formats for
 each type of spectral wave boundary condition is explained in the
 following subsections.
 
-.. include:: partable_wave_spectrum_boundary_condition_parameters.tab
+.. include:: tables/partable_wave_spectrum_boundary_condition_parameters.tab
 
 JONSWAP wave spectra
 ^^^^^^^^^^^^^^^^^^^^
@@ -3004,7 +3004,7 @@ JONSWAP spreading parameter.
 
 .. _wave_spreading:
 
-.. figure:: image25.png
+.. figure:: images/image25.png
    :width: 400px
    :align: center
 
@@ -3263,7 +3263,7 @@ for time-varying spectral input in the form of JONSWAP spectra (see
 :ref:`sec-spectral-wbc`). In stationary mode only the relevant data from this file is
 used and irrelevant data like :par:`gamma` and :par:`dfj` are discarded.
 
-.. include:: partable_wave_boundary_condition_parameters.tab
+.. include:: tables/partable_wave_boundary_condition_parameters.tab
 
 Time series
 ^^^^^^^^^^^
@@ -3495,7 +3495,7 @@ boundary as discussed in :ref:`sec-waves`.
 
 |
    
-.. include:: partable_flow_boundary_condition_parameters.tab
+.. include:: tables/partable_flow_boundary_condition_parameters.tab
 
 .. _sec-time-varying-surge:
 
@@ -3558,7 +3558,7 @@ In case of a single tidal signal, the signal is imposed on both offshore
 corners of the domain, while a constant water level defined by the
 keyword :par:`zs0` is imposed on the landward corners.
 
-.. include:: partable_tide_boundary_conditions.tab
+.. include:: tables/partable_tide_boundary_conditions.tab
 
 Water level (dam break)
 -----------------------
@@ -3578,7 +3578,7 @@ the initial water levels in the entire model domain. The file should
 have the same format as the bathymetry input files described in
 :ref:`sec-grid-bathymetry`.
 
-.. include:: partable_initial_conditions.tab
+.. include:: tables/partable_initial_conditions.tab
 
 Wind input
 ----------
@@ -3603,7 +3603,7 @@ simulation time.
 
 The table below gives an overview of all keywords related to the wind:
 
-.. include:: partable_wind_parameters.tab
+.. include:: tables/partable_wind_parameters.tab
 
 Sediment input
 --------------
@@ -3707,7 +3707,7 @@ the bed layers (nd).  The file format is as follows:
 The table below gives an overview of all keywords related to working
 with multiple sediment fractions and bed layers:
 
-.. include:: partable_bed_composition_parameters.tab
+.. include:: tables/partable_bed_composition_parameters.tab
 
 Vegetation input
 ----------------
@@ -3764,7 +3764,7 @@ A definition sketch is given in :numref:`fig-vegetation`.
 
 .. _fig-vegetation:
 
-.. figure:: image26.png
+.. figure:: images/image26.png
    :width: 400px
    :align: center
 
@@ -3794,7 +3794,7 @@ vegetation is modeled:
 Below the relevant keywords in the params.txt are given. In addition,
 the keyword :par:`vegetation` should be set to 1.
 
-.. include:: partable_vegetation_parameters.tab
+.. include:: tables/partable_vegetation_parameters.tab
 
 Discharge input
 ---------------
@@ -3857,7 +3857,7 @@ discharges are positive into the domain (influx).
 
 .. _discharges:
 
-.. figure:: image27.png
+.. figure:: images/image27.png
    :width: 400px
    :align: center
 
@@ -3869,7 +3869,7 @@ discharges are positive into the domain (influx).
 
 The table below gives an overview of all keywords related to discharges:
 
-.. include:: partable_flow_discharge_boundary_conditions.tab
+.. include:: tables/partable_flow_discharge_boundary_conditions.tab
 
 Drifters input
 --------------
@@ -3893,7 +3893,7 @@ the :par:`drifterfile` keyword. The file format is as follows:
 
 The table below gives an overview of all keywords related to drifters:
 
-.. include:: partable_drifters_parameters.tab
+.. include:: tables/partable_drifters_parameters.tab
 
 Ship-induced wave motions
 -------------------------
@@ -4013,7 +4013,7 @@ files is:
    
    ...
 
-.. include:: partable_ship_parameters.tab
+.. include:: tables/partable_ship_parameters.tab
 
 Output selection
 ----------------
@@ -4024,7 +4024,7 @@ output times and output formats supported by XBeach are explained in
 more detail in the following subsections. The table below gives an
 overview of all keywords related to model output:
 
-.. include:: partable_output_variables.tab
+.. include:: tables/partable_output_variables.tab
 
 Output types
 ~~~~~~~~~~~~
@@ -4052,7 +4052,7 @@ in the following subsections.
 
 .. _tab-output-parameters:
 
-.. include:: partable_spaceparams.tab
+.. include:: tables/partable_spaceparams.tab
              
 Instantaneous spatial output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4412,7 +4412,7 @@ time step used in the hydrodynamic simulation is determined based on a
 given maximum Courant number using the keyword :par:`CFL`. The table below
 gives an overview of all keywords related to time management:
 
-.. include:: partable_model_time.tab
+.. include:: tables/partable_model_time.tab
 
 Appendices
 ==========
@@ -4710,7 +4710,7 @@ model. The keyword :par:`scheme` can be used to set the numerical scheme. By
 default a higher-order upwind scheme is used to minimize numerical
 dissipation.
 
-.. include:: partable_wave_numerics_parameters.tab
+.. include:: tables/partable_wave_numerics_parameters.tab
 
 Wave dissipation
 ~~~~~~~~~~~~~~~~
@@ -4726,7 +4726,7 @@ The :par:`break` = *roelvink\_daly* option is a model in which waves start and
 stop breaking. Reducing :par:`gammax` will reduce wave heights in very
 shallow water, probably 2 is a reasonable value.
 
-.. include:: partable_wave_breaking_parameters.tab
+.. include:: tables/partable_wave_breaking_parameters.tab
 
 Rollers
 ~~~~~~~
@@ -4736,7 +4736,7 @@ Using the roller model will give a shoreward shift in wave-induced
 setup, return flow and alongshore current. This shift becomes greater
 for lower :par:`beta` values.
 
-.. include:: partable_roller_parameters.tab
+.. include:: tables/partable_roller_parameters.tab
 
 Wave-current interaction
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4748,7 +4748,7 @@ in a feedback of currents on the wave propagation. On top of that,
 :par:`hwci` limits the computation of wave-current interaction in very
 shallow water where the procedure may not converge.
 
-.. include:: partable_wave_current_interaction_parameters.tab
+.. include:: tables/partable_wave_current_interaction_parameters.tab
 
 Bed friction and viscosity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4771,7 +4771,7 @@ a factor :par:`nuhv` to account for additional advective mixing. It is also
 possible to use a user-defined value for the horizontal viscosity
 (keyword :par:`smag` = *0*)
 
-.. include:: partable_flow_parameters.tab
+.. include:: tables/partable_flow_parameters.tab
 
 Flow numerics
 ~~~~~~~~~~~~~
@@ -4783,7 +4783,7 @@ limited to avoid unrealistic behavior. For example :par:`hmin` prevents very
 strong return flows or high concentrations and the :par:`eps` determines
 whether points are dry or wet and can be taken quite small.
 
-.. include:: partable_flow_numerics_parameters.tab
+.. include:: tables/partable_flow_numerics_parameters.tab
 
 Sediment transport
 ~~~~~~~~~~~~~~~~~~
@@ -4799,7 +4799,7 @@ turbulence can be switched on or off using the keywords :par:`sws`, :par:`lws` a
 formulations are available as well as keywords to incorporate the bed
 slope effect.
 
-.. include:: partable_sediment_transport_parameters.tab
+.. include:: tables/partable_sediment_transport_parameters.tab
 
 Sediment transport numerics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4810,7 +4810,7 @@ example the maximum allowed sediment concentration can be varied with
 the keyword :par:`cmax`. It is however not recommended varying these
 settings.
 
-.. include:: partable_sediment_transport_numerics_parameters.tab
+.. include:: tables/partable_sediment_transport_numerics_parameters.tab
 
 Quasi-3D sediment transport
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4820,7 +4820,7 @@ sediment transport, if enabled. The most important setting is the :par:`kmax`
 in which the user specifies the number of layers used in the quasi 3D
 sediment model.
 
-.. include:: partable_q3d_sediment_transport_parameters.tab
+.. include:: tables/partable_q3d_sediment_transport_parameters.tab
 
 Morphology
 ~~~~~~~~~~
@@ -4861,7 +4861,7 @@ where the value in the :par:`ne_layer` file is larger than zero erosion can
 occur. Non-erodible layers are infinitely deep and thus no erosion
 underneath these layers can occur.
 
-.. include:: partable_morphology_parameters.tab
+.. include:: tables/partable_morphology_parameters.tab
 
 .. _sec-bed-update:
 
@@ -4947,7 +4947,7 @@ computation of morphological updating (keyword: :par:`morphology` = *0*) if
 the :par:`setbathy` option is used, as the computed morphological change will
 be overridden by the imposed morphological change.
 
-.. include:: partable_bed_update_numerics_parameters.tab
+.. include:: tables/partable_bed_update_numerics_parameters.tab
 
 Groundwater flow
 ~~~~~~~~~~~~~~~~
@@ -4962,7 +4962,7 @@ initial groundwater head can be set to either a uniform value using the
 referenced by the :par:`gw0file` keyword. Both files have the same format as
 the bathymetry file explained in :ref:`sec-grid-bathymetry`.
 
-.. include:: partable_groundwater_parameters.tab
+.. include:: tables/partable_groundwater_parameters.tab
 
 Non-hydrostatic correction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4972,7 +4972,7 @@ non-hydrostatic option (keyword: :par:`wavemodel` = *nonh*). These are all
 considered advanced options and it is thus recommended not to change
 these
 
-.. include:: partable_non_hydrostatic_correction_parameters.tab
+.. include:: tables/partable_non_hydrostatic_correction_parameters.tab
 
 Physical constants
 ~~~~~~~~~~~~~~~~~~
@@ -4983,7 +4983,7 @@ universally used coefficient. The :par:`depthscale` is a factor in order to
 set different cut-off values like :par:`eps` and :par:`hswitch`. A value of the
 :par:`depthscale` lower than one means the cut-off values will increase.
 
-.. include:: partable_physical_constants.tab
+.. include:: tables/partable_physical_constants.tab
 
 Coriolis force
 ~~~~~~~~~~~~~~
@@ -4992,7 +4992,7 @@ The parameters listed in the table below involve the settings for
 incorporating the effect of Coriolis on the shallow water equations. The
 keywords are universally used coefficients.
 
-.. include:: partable_coriolis_force_parameters.tab
+.. include:: tables/partable_coriolis_force_parameters.tab
 
 MPI
 ~~~
@@ -5015,7 +5015,7 @@ important to note that information about slopes isn’t exchanged over the
 boundaries. Therefore the avalanching algorithm will not function over
 MPI boundaries.
 
-.. include:: partable_mpi_parameters.tab
+.. include:: tables/partable_mpi_parameters.tab
 
 Output projection
 ~~~~~~~~~~~~~~~~~
@@ -5027,7 +5027,7 @@ an angle specified by the keyword :par:`alfa`. The :par:`projection` string can
 hold a string specifying the coordinate reference system used and is
 stored in the netCDF output file as metadata.
 
-.. include:: partable_output_projection.tab
+.. include:: tables/partable_output_projection.tab
 
 Numerical implementation 
 -------------------------
@@ -5052,7 +5052,7 @@ is shown with the corresponding grid distances around the *u-* and
 
 .. _fig-staggered-grid:
 
-.. figure:: image28.png
+.. figure:: images/image28.png
    :width: 400px
    :align: center
 
@@ -5199,7 +5199,7 @@ same direction at the upwind cell.
 
 .. _fig-momentum-and-fluxes:
 
-.. figure:: image29.png
+.. figure:: images/image29.png
    :width: 400px
    :align: center
 
@@ -5265,7 +5265,7 @@ makes the scheme second order accurate.
 
 .. _fig-leapfrog:
 
-.. figure:: image30.png
+.. figure:: images/image30.png
    :width: 400px
    :align: center
 

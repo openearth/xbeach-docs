@@ -45,8 +45,9 @@ extensions = [
 fortran_src = '../src/xbeachlibrary/'
 fortran_ext = ['F90', 'f90']
 
-breathe_projects = {'xbeach': 'doxygen/xml/'}
+breathe_projects = {'xbeach':'doxygen/xml/'}
 breathe_default_project = 'xbeach'
+breathe_domain_by_extension = {'F90':'f', 'f90':'f'}
 
 #nitpicky = True
 

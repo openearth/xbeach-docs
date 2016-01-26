@@ -1,4 +1,4 @@
 Input parameters
 ================
 
-.. include:: partable_all.tab
+.. include:: tables/partable_all.tab
