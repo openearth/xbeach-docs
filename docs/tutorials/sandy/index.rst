@@ -23,24 +23,24 @@ Hurricane Sandy on the New Jersey coast.
 .. _fig-photos1:
    :align: center
 
-   .. image:: image2.jpeg
+   .. image:: images/image2.jpeg
       :width: 200px
 
-   .. image:: image3.jpeg
+   .. image:: images/image3.jpeg
       :width: 200px
 
 .. _fig-photos2:
    :align: center
            
-   .. image:: image4.png
+   .. image:: images/image4.png
       :width: 200px
               
-   .. image:: image5.png
+   .. image:: images/image5.png
       :width: 200px
 
 .. _fig-photos:
 
-.. figure:: blank.png
+.. figure:: images/blank.png
    :width: 0px
 
    Upper pictures show characteristic examples of damage which
@@ -185,7 +185,7 @@ will be used when we will make the actual XBeach model.
 
 .. _fig-selectlidar:
 
-.. figure:: image6.png
+.. figure:: images/image6.png
    :width: 400px
    :align: center
            
@@ -193,7 +193,7 @@ will be used when we will make the actual XBeach model.
 
 .. _fig-selectoutput:
 
-.. figure:: image7.png
+.. figure:: images/image7.png
    :width: 400px
    :align: center
            
@@ -201,7 +201,7 @@ will be used when we will make the actual XBeach model.
 
 .. _fig-downloadcrm:
 
-.. figure:: image8.png
+.. figure:: images/image8.png
    :width: 400px
    :align: center
            
@@ -292,7 +292,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-wavessurge:
 
-.. figure:: image9.png
+.. figure:: images/image9.png
    :width: 400px
    :align: center
 
@@ -302,7 +302,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-obsflow:
 
-.. figure:: image10.png
+.. figure:: images/image10.png
    :width: 400px
    :align: center
 
@@ -310,7 +310,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
  
 .. _fig-obswave:
 
-.. figure:: image11.png
+.. figure:: images/image11.png
    :width: 400px
    :align: center
 
@@ -318,7 +318,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-ndbc:
 
-.. figure:: image12.png
+.. figure:: images/image12.png
    :width: 400px
    :align: center
 
@@ -328,7 +328,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-noaa:
 
-.. figure:: image13.png
+.. figure:: images/image13.png
    :width: 400px
    :align: center
 
@@ -338,7 +338,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-usgs:
 
-.. figure:: image14.png
+.. figure:: images/image14.png
    :width: 400px
    :align: center
 
@@ -431,13 +431,13 @@ manual. On top of that the params.txt of this tutorial is added.
 
 .. _fig-wbc:
 
-.. figure:: image15.png
+.. figure:: images/image15.png
    :width: 400px
    :align: center
 
    Different wave boundary options: surf beat versus non-hydrostatic.
 
-.. literalinclude:: params.txt
+.. literalinclude:: files/Model/params.txt
    :language: text
    :caption: Example params.txt
   
@@ -564,7 +564,7 @@ example of an XBeach animation can be foud here
 
 .. _fig-sandy:
 
-.. figure:: image16.png
+.. figure:: images/image16.png
    :width: 400px
    :align: center
             
