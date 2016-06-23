@@ -1,0 +1,4 @@
+breathe==4.0.0
+sphinxcontrib-bibtex==0.3.2
+sphinxcontrib-napoleon==0.2.8
+-e git+https://github.com/openearth/sphinxcontrib-partable@330cc72c300f274f6134a7581318e0efad0bee52#egg=sphinxcontrib_partable-master
