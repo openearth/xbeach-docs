@@ -49,6 +49,54 @@ current directory along with several other files which are referred to from the
 |              |file. This one has a syntax similar to the params.txt file.         |
 +--------------+--------------------------------------------------------------------+
 
+**params.txt**
+
+.. code-block:: text
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %%% XBeach parameter settings input file                                     %%%
+   %%%                                                                          %%%
+   %%% date:     29-Jun-2016 07:40:37                                           %%%
+   %%% function: xb_write_params                                                %%%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   %%% Grid parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   depfile   = bed.dep
+   posdwn    = 0
+   nx        = 580
+   ny        = 0
+   alfa      = 0
+   vardx     = 1
+   xfile     = x.grd
+   yfile     = y.grd
+   xori      = 0
+   yori      = 0
+   thetamin  = 225
+   thetamax  = 315
+   dtheta    = 90
+   thetanaut = 1
+   
+   %%% Initial conditions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   zs0       = 5
+   
+   %%% Model time %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   tstop     = 2000
+   
+   %%% Wave boundary condition parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   instat    = jons
+   
+   %%% Wave-spectrum boundary condition parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   bcfile    = jonswap.txt
+   rt        = 1800
+   dtbc      = 1
+   
+   %%% Output variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
 
 The files describe a simple one-dimensional model with a schematized dune profile 
 (see Figure) and a statistically constant boundary conditions described by a JONSWAP 
