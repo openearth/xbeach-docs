@@ -54,6 +54,11 @@ The files describe a simple one-dimensional model with a schematized dune profil
 (see Figure) and a statistically constant boundary conditions described by a JONSWAP 
 spectrum with a significant wave height of 7.6m and a peak wave period of 12s.
 
+.. figure:: duneprofile.jpg
+   :width: 400px
+   :align: center
+
+
 Altering My First XBeach Model
 ------------------------------
 
@@ -148,6 +153,10 @@ directory, supply the model directory or supply the result structure from the
 
 The result will be somethink like this:
 
+.. figure:: viewresults.jpg
+   :width: 400px
+   :align: center
+
 If you need to manipulate the output data or the visualization a bit more than the 
 ``xb_view`` command offers, you will need to load the output data. The output is read
 using the ``xb_read_output`` command, which stores the data in an XBeach structure. 
@@ -206,8 +215,12 @@ Analyze results
  Profiles
  --------
  
- | ``xb_plot_profile(xbo);``
+ | ``xb_plot_profile(xbo
  
+ .. figure:: profiles.jpg
+   :width: 400px
+   :align: center
+
  Hydrodynamics
  -------------
  
@@ -215,11 +228,23 @@ Analyze results
  | ``xb_plot_hydro(xbh);``
  | ``xb_plot_hydro2(xbh);``
 
+.. figure:: hydrodynamics.jpg
+   :width: 400px
+   :align: center
+
+.. figure:: hydrodynamics2.jpg
+   :width: 400px
+   :align: center
+
 Sediment transports
 -------------------
 
  | ``xbs = xb_get_sedtrans(xbo);``
  | ``xb_plot_sedtrans(xbs);``
+
+.. figure:: sedimenttransports.jpg
+   :width: 400px
+   :align: center
 
 Morphology
 ----------
@@ -227,6 +252,9 @@ Morphology
  | ``xbm = xb_get_morpho(xbo);``
  | ``xb_plot_morpho(xbm);``
  
+.. figure:: morphology.jpg
+   :width: 400px
+   :align: center
 
 XBeach Matlab Toolbox Functions
 ===============================
