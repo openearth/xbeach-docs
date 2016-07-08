@@ -1,5 +1,8 @@
+MATLAB TOOLBOX
+==============
+
 Set-up model
-============
+------------
 
 XBeach is configured using a collection of files that hold information on the 
 bathymertry, boundary conditions, model settings, etcetera. All files are plain 
@@ -13,15 +16,15 @@ bunch of files, which we will explain. Setting up a model manually, without the
 toolbox, implies creating these files in any other way of your preference. A 
 collection of example models can be found in the Documentation section.
 
-My First XBeach Model
----------------------
+Generate model with xb_generate_model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Having started Matlab and incuded the Matlab XBeach Toolbox to your path, you should 
+Having started Matlab and incLuded the Matlab XBeach Toolbox to your path, you should 
 be able to run the following command:
 
  | ``xbi = xb_generate_model;``
 
-Believe it or not, the ``xbo`` variable now contains a structure with a full XBeach 
+When done, the ``xbo`` variable now contains a structure with a full XBeach 
 model set-up. You can write the model to disk by running the following command:
 
  | ``xb_write_input('params.txt', xbi);``
@@ -49,7 +52,7 @@ current directory along with several other files which are referred to from the
 |              |file. This one has a syntax similar to the params.txt file.         |
 +--------------+--------------------------------------------------------------------+
 
-**params.txt**
+When we open the file **params.txt** with a text editor, we get the following content:
 
 .. code-block:: text
 
@@ -107,8 +110,11 @@ spectrum with a significant wave height of 7.6m and a peak wave period of 12s.
    :align: center
 
 
-Altering My First XBeach Model
-------------------------------
+
+Arguments of the xb_generate_model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. seealso:: xb_generate_model_
 
 The model created in the previous example uses default settings only, which is not 
 very interesting. Altering the model is done by supplying preferences to the function
@@ -150,7 +156,7 @@ different parameters might be lost.
 
 
 Run model
-=========
+---------
 
 You can run your model by simply executing the XBeach executable in the directory 
 where you wrote your models settings to. This is the directory where the *params.txt*
@@ -182,7 +188,7 @@ command looks like this:
  |  ``'ssh_host', 'h4', 'ssh_prompt', true);``
 
 Visualize results
-=================
+-----------------
 
 Once your model finished running, it is time to have a look at the model output. Two 
 types of output can be generated: Fortran and netCDF. The former type generates a 
@@ -239,7 +245,7 @@ command. Try the following commands to figure out how it all works:
  
  
 Analyze results
-===============
+---------------
  
  What we did so far is setting-up and running a simple model and visualizing the 
  results. The visualization was limited to a plain representation of the model 
@@ -261,7 +267,7 @@ Analyze results
  generally applicable, provide it to the community!
  
  Profiles
- --------
+ ^^^^^^^^
  
  | ``xb_plot_profile(xbo
  
@@ -270,7 +276,7 @@ Analyze results
    :align: center
 
  Hydrodynamics
- -------------
+ ^^^^^^^^^^^^^
  
  | ``xbh = xb_get_hydro(xbo);``
  | ``xb_plot_hydro(xbh);``
@@ -285,7 +291,7 @@ Analyze results
    :align: center
 
 Sediment transports
--------------------
+^^^^^^^^^^^^^^^^^^^
 
  | ``xbs = xb_get_sedtrans(xbo);``
  | ``xb_plot_sedtrans(xbs);``
@@ -295,7 +301,7 @@ Sediment transports
    :align: center
 
 Morphology
-----------
+^^^^^^^^^^
 
  | ``xbm = xb_get_morpho(xbo);``
  | ``xb_plot_morpho(xbm);``
@@ -305,7 +311,7 @@ Morphology
    :align: center
 
 XBeach Matlab Toolbox Functions
-===============================
+-------------------------------
     
 The XBeach Matlab toolboxes accomodates several frequantly used pre-
 and post-processing scripts for the XBeach model. Be aware that this
@@ -336,7 +342,7 @@ xb_visualise_
 .. _sec-xb_analysis:
 
 xb_analysis
------------
+^^^^^^^^^^^
 
 .. _xb_get_activeprofile:
 
