@@ -1,5 +1,5 @@
-XBeach Matlab Toolbox
-=====================
+XBeach Matlab Toolbox (reference)
+=================================
     
 The XBeach Matlab toolboxes accomodates several frequantly used pre-
 and post-processing scripts for the XBeach model. Be aware that this
