@@ -1,5 +1,5 @@
-XBeach Matlab Toolbox tutorial)
-===============================
+XBeach Matlab Toolbox (tutorial)
+================================
 
 
 Set-up model
