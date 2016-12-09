@@ -5,3 +5,4 @@ Tutorials
    :maxdepth: 1
 
    tutorials/sandy/index
+   tutorials/intro
