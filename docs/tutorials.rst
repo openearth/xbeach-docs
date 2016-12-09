@@ -6,3 +6,4 @@ Tutorials
 
    tutorials/sandy/index
    tutorials/intro
+   tutorials/ports/xbeach_ports
