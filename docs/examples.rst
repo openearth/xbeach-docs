@@ -19,8 +19,8 @@ This test simulates dune erosion on the standard Holland profile (DUROS) under n
 
 model data: https://svn.oss.deltares.nl/repos/xbeach/skillbed/input/holland_default/
 
--------------------------
 Field experiment: DELILAH
+-------------------------
 
 2Dh, directional spreading, comparison field data
 
