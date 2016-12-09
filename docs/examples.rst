@@ -5,8 +5,9 @@ Examples
 Hurricane Sandy
 ---------------
 
-Morphology 2D:
-Hurricane Sandy: https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/sandy/files/Model
+Morphology 2D: Hurricane Sandy
+model files: https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/sandy/files/Model
+tutorial: http://xbeach.readthedocs.io/en/latest/tutorials/sandy/index.html
 
 Holland default
 ---------------
