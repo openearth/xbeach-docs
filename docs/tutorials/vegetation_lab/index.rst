@@ -1,5 +1,5 @@
-Tutorial: Modeling wave attenuation by vegetation (1)
-=====================================================
+Tutorial: Modeling wave attenuation by vegetation (1D)
+======================================================
 Introduction
 ------------
 Many coastlines around the world are fronted by vegetation (e.g. seagrass, mangroves, kelp, salt marsh) and recent studies have shown that the presence of aquatic vegetation can result in wave attenuation and flow reduction. In addition, these ecosystems may play a very important role of the coastal morphodynamics. To be able to take into account the effect of vegetation on coastal hydrodynamics in XBeach a vegetation module was developed (Van Rooijen et al., 2016; Roelvink et al., 2015). The main objective of this tutorial is to get familiar with the vegetation module of XBeach. 
