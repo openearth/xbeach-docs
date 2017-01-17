@@ -16,7 +16,10 @@ The tutorial considers one of the experiments of Løvås, which was carried out 
 - measured wave heights for test 1 (lovas_waves_test1.txt), this is the case without vegetation
 - measured wave heights for test 2 (lovas_waves_test2.txt), this is the case with vegetation
 
-Based on this information you can set up two seperate models that represent the experiments: one with vegetation and one without the vegetation. The resulting model files for both models are available in the 'model_files' directory.
+Based on this information you can set up two seperate models that represent the experiments: one with vegetation and one without the vegetation. The resulting model files for both models are available in the 'model_files' directory. In addition to the standard XBeach input files (e.g. params, grid, bathymetry, wave conditions), this directory contains the following vegetation files:
+- veggiefile ('vegetation.txt') - this file describes which vegetation types are present in the model (in this case only one)
+- veggiemapfile ('kelpbed.txt') - this file describes which vegetation type is present at each grid point (0 = no vegetation, 1 = type 1, 2 = type 2 etc.)
+- veggiecharsfile ('kelp.txt') - this files describes the characteristics of the specific vegetation type (number of sections, height, stem diameter, density, drag coefficient), each vegetation type should have its own veggiecharsfile.
 
 Using the XBeach MATLAB Toolbox
 -------------------------------
