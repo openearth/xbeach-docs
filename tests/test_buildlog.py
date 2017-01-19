@@ -17,12 +17,12 @@ def test_success():
 
 
 def test_errors():
-    for m in re.finditer('^(.+):(\d+): ERROR: (.+)$', _get_log_contents(), re.MULTILINE):
+    for m in re.finditer('^(.+):(\d+): (SEVERE|ERROR): (.+)$', _get_log_contents(), re.MULTILINE):
         yield _check_error, m
 
 
 def _check_error(m):
-    fname, linenr, msg = m.groups()
+    fname, linenr, msgtype, msg = m.groups()
     fname = os.path.split(fname)[1]
     assert_false(m, '%s:%d: %s' % (fname, int(linenr), msg))
 
