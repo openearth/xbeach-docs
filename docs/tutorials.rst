@@ -7,3 +7,4 @@ Tutorials
    tutorials/sandy/index
    tutorials/cloudcomputing/index
    tutorials/ports/index
+   tutorials/vegetation_lab/index
