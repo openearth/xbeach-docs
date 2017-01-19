@@ -16,12 +16,12 @@ Tutorial
 
 The tutorial considers one of the experiments of Løvås, which was carried out twice: with and without the kelp vegetation present. In the directory you can find a number of files that can be of use:
 
-* Løvås & Tørum, 2001, Coastal Engineering paper
-* Løvås & Tørum, 2000, ICCE Proceedings conference paper
-* measured wave heights for test 1 (lovas_waves_test1.txt), this is the case without vegetation
-* measured wave heights for test 2 (lovas_waves_test2.txt), this is the case with vegetation
+* Løvås & Tørum, 2001, Coastal Engineering paper (files/Literature)
+* Løvås & Tørum, 2000, ICCE Proceedings conference paper (files/Literature)
+* measured wave heights for test 1 (lovas_waves_test1.txt), this is the case without vegetation (files/Data)
+* measured wave heights for test 2 (lovas_waves_test2.txt), this is the case with vegetation (files/Data)
 
-Based on this information you can set up two seperate models that represent the experiments: one with vegetation and one without the vegetation. The resulting model files for both models are available in the 'model_files' directory. In addition to the standard XBeach input files (e.g. params, grid, bathymetry, wave conditions), this directory contains the following vegetation files:
+Based on this information you can set up two seperate models that represent the experiments: one with vegetation and one without the vegetation. The resulting model files for both models are available in the 'model_files' directory (files/Model). In addition to the standard XBeach input files (e.g. params, grid, bathymetry, wave conditions), this directory contains the following vegetation files:
 
 * veggiefile ('vegetation.txt') - this file describes which vegetation types are present in the model (in this case only one)
 
@@ -32,7 +32,7 @@ Based on this information you can set up two seperate models that represent the 
 Using the XBeach MATLAB Toolbox
 -------------------------------
 
-For users that have access to MATLAB, it is recommended to download the XBeach MATLAB Toolbox, which can be accessed via the Open Earth initiative (https://publicwiki.deltares.nl/display/OET/OpenEarth). The toolbox contains a variety of handy functions that can help you set up your model. To give you an idea on how you can use the toolbox for this particular tutorial, a script was added that will generate all the model files itself ('setup_lovas_model.m'). In addition, a script is added that can plot some of the results ('plot_lovas.m'). 
+For users that have access to MATLAB, it is recommended to download the XBeach MATLAB Toolbox, which can be accessed via the Open Earth initiative (https://publicwiki.deltares.nl/display/OET/OpenEarth). The toolbox contains a variety of handy functions that can help you set up your model. To give you an idea on how you can use the toolbox for this particular tutorial, a script was added that will generate all the model files itself ('files/MatlabScripts/setup_lovas_model.m'). In addition, a script is added that can plot some of the results ('files/MatlabScripts/plot_lovas.m'). 
 
 Please note that XBeach is entirely independent from MATLAB and you do not need MATLAB in order to use XBeach. It is, however, handy for pre- and postprocessing.
 
