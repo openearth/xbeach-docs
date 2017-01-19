@@ -1,9 +1,6 @@
-general:
-  build_dir: docs
-
 compile:
   override:
-    - make html &> build.log
+    - cd docs && make html &> build.log
             
 test:
   override:
