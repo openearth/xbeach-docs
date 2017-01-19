@@ -46,9 +46,15 @@ Based on this information you can set up two seperate models that represent the 
 Using the XBeach MATLAB Toolbox
 -------------------------------
 
-For users that have access to MATLAB, it is recommended to download the XBeach MATLAB Toolbox, which can be accessed via the Open Earth initiative (https://publicwiki.deltares.nl/display/OET/OpenEarth). The toolbox contains a variety of handy functions that can help you set up your model. To give you an idea on how you can use the toolbox for this particular tutorial, a script was added that will generate all the model files itself ('files/MatlabScripts/setup_lovas_model.m'). In addition, a script is added that can plot some of the results ('files/MatlabScripts/plot_lovas.m'). 
+For users that have access to MATLAB, it is recommended to download the XBeach MATLAB Toolbox, which can be accessed via the Open Earth initiative (https://publicwiki.deltares.nl/display/OET/OpenEarth). The toolbox contains a variety of handy functions that can help you set up your model. To give you an idea on how you can use the toolbox for this particular tutorial, a script was added that will generate all the model files itself ('files/MatlabScripts/setup_lovas_model.m', see screenshot Fig. 4). In addition, a script is added that can plot some of the results ('files/MatlabScripts/plot_lovas.m'). 
 
 Please note that XBeach is entirely independent from MATLAB and you do not need MATLAB in order to use XBeach. It is, however, handy for pre- and postprocessing.
+
+.. figure:: images/matlab_toolbox.PNG
+   :width: 100px
+   :align: center
+
+Fig.4. Screenshot of MATLAB script that can be used to set up the model ('files/MatlabScripts/setup_lovas_model.m').
 
 References
 ----------
