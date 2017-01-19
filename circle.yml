@@ -1,6 +1,6 @@
 compile:
   override:
-    - echo $PWD && ls && cd docs && make html &> build.log
+    - cd docs && sphinx-build -b html -d _build/doctrees . _build/html
             
 test:
   override:
