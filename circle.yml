@@ -1,11 +1,11 @@
-general:
-  build_dir: docs
-
 compile:
   override:
-    - make html &> build.log
+    - cd docs && sphinx-build -b html -d _build/doctrees . _build/html 2>&1 | tee build.log
             
 test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/nose
     - nosetests --with-xunit --xunit-file=$CIRCLE_TEST_REPORTS/nose/tests.xml
+  post:
+    - mv docs/_build/html $CIRCLE_ARTIFACTS/html
+                

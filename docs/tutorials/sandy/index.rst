@@ -1,5 +1,5 @@
-Tutorial: hindcast hurricane impact Sandy
-=========================================
+Hindcast hurricane impact Sandy
+===============================
 
 Introduction in the case
 ------------------------
