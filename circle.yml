@@ -1,6 +1,6 @@
 compile:
   override:
-    - cd docs && sphinx-build -b html -d _build/doctrees . _build/html
+    - cd docs && sphinx-build -b html -d _build/doctrees . _build/html 2>&1 | tee build.log
             
 test:
   override:

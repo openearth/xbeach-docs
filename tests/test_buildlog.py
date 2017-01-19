@@ -13,7 +13,7 @@ def test_exists():
 
 def test_success():
     m = re.search('^build succeeded', _get_log_contents(), re.MULTILINE)
-    assert_true(m)
+    assert_true(m, 'Build failed')
 
 
 def test_errors():
