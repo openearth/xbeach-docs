@@ -1,5 +1,5 @@
-Tutorial: Cloud computing with XBeach
-=====================================
+Cloud computing with XBeach
+===========================
 
 In this tutorial discusses the possibilities of `cloud computing` for
 XBeach (Roelvink et al., 2009) on two different cloud computing
