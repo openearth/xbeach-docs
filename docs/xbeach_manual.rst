@@ -5116,12 +5116,11 @@ wave energy balance and will not be repeated here.
 Stationary solver
 ^^^^^^^^^^^^^^^^^
 
-In the stationary solver the wave energy and roller energy balances are
-solved line by line, from the seaward boundary landward. For each line
-the automatic timestep is computed and the quasi-time-dependent balance
-according to equation :eq:`stationary-advec` is solved until convergence
-or the maximum number of iterations is reached, after which the solver
-moves to the next line.
+In the stationary solver the wave energy and roller energy balances
+are solved line by line, from the seaward boundary landward. For each
+line the automatic timestep is computed and the quasi-time-dependent
+balance is solved until convergence or the maximum number of
+iterations is reached, after which the solver moves to the next line.
 
 The iteration is controlled by the parameters :par:`maxiter` and :par:`maxerror`.
 
