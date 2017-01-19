@@ -14,7 +14,7 @@ The tutorial is based on a large scale laboratory experiment that was carried ou
 Tutorial
 --------
 
-The tutorial considers one of the experiments of Løvås, which was carried out twice: with and without the kelp vegetation present. In the directory you can find a number of files that can be of use:
+The tutorial considers one of the experiments of Løvås, which was carried out twice: with and without the kelp vegetation present. In the directory (https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/vegetation_lab) you can find a number of files that can be of use:
 
 * Løvås & Tørum, 2001, Coastal Engineering paper (files/Literature)
 * Løvås & Tørum, 2000, ICCE Proceedings conference paper (files/Literature)
