@@ -1,5 +1,5 @@
-Hydrodynamics in ports using XBeach
-===================================
+Tutorial: Hydrodynamics in ports using XBeach
+=============================================
 
 Introduction
 ------------
