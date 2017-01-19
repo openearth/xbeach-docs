@@ -11,11 +11,6 @@ def test_exists():
     assert_true(os.path.exists(LOG_FILE), 'File not found: %s' % LOG_FILE)
 
 
-def test_success():
-    m = re.search('^build succeeded', _get_log_contents(), re.MULTILINE)
-    assert_true(m, 'Build failed')
-
-
 def test_errors():
     for m in re.finditer('^(.+):(\d+): [A-Z]+: (.+)$', _get_log_contents(), re.MULTILINE):
         yield _check_error, m
