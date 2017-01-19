@@ -1,6 +1,6 @@
 compile:
   override:
-    - cd /xbeach-docs/docs && make html &> build.log
+    - cd xbeach-docs/docs && make html &> build.log
             
 test:
   override:
