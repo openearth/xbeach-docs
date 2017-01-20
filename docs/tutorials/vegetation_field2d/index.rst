@@ -1,5 +1,5 @@
-Tutorial: Modeling wave attenuation by vegetation (2D)
-======================================================
+Modeling wave attenuation by vegetation (2D)
+============================================
 
 Introduction
 ------------
