@@ -168,7 +168,7 @@ without changing the rest of the input files (keyword:
 Stationary mode
 ~~~~~~~~~~~~~~~
 
-.. seealso:: The stationary mode is implemented in :f:mod:`wave_stationary_module`.
+.. seealso:: The stationary mode is implemented in `mod:wave_stationary_module`.
              
 In stationary mode the wave-group variations and thereby all
 infragravity motions are neglected. This is useful for conditions
@@ -234,7 +234,7 @@ these boundaries.
 Surf beat mode (instationary)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. seealso:: The surfbeat mode is implemented in :f:mod:`wave_instationary_module`.
+.. seealso:: The surfbeat mode is implemented in `mod:wave_instationary_module`.
 
 The short-wave motion is solved using the wave action equation which
 is a time-dependent forcing of the HISWA equations
@@ -345,7 +345,7 @@ Osborne, Brick, NJ.
 Non-hydrostatic mode (wave resolving) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. seealso:: The non-hydrostatic mode is implemented in :f:mod:`nonh_module`.
+.. seealso:: The non-hydrostatic mode is implemented in `mod:nonh_module`.
              
 For non-hydrostatic XBeach calculations (keyword: :par:`wavemodel` =
 *nonh*) depth-averaged flow due to waves and currents are computed
@@ -406,7 +406,7 @@ Short wave action balance
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The short wave action balance is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 The wave forcing in the shallow water momentum equation is obtained
 from a time dependent version of the wave action balance
@@ -459,7 +459,7 @@ Wave-current interaction (wci)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. seealso:: The wave-current interaction is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 Wave-current interaction is the interaction between waves and the mean
 flow. The interaction implies an exchange of energy, so after the
@@ -541,7 +541,7 @@ Wave breaking
 ^^^^^^^^^^^^^
 
 .. seealso:: Short wave dissipation by breaking is implemented
-             in :f:mod:`roelvink_module`.
+             in `mod:roelvink_module`.
              
 Five different wave breaking formulations are implemented in XBeach. The
 formulations can be selected using the keyword :par:`break`
@@ -651,7 +651,7 @@ Bottom friction
 ^^^^^^^^^^^^^^^
 
 .. seealso:: Short wave dissipation by bottom friction is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 The short wave dissipation by bottom friction is modeled as
 
@@ -736,7 +736,7 @@ Vegetation
 ^^^^^^^^^^
 
 .. seealso:: Short wave dissipation by vegetation is implemented
-             in :f:mod:`vegetation_module`.
+             in `mod:vegetation_module`.
 
 The presence of aquatic vegetation within the area of wave propagation
 or wave breaking results in an additional dissipation mechanism for
@@ -791,8 +791,8 @@ theory as described by:
 Wave shape
 ~~~~~~~~~~
 
-.. seealso:: Wave shapes are implemented in :f:func:`morphevolution/RvR`
-             and :f:func:`morphevolution/vT`.
+.. seealso:: Wave shapes are implemented in `func:morphevolution/RvR`
+             and `func:morphevolution/vT`.
              
 The morphodynamic model considered is (short) wave averaged and resolves
 hydrodynamics associated with the wave group time scale. As a result the
@@ -895,7 +895,7 @@ Turbulence
 ~~~~~~~~~~
 
 .. seealso:: Wave breaking induced turbulence is implemented
-             in :f:func:`morphevolution/waveturb`.
+             in `func:morphevolution/waveturb`.
 
 Wave breaking induced turbulence at the water surface has to be
 transported towards the bed in order to affect the up-stirring of
@@ -960,7 +960,7 @@ Roller energy balance
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The roller energy balance is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 While the short wave action balance adequately describes the propagation
 and decay of organized wave energy, it has often been found that there
@@ -1093,7 +1093,7 @@ Shallow water equations
 -----------------------
 
 .. seealso:: The shallow water equations are implemented
-             in :f:func:`flow_timestep_module/flow`.
+             in `func:flow_timestep_module/flow`.
 
 For the low-frequency waves and mean flows we use the shallow water
 equations. To account for the wave induced mass-flux and the subsequent
@@ -1144,7 +1144,7 @@ Horizontal viscosity
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The Smagorinsky model is implemented
-             in :f:func:`flow_timestep_module/visc_smagorinsky`.
+             in `func:flow_timestep_module/visc_smagorinsky`.
 
 The horizontal viscosity (:math:`{v}_{h}`) is by default computed
 using the :cite:`Smagorinsky1963a` model to account for the exchange of
@@ -1165,7 +1165,7 @@ directly (also keyword: :par:`nuh`).
 Bed shear stress
 ~~~~~~~~~~~~~~~~
 
-.. seealso:: Bed shear stresses are implemented in :f:mod:`bedroughness_module`.
+.. seealso:: Bed shear stresses are implemented in `mod:bedroughness_module`.
              
 The bed friction associated with mean currents and long waves is
 included via the formulation of the bed shear stress
@@ -1254,7 +1254,7 @@ Damping by vegetation
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: Infra-gravity wave damping by vegetation is implemented
-             in :f:mod:`vegetation_module`.
+             in `mod:vegetation_module`.
              
 The presence of aquatic vegetation within the area of wave propagation
 or wave breaking may not only result in short wave dissipation
@@ -1314,7 +1314,7 @@ Non-hydrostatic pressure correction
 -----------------------------------
 
 .. seealso:: The non-hydrostatic pressure correction is implemented
-             in :f:mod:`nonh_module`.
+             in `mod:nonh_module`.
              
 For non-hydrostatic XBeach calculations (keyword: :par:`waveform` = *nonh*)
 depth-averaged flow due to waves and currents are computed using the
@@ -1389,7 +1389,7 @@ waves.
 Groundwater flow
 ----------------
 
-.. seealso:: Groundwater flow is implemented in :f:mod:`groundwaterflow`.
+.. seealso:: Groundwater flow is implemented in `mod:groundwaterflow`.
              
 The groundwater module (keyword: :par:`gwflow` = *1*) in XBeach utilizes the
 principle of Darcy flow for laminar flow conditions and a
@@ -1685,7 +1685,7 @@ and vertical boundaries, as well as an initial condition:
 Sediment transport
 ------------------
 
-.. seealso:: Sediment transport is implemented in :f:func:`morphevolution/transus`.
+.. seealso:: Sediment transport is implemented in `func:morphevolution/transus`.
              
 Advection-diffusion equation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1820,7 +1820,7 @@ Transport formulations
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The sediment transport formulations are implemented
-             in :f:func:`sedtransform`
+             in `func:sedtransform`
 
 In the present version of XBeach, two sediment transport formulations
 are available. The formulae of the two formulations are presented in the
@@ -2092,7 +2092,7 @@ considered.
 Bottom updating
 ---------------
 
-.. seealso:: Bed updating is implemented in :f:func:`morphevolution/bed_update`.
+.. seealso:: Bed updating is implemented in `func:morphevolution/bed_update`.
              
 Due to sediment fluxes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -2253,7 +2253,7 @@ Ship-induced wave motions
 -------------------------
 
 .. seealso:: Ship-induced wave motions are implemented
-             in :f:mod:`ship_module`.
+             in `mod:ship_module`.
              
 A relatively new application field for XBeach is the generation and
 propagation of waves induced by sailing vessels. This functionality has
@@ -2317,9 +2317,9 @@ Boundary conditions
 Waves
 -----
 
-.. seealso:: Wave boundary conditions are implemented in :f:mod:`waveparams`. The
+.. seealso:: Wave boundary conditions are implemented in `mod:waveparams`. The
              latest functionalities, like spatially varying spectral conditions
-             are implemented in :f:mod:`spectral_wave_bc_module`.
+             are implemented in `mod:spectral_wave_bc_module`.
 
 XBeach allows users to include two different options for wave boundary
 conditions in the model. These wave boundary conditions can be applied
@@ -5116,12 +5116,11 @@ wave energy balance and will not be repeated here.
 Stationary solver
 ^^^^^^^^^^^^^^^^^
 
-In the stationary solver the wave energy and roller energy balances are
-solved line by line, from the seaward boundary landward. For each line
-the automatic timestep is computed and the quasi-time-dependent balance
-according to equation :eq:`stationary-advec` is solved until convergence
-or the maximum number of iterations is reached, after which the solver
-moves to the next line.
+In the stationary solver the wave energy and roller energy balances
+are solved line by line, from the seaward boundary landward. For each
+line the automatic timestep is computed and the quasi-time-dependent
+balance is solved until convergence or the maximum number of
+iterations is reached, after which the solver moves to the next line.
 
 The iteration is controlled by the parameters :par:`maxiter` and :par:`maxerror`.
 

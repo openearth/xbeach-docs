@@ -12,7 +12,6 @@ Contents:
    :maxdepth: 1
 
    user_manual
-   modules_and_functions
    input_parameters
    output_variables
    tools
