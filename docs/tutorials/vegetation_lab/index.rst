@@ -7,7 +7,7 @@ Introduction
 Many coastlines around the world are fronted by vegetation (e.g. seagrass, mangroves, kelp, salt marsh) and recent studies have shown that the presence of aquatic vegetation can result in wave attenuation and flow reduction. In addition, these ecosystems may play a very important role of the coastal morphodynamics. To be able to take into account the effect of vegetation on coastal hydrodynamics in XBeach a vegetation module was developed (Van Rooijen et al., 2016; Roelvink et al., 2015). The main objective of this tutorial is to get familiar with the vegetation module of XBeach (Fig. 1). 
 
 .. figure:: images/xbveg.png
-   :width: 100px
+   :width: 400px
    :align: center
    
    Fig. 1. Snapshot of XBeach-Veg.
@@ -18,7 +18,7 @@ Case description
 The tutorial is based on a large scale laboratory experiment that was carried out in Norway as part of the PhD project of S.M. Løvås at the Norwegian University of Science and Technology (Løvås, 2000; Løvås & Tørum, 2001, see Fig.2). The experiments were carried out in a wave tank and tests were carried out with and without mimic kelp vegetation (Fig. 3). The goal was to study the effect of the mimic kelp on wave propagation, velocities and dune erosion. For more background on this study, reference is made to Løvås & Tørum (2001).
 
 .. figure:: images/lovas_1.PNG
-   :width: 100px
+   :width: 400px
    :align: center
 
 Tutorial
@@ -40,7 +40,7 @@ Based on this information you can set up two seperate models that represent the 
 * veggiecharsfile ('kelp.txt') - this files describes the characteristics of the specific vegetation type (number of sections, height, stem diameter, density, drag coefficient), each vegetation type should have its own veggiecharsfile.
 
 .. figure:: images/lovas_2.PNG
-   :width: 100px
+   :width: 400px
    :align: center
 
 Using the XBeach MATLAB Toolbox
@@ -51,7 +51,7 @@ For users that have access to MATLAB, it is recommended to download the XBeach M
 Please note that XBeach is entirely independent from MATLAB and you do not need MATLAB in order to use XBeach. It is, however, handy for pre- and postprocessing.
 
 .. figure:: images/matlab_toolbox.PNG
-   :width: 100px
+   :width: 400px
    :align: center
 
 Fig.4. Screenshot of MATLAB script that can be used to set up the model ('files/MatlabScripts/setup_lovas_model.m').
