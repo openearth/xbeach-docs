@@ -6,7 +6,9 @@ python:
 
 install:
   - pip install -r requirements.txt
-  - cd docs && sphinx-build -b html -w build.log -d _build/doctrees . _build/html
+  - cd docs
+  - sphinx-build -b html -w build.log -d _build/doctrees . _build/html
+  - cd ..
   
 script:
   - nosetests --with-xunit --xunit-file=nosetests.xml
