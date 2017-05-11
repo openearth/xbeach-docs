@@ -43,3 +43,14 @@ This model setup is used as a tool to model the impact of Hurricane Sandy on the
 
 model data: https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/sandy/files/Model
 tutorial: http://xbeach.readthedocs.io/en/latest/tutorials/sandy/index.html
+
+Port application
+----------------------
+
+2D, surfbeat, random incident waves, hydrodynamics only. Aim: simulation of port hydrodynamics
+
+The laboratory experiments were conducted at Deltares in the Vinjè directional basin in 2004. The tests were carried out under controlled
+conditions for the purpose of validating new numerical models of wave forces on moored ships (van der Molen, 2006). In this study, the dataset is only used to examine the computational skills of XBeach in a harbour basin by comparing the measured and calculated results of the hydrodynamics. Wave forces are not considered in this study
+
+thesis: http://repository.tudelft.nl/islandora/object/uuid:533ad406-9d7f-44bb-ba3b-7fe60e112432?collection=education
+model data: https://svn.oss.deltares.nl/repos/xbeach/testcases/Wong2016/
