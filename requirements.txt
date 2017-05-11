@@ -6,3 +6,4 @@ sphinxcontrib-napoleon==0.2.8
 -e git+https://github.com/openearth/sphinx-fortran-extension#egg=sphinxfortran
 beautifulsoup4==4.3.2
 breathe==4.0.0
+docutils==0.12
