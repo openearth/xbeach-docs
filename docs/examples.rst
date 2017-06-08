@@ -47,7 +47,7 @@ tutorial: http://xbeach.readthedocs.io/en/latest/tutorials/sandy/index.html
 Port application
 ----------------------
 
-2D, surfbeat, random incident waves, hydrodynamics only. Aim: simulation of port hydrodynamics
+2D, surfbeat, random incident waves, hydrodynamics only. Aim: simulation of port hydrodynamics.
 
 The laboratory experiments were conducted at Deltares in the Vinjè directional basin in 2004. The tests were carried out under controlled
 conditions for the purpose of validating new numerical models of wave forces on moored ships (van der Molen, 2006). In this study, the dataset is only used to examine the computational skills of XBeach in a harbour basin by comparing the measured and calculated results of the hydrodynamics. Wave forces are not considered in this study
