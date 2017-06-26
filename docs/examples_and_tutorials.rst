@@ -5,5 +5,5 @@ Examples, tutorials and excercises
    :maxdepth: 2
 
    examples
-   tutorials
    excercises
+   tutorials
