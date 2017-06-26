@@ -9,7 +9,7 @@ Introduction in the case
 ------------------------
 
 In this tutorial the sandy coast of Bay Head (New Jersey, United
-States) during Hurricane Sandy is modeled. Hurricane Sandy originated
+States) during Hurricane Sandy (2012) is modeled. Hurricane Sandy originated
 from the Western North Atlantic Ocean in October 2012. The storm
 caused flooding, wind and wave damage. During Hurricane Sandy the
 state of New York and New Jersey were most severely hit (National
