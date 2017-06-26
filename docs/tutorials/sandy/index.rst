@@ -1,6 +1,10 @@
 Tutorial: hindcast hurricane impact Sandy
 =========================================
 
+Autor: Kees Nederhoff
+Email: kees.nederhoff@deltares.nl
+Date: 26-June-2017
+
 Introduction in the case
 ------------------------
 
