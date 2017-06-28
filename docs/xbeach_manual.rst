@@ -1,3 +1,4 @@
+
 Introduction
 ============
 
@@ -3777,7 +3778,8 @@ vegetation species can be found. The format of this file is similar to
 the bathymetry files described in :ref:`sec-grid-bathymetry`, but the
 values are integers referring to a species where 1 refers to the first
 listed species, 2 to the second, et cetera. A zero indicates no
-vegetation at that particular location.
+vegetation at that particular location. The use of non-integer values
+in this file will result in an error.
 
 In summary, the following files should be created when the effect of
 vegetation is modeled:
