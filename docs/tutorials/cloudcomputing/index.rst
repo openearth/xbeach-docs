@@ -1,6 +1,8 @@
 Cloud computing with XBeach
 ===========================
 
+*by Marco Westra MetOcean Consult*
+
 In this tutorial discusses the possibilities of `cloud computing` for
 XBeach (Roelvink et al., 2009) on two different cloud computing
 systems is presented. Cloud computing is a web service that provides

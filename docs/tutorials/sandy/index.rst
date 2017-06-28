@@ -47,7 +47,7 @@ Hurricane Sandy on the New Jersey coast.
    occurred during Sandy (Lopez-Feliciano, 2014). Bottom pictures
    shows examples of depositional features such as described by
    Donneley (2007) (source: Google Earth). Pictures are in the area of
-   Bay Head, NJ and taken on November 3th 2012.   
+   Bay Head, NJ and taken on November 3th 2012.  ?
  
 Tools and ingredients needed
 ----------------------------
@@ -96,7 +96,7 @@ The ingredients of every XBeach model set-up contains 5 steps:
    et al. (2015).
    
 #. Post-processing: make graphs and animations of the final run to
-   present your supervisor or client.   
+   present your supervisor or client.  ?
  
 Step 1: make a bathymetry
 -------------------------
@@ -107,7 +107,7 @@ area with XBeach. There are two important steps. First of all, we need
 to interpolate the different data sources to our area of
 interest. Secondly, we need to combine the different data sources
 together. In this tutorial we will use Coastal Relief Model (CRM;
-NGDC, 2014) as a basis of our model. Everywhere we have LiDAR data
+NGDC, 2014) as a basis of our model. Everywhere there is LiDAR data
 from the USGS the CRM values will be overwritten. An optional third
 step is applying a small smoothing function in order to get rid of
 large disturbances or add more data sources.
@@ -307,7 +307,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
    :align: center
 
    Observation points in Delft3D-FLOW
- 
+?
 .. _fig-obswave:
 
 .. figure:: images/image11.png
@@ -538,7 +538,7 @@ The second substep is to increase the roughness of the barrier
 sediment transport on top of the barrier and is applied to calibrate
 the overwash regime. Friction is used for the bed stability and the
 sediment transport via the formulation of the bed shear stress
-(τb). For a situation with hydraulic rough flow on top of a barrier
+(?b). For a situation with hydraulic rough flow on top of a barrier
 island the roughness needs to be higher than the default value, since
 a higher Manning value represents friction due to the presence of
 structures and/or vegetation. In fact the friction can be used as a
@@ -569,7 +569,7 @@ example of an XBeach animation can be foud here
    :align: center
             
    Pre (top panel) and post Sandy (lower panel) in a three dimensional
-   plot with both bed and water levels. (Nederhoff et al., 2015)  
+   plot with both bed and water levels. (Nederhoff et al., 2015) ?
 
 References
 ----------
