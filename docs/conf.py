@@ -33,7 +33,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'sphinx.ext.imgmath',
+    'sphinx.ext.pngmath',
     'sphinx.ext.viewcode',
     'sphinx.ext.linkcode',
     'sphinxcontrib.bibtex',
