@@ -307,7 +307,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
    :align: center
 
    Observation points in Delft3D-FLOW
-?
+
 .. _fig-obswave:
 
 .. figure:: images/image11.png
