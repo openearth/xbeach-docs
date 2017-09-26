@@ -2492,7 +2492,7 @@ absorbing-generating boundary conditions:
    absorbed.
 
 #. Boundary condition for the non-hydrostatic option (keyword: :par:`: front` =
-   nonh\_1d). The boundary condition is needed for non-hydrostatic simulations.
+   nonh\_1d). This boundary condition is required for non-hydrostatic simulations.
 
 #. Radiation boundary condition (keyword: :par:`front` = *waveflume*). This
    boundary uses a continuity relation at the front boundary. This means
