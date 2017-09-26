@@ -1209,7 +1209,7 @@ The option of White-Colebrook based on the grain size is somewhat
 different than the other four formulations. This formulation is based
 on the relation between the :math:`{D}_{90}` of the top bed layer and
 the geometrical roughness of Nikuradse according to equation
-:eq:`dimensionless-nikuradse2`.  The user doesn’t have to specify a
+:eq:`dimensionless-nikuradse2`.  The user does not have to specify a
 value for the bed friction coefficient.
 
 .. math::
@@ -2493,8 +2493,7 @@ absorbing-generating boundary conditions:
    absorbed.
 
 #. Boundary condition for the non-hydrostatic option (keyword: :par:`: front` =
-   nonh\_1d). The user needs to provide a file containing time series
-   for the velocity at the boundary.
+   nonh\_1d). This boundary condition is required for non-hydrostatic simulations.
 
 #. Radiation boundary condition (keyword: :par:`front` = *waveflume*). This
    boundary uses a continuity relation at the front boundary. This means
