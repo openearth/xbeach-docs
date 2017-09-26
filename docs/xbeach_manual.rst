@@ -1,4 +1,3 @@
-
 Introduction
 ============
 
@@ -89,7 +88,7 @@ counter-clockwise w.r.t. the xw-axis (East).
 
 .. _fig-coordsys-rect:
 
-.. figure:: images/image8.png
+.. figure:: images/image8.jpg
    :width: 400px
    :align: center
 
@@ -119,7 +118,7 @@ and flow boundary conditions.
 
 .. _fig-coordsys-curvi:
 
-.. figure:: images/image9.png
+.. figure:: images/image9.jpg
    :width: 400px
    :align: center
 
@@ -160,7 +159,7 @@ without changing the rest of the input files (keyword:
 
 .. _Wave_processes:
 
-.. figure:: images/image10.png
+.. figure:: images/image10.jpg
    :width: 400px
    :align: center
 
@@ -208,24 +207,24 @@ these boundaries.
 .. _stationary_examples1:
    :align: center
 
-   .. image:: images/image11.png
+   .. image:: images/image11.jpg
       :width: 200px
 
-   .. image:: images/image12.png
+   .. image:: images/image12.jpg
       :width: 200px
 
 .. _stationary_examples2:
    :align: center
 
-   .. image:: images/image13.png
+   .. image:: images/image13.jpg
       :width: 200px
 
-   .. image:: images/image14.png
+   .. image:: images/image14.jpg
       :width: 200px
 
 .. _stationary_examples:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
    :width: 0px
            
    Root-mean square wave height (left panels) and final bathymetry
@@ -319,7 +318,7 @@ Osborne, Brick, NJ.
 
 .. _lip_tests:
 
-.. figure:: images/image15.png
+.. figure:: images/image15.jpg
    :width: 400px
    :align: center
 
@@ -329,15 +328,15 @@ Osborne, Brick, NJ.
 
 .. _sandy_example1:
 
-   .. image:: images/image16.png
+   .. image:: images/image16.jpg
       :width: 200px
               
-   .. image:: images/image17.png
+   .. image:: images/image17.jpg
       :width: 200px
 
 .. _sandy_example:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
 
    Pre (left) and post-Sandy (right) in a three dimensional plot with
    both bed and water levels as simulated by XBeach
@@ -391,7 +390,7 @@ ships, see :ref:`sec-ship-induced-wave-motions`.
 
 .. _bardex_example:
 
-.. figure:: images/image18.png
+.. figure:: images/image18.jpg
    :width: 400px
    :align: center
 
@@ -2238,7 +2237,7 @@ mixing (:numref:`fig-sediment-diffusion`).
 
 .. _fig-sediment-diffusion:
 
-.. figure:: images/image19.png
+.. figure:: images/image19.jpg
    :width: 400px
    :align: center
 
@@ -2282,15 +2281,15 @@ filtered to focus on the computation of the primary ship wave.
 
 .. _fig-ship-example1:
 
-   .. image:: images/image20.png
+   .. image:: images/image20.jpg
       :width: 200px
               
-   .. image:: images/image21.png
+   .. image:: images/image21.jpg
       :width: 200px
 
 .. _fig-ship-example:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
 
    Example XBeach setup (left) and result (right) for a ship
    wave simulation in the Scheldt Estuary (The Netherlands). The ship track
@@ -2299,7 +2298,7 @@ filtered to focus on the computation of the primary ship wave.
 
 .. _fig-ship-waves-example:
 
-.. figure:: images/image22.png
+.. figure:: images/image22.jpg
    :width: 400px
    :align: center
 
@@ -2457,7 +2456,7 @@ shown in :numref:`fig-wave-boundary-conditions`.
 
 .. _fig-wave-boundary-conditions:
 
-.. figure:: images/image23.png
+.. figure:: images/image23.jpg
    :width: 400px
    :align: center
 
@@ -2897,7 +2896,7 @@ construction as described in :ref:`sec-spatiotemporal-varying-wbc`.
 
 .. _fig-wbc-decision-tree:
 
-.. figure:: images/image24.png
+.. figure:: images/image24.jpg
    :width: 600px
    :align: center
 
@@ -3005,7 +3004,7 @@ JONSWAP spreading parameter.
 
 .. _wave_spreading:
 
-.. figure:: images/image25.png
+.. figure:: images/image25.jpg
    :width: 400px
    :align: center
 
@@ -3765,7 +3764,7 @@ A definition sketch is given in :numref:`fig-vegetation`.
 
 .. _fig-vegetation:
 
-.. figure:: images/image26.png
+.. figure:: images/image26.jpg
    :width: 400px
    :align: center
 
@@ -3859,7 +3858,7 @@ discharges are positive into the domain (influx).
 
 .. _discharges:
 
-.. figure:: images/image27.png
+.. figure:: images/image27.jpg
    :width: 400px
    :align: center
 
@@ -5054,7 +5053,7 @@ is shown with the corresponding grid distances around the *u-* and
 
 .. _fig-staggered-grid:
 
-.. figure:: images/image28.png
+.. figure:: images/image28.jpg
    :width: 400px
    :align: center
 
@@ -5200,7 +5199,7 @@ same direction at the upwind cell.
 
 .. _fig-momentum-and-fluxes:
 
-.. figure:: images/image29.png
+.. figure:: images/image29.jpg
    :width: 400px
    :align: center
 
@@ -5266,7 +5265,7 @@ makes the scheme second order accurate.
 
 .. _fig-leapfrog:
 
-.. figure:: images/image30.png
+.. figure:: images/image30.jpg
    :width: 400px
    :align: center
 
