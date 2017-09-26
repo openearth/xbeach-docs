@@ -838,32 +838,7 @@ of field observations.
 
    \begin{array}{c} {B=p_{1} +\frac{p_{2} -p_{1} }{1+\exp \frac{p_{3} -\log Ur}{p_{4} } } } \\ {\psi =-90+90\tanh (p_{5} /Ur^{p_{6} } )} \\ {} \\ {S_{k} =B\cos \psi {\; \; \; and\; \; \; }A_{s} =B\sin \psi } \end{array}
 
-Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the wave
-shape model of :cite:`Rienecker1981`. In this model the short wave
-shape is described by the weighted sum of eight sine and cosine
-functions
-
-.. math::
-   :label:
-
-   u_{bed} =\sum _{i=1}^{i=8}wA_{i} \cos (i\omega t)+{\; }(1-w) A_{i} \sin (i\omega t)
-
-where :math:`{u}_{bed}` is the near-bed short wave flow velocity, :math:`i`
-refers to the i th harmonic, :math:`\omega` is the angular wave
-frequency, :math:`{A}_{i}` is the amplitude of a specific harmonic
-and :math:`w` is a weighting function affecting the wave shape. The amplitudes
-:math:`{A}_{1:8}` are computed from stream function
-theory and vary with the dimensionless wave height and dimensionless
-wave period.
-
-The wave skewness of near bed flow velocities is computed according to .
-The wave asymmetries (:math:`{A}_{s}`) can be computed with the same
-expression replacing :math:`{u}_{bed}` by its Hilbert transform.
-
-.. math::
-   :label:
-
-   S_{k} =\frac{\overline{u_{bed}^{3} }}{\sigma _{u_{bed} }^{3} }
+Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the wave shape model of :cite:`Rienecker1981`. In this model the short wave shape is described by a Rienecker and Fenton lookup table with amongst others amplitudes  non-linear components obtained with stream function theory. Therefore, wave skewness (:math:`{S}_{k}) and asymmetry (:math:`{A}_{s}) is computed in each grid point based on the water depth, dimensionless wave height and dimensionless wave period.
 
 For :math:`w` equals one a skewed (Stokes) wave is obtained with high peaks
 and flat troughs whereas :math:`w` equals zero results in an asymmetric (saw
@@ -871,8 +846,7 @@ tooth) wave with steep wave fronts. It is hypothesized that the
 weighting :math:`w` can be expressed as a function of wave skewness and
 asymmetry. The relation between the phase and the weighting is studied
 in more detail by :cite:`VanThieldeVries2009a` by varying :math:`w` between zero
-and one in small steps and computing the amplitudes
-:math:`{A}_{1:8}` with Rienecker and Fenton for a
+and one in small steps and computing the amplitudes with Rienecker and Fenton for a
 range of wave heights, wave periods and water depths. It is found that a
 unique relation between :math:`w` and :math:`\Phi` exists for any
 combination of wave height, wave period and water depth that is
@@ -1234,7 +1208,7 @@ The option of White-Colebrook based on the grain size is somewhat
 different than the other four formulations. This formulation is based
 on the relation between the :math:`{D}_{90}` of the top bed layer and
 the geometrical roughness of Nikuradse according to equation
-:eq:`dimensionless-nikuradse2`.  The user doesn’t have to specify a
+:eq:`dimensionless-nikuradse2`.  The user does not have to specify a
 value for the bed friction coefficient.
 
 .. math::
@@ -2518,8 +2492,7 @@ absorbing-generating boundary conditions:
    absorbed.
 
 #. Boundary condition for the non-hydrostatic option (keyword: :par:`: front` =
-   nonh\_1d). The user needs to provide a file containing time series
-   for the velocity at the boundary.
+   nonh\_1d). This boundary condition is required for non-hydrostatic simulations.
 
 #. Radiation boundary condition (keyword: :par:`front` = *waveflume*). This
    boundary uses a continuity relation at the front boundary. This means
