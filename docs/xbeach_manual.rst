@@ -33,7 +33,7 @@ with funding from the Dutch Public Works Department, the model has
 been extended, applied and validated for storm impacts on dune and
 urbanized coasts for the purpose of dune safety assessments. With
 support from the European Commission XBeach has been validated on a
-number of dissipative and reflective beaches bordering all regional
+number of dissipative and reflective beaches bordering all regionall
 seas in the EU.
 
 Beyond sandy coasts, the model has been applied to coral fringing and
