@@ -15,13 +15,3 @@ Contents:
    input_parameters
    output_variables
    examples_and_tutorials
-   advanced_techniques
-   tools
-   cheatsheet
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
-

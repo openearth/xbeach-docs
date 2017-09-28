@@ -1,0 +1,27 @@
+Basics
+------
+
+* Run "make latex"
+* Go to _build/latex
+* Run "pdflatex -interactive=nonstopmode XBeach" 3 times to fix all references
+
+Troubleshoot
+------------
+
+Most likely the above will result in latex errors. The most common are:
+
+* Everything after a certain image caption is ignored (images 15, 18, 19 and 22)
+  * Solution: remove the \phantomsection\label{...} direction from the image caption
+* Rendering of tabulary directive fails
+  * Solution: remove white lines in "\textsf{\relax ... }" directive
+* Table of contents is too short:
+  * Solution: add "\setcounter{tocdepth}{2}" above "\tableofcontents" directive
+* Long tables are rendered to a width greater than the page width
+   * Solution: change the cell definition to:
+     \begin{longtable}{|p{0.2\textwidth}
+                       |p{0.4\textwidth}
+                       |p{0.2\textwidth}
+                       |p{0.1\textwidth}|}
+* Long tables are rendered to a length greater than the page height
+  * Change the environment from "tabulary" to "longtable"
+

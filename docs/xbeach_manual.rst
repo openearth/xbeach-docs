@@ -838,7 +838,13 @@ of field observations.
 
    \begin{array}{c} {B=p_{1} +\frac{p_{2} -p_{1} }{1+\exp \frac{p_{3} -\log Ur}{p_{4} } } } \\ {\psi =-90+90\tanh (p_{5} /Ur^{p_{6} } )} \\ {} \\ {S_{k} =B\cos \psi {\; \; \; and\; \; \; }A_{s} =B\sin \psi } \end{array}
 
-Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the wave shape model of :cite:`Rienecker1981`. In this model the short wave shape is described by a Rienecker and Fenton lookup table with amongst others amplitudes  non-linear components obtained with stream function theory. Therefore, wave skewness (:math:`{S}_{k}) and asymmetry (:math:`{A}_{s}) is computed in each grid point based on the water depth, dimensionless wave height and dimensionless wave period.
+Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the
+wave shape model of :cite:`Rienecker1981`. In this model the short
+wave shape is described by a Rienecker and Fenton lookup table with
+amongst others amplitudes non-linear components obtained with stream
+function theory. Therefore, wave skewness (:math:`{S}_{k}`) and
+asymmetry (:math:`{A}_{s})` is computed in each grid point based on the
+water depth, dimensionless wave height and dimensionless wave period.
 
 For :math:`w` equals one a skewed (Stokes) wave is obtained with high peaks
 and flat troughs whereas :math:`w` equals zero results in an asymmetric (saw
