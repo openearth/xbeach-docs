@@ -8,20 +8,20 @@ BMI-compatible library. A library can be part of a larger framework
 where XBeach interacts with other components during runtime. For
 example:
 
-* A graphical user interface
-  (e.g. [https://www.helpdeskwater.nl/onderwerpen/applicaties-modellen/applicaties-per/aanleg-onderhoud/aanleg-onderhoud/morphan/|Morphan]_).
+* A graphical user interface (e.g. `Morphan
+  <https://www.helpdeskwater.nl/onderwerpen/applicaties-modellen/applicaties-per/aanleg-onderhoud/aanleg-onderhoud/morphan/>`).
   
 * An interactive modeling tool that allow users to change the model
-  while running
-  (e.g. [https://www.deltares.nl/en/software/sandbox/|Sandbox]_).
+  while running (e.g. `Sandbox
+  <https://www.deltares.nl/en/software/sandbox/>`).
   
 * A coupled model where XBeach runs simultaneously and interactively
-  with other models (e.g.
-  [http://windsurf.readthedocs.io/en/latest/|aeolian sediment transport model]_,
-  ecological
-  model or [http://xbeachmi.readthedocs.io/en/latest/|XBeach itself]_!).
+  with other models (e.g.  `aeolian sediment transport model
+  <http://windsurf.readthedocs.io/en/latest/>`, ecological model or
+  `XBeach itself <http://xbeachmi.readthedocs.io/en/latest/>`!).
 
 
 The XBeach library (DLL) for Windows is shipped with the daily builds
-from the [http://xbeachmi.readthedocs.io/en/latest/|Deltares build
-server]_. A unix library is compiled alongside the XBeach executable.
+from the `Deltares build server
+<http://xbeachmi.readthedocs.io/en/latest/>`. A unix library is
+compiled alongside the XBeach executable.
