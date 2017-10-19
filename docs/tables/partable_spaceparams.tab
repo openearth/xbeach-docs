@@ -683,32 +683,32 @@
      :dimensions:    nx+1, ny+1, par\%nsetbathy
    shipFx
      :description:   Force on ship in x-direction
-     :units:         m
+     :units:         N
      :default:       
      :dimensions:    par\%nship
    shipFy
      :description:   Force on ship in y-direction
-     :units:         m
+     :units:         N
      :default:       
      :dimensions:    par\%nship
    shipFz
      :description:   Force on ship in z-direction
-     :units:         m
+     :units:         N
      :default:       
      :dimensions:    par\%nship
    shipMx
      :description:   Moment on ship around x-axis
-     :units:         m
+     :units:         Nm
      :default:       
      :dimensions:    par\%nship
    shipMy
      :description:   Moment on ship around y-axis
-     :units:         m
+     :units:         Nm
      :default:       
      :dimensions:    par\%nship
    shipMz
      :description:   Moment on ship around z-axis
-     :units:         m
+     :units:         Nm
      :default:       
      :dimensions:    par\%nship
    shipchi
