@@ -100,7 +100,7 @@
      :description:   Equilibrium sediment concentration formulation
      :units:         
      :default:       vanthiel_vanrijn
-     :range:         soulsby_vanrijn, vanthiel_vanrijn
+     :range:         soulsby_vanrijn, vanthiel_vanrijn, vanrijn1993
    jetfac
      :advanced:
      :description:   Option to mimic turbulence production near revetments
