@@ -1,5 +1,5 @@
-Tutorial: hindcast hurricane impact Sandy
-=========================================
+Hindcast hurricane impact Sandy
+===============================
 
 Autor: Kees Nederhoff
 Email: kees.nederhoff@deltares.nl
@@ -36,15 +36,15 @@ Hurricane Sandy on the New Jersey coast.
 .. _fig-photos2:
    :align: center
            
-   .. image:: images/image4.png
+   .. image:: images/image4.jpg
       :width: 200px
               
-   .. image:: images/image5.png
+   .. image:: images/image5.jpg
       :width: 200px
 
 .. _fig-photos:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
    :width: 0px
 
    Upper pictures show characteristic examples of damage which
@@ -189,7 +189,7 @@ will be used when we will make the actual XBeach model.
 
 .. _fig-selectlidar:
 
-.. figure:: images/image6.png
+.. figure:: images/image6.jpg
    :width: 400px
    :align: center
            
@@ -197,7 +197,7 @@ will be used when we will make the actual XBeach model.
 
 .. _fig-selectoutput:
 
-.. figure:: images/image7.png
+.. figure:: images/image7.jpg
    :width: 400px
    :align: center
            
@@ -205,7 +205,7 @@ will be used when we will make the actual XBeach model.
 
 .. _fig-downloadcrm:
 
-.. figure:: images/image8.png
+.. figure:: images/image8.jpg
    :width: 400px
    :align: center
            
@@ -296,7 +296,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-wavessurge:
 
-.. figure:: images/image9.png
+.. figure:: images/image9.jpg
    :width: 400px
    :align: center
 
@@ -306,15 +306,15 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-obsflow:
 
-.. figure:: images/image10.png
+.. figure:: images/image10.jpg
    :width: 400px
    :align: center
 
    Observation points in Delft3D-FLOW
-?
+
 .. _fig-obswave:
 
-.. figure:: images/image11.png
+.. figure:: images/image11.jpg
    :width: 400px
    :align: center
 
@@ -322,7 +322,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-ndbc:
 
-.. figure:: images/image12.png
+.. figure:: images/image12.jpg
    :width: 400px
    :align: center
 
@@ -332,7 +332,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-noaa:
 
-.. figure:: images/image13.png
+.. figure:: images/image13.jpg
    :width: 400px
    :align: center
 
@@ -342,7 +342,7 @@ found in https://github.com/openearth/xbeach-docs/tree/master/docs/tutorials/san
 
 .. _fig-usgs:
 
-.. figure:: images/image14.png
+.. figure:: images/image14.jpg
    :width: 400px
    :align: center
 
@@ -435,7 +435,7 @@ manual. On top of that the params.txt of this tutorial is added.
 
 .. _fig-wbc:
 
-.. figure:: images/image15.png
+.. figure:: images/image15.jpg
    :width: 400px
    :align: center
 
@@ -568,7 +568,7 @@ example of an XBeach animation can be foud here
 
 .. _fig-sandy:
 
-.. figure:: images/image16.png
+.. figure:: images/image16.jpg
    :width: 400px
    :align: center
             

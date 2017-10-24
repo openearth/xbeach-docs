@@ -88,7 +88,7 @@ counter-clockwise w.r.t. the xw-axis (East).
 
 .. _fig-coordsys-rect:
 
-.. figure:: images/image8.png
+.. figure:: images/image8.jpg
    :width: 400px
    :align: center
 
@@ -118,7 +118,7 @@ and flow boundary conditions.
 
 .. _fig-coordsys-curvi:
 
-.. figure:: images/image9.png
+.. figure:: images/image9.jpg
    :width: 400px
    :align: center
 
@@ -159,7 +159,7 @@ without changing the rest of the input files (keyword:
 
 .. _Wave_processes:
 
-.. figure:: images/image10.png
+.. figure:: images/image10.jpg
    :width: 400px
    :align: center
 
@@ -168,7 +168,7 @@ without changing the rest of the input files (keyword:
 Stationary mode
 ~~~~~~~~~~~~~~~
 
-.. seealso:: The stationary mode is implemented in :f:mod:`wave_stationary_module`.
+.. seealso:: The stationary mode is implemented in `mod:wave_stationary_module`.
              
 In stationary mode the wave-group variations and thereby all
 infragravity motions are neglected. This is useful for conditions
@@ -207,24 +207,24 @@ these boundaries.
 .. _stationary_examples1:
    :align: center
 
-   .. image:: images/image11.png
+   .. image:: images/image11.jpg
       :width: 200px
 
-   .. image:: images/image12.png
+   .. image:: images/image12.jpg
       :width: 200px
 
 .. _stationary_examples2:
    :align: center
 
-   .. image:: images/image13.png
+   .. image:: images/image13.jpg
       :width: 200px
 
-   .. image:: images/image14.png
+   .. image:: images/image14.jpg
       :width: 200px
 
 .. _stationary_examples:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
    :width: 0px
            
    Root-mean square wave height (left panels) and final bathymetry
@@ -234,7 +234,7 @@ these boundaries.
 Surf beat mode (instationary)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. seealso:: The surfbeat mode is implemented in :f:mod:`wave_instationary_module`.
+.. seealso:: The surfbeat mode is implemented in `mod:wave_instationary_module`.
 
 The short-wave motion is solved using the wave action equation which
 is a time-dependent forcing of the HISWA equations
@@ -318,7 +318,7 @@ Osborne, Brick, NJ.
 
 .. _lip_tests:
 
-.. figure:: images/image15.png
+.. figure:: images/image15.jpg
    :width: 400px
    :align: center
 
@@ -328,15 +328,15 @@ Osborne, Brick, NJ.
 
 .. _sandy_example1:
 
-   .. image:: images/image16.png
+   .. image:: images/image16.jpg
       :width: 200px
               
-   .. image:: images/image17.png
+   .. image:: images/image17.jpg
       :width: 200px
 
 .. _sandy_example:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
 
    Pre (left) and post-Sandy (right) in a three dimensional plot with
    both bed and water levels as simulated by XBeach
@@ -345,7 +345,7 @@ Osborne, Brick, NJ.
 Non-hydrostatic mode (wave resolving) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. seealso:: The non-hydrostatic mode is implemented in :f:mod:`nonh_module`.
+.. seealso:: The non-hydrostatic mode is implemented in `mod:nonh_module`.
              
 For non-hydrostatic XBeach calculations (keyword: :par:`wavemodel` =
 *nonh*) depth-averaged flow due to waves and currents are computed
@@ -390,7 +390,7 @@ ships, see :ref:`sec-ship-induced-wave-motions`.
 
 .. _bardex_example:
 
-.. figure:: images/image18.png
+.. figure:: images/image18.jpg
    :width: 400px
    :align: center
 
@@ -406,7 +406,7 @@ Short wave action balance
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The short wave action balance is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 The wave forcing in the shallow water momentum equation is obtained
 from a time dependent version of the wave action balance
@@ -459,7 +459,7 @@ Wave-current interaction (wci)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. seealso:: The wave-current interaction is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 Wave-current interaction is the interaction between waves and the mean
 flow. The interaction implies an exchange of energy, so after the
@@ -541,7 +541,7 @@ Wave breaking
 ^^^^^^^^^^^^^
 
 .. seealso:: Short wave dissipation by breaking is implemented
-             in :f:mod:`roelvink_module`.
+             in `mod:roelvink_module`.
              
 Five different wave breaking formulations are implemented in XBeach. The
 formulations can be selected using the keyword :par:`break`
@@ -651,7 +651,7 @@ Bottom friction
 ^^^^^^^^^^^^^^^
 
 .. seealso:: Short wave dissipation by bottom friction is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 The short wave dissipation by bottom friction is modeled as
 
@@ -736,7 +736,7 @@ Vegetation
 ^^^^^^^^^^
 
 .. seealso:: Short wave dissipation by vegetation is implemented
-             in :f:mod:`vegetation_module`.
+             in `mod:vegetation_module`.
 
 The presence of aquatic vegetation within the area of wave propagation
 or wave breaking results in an additional dissipation mechanism for
@@ -791,8 +791,8 @@ theory as described by:
 Wave shape
 ~~~~~~~~~~
 
-.. seealso:: Wave shapes are implemented in :f:func:`morphevolution/RvR`
-             and :f:func:`morphevolution/vT`.
+.. seealso:: Wave shapes are implemented in `func:morphevolution/RvR`
+             and `func:morphevolution/vT`.
              
 The morphodynamic model considered is (short) wave averaged and resolves
 hydrodynamics associated with the wave group time scale. As a result the
@@ -838,7 +838,13 @@ of field observations.
 
    \begin{array}{c} {B=p_{1} +\frac{p_{2} -p_{1} }{1+\exp \frac{p_{3} -\log Ur}{p_{4} } } } \\ {\psi =-90+90\tanh (p_{5} /Ur^{p_{6} } )} \\ {} \\ {S_{k} =B\cos \psi {\; \; \; and\; \; \; }A_{s} =B\sin \psi } \end{array}
 
-Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the wave shape model of :cite:`Rienecker1981`. In this model the short wave shape is described by a Rienecker and Fenton lookup table with amongst others amplitudes  non-linear components obtained with stream function theory. Therefore, wave skewness (:math:`{S}_{k}) and asymmetry (:math:`{A}_{s}) is computed in each grid point based on the water depth, dimensionless wave height and dimensionless wave period.
+Alternatively, :cite:`VanThieldeVries2009a` utilized and extended the
+wave shape model of :cite:`Rienecker1981`. In this model the short
+wave shape is described by a Rienecker and Fenton lookup table with
+amongst others amplitudes non-linear components obtained with stream
+function theory. Therefore, wave skewness (:math:`{S}_{k}`) and
+asymmetry (:math:`{A}_{s})` is computed in each grid point based on the
+water depth, dimensionless wave height and dimensionless wave period.
 
 For :math:`w` equals one a skewed (Stokes) wave is obtained with high peaks
 and flat troughs whereas :math:`w` equals zero results in an asymmetric (saw
@@ -869,7 +875,7 @@ Turbulence
 ~~~~~~~~~~
 
 .. seealso:: Wave breaking induced turbulence is implemented
-             in :f:func:`morphevolution/waveturb`.
+             in `func:morphevolution/waveturb`.
 
 Wave breaking induced turbulence at the water surface has to be
 transported towards the bed in order to affect the up-stirring of
@@ -934,7 +940,7 @@ Roller energy balance
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The roller energy balance is implemented
-             in :f:func:`wave_instationary_module/wave_instationary`.
+             in `func:wave_instationary_module/wave_instationary`.
 
 While the short wave action balance adequately describes the propagation
 and decay of organized wave energy, it has often been found that there
@@ -1067,7 +1073,7 @@ Shallow water equations
 -----------------------
 
 .. seealso:: The shallow water equations are implemented
-             in :f:func:`flow_timestep_module/flow`.
+             in `func:flow_timestep_module/flow`.
 
 For the low-frequency waves and mean flows we use the shallow water
 equations. To account for the wave induced mass-flux and the subsequent
@@ -1118,7 +1124,7 @@ Horizontal viscosity
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The Smagorinsky model is implemented
-             in :f:func:`flow_timestep_module/visc_smagorinsky`.
+             in `func:flow_timestep_module/visc_smagorinsky`.
 
 The horizontal viscosity (:math:`{v}_{h}`) is by default computed
 using the :cite:`Smagorinsky1963a` model to account for the exchange of
@@ -1139,7 +1145,7 @@ directly (also keyword: :par:`nuh`).
 Bed shear stress
 ~~~~~~~~~~~~~~~~
 
-.. seealso:: Bed shear stresses are implemented in :f:mod:`bedroughness_module`.
+.. seealso:: Bed shear stresses are implemented in `mod:bedroughness_module`.
              
 The bed friction associated with mean currents and long waves is
 included via the formulation of the bed shear stress
@@ -1228,7 +1234,7 @@ Damping by vegetation
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: Infra-gravity wave damping by vegetation is implemented
-             in :f:mod:`vegetation_module`.
+             in `mod:vegetation_module`.
              
 The presence of aquatic vegetation within the area of wave propagation
 or wave breaking may not only result in short wave dissipation
@@ -1288,7 +1294,7 @@ Non-hydrostatic pressure correction
 -----------------------------------
 
 .. seealso:: The non-hydrostatic pressure correction is implemented
-             in :f:mod:`nonh_module`.
+             in `mod:nonh_module`.
              
 For non-hydrostatic XBeach calculations (keyword: :par:`waveform` = *nonh*)
 depth-averaged flow due to waves and currents are computed using the
@@ -1363,7 +1369,7 @@ waves.
 Groundwater flow
 ----------------
 
-.. seealso:: Groundwater flow is implemented in :f:mod:`groundwaterflow`.
+.. seealso:: Groundwater flow is implemented in `mod:groundwaterflow`.
              
 The groundwater module (keyword: :par:`gwflow` = *1*) in XBeach utilizes the
 principle of Darcy flow for laminar flow conditions and a
@@ -1659,7 +1665,7 @@ and vertical boundaries, as well as an initial condition:
 Sediment transport
 ------------------
 
-.. seealso:: Sediment transport is implemented in :f:func:`morphevolution/transus`.
+.. seealso:: Sediment transport is implemented in `func:morphevolution/transus`.
              
 Advection-diffusion equation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1794,7 +1800,7 @@ Transport formulations
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. seealso:: The sediment transport formulations are implemented
-             in :f:func:`sedtransform`
+             in `func:sedtransform`
 
 In the present version of XBeach, two sediment transport formulations
 are available. The formulae of the two formulations are presented in the
@@ -2094,7 +2100,7 @@ It is also possible to prescribe a given bed slope. The result is that the swash
 Bottom updating
 ---------------
 
-.. seealso:: Bed updating is implemented in :f:func:`morphevolution/bed_update`.
+.. seealso:: Bed updating is implemented in `func:morphevolution/bed_update`.
              
 Due to sediment fluxes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -2239,7 +2245,7 @@ mixing (:numref:`fig-sediment-diffusion`).
 
 .. _fig-sediment-diffusion:
 
-.. figure:: images/image19.png
+.. figure:: images/image19.jpg
    :width: 400px
    :align: center
 
@@ -2255,7 +2261,7 @@ Ship-induced wave motions
 -------------------------
 
 .. seealso:: Ship-induced wave motions are implemented
-             in :f:mod:`ship_module`.
+             in `mod:ship_module`.
              
 A relatively new application field for XBeach is the generation and
 propagation of waves induced by sailing vessels. This functionality has
@@ -2283,15 +2289,15 @@ filtered to focus on the computation of the primary ship wave.
 
 .. _fig-ship-example1:
 
-   .. image:: images/image20.png
+   .. image:: images/image20.jpg
       :width: 200px
               
-   .. image:: images/image21.png
+   .. image:: images/image21.jpg
       :width: 200px
 
 .. _fig-ship-example:
 
-.. figure:: images/blank.png
+.. figure:: images/blank.jpg
 
    Example XBeach setup (left) and result (right) for a ship
    wave simulation in the Scheldt Estuary (The Netherlands). The ship track
@@ -2300,7 +2306,7 @@ filtered to focus on the computation of the primary ship wave.
 
 .. _fig-ship-waves-example:
 
-.. figure:: images/image22.png
+.. figure:: images/image22.jpg
    :width: 400px
    :align: center
 
@@ -2319,9 +2325,9 @@ Boundary conditions
 Waves
 -----
 
-.. seealso:: Wave boundary conditions are implemented in :f:mod:`waveparams`. The
+.. seealso:: Wave boundary conditions are implemented in `mod:waveparams`. The
              latest functionalities, like spatially varying spectral conditions
-             are implemented in :f:mod:`spectral_wave_bc_module`.
+             are implemented in `mod:spectral_wave_bc_module`.
 
 XBeach allows users to include two different options for wave boundary
 conditions in the model. These wave boundary conditions can be applied
@@ -2458,7 +2464,7 @@ shown in :numref:`fig-wave-boundary-conditions`.
 
 .. _fig-wave-boundary-conditions:
 
-.. figure:: images/image23.png
+.. figure:: images/image23.jpg
    :width: 400px
    :align: center
 
@@ -2897,7 +2903,7 @@ construction as described in :ref:`sec-spatiotemporal-varying-wbc`.
 
 .. _fig-wbc-decision-tree:
 
-.. figure:: images/image24.png
+.. figure:: images/image24.jpg
    :width: 600px
    :align: center
 
@@ -3005,7 +3011,7 @@ JONSWAP spreading parameter.
 
 .. _wave_spreading:
 
-.. figure:: images/image25.png
+.. figure:: images/image25.jpg
    :width: 400px
    :align: center
 
@@ -3765,7 +3771,7 @@ A definition sketch is given in :numref:`fig-vegetation`.
 
 .. _fig-vegetation:
 
-.. figure:: images/image26.png
+.. figure:: images/image26.jpg
    :width: 400px
    :align: center
 
@@ -3778,7 +3784,8 @@ vegetation species can be found. The format of this file is similar to
 the bathymetry files described in :ref:`sec-grid-bathymetry`, but the
 values are integers referring to a species where 1 refers to the first
 listed species, 2 to the second, et cetera. A zero indicates no
-vegetation at that particular location.
+vegetation at that particular location. The use of non-integer values
+in this file will result in an error.
 
 In summary, the following files should be created when the effect of
 vegetation is modeled:
@@ -3858,7 +3865,7 @@ discharges are positive into the domain (influx).
 
 .. _discharges:
 
-.. figure:: images/image27.png
+.. figure:: images/image27.jpg
    :width: 400px
    :align: center
 
@@ -5051,7 +5058,7 @@ is shown with the corresponding grid distances around the *u-* and
 
 .. _fig-staggered-grid:
 
-.. figure:: images/image28.png
+.. figure:: images/image28.jpg
    :width: 400px
    :align: center
 
@@ -5115,12 +5122,11 @@ wave energy balance and will not be repeated here.
 Stationary solver
 ^^^^^^^^^^^^^^^^^
 
-In the stationary solver the wave energy and roller energy balances are
-solved line by line, from the seaward boundary landward. For each line
-the automatic timestep is computed and the quasi-time-dependent balance
-according to equation :eq:`stationary-advec` is solved until convergence
-or the maximum number of iterations is reached, after which the solver
-moves to the next line.
+In the stationary solver the wave energy and roller energy balances
+are solved line by line, from the seaward boundary landward. For each
+line the automatic timestep is computed and the quasi-time-dependent
+balance is solved until convergence or the maximum number of
+iterations is reached, after which the solver moves to the next line.
 
 The iteration is controlled by the parameters :par:`maxiter` and :par:`maxerror`.
 
@@ -5198,7 +5204,7 @@ same direction at the upwind cell.
 
 .. _fig-momentum-and-fluxes:
 
-.. figure:: images/image29.png
+.. figure:: images/image29.jpg
    :width: 400px
    :align: center
 
@@ -5264,7 +5270,7 @@ makes the scheme second order accurate.
 
 .. _fig-leapfrog:
 
-.. figure:: images/image30.png
+.. figure:: images/image30.jpg
    :width: 400px
    :align: center
 

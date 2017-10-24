@@ -45,7 +45,6 @@ help:
 	@echo "  pseudoxml  to make pseudoxml-XML files for display purposes"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
-	@echo "  commit     to commit resulting documentation to github.com"
 
 clean:
 	rm -rf $(BUILDDIR)/*
@@ -105,20 +104,32 @@ epub:
 	@echo "Build finished. The epub file is in $(BUILDDIR)/epub."
 
 latex:
+	mv index.rst index.rst.bak
+	cp index_pdf.rst index.rst
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+	cp index.rst.bak index.rst
+	rm index.rst.bak
 	@echo
 	@echo "Build finished; the LaTeX files are in $(BUILDDIR)/latex."
 	@echo "Run \`make' in that directory to run these through (pdf)latex" \
 	      "(use \`make latexpdf' here to do that automatically)."
 
 latexpdf:
+	mv index.rst index.rst.bak
+	cp index_pdf.rst index.rst
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+	cp index.rst.bak index.rst
+	rm index.rst.bak
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 latexpdfja:
+	mv index.rst index.rst.bak
+	cp index_pdf.rst index.rst
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+	cp index.rst.bak index.rst
+	rm index.rst.bak
 	@echo "Running LaTeX files through platex and dvipdfmx..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf-ja
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
@@ -176,8 +187,3 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
-
-commit:
-	@git --git-dir=$(BUILDDIR)/html/.git --work-tree=$(BUILDDIR)/html add .
-	@git --git-dir=$(BUILDDIR)/html/.git --work-tree=$(BUILDDIR)/html commit -a -m "Updated docs"
-	@git --git-dir=$(BUILDDIR)/html/.git --work-tree=$(BUILDDIR)/html push

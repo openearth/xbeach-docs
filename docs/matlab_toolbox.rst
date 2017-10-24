@@ -63,7 +63,7 @@ xb_get_activeprofile
    [x xi] = xb_get_activeprofile(xb)
    [x xi] = xb_get_activeprofile(xb, 'dzfrac', .8)
    
-.. seealso:: xb_get_profile_
+.. seealso:: xb_get_profilespecs_
 
 
 .. _xb_get_coastline:
@@ -399,8 +399,6 @@ xb_skill
    Example:
    [r2 sci relbias bss] = xb_skill(measured, computed)
    [r2 sci relbias bss] = xb_skill(measured, computed, 'var', 'zb')
-   
-.. seealso:: xb_plot_skill_
 
 
 .. _sec-xb_gui:
@@ -1468,7 +1466,7 @@ xb_dat_dims
    Example:
    dims = xb_dat_dims(filename)
    
-.. seealso:: xb_dat_read_, xb_dat_type_, xb_read_dat_
+.. seealso:: xb_dat_read_, xb_read_dat_
 
 
 .. _xb_dat_read:
@@ -1528,7 +1526,7 @@ xb_dat_read
    dat = xb_dat_read(fname, [100 3 20], 'start', 10, 'length', 90, 'stride', 2);
    dat = xb_dat_read(fname, [100 3 20], 'start', [10 1 1], 'length', [20 -1 -1], 'stride', [2 2 2]);
    
-.. seealso:: xb_read_dat_, xb_read_output_, xb_dat_dims_, xb_dat_type_
+.. seealso:: xb_read_dat_, xb_read_output_, xb_dat_dims_
 
 
 .. _sec-xb_lib:
@@ -1562,7 +1560,7 @@ xb_axes
    Example:
    [t y x] = xb_axes(xb, 'H');
    
-.. seealso:: xb_show_
+.. seealso:: xb_view_
 
 
 .. _xb_bathy2input:
@@ -2085,7 +2083,7 @@ xb_generate_model
    
    Input:
    varargin  = bathy:      cell array of name/value pairs of bathymetry
-                           settings supplied to xb_generate_grid
+                           settings supplied to xb_generate_bathy
                waves:      cell array of name/value pairs of waves
                            settings supplied to xb_generate_waves
                tide:       cell array of name/value pairs of tide
@@ -2495,7 +2493,7 @@ xb_grid_crop
    [xmin xmax ymin ymax] = xb_grid_crop(x, y, z)
    [xmin xmax ymin ymax] = xb_grid_crop(x, y, z, 'crop', [x0 y0 w h])
    
-.. seealso:: xb_generate_grid_, xb_grid_extent_
+.. seealso:: xb_generate_bathy_, xb_grid_extent_
 
 
 .. _xb_grid_delft3d:
@@ -2527,7 +2525,7 @@ xb_grid_delft3d
    xb = xb_grid_delft3d('path_to_model/')
    xb = xb_grid_delft3d(xb)
    
-.. seealso:: xb_generate_grid_
+.. seealso:: xb_generate_bathy_
 
 
 .. _xb_grid_extent:
@@ -2617,7 +2615,7 @@ xb_grid_finalise
    [x y z] = xb_grid_finalise(x, y, z)
    [x y z] = xb_grid_finalise(x, y, z, 'actions', {'landward_polder' 'lateral_sandwalls' 'lateral_extend' 'seaward_flatten'})
    
-.. seealso:: xb_generate_grid_
+.. seealso:: xb_generate_bathy_
 
 
 .. _xb_grid_interpolate:
@@ -2779,7 +2777,7 @@ xb_grid_orientation
    Example:
    [dim dir] = xb_grid_orientation(x, y, z)
    
-.. seealso:: xb_generate_grid_
+.. seealso:: xb_generate_bathy_
 
 
 .. _xb_grid_resolution:
@@ -3023,7 +3021,7 @@ xb_grid_xgrid
    Example:
    [xgr zgr] = xb_grid_xgrid([0:1:200], 0.1*[0:1:200]-15);
    
-.. seealso:: xb_generate_grid_, xb_grid_ygrid_
+.. seealso:: xb_generate_bathy_, xb_grid_ygrid_
 
 
 .. _xb_grid_ygrid:
@@ -3068,7 +3066,7 @@ xb_grid_ygrid
    Example:
    ygr = xb_grid_ygrid(yin)
    
-.. seealso:: xb_generate_grid_, xb_grid_xgrid_
+.. seealso:: xb_generate_bathy_, xb_grid_xgrid_
 
 
 .. _sec-xb_modelsetup/xb_grid/xb_delft3d:
@@ -4158,7 +4156,6 @@ xb_testbed_check
    Example:
    if xb_testbed_check; disp('YES!'); end;
    
-.. seealso:: xb_check_
 
 
 .. _xb_testbed_getpref:

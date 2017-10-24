@@ -123,7 +123,7 @@ dune profile (see Figure) and a statistically constant boundary
 conditions described by a JONSWAP spectrum with a significant wave
 height of 7.6m and a peak wave period of 12s.
 
-.. figure:: images/matlab_tutorial/duneprofile.jpg
+.. figure:: images/matlabtools/duneprofile.jpg
    :width: 400px
    :align: center
 
@@ -131,11 +131,11 @@ height of 7.6m and a peak wave period of 12s.
 Arguments of the xb_generate_model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. seealso:: xb_generate_model_
+.. seealso:: xb_generate_model
 
 The model created in the previous example uses default settings only,
 which is not very interesting. Altering the model is done by supplying
-preferences to the function xb_generate_model_ as shown in the next
+preferences to the function `xb_generate_model` as shown in the next
 example:
 
 .. code-block:: text
@@ -174,7 +174,7 @@ supplying multiple values for several parameters:
       'settings', { 'tstop', 45000, 'morfac', 5 });
 
       
-Be aware that the xb_generate_model_ function adapts different model
+Be aware that the `xb_generate_model` function adapts different model
 parameters to eachother. Like it adapts the grid to the boundary
 conditions. Model settings can also be changed after a model is
 generated. In that case, the correlation between different parameters
@@ -230,10 +230,10 @@ while the latter generates a single NC file with all data in it. The
 Matlab Toolbox supports both and there are no significant differences
 in the usage of the commands shown.
 
-To have a quick view on your model output, use the xb_view_
+To have a quick view on your model output, use the `xb_view`
 command. This command works as well while the model is still
 running. Just run the command in the model directory, supply the model
-directory or supply the result structure from the xb_run_ command:
+directory or supply the result structure from the `xb_run` command:
 
 .. code-block:: text
 
@@ -244,18 +244,18 @@ directory or supply the result structure from the xb_run_ command:
    
 The result will be somethink like this:
 
-.. figure:: images/matlab_tutorials/viewresults.jpg
+.. figure:: images/matlabtools/viewresults.jpg
    :width: 400px
    :align: center
 
            
 If you need to manipulate the output data or the visualization a bit
-more than the xb_view_ command offers, you will need to load the
-output data. The output is read using the xb_read_output_ command,
-which stores the data in an XBeach structure.  The xs_peel_ command
+more than the `xb_view` command offers, you will need to load the
+output data. The output is read using the `xb_read_output` command,
+which stores the data in an XBeach structure.  The `xs_peel` command
 converts this structure to a regular structure with matrices with
 dimensions time, y and x. The dimensions itself are read by the
-xb_read_dims_ command. Try the following commands to figure out how
+`xb_read_dims` command. Try the following commands to figure out how
 it all works:
 
 .. code-block:: text
@@ -306,21 +306,21 @@ Analyze results
  your own analysis scripts and, if generally applicable, provide it to
  the community!
  
- Profiles
- ^^^^^^^^
+Profiles
+^^^^^^^^
  
  .. code-block:: text
 
     xb_plot_profile(xbo);
 
     
- .. figure:: images/matlab_tutorials/profiles.jpg
+ .. figure:: images/matlabtools/profiles.jpg
    :width: 400px
    :align: center
            
 
- Hydrodynamics
- ^^^^^^^^^^^^^
+Hydrodynamics
+^^^^^^^^^^^^^
 
  .. code-block:: text
                  
@@ -329,12 +329,12 @@ Analyze results
     xb_plot_hydro2(xbh);
 
     
-.. figure:: images/matlab_tutorials/hydrodynamics.jpg
+.. figure:: images/matlabtools/hydrodynamics.jpg
    :width: 400px
    :align: center
 
            
-.. figure:: images/matlab_tutorials/hydrodynamics2.jpg
+.. figure:: images/matlabtools/hydrodynamics2.jpg
    :width: 400px
    :align: center
 
@@ -348,7 +348,7 @@ Sediment transports
    xb_plot_sedtrans(xbs);
 
    
-.. figure:: images/matlab_tutorials/sedimenttransports.jpg
+.. figure:: images/matlabtools/sedimenttransports.jpg
    :width: 400px
    :align: center
 
@@ -362,7 +362,7 @@ Morphology
    xb_plot_morpho(xbm);
 
    
-.. figure:: images/matlab_tutorials/morphology.jpg
+.. figure:: images/matlabtools/morphology.jpg
    :width: 400px
    :align: center
 
