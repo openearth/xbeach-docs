@@ -1935,6 +1935,7 @@ The bed-load transport is computed with
 
 .. math::
    :label:
+
    \begin{array}{l} \left| {Sb} \right| = 0.006\rho {}_s{w_s}{D_{50}}{M^{0.5}}{M_e}^{0.7}\\\end{array}\]
 
 
@@ -1942,6 +1943,7 @@ In which the sediment mobility number due to waves and currents ( (:math:`{M}`) 
 
 .. math::
    :label:
+
    M = \frac{{{v_e}^2}}{{(s - 1)g{D_{50}}}}
 
 
@@ -1949,6 +1951,7 @@ For the suspended-load, first the reference concentration is calculated in accor
 
 .. math::
    :label:
+
    {c_a} = 0.015{\rho _s}\frac{{{D_{50}}{T_a}^{1.5}}}{{\alpha {D_*}^{0.3}}}
 
 Secondly, the concentration profile is resolved by calculating the bed-shear stresses due to waves and currents and estimating the concentration profile where the combined bed shear stress exceeds the critical bed shear stress. Depth-averaged mixing due to waves and currents.
