@@ -1929,7 +1929,7 @@ The critical velocity for waves is based on :cite:`Komar1975`:
    U_{crw} =\left\{\begin{array}{l} {0.24(\Delta g)^{2/3} {\; }\left(D_{50} T_{rep} \right)^{1/3} {\; \; \; \; \; \; \; \; for\; \; }D_{50} <=0.0005} \\ {0.95(\Delta g)^{0.57} {\; }\left(D_{50} \right)^{0.43} T_{rep} ^{0.14} {\; \; for\; \; }D_{50} >0.0005} \end{array}\right.
 
 
-The third possible sediment transport formulation are the Van Rijn (1993 equations (keyword: :par:`form` = vanrijn1993) (:cite:`VanRijn1993`). Van Rijn (1993) distinguishes between sediment transport below the reference height at which sediment is treated as bed-load transport and above the reference height which is treated as suspended-load. 
+The third possible sediment transport formulation are the Van Rijn (1993 equations (keyword: :par:`form` = vanrijn1993) Van Rijn (1993) distinguishes between sediment transport below the reference height at which sediment is treated as bed-load transport and above the reference height which is treated as suspended-load. 
 
 The bed-load transport is computed with
 
@@ -1951,7 +1951,7 @@ For the suspended-load, first the reference concentration is calculated in accor
    :label:
 {c_a} = 0.015{\rho _s}\frac{{{D_{50}}{T_a}^{1.5}}}{{\alpha {D_*}^{0.3}}}
 
-Secondly, the concentration profile is resolved by calculating the bed-shear stresses due to waves and currents and estimating the concentration profile where the combined bed shear stress exceeds the critical bed shear stress. Depth-averaged mixing due to waves and currents (:cite:`VanRijn1993`).
+Secondly, the concentration profile is resolved by calculating the bed-shear stresses due to waves and currents and estimating the concentration profile where the combined bed shear stress exceeds the critical bed shear stress. Depth-averaged mixing due to waves and currents.
 
 
 Effects of wave non-linearity 
