@@ -4,10 +4,27 @@
      :description:   Number of vegetation species
      :units:         -
      :default:       -123
+   vegcanflo
+     :description:   Include incanopy flow [1] or not [0]
+     :units:         -
+     :default:       0
+     :range:         0 - 1
    veggiefile
-     :description:   Name of vegetation species list file
-     :units:         <file>
+     :description:   Name of veggie species list file
+     :units:         -
+     :default:       
    veggiemapfile
-     :description:   Name of vegetation species map file
-     :units:         <file>
+     :description:   Name of veggie species map file
+     :units:         -
+     :default:       
+   vegnonlin
+     :description:   Include non-linear wave effect [1] or not [0]
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   veguntow
+     :description:   Include undertow in phase-averaged vegetati
+     :units:         -
+     :default:       1
+     :range:         0 - 1
 

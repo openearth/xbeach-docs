@@ -16,10 +16,10 @@
      :description:   Directional resolution
      :units:         deg
      :default:       10.0
-     :range:         0.1 - 20.0
+     :range:         0.1 - 180.0
    dtheta_s
      :required:
-     :description:   Directional resolution in case of stationary refraction 
+     :description:   Directional resolution in case of stationary refraction
      :units:         deg
      :default:       10.0
      :range:         0.1 - 20.0
@@ -54,6 +54,11 @@
      :units:         -
      :default:       2
      :range:         0 - 10000
+   nz
+     :description:   Number of computational cells in z-direction
+     :units:         -
+     :default:       1
+     :range:         1 - 100
    posdwn
      :description:   Bathymetry is specified positive down (1) or positive up (-1)
      :units:         -
@@ -64,13 +69,13 @@
      :description:   Higher directional limit (angle w.r.t computational x-axis)
      :units:         deg
      :default:       90.0
-     :range:         -180.0 - 180.0
+     :range:         -360.0 - 360.0
    thetamin
      :required:
      :description:   Lower directional limit (angle w.r.t computational x-axis)
      :units:         deg
      :default:       -90.0
-     :range:         -180.0 - 180.0
+     :range:         -360.0 - 360.0
    thetanaut
      :description:   Switch to specify thetamin and thetamax in nautical convention rather than cartesian
      :units:         -

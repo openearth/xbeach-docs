@@ -10,7 +10,7 @@
      :description:   Name of spectrum file
      :units:         <file>
    correctHm0
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable hm0 correction
      :units:         -
      :default:       1
@@ -46,14 +46,8 @@
      :default:       1
      :range:         1 - par\%ny+1
    nspr
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable long wave direction forced into centres of short wave bins
-     :units:         -
-     :default:       0
-     :range:         0 - 1
-   oldnyq
-     :advanced:
-     :description:   Switch to enable old nyquist switch
      :units:         -
      :default:       0
      :range:         0 - 1
@@ -81,7 +75,7 @@
      :default:       0.01
      :range:         0.0 - 1.0
    wbcversion
-     :advanced:
+     :advanced,silent:
      :description:   Version of wave boundary conditions
      :units:         -
      :default:       3

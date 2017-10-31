@@ -33,7 +33,7 @@
      :default:       100.0
      :range:         1.0 - 600.0
    gwfastsolve
-     :advanced:
+     :advanced,silent:
      :description:   Reduce full 2d non-hydrostatic solution to quasi-explicit in longshore direction
      :units:         -
      :default:       0

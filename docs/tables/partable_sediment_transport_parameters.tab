@@ -44,6 +44,11 @@
      :units:         -
      :default:       1
      :range:         0 - 1
+   bermslope
+     :description:   Swash zone slope for (semi-) reflective beaches
+     :units:         -
+     :default:       0.0
+     :range:         0.0 - 1.0
    betad
      :advanced:
      :description:   Dissipation parameter long wave breaking turbulence
@@ -56,6 +61,18 @@
      :units:         -
      :default:       0
      :range:         0 - 1
+   ci
+     :advanced:
+     :description:   Mass coefficient in shields inertia term
+     :units:         -
+     :default:       1.0
+     :range:         0.5 - 1.5
+   cm
+     :advanced,deprecated:
+     :description:   Mass coefficient in shields inertia term
+     :units:         -
+     :default:       1.5
+     :range:         0.0 - 3.0
    dilatancy
      :description:   Switch to reduce critical shields number due dilatancy
      :units:         -
@@ -100,9 +117,9 @@
      :description:   Equilibrium sediment concentration formulation
      :units:         
      :default:       vanthiel_vanrijn
-     :range:         soulsby_vanrijn, vanthiel_vanrijn
+     :range:         soulsby_vanrijn, vanthiel_vanrijn, vanrijn1993
    jetfac
-     :advanced:
+     :advanced,silent:
      :description:   Option to mimic turbulence production near revetments
      :units:         -
      :default:       0.0
@@ -119,6 +136,12 @@
      :units:         -
      :default:       0
      :range:         0 - 1
+   phit
+     :advanced:
+     :description:   Phase lag angle in nielsen transport equation
+     :units:         -
+     :default:       25.0
+     :range:         0.0 - 90.0
    pormax
      :description:   Max porosity used in the experession of van rhee
      :units:         -
@@ -130,13 +153,13 @@
      :default:       30.0
      :range:         0.0 - 45.0
    rheeA
-     :description:   A parameter in the van rhee expression 
+     :description:   A parameter in the van rhee expression
      :units:         -
      :default:       0.75
      :range:         0.75 - 2.0
    smax
      :advanced:
-     :description:   Maximum shields parameter for equillibrium sediment concentration acc. diane foster
+     :description:   Maximum shields parameter for equilibrium sediment concentration acc. diane foster
      :units:         -
      :default:       -1.0
      :range:         -1.0 - 3.0
@@ -162,7 +185,7 @@
      :advanced:
      :description:   Switch to include short wave turbulence
      :units:         
-     :default:       bore_averaged
+     :default:       wave_averaged
      :range:         none, wave_averaged, bore_averaged
    turbadv
      :advanced:

@@ -15,8 +15,8 @@
      :advanced:
      :description:   Switch to enable breaker delay model
      :units:         -
-     :default:       1
-     :range:         0 - 1
+     :default:       1.0
+     :range:         0.0 - 3.0
    delta
      :advanced:
      :description:   Fraction of wave height to add to water depth
@@ -24,23 +24,17 @@
      :default:       0.0
      :range:         0.0 - 1.0
    facrun
-     :advanced:
+     :advanced,silent:
      :description:   Calibration coefficient for short wave runup
      :units:         -
      :default:       1.0
      :range:         0.0 - 2.0
    facsd
-     :advanced:
+     :advanced,silent:
      :description:   Fraction of the local wave length to use for shoaling delay depth
      :units:         -
      :default:       1.0
      :range:         0.0 - 2.0
-   fw
-     :advanced:
-     :description:   Bed friction factor
-     :units:         -
-     :default:       0.0
-     :range:         0.0 - 1.0
    fwcutoff
      :description:   Depth greater than which the bed friction factor is not applied
      :units:         -
@@ -69,9 +63,16 @@
      :default:       10.0
      :range:         5.0 - 20.0
    shoaldelay
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable shoaling delay
      :units:         -
      :default:       0
      :range:         0 - 1
+   wavfriccoef
+     :description:   Wave friction coefficient
+     :units:         -
+     :default:       -123
+   wavfricfile
+     :description:   Wave friction file
+     :units:         <file>
 

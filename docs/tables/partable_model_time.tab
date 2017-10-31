@@ -5,6 +5,23 @@
      :units:         -
      :default:       0.7
      :range:         0.1 - 0.9
+   defuse
+     :advanced,silent:
+     :description:   Turn on timestep explosion prevention mechanism
+     :units:         -
+     :default:       1
+     :range:         0 - 1
+   dtset
+     :description:   Fixed timestep, overrides use of cfl
+     :units:         -
+     :default:       0.0
+     :range:         0.001 - 100.0
+   maxdtfac
+     :advanced,silent:
+     :description:   Maximum increase/decrease in time stp in explosion prevention mechanism
+     :units:         -
+     :default:       500.0
+     :range:         100.0 - 1000.0
    tstop
      :required:
      :description:   Stop time of simulation, in morphological time
@@ -15,5 +32,5 @@
      :advanced:
      :description:   Time units in udunits format (seconds since 1970-01-01 00:00:00.00 +1:00)
      :units:         -
-     :default:       's'
+     :default:       s
 

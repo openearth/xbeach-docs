@@ -1,4 +1,4 @@
-.. partable:: Overview of available keywords
+.. partable:: Overview of available keywords related to *
 
    ARC
      :advanced:
@@ -12,11 +12,6 @@
      :units:         -
      :default:       1.0
      :range:         0.0 - 1.0
-   C
-     :description:   Chezy coefficient
-     :units:         m^0.5s^-1
-     :default:       55.0
-     :range:         20.0 - 100.0
    CFL
      :description:   Maximum courant-friedrichs-lewy number
      :units:         -
@@ -28,21 +23,6 @@
      :units:         -
      :default:       0.002
      :range:         0.0001 - 0.01
-   D15
-     :description:   D15 grain size per grain type
-     :units:         m
-     :default:       0.00015
-     :range:         1e-05 - 0.0008
-   D50
-     :description:   D50 grain size per grain type
-     :units:         m
-     :default:       0.0002
-     :range:         5e-05 - 0.0008
-   D90
-     :description:   D90 grain size per grain type
-     :units:         m
-     :default:       0.0003
-     :range:         0.0001 - 0.0015
    Hrms
      :description:   Hrms wave height for instat = stat, bichrom, ts_1 or ts_2
      :units:         m
@@ -82,6 +62,11 @@
      :units:         s
      :default:       0.5
      :range:         0.01 - 10.0
+   advection
+     :description:   Include advection in flow solver
+     :units:         -
+     :default:       1
+     :range:         0 - 1
    alfa
      :description:   Angle of x-axis from east
      :units:         deg
@@ -117,7 +102,14 @@
      :description:   Name of spectrum file
      :units:         <file>
    bchwiz
+     :advanced,silent:
      :description:   Turn on beachwizard
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   bclwonly
+     :advanced,silent:
+     :description:   Switch to run boundary conditions with long waves only
      :units:         -
      :default:       0
      :range:         0 - 1
@@ -160,6 +152,11 @@
      :units:         
      :default:       chezy
      :range:         chezy, cf, white-colebrook, manning, white-colebrook-grainsize
+   bermslope
+     :description:   Swash zone slope for (semi-) reflective beaches
+     :units:         -
+     :default:       0.0
+     :range:         0.0 - 1.0
    beta
      :advanced:
      :description:   Breaker slope coefficient in roller model
@@ -181,8 +178,8 @@
      :advanced:
      :description:   Switch to enable breaker delay model
      :units:         -
-     :default:       1
-     :range:         0 - 1
+     :default:       1.0
+     :range:         0.0 - 3.0
    breakviscfac
      :advanced:
      :description:   Factor to increase viscosity during breaking
@@ -207,12 +204,18 @@
      :units:         Trep
      :default:       4.0
      :range:         1.0 - 50.0
-   cf
+   ci
      :advanced:
-     :description:   Friction coefficient flow
+     :description:   Mass coefficient in shields inertia term
      :units:         -
-     :default:       0.003
-     :range:         0.001 - 0.1
+     :default:       1.0
+     :range:         0.5 - 1.5
+   cm
+     :advanced,deprecated:
+     :description:   Mass coefficient in shields inertia term
+     :units:         -
+     :default:       1.5
+     :range:         0.0 - 3.0
    cmax
      :advanced:
      :description:   Maximum allowed sediment concentration
@@ -224,8 +227,19 @@
      :units:         -
      :default:       -123
    correctHm0
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable hm0 correction
+     :units:         -
+     :default:       1
+     :range:         0 - 1
+   cyclic
+     :description:   Turn on cyclic boundary conditions
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   defuse
+     :advanced,silent:
+     :description:   Turn on timestep explosion prevention mechanism
      :units:         -
      :default:       1
      :range:         0 - 1
@@ -235,6 +249,12 @@
      :units:         -
      :default:       0.0
      :range:         0.0 - 1.0
+   deltar
+     :advanced,silent:
+     :description:   Estimated ripple height
+     :units:         -
+     :default:       0.025
+     :range:         0.001 - 1.0
    depfile
      :required:
      :required:
@@ -243,7 +263,7 @@
      :units:         <file>
    depthscale
      :advanced:
-     :description:   Depthscale of (lab)test simulated, affects eps, hmin, hswitch and dzmax
+     :description:   Depthscale of (lab)test simulat, affects eps, hmin, hswitch and dzma
      :units:         -
      :default:       1.0
      :range:         1.0 - 200.0
@@ -256,7 +276,7 @@
      :description:   Mean wave direction for instat = stat, bichrom, ts_1 or ts_2 (nautical convention)
      :units:         deg
      :default:       270.0
-     :range:         180.0 - 360.0
+     :range:         -360.0 - 360.0
    disch_loc_file
      :advanced:
      :description:   Name of discharge locations file
@@ -269,7 +289,7 @@
      :advanced:
      :description:   Coefficient in front of the vertical pressure gradient
      :units:         \?
-     :default:       1.0
+     :default:       -1.0
      :range:         0.1 - 2.0
    drifterfile
      :description:   Name of drifter data file
@@ -294,7 +314,7 @@
      :description:   Directional resolution
      :units:         deg
      :default:       10.0
-     :range:         0.1 - 20.0
+     :range:         0.1 - 180.0
    dthetaS_XB
      :advanced:
      :description:   The (counter-clockwise) angle in the degrees needed to rotate from the x-axis in swan to the x-axis pointing east
@@ -303,10 +323,15 @@
      :range:         -360.0 - 360.0
    dtheta_s
      :required:
-     :description:   Directional resolution in case of stationary refraction 
+     :description:   Directional resolution in case of stationary refraction
      :units:         deg
      :default:       10.0
      :range:         0.1 - 20.0
+   dtset
+     :description:   Fixed timestep, overrides use of cfl
+     :units:         -
+     :default:       0.0
+     :range:         0.001 - 100.0
    dwetlayer
      :advanced:
      :description:   Thickness of the top soil layer interacting more freely with the surface water
@@ -386,13 +411,13 @@
      :default:       0.1
      :range:         0.0 - 1.0
    facrun
-     :advanced:
+     :advanced,silent:
      :description:   Calibration coefficient for short wave runup
      :units:         -
      :default:       1.0
      :range:         0.0 - 2.0
    facsd
-     :advanced:
+     :advanced,silent:
      :description:   Fraction of the local wave length to use for shoaling delay depth
      :units:         -
      :default:       1.0
@@ -429,7 +454,7 @@
      :description:   Equilibrium sediment concentration formulation
      :units:         
      :default:       vanthiel_vanrijn
-     :range:         soulsby_vanrijn, vanthiel_vanrijn
+     :range:         soulsby_vanrijn, vanthiel_vanrijn, vanrijn1993
    frac_dz
      :advanced:
      :description:   Relative thickness to split time step for bed updating
@@ -442,17 +467,26 @@
      :units:         -
      :default:       0
      :range:         0 - 1
+   friction_acceleration
+     :description:   Turn on or off the effect of acceleration on bed roughness (morrison)
+     :units:         -
+     :default:       none
+     :range:         none, mccall, nielsen
+   friction_infiltration
+     :description:   Turn on or off the effect of infiltration on bed roughness (conley and inman)
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   friction_turbulence
+     :description:   Turn on or off the effect of turbulence on bed roughness (reniers van thiel)
+     :units:         -
+     :default:       0
+     :range:         0 - 1
    front
      :description:   Switch for seaward flow boundary
      :units:         
      :default:       abs_2d
      :range:         abs_1d, abs_2d, wall, wlevel, nonh_1d, waveflume
-   fw
-     :advanced:
-     :description:   Bed friction factor
-     :units:         -
-     :default:       0.0
-     :range:         0.0 - 1.0
    fwcutoff
      :description:   Depth greater than which the bed friction factor is not applied
      :units:         -
@@ -473,17 +507,17 @@
      :units:         -
      :default:       0.3
      :range:         0.0 - 0.5
+   gamma_turb
+     :description:   Calibration factor for turbulence contribution to bed roughness
+     :units:         -
+     :default:       1.0
+     :range:         0.0 - 2.0
    gammax
      :advanced:
      :description:   Maximum ratio wave height to water depth
      :units:         -
      :default:       2.0
      :range:         0.4 - 5.0
-   globalvars
-     :advanced:
-     :description:   Mnems of global output variables, not per se the same size as nglobalvar (invalid variables, defaults)
-     :units:         -
-     :default:       'abc'
    gridform
      :description:   Grid definition format
      :units:         
@@ -506,7 +540,7 @@
      :default:       100.0
      :range:         1.0 - 600.0
    gwfastsolve
-     :advanced:
+     :advanced,silent:
      :description:   Reduce full 2d non-hydrostatic solution to quasi-explicit in longshore direction
      :units:         -
      :default:       0
@@ -564,13 +598,24 @@
      :units:         m
      :default:       0.1
      :range:         0.001 - 1.0
+   hwcimax
+     :advanced:
+     :description:   Maximum depth until which wave-current interaction is used
+     :units:         m
+     :default:       100.0
+     :range:         0.01 - 100.0
    instat
-     :description:   Wave boundary condition type
+     :description:   Old wave boundary condition type
      :units:         
      :default:       bichrom
      :range:         stat, bichrom, ts_1, ts_2, jons, swan, vardens, reuse, ts_nonh, off, stat_table, jons_table
+   irhog8
+     :1/8*rho*g:
+     :description:   ^-1
+     :units:         N^-1m^3
+     :default:       -123
    jetfac
-     :advanced:
+     :advanced,silent:
      :description:   Option to mimic turbulence production near revetments
      :units:         -
      :default:       0.0
@@ -582,10 +627,10 @@
      :default:       0.0
      :range:         0.0 - 0.05
    kmax
-     :advanced:
+     :advanced,silent:
      :description:   Number of sigma layers in quasi-3d model; kmax = 1 is without vertical structure of flow and suspensions
      :units:         -
-     :default:       1
+     :default:       100
      :range:         1 - 1000
    kx
      :advanced:
@@ -620,7 +665,12 @@
      :description:   Switch for lateral boundary at ny+1
      :units:         
      :default:       neumann
-     :range:         neumann, wall, no_advec, neumann_v
+     :range:         neumann, wall, no_advec, neumann_v, abs_1d
+   lsgrad
+     :description:   Factor to include longshore transport gradient in 1d simulationsdsy/dy=lsgrad*sy; dimension 1/length scale of longshore gradients
+     :units:         1/m
+     :default:       0.0
+     :range:         -0.1 - 0.1
    lwave
      :description:   Turn on short wave forcing on nlsw equations and boundary conditions
      :units:         -
@@ -647,13 +697,19 @@
      :advanced:
      :description:   Maximum wave steepness criterium
      :units:         -
-     :default:       0.6
+     :default:       0.4
      :range:         0.3 - 0.8
+   maxdtfac
+     :advanced,silent:
+     :description:   Maximum increase/decrease in time stp in explosion prevention mechanism
+     :units:         -
+     :default:       500.0
+     :range:         100.0 - 1000.0
    maxerror
      :advanced:
      :description:   Maximum wave height error in wave stationary iteration
      :units:         m
-     :default:       5e-05
+     :default:       0.0005
      :range:         1e-05 - 0.001
    maxiter
      :advanced:
@@ -661,11 +717,6 @@
      :units:         -
      :default:       500
      :range:         2 - 1000
-   meanvars
-     :advanced:
-     :description:   Mnems of mean output variables (by variables)
-     :units:         -
-     :default:       'abc'
    merge
      :advanced:
      :description:   Merge threshold for variable sediment layer (ratio to nominal thickness)
@@ -697,8 +748,8 @@
    morstart
      :description:   Start time morphology, in morphological time
      :units:         s
-     :default:       120.0
-     :range:         0.0 - 10000000.0
+     :default:       0.0
+     :range:         0.0 - par\%tstop
    morstop
      :description:   Stop time morphology, in morphological time
      :units:         s
@@ -717,7 +768,7 @@
      :default:       10.0
      :range:         5.0 - 20.0
    nc
-     :advanced:
+     :advanced,silent:
      :description:   Smoothing distance for estimating umean (defined as nr of cells)
      :units:         -
      :default:       par\%ny+1
@@ -726,12 +777,6 @@
      :advanced:
      :description:   Xbeach netcdf output file name
      :units:         <file>
-   ncross
-     :advanced:
-     :description:   Number of output cross sections
-     :units:         -
-     :default:       0
-     :range:         0 - 50
    nd
      :advanced:
      :description:   Number of computational layers in the bed
@@ -743,7 +788,7 @@
      :description:   Index of layer with variable thickness
      :units:         -
      :default:       2
-     :range:         2 - par\%nd
+     :range:         1 - par\%nd
    ndischarge
      :advanced:
      :description:   Number of discharge locations
@@ -756,7 +801,7 @@
      :default:       par\%ndrifter
      :range:         0 - 50
    ne_layer
-     :description:   Name of file containing depth of hard structure
+     :description:   Name of file containing thickness of the erodible layer
      :units:         <file>
    ngd
      :description:   Number of sediment classes
@@ -773,7 +818,13 @@
      :description:   Non-hydrostatic breaker model
      :units:         -
      :default:       2
-     :range:         0 - 3
+     :range:         0 - 2
+   nhlay
+     :advanced:
+     :description:   Layer distribution in the nonhydrostatic model, default = 0.33
+     :units:         -
+     :default:       0.33
+     :range:         0.0 - 1.0
    nmax
      :advanced:
      :description:   Maximum ratio of cg/c for computing long wave boundary conditions
@@ -794,6 +845,12 @@
    nonh
      :advanced:
      :description:   Turn on non-hydrostatic pressure: 0 = nswe, 1 = nsw + non-hydrostatic pressure compensation stelling & zijlema, 2003
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   nonhq3d
+     :advanced,silent:
+     :description:   Turn on or off the the reduced two-layer nonhydrostatic model, default = 0
      :units:         -
      :default:       0
      :range:         0 - 1
@@ -842,7 +899,7 @@
      :default:       1
      :range:         1 - par\%ny+1
    nspr
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable long wave direction forced into centres of short wave bins
      :units:         -
      :default:       0
@@ -865,7 +922,7 @@
      :default:       1.0
      :range:         0.0 - 1.0
    nuhv
-     :advanced:
+     :advanced,silent:
      :description:   Longshore viscosity enhancement factor, following svendsen (\?)
      :units:         -
      :default:       1.0
@@ -886,21 +943,20 @@
      :units:         -
      :default:       2
      :range:         0 - 10000
-   oldhu
-     :advanced:
-     :description:   Switch to enable old hu calculation
+   nz
+     :description:   Number of computational cells in z-direction
      :units:         -
-     :default:       0
-     :range:         0 - 1
-   oldnyq
-     :advanced:
-     :description:   Switch to enable old nyquist switch
+     :default:       1
+     :range:         1 - 100
+   oldhu
+     :advanced,silent:
+     :description:   Switch to enable old hu calculation
      :units:         -
      :default:       0
      :range:         0 - 1
    order
      :advanced:
-     :description:   Switch for order of wave steering, 1 = first order wave steering (short wave energy only), 2 = second oder wave steering (bound long wave corresponding to short wave forcing is added)
+     :description:   Switch for order of wave steering,first order wave steering (short wave energy only), second oder wave steering (bound long wave corresponding to short wave forcing is added)
      :units:         -
      :default:       2.0
      :range:         1.0 - 2.0
@@ -910,21 +966,22 @@
      :units:         
      :default:       fortran
      :range:         fortran, netcdf, debug
+   outputprecision
+     :description:   Switch between single and double precision output in netcdf
+     :units:         
+     :default:       double
+     :range:         single, double
    paulrevere
      :description:   Specifies tide on sea and land or two sea points if tideloc = 2
      :units:         
      :default:       land
      :range:         land, sea
-   pointtypes
+   phit
      :advanced:
-     :description:   Point types (0 = point, 1 = rugauge)
+     :description:   Phase lag angle in nielsen transport equation
      :units:         -
-     :default:       > NULL()
-   pointvars
-     :advanced:
-     :description:   Mnems of point output variables (by variables)
-     :units:         -
-     :default:       'abc'
+     :default:       25.0
+     :range:         0.0 - 90.0
    por
      :description:   Porosity
      :units:         -
@@ -944,13 +1001,13 @@
      :advanced:
      :description:   Projection string
      :units:         -
-     :default:       ' '
+     :default:        
    px
      :description:   Pi
      :units:         -
-     :default:       -123
+     :default:       4.d0*atan(1.d0)
    q3d
-     :advanced:
+     :advanced,silent:
      :description:   Turn on quasi-3d sediment transport
      :units:         -
      :default:       0
@@ -967,6 +1024,11 @@
      :units:         -
      :default:       0.25d0*par\%maxbrsteep
      :range:         0.0 - 0.95d0*par\%maxbrsteep
+   remdryoutput
+     :description:   Remove dry output points from output data of zs etc.
+     :units:         -
+     :default:       1
+     :range:         0 - 1
    reposeangle
      :description:   Angle of internal friction
      :units:         deg
@@ -979,7 +1041,7 @@
      :default:       0
      :range:         0 - 1
    rheeA
-     :description:   A parameter in the van rhee expression 
+     :description:   A parameter in the van rhee expression
      :units:         -
      :default:       0.75
      :range:         0.75 - 2.0
@@ -1007,7 +1069,7 @@
      :description:   Switch for lateral boundary at 0
      :units:         
      :default:       neumann
-     :range:         neumann, wall, no_advec, neumann_v
+     :range:         neumann, wall, no_advec, neumann_v, abs_1d
    roller
      :advanced:
      :description:   Switch to enable roller model
@@ -1024,18 +1086,18 @@
      :units:         s
      :default:       min(3600.d0,par\%tstop)
      :range:         1200.0 - 7200.0
-   rugdepth
-     :advanced:
-     :description:   Minimum depth for determination of last wet point in runup gauge
-     :units:         m
-     :default:       0.0
-     :range:         0.0 - 0.1
+   rwave
+     :advanced,silent:
+     :description:   User-defined wave roughness adjustment factor
+     :units:         -
+     :default:       2.0
+     :range:         0.1 - 10.0
    scheme
      :advanced:
      :description:   Numerical scheme for wave propagation
      :units:         
-     :default:       upwind_2
-     :range:         upwind_1, lax_wendroff, upwind_2
+     :default:       warmbeam
+     :range:         upwind_1, lax_wendroff, upwind_2, warmbeam
    secbrsteep
      :advanced:
      :description:   Secondary maximum wave steepness criterium
@@ -1048,12 +1110,6 @@
      :units:         -
      :default:       0
      :range:         0 - 1
-   sedcal
-     :advanced:
-     :description:   Sediment transport calibration coefficient per grain type
-     :units:         -
-     :default:       1.0
-     :range:         0.0 - 2.0
    sedtrans
      :description:   Turn on sediment transport
      :units:         -
@@ -1079,13 +1135,13 @@
      :default:       0
      :range:         0 - 1
    shoaldelay
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable shoaling delay
      :units:         -
      :default:       0
      :range:         0 - 1
    sigfac
-     :advanced:
+     :advanced,silent:
      :description:   Dsig scales with log(sigfac)
      :units:         -
      :default:       1.3
@@ -1104,7 +1160,7 @@
      :range:         0 - 1
    smax
      :advanced:
-     :description:   Maximum shields parameter for equillibrium sediment concentration acc. diane foster
+     :description:   Maximum shields parameter for equilibrium sediment concentration acc. diane foster
      :units:         -
      :default:       -1.0
      :range:         -1.0 - 3.0
@@ -1122,7 +1178,7 @@
      :range:         sip, tridiag
    solver_acc
      :advanced:
-     :description:   Accuracy with respect to the right-hand side usedin the following termination criterion: ||b-ax || < acc*||b|| 
+     :description:   Accuracy with respect to the right-hand side usedin the following termination criterion: ||b-ax || < acc*||b||
      :units:         -
      :default:       0.005
      :range:         1e-05 - 0.1
@@ -1172,8 +1228,14 @@
      :units:         -
      :default:       1
      :range:         0 - 1
+   swkhmin
+     :advanced,silent:
+     :description:   Minimum kh value to include in wave action balance, lower included in nlswe (default -1.d0)
+     :units:         -
+     :default:       -0.01
+     :range:         -0.01 - 0.35
    swrunup
-     :advanced:
+     :advanced,silent:
      :description:   Turn on short wave runup
      :units:         -
      :default:       0
@@ -1198,13 +1260,13 @@
      :description:   Higher directional limit (angle w.r.t computational x-axis)
      :units:         deg
      :default:       90.0
-     :range:         -180.0 - 180.0
+     :range:         -360.0 - 360.0
    thetamin
      :required:
      :description:   Lower directional limit (angle w.r.t computational x-axis)
      :units:         deg
      :default:       -90.0
-     :range:         -180.0 - 180.0
+     :range:         -360.0 - 360.0
    thetanaut
      :description:   Switch to specify thetamin and thetamax in nautical convention rather than cartesian
      :units:         -
@@ -1237,13 +1299,12 @@
      :advanced:
      :description:   Interval time of cross section output
      :units:         s
-     :default:       1.0
-     :range:         0.01 - 100000.0
+     :default:       -123
    tintg
      :description:   Interval time of global output
      :units:         s
      :default:       1.0
-     :range:         0.01 - 100000.0
+     :range:         0.01 - par\%tstop-par\%tstart
    tintm
      :description:   Interval time of mean, var, max, min output
      :units:         s
@@ -1253,7 +1314,7 @@
      :description:   Interval time of point and runup gauge output
      :units:         s
      :default:       1.0
-     :range:         0.01 - 100000.0
+     :range:         0.01 - par\%tstop-par\%tstart
    tnext
      :description:   Next time point for output or wave stationary calculation, in hydrodynamic time
      :units:         s
@@ -1264,11 +1325,6 @@
      :units:         -
      :default:       0.01
      :range:         0.0 - 1.0
-   tscross
-     :advanced:
-     :description:   Name of file containing timings of cross section output
-     :units:         -
-     :default:       
    tsfac
      :advanced:
      :description:   Coefficient determining ts = tsfac * h/ws in sediment source term
@@ -1293,8 +1349,8 @@
    tstart
      :description:   Start time of output, in morphological time
      :units:         s
-     :default:       1.0
-     :range:         0.0 - 1000000.0
+     :default:       0.0
+     :range:         0.0 - par\%tstop
    tstop
      :required:
      :description:   Stop time of simulation, in morphological time
@@ -1305,12 +1361,12 @@
      :advanced:
      :description:   Time units in udunits format (seconds since 1970-01-01 00:00:00.00 +1:00)
      :units:         -
-     :default:       's'
+     :default:       s
    turb
      :advanced:
      :description:   Switch to include short wave turbulence
      :units:         
-     :default:       bore_averaged
+     :default:       wave_averaged
      :range:         none, wave_averaged, bore_averaged
    turbadv
      :advanced:
@@ -1318,12 +1374,6 @@
      :units:         
      :default:       none
      :range:         none, lagrangian, eulerian
-   ucrcal
-     :advanced:
-     :description:   Critical velocity calibration coefficient per grain type
-     :units:         -
-     :default:       1.0
-     :range:         0.0 - 2.0
    umin
      :description:   Threshold velocity for upwind velocity detection and for vmag2 in equilibrium sediment concentration
      :units:         m/s
@@ -1334,6 +1384,11 @@
      :units:         -
      :default:       0
      :range:         0 - 1
+   vegcanflo
+     :description:   Include incanopy flow [1] or not [0]
+     :units:         -
+     :default:       0
+     :range:         0 - 1
    vegetation
      :advanced:
      :description:   Turn on interaction of waves and flow with vegetation
@@ -1341,19 +1396,36 @@
      :default:       0
      :range:         0 - 1
    veggiefile
-     :description:   Name of vegetation species list file
-     :units:         <file>
+     :description:   Name of veggie species list file
+     :units:         -
+     :default:       
    veggiemapfile
-     :description:   Name of vegetation species map file
-     :units:         <file>
+     :description:   Name of veggie species map file
+     :units:         -
+     :default:       
+   vegnonlin
+     :description:   Include non-linear wave effect [1] or not [0]
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   veguntow
+     :description:   Include undertow in phase-averaged vegetati
+     :units:         -
+     :default:       1
+     :range:         0 - 1
    vicmol
-     :advanced:
+     :advanced,silent:
      :description:   Molecular viscosity
      :units:         -
      :default:       1e-06
      :range:         0.0 - 0.001
+   viscosity
+     :description:   Include viscosity in flow solver
+     :units:         -
+     :default:       1
+     :range:         0 - 1
    vonkar
-     :advanced:
+     :advanced,silent:
      :description:   Von karman constant
      :units:         -
      :default:       0.4
@@ -1363,13 +1435,30 @@
      :units:         
      :default:       vanthiel
      :range:         ruessink_vanrijn, vanthiel
+   wavemodel
+     :description:   Stationary (0), surfbeat (1) or non-hydrostatic (2)
+     :units:         -
+     :default:       surfbeat
+     :range:         stationary, surfbeat, nonh
+   wavfriccoef
+     :description:   Wave friction coefficient
+     :units:         -
+     :default:       -123
+   wavfricfile
+     :description:   Wave friction file
+     :units:         <file>
    wavint
      :description:   Interval between wave module calls (only in stationary wave mode)
      :units:         s
      :default:       60.0
      :range:         1.0 - 3600.0
+   wbctype
+     :description:   New wave boundary condition type
+     :units:         
+     :default:       params
+     :range:         params, parametric, swan, vardens, off, jonstable, reuse, ts_1, ts_2, ts_nonh
    wbcversion
-     :advanced:
+     :advanced,silent:
      :description:   Version of wave boundary conditions
      :units:         -
      :default:       3
@@ -1390,6 +1479,11 @@
      :units:         -
      :default:       0.3
      :range:         0.1 - 1.0
+   wind
+     :description:   Include wind in flow solver
+     :units:         -
+     :default:       1
+     :range:         0 - 1
    windfile
      :description:   Name of file with non-stationary wind data
      :units:         <file>
@@ -1403,6 +1497,10 @@
      :units:         ms^-1
      :default:       0.0
      :range:         0.0 - 200.0
+   ws
+     :description:   Average fall velocity (is computed in morphevolution)
+     :units:         m/s
+     :default:       0.02d0
    xfile
      :description:   Name of the file containing x-coordinates of the calculation grid
      :units:         <file>

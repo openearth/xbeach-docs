@@ -12,6 +12,12 @@
      :units:         m
      :default:       0.1
      :range:         0.001 - 1.0
+   hwcimax
+     :advanced:
+     :description:   Maximum depth until which wave-current interaction is used
+     :units:         m
+     :default:       100.0
+     :range:         0.01 - 100.0
    wci
      :description:   Turns on wave-current interaction
      :units:         -

@@ -1,10 +1,5 @@
 .. partable:: Overview of available keywords related to flow parameters
 
-   C
-     :description:   Chezy coefficient
-     :units:         m^0.5s^-1
-     :default:       55.0
-     :range:         20.0 - 100.0
    bedfriccoef
      :description:   Bed friction coefficient
      :units:         -
@@ -18,12 +13,26 @@
      :units:         
      :default:       chezy
      :range:         chezy, cf, white-colebrook, manning, white-colebrook-grainsize
-   cf
-     :advanced:
-     :description:   Friction coefficient flow
+   friction_acceleration
+     :description:   Turn on or off the effect of acceleration on bed roughness (morrison)
      :units:         -
-     :default:       0.003
-     :range:         0.001 - 0.1
+     :default:       none
+     :range:         none, mccall, nielsen
+   friction_infiltration
+     :description:   Turn on or off the effect of infiltration on bed roughness (conley and inman)
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   friction_turbulence
+     :description:   Turn on or off the effect of turbulence on bed roughness (reniers van thiel)
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   gamma_turb
+     :description:   Calibration factor for turbulence contribution to bed roughness
+     :units:         -
+     :default:       1.0
+     :range:         0.0 - 2.0
    nuh
      :description:   Horizontal background viscosity
      :units:         m^2s^-1
@@ -36,7 +45,7 @@
      :default:       1.0
      :range:         0.0 - 1.0
    nuhv
-     :advanced:
+     :advanced,silent:
      :description:   Longshore viscosity enhancement factor, following svendsen (\?)
      :units:         -
      :default:       1.0

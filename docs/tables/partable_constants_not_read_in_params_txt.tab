@@ -4,10 +4,15 @@
      :description:   Imaginary unit
      :units:         -
      :default:       -123
+   irhog8
+     :1/8*rho*g:
+     :description:   ^-1
+     :units:         N^-1m^3
+     :default:       -123
    px
      :description:   Pi
      :units:         -
-     :default:       -123
+     :default:       4.d0*atan(1.d0)
    rhog8
      :description:   1/8*rho*g
      :units:         Nm^-3
