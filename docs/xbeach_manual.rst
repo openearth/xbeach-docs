@@ -4046,7 +4046,7 @@ XBeach supports four different types of output: 1) instantaneous
 spatial output 2) time-averaged spatial output 3) fixed point output
 or 4) run-up gauge output. In principle any variable in XBeach can be
 outputted as long as it is part of the *spaceparams* structure defined
-in *spaceparams.tmpl* in the XBeach source code. An overview of all
+in *variables.f90* in the XBeach source code. An overview of all
 currently supported parameters in this file is presented in
 :numref:`tab-output-parameters`.
 
