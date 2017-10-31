@@ -10,7 +10,7 @@
      :description:   Switch for boundary at bay side
      :units:         
      :default:       abs_2d
-     :range:         wall, abs_1d, abs_2d, wlevel
+     :range:         wall, abs_1d, abs_2d
    epsi
      :advanced:
      :description:   Ratio of mean current to time varying current through offshore boundary
@@ -27,7 +27,7 @@
      :description:   Switch for seaward flow boundary
      :units:         
      :default:       abs_2d
-     :range:         abs_1d, abs_2d, wall, wlevel, nonh_1d, waveflume
+     :range:         abs_1d, abs_2d, wall, nonh_1d, waveflume
    left
      :description:   Switch for lateral boundary at ny+1
      :units:         

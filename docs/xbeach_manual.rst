@@ -1928,7 +1928,38 @@ The critical velocity for waves is based on :cite:`Komar1975`:
 
    U_{crw} =\left\{\begin{array}{l} {0.24(\Delta g)^{2/3} {\; }\left(D_{50} T_{rep} \right)^{1/3} {\; \; \; \; \; \; \; \; for\; \; }D_{50} <=0.0005} \\ {0.95(\Delta g)^{0.57} {\; }\left(D_{50} \right)^{0.43} T_{rep} ^{0.14} {\; \; for\; \; }D_{50} >0.0005} \end{array}\right.
 
-Effects of wave nonlinearity 
+Van Rijn (1993)
+^^^^^^^^^^^^^^^^^^
+
+The third possible sediment transport formulation are the Van Rijn (1993 equations (keyword: :par:`form` = vanrijn1993) Van Rijn (1993) distinguishes between sediment transport below the reference height at which sediment is treated as bed-load transport and above the reference height which is treated as suspended-load. 
+
+The bed-load transport is computed with
+
+.. math::
+   :label:
+
+   {Sb}  = 0.006\rho {}_s{w_s}{D_{50}}{M^{0.5}}{M_e}^{0.7}
+
+
+In which the sediment mobility number due to waves and currents ( (:math:`{M}`) ) can be calculated with the following formulation with (:math:`{v}_{e}`) being the effective velocity. The excess sediment mobility number ( (:math:`{M}_{e}`) ) is computed with the difference between the effective and critical velocity ( (:math:`{v}_{cr}`) ).
+
+.. math::
+   :label:
+
+   M = \frac{{{v_e}^2}}{{(s - 1)g{D_{50}}}}
+
+
+For the suspended-load, first the reference concentration is calculated in accordance with (:cite:`VanRijn1984`)
+
+.. math::
+   :label:
+
+   {c_a} = 0.015{\rho _s}\frac{{{D_{50}}{T_a}^{1.5}}}{{\alpha {D_*}^{0.3}}}
+
+Secondly, the concentration profile is resolved by calculating the bed-shear stresses due to waves and currents and estimating the concentration profile where the combined bed shear stress exceeds the critical bed shear stress. Depth-averaged mixing due to waves and currents.
+
+
+Effects of wave non-linearity 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Effects of wave skewness and asymmetry are accounted for in the
@@ -2066,6 +2097,8 @@ bed slope and :math:`{\phi}_{i}` the angle of repose.
 direction are calculated and how the bed slope effect is combined with
 the dilatancy concept if the adjustment to the initiation of motion is
 considered.
+
+It is also possible to prescribe a given bed slope. The result is that the swash zone profile is teased towards a given bermslope. This functionality Works in surfbeat mode (where H/h>1) and in stationary mode (where h<1m) and have been tested for profiles Praia de Faro (keyword: :par:`bermslope` = desired slope).
 
 .. _sec-bottom-updating:
 
@@ -4686,9 +4719,7 @@ Wave numerics
 
 The parameters listed in the table below involve the numerical aspects
 of the wave action balance that solves the wave propagation in the
-model. The keyword :par:`scheme` can be used to set the numerical scheme. By
-default a higher-order upwind scheme is used to minimize numerical
-dissipation.
+model. The keyword :par:`scheme` can be used to set the numerical scheme. To overcome the undesired effects of steepening of wave groups we implemented a correction to the second-order upwind scheme according to (:cite:`Beam1976`), which implies a small additional diffusion term which is a function of time step and group velocity. By default Warming and Beam (1976) is used. 
 
 .. include:: tables/partable_wave_numerics_parameters.tab
 
