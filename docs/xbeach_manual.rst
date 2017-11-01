@@ -656,24 +656,25 @@ Bottom friction
 The short wave dissipation by bottom friction is modeled as
 
 .. math::
-   :label:
+   :label: sw-bottom-friction
 
    D_{f} =\frac{2}{3\pi } \rho f_{w} \left(\frac{\pi H_{rms} }{T_{m01} \sinh kh} \right)^{3}
 
-In the :math:`{f}_{w}` is the short-wave friction coefficient. This
-value only affects the wave action equation and is unrelated to bed
-friction in the flow equation. Studies conducted on reefs
-(e.g. :cite:`Lowe2007`) indicate that :math:`{f}_{w}` should be an
-order of magnitude (or more) larger than the friction coefficient for
-flow (:math:`{c}_{f}`) due to the dependency of wave frictional
-dissipation rates on the frequency of the motion.
+In :eq:`sw-bottom-friction` the :math:`{f}_{w}` is the short-wave
+friction coefficient. This value only affects the wave action equation
+and is unrelated to bed friction in the flow equation. Studies
+conducted on reefs (e.g. :cite:`Lowe2007`) indicate that
+:math:`{f}_{w}` should be an order of magnitude (or more) larger than
+the friction coefficient for flow (:math:`{c}_{f}`) due to the
+dependency of wave frictional dissipation rates on the frequency of
+the motion.
 
 The derivation of the short wave dissipation term is based
 time-averaged instantaneous bottom dissipation using the Johnson
 friction factor :math:`{f}_{w}` of the bed shear stress:
 
 .. math::
-   :label:
+   :label: sw-bottom-friction-0
 
    \tilde{D}_{f} =\left|\tau u\right|=\frac{1}{2} \rho f_{w} \left|\tilde{u}\right|^{3}
 
@@ -684,7 +685,7 @@ we need expressions for the orbital velocity amplitude, which is
 expressed as:
 
 .. math::
-   :label:
+   :label: orbital-velocity
 
    u_{orb} =\frac{\pi H_{rms} }{T_{p} \sinh (kh)}
 
@@ -703,32 +704,35 @@ cases.
 For the monochromatic case:
 
 .. math::
-   :label:
+   :label: orbital-velocity-monochomatic
 
    \left\langle \left|\tilde{u}\right|^{3} \right\rangle =1.20\left\langle \left|\tilde{u}\right|^{2} \right\rangle ^{3/2} =1.20\left(\frac{1}{2} u_{orb}^{2} \right)^{3/2} =0.42u_{orb}^{3}
 
 For the linear Gaussian approximation:
 
 .. math::
-   :label:
+   :label: orbital-velocity-gaussian
 
    \left\langle \left|\tilde{u}\right|^{3} \right\rangle =1.60\left\langle \left|\tilde{u}\right|^{2} \right\rangle ^{3/2} =1.60\left(\frac{1}{2} u_{orb}^{2} \right)^{3/2} =0.57u_{orb}^{3}
 
-Combining and we get:
+Combining :eq:`sw-bottom-friction-0` and
+:eq:`orbital-velocity-monochomatic` we get:
 
 .. math::
-   :label:
+   :label: sw-bottom-friction-instationary
 
    \left\langle \tilde{D}_{f} \right\rangle =0.21\rho f_{w} u_{orb}^{3}
 
-In XBeach the orbital velocity amplitude is computed as in end the
-dissipation according to which is correct for the case of instationary
-simulations on wave-group scale.
+In XBeach the orbital velocity amplitude is computed as in
+:eq:`orbital-velocity-monochromatic` and the dissipation according to
+:eq:`sw-bottom-friction-instationary`, which is correct for the case
+of instationary simulations on wave-group scale.
 
-For the stationary case formulations and are similarly combined into:
+For the stationary case formulations :eq:`sw-bottom-friction-0` and
+:eq:`orbital-velocity-gaussian` are similarly combined into:
 
 .. math::
-   :label:
+   :label: sw-bottom-friction-stationary
 
    \left\langle \tilde{D}_{f} \right\rangle =0.28\rho f_{w} u_{orb}^{3}
 
