@@ -716,7 +716,7 @@ For the linear Gaussian approximation:
    \left\langle \left|\tilde{u}\right|^{3} \right\rangle =1.60\left\langle \left|\tilde{u}\right|^{2} \right\rangle ^{3/2} =1.60\left(\frac{1}{2} u_{orb}^{2} \right)^{3/2} =0.57u_{orb}^{3}
 
 Combining :eq:`sw-bottom-friction-0` and
-:eq:`orbital-velocity-monochomatic` we get:
+:eq:`orbital-velocity-monochromatic` we get:
 
 .. math::
    :label: sw-bottom-friction-instationary
