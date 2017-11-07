@@ -2592,8 +2592,8 @@ Tide and surge
 ~~~~~~~~~~~~~~
 
 XBeach can take in up to four time-vary tidal signals to be applied to
-the four boundaries (offshore-left, backshore-left, backshore-right,
-offshore-right). A time-varying water level signal is read into XBeach
+the four boundaries (offshore-right, offshore-left, backshore-left,
+backshore-right). A time-varying water level signal is read into XBeach
 by reading the specified file in zs0file. The input signal will be
 interpolated to the local time step of the simulation; therefore the
 signals only need to be long enough and temporally-fine enough to
