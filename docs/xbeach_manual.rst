@@ -2326,6 +2326,16 @@ In addition to the propagation of ship-induced waves, XBeach computes
 the forces and moments acting on the ship body. With this functionality,
 passing ship effects can be analyzed (e.g. :cite:`Zhou2013`).
 
+
+Gravel (XBeach-G)
+-------------------------
+XBeach-G was a branch of the main XBeach development that has been developed to simulate storm impacts on gravel beaches. The development of XBeach-G have been taking place as a joint collaboration between Plymouth University and Deltares, as part of the EPSRC-funded NUPSIG-project. The relevant XBeach-G formulations have been merged back into to the XBeach trunk for the XBeachX release (fall 2017). XBeach-G formulations can be activated with the keyword :par:`useXBeachGSettings` = *1*). 
+
+XBeach-G uses the one-layer, depth-averaged, non-hydrostatic extension to the XBeach model (nonh=1), which is similar to the SWASH model (:cite:`Zijlema2011a`) to solve wave-by-wave flow and surface elevation variations due to short waves in intermediate and shallow water depths. This is particularly important for application on gravel beaches, where due to steep slopes swash motion is mainly at incident wave frequencies, and infragravity wave motion, which dominates the inner surf and swash zone on sandy beaches during storms, is of secondary importance. To correctly account for upper swash infiltration losses and exfiltration effects on lower swash hydrodynamics on gravel beaches, XBeach-G computes groundwater dynamics and the exchange between groundwater and surface water using the XBeach groundwater model (:par:`gwflow` = *1*). Again, interaction between swash flows and the beach groundwater table are considered particularly important on gravel beaches due to the relatively large hydraulic conductivity of the sediment, while on sandy beaches this process is of significantly less importance. Finally, gravel sediment transport processes (McCall & Van Rijn) have been included in XBeach-G to simulate the morphodynamics of gravel beaches during storms. These transport processes are currently under further development and validation.
+
+For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: *http://hdl.handle.net/10026.1/3929*.
+
+
 Boundary conditions
 ===================
 
