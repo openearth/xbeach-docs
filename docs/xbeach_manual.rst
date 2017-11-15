@@ -581,25 +581,26 @@ breaking is determined with the root-mean-square wave height
 the water depth (:math:`h`) plus a fraction of the wave height
 (:math:`\delta H_{rms}`, keyword: :par:`delta`) using a breaker index
 :math:`\gamma` (keyword: :par:`gamma`). In the formulation for
-:math:`{H}_{rms}` the :math:`\rho` represents the water density and g
+:math:`{H}_{rms}` the :math:`\rho` represents the water density and :math:`g`
 the gravitational constant. The total wave energy :math:`{E}_{w}` is
 calculated by integrating over the wave directional bins.
 
 .. math::
-   :label:
+   :label: wave-breaking-roelvink1
 
    \begin{array}{c} {\bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} {\; }} \\ {Q_{b} {=1-exp}\left(-\left(\frac{H_{rms} }{H_{\max } } \right)^{n} \right),\quad H_{rms} =\sqrt{\frac{8E_{w} }{\rho g} } ,\quad H_{\max } =\gamma \cdot (h+\delta H_{rms} )} \\ {E_{w} (x,y,t)=\int _{0}^{2\pi }S_{w} (x,y,t,\theta )d\theta  } \end{array}
 
-In variation of , one could also use another wave breaking
-formulation, presented in . This formulation is somewhat different
-than the formulation of :cite:`Roelvink1993a` and selected using
-keyword :par:`break` = *roelvink2*. The main difference with the
+In variation of :eq:`wave-breaking-roelvink1`, one could also use 
+another wave breaking formulation, presented in :eq:`wave-breaking-roelvink2`. 
+This formulation is somewhat different than the formulation of 
+:cite:`Roelvink1993a` and selected using keyword 
+:par:`break` = *roelvink2*. The main difference with the
 original formulation is that wave dissipation with :par:`break` =
 *roelvink2* is proportional to :math:`{H}^{3} / h` instead of
 :math:`{H}^{2}`.
 
 .. math::
-   :label:
+   :label: wave-breaking-roelvink2
 
    \bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} \frac{H_{rms} }{h}
 
@@ -611,13 +612,13 @@ by :par:`break` = *roelvink\_daly* and the second threshold,
 :math:`\gamma_{2}`, can be set using keyword :par:`gamma2`.
 
 .. math::
-   :label:
+   :label: wave-breaking-daly
 
    \left\{\begin{array}{l} {Q_{b} =1\quad if\quad H_{rms} >\gamma h} \\ {Q_{b} =0\quad if\quad H_{rms} <\gamma _{2} h} \end{array}\right.
 
 In case of stationary waves :cite:`Baldock1998` is applied (keyword:
-:par:`break` = *baldock*), which is presented in . In this breaking
-formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
+:par:`break` = *baldock*), which is presented in :eq:`wave-breaking-baldock`. 
+In this breaking formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
 wave height :math:`{H}_{b}` are calculated differently compared to the
 breaking formulations used for the non-stationary situation. In
 :math:`\alpha` is applied as wave dissipation coefficient,
@@ -625,7 +626,7 @@ breaking formulations used for the non-stationary situation. In
 :math:`y` is a calibration factor.
 
 .. math::
-   :label:
+   :label: wave-breaking-baldock
 
    \begin{array}{l} {\bar{D}_{w} =\frac{1}{4} \alpha Q_{b} \rho gf_{rep} \left(H_{b}^{2} +H_{rms}^{2} \right)} \\ {Q_{b} =\exp \left[-\left(\frac{H_{b}^{2} }{H_{rms}^{2} } \right)\right]{\; ,\; \; }H_{b} =\frac{0.88}{k} \tanh \left[\frac{\gamma kh}{0.88} \right]} \end{array}
 
@@ -636,14 +637,14 @@ wave breaking of stationary waves (keyword: :par:`break` =
 .. math::
    :label:
 
-   \begin{array}{l} {\bar{D}_{w} =\frac{3\sqrt{\pi } \alpha f_{rep} \rho gH_{rms}^{3} }{16} Q_{b} } \\ {Q_{b} =1+\frac{4}{3\sqrt{\pi } } \left(R^{3} +\frac{3}{2} R\right)\exp \left(-R^{2} \right)-erf\left(R\right)} \\ {R=\frac{H_{b} }{H_{rms} } } \end{array}
+   \begin{array}{l} {\bar{D}_{w} =\frac{3\sqrt{\pi } \alpha f_{rep} \rho gH_{rms}^{3} }{16 h} Q_{b} } \\ {Q_{b} =1+\frac{4}{3\sqrt{\pi } } \left(R^{3} +\frac{3}{2} R\right)\exp \left(-R^{2} \right)-erf\left(R\right)} \\ {R=\frac{H_{b} }{H_{rms} } } \end{array}
 
 In both the instationary or stationary case the total wave dissipation
 is distributed proportionally over the wave directions with the
-formulation in .
+formulation in :eq:`wave-breaking-distribution`.
 
 .. math::
-   :label:
+   :label: wave-breaking-distribution
 
    D_{w} (x,y,t,\theta )=\frac{S_{w} (x,y,t,\theta )}{E_{w} (x,y,t)} \bar{D}_{w} (x,y,t)
 
