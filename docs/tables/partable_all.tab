@@ -153,7 +153,7 @@
      :default:       0.01
      :range:         3.5e-05 - 0.9
    bedfricfile
-     :description:   Bed friction file (only valid with values of c)
+     :description:   Bed friction file (valid for all bed friction coefficients)
      :units:         <file>
    bedfriction
      :description:   Bed friction formulation
