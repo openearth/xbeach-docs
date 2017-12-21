@@ -22,7 +22,7 @@ def _check_references(fname, references):
 
     
 def _gather_references(files):
-    references = ['index.html']
+    references = ['index.html','index_pdf.html']
     for fname in files:
         with open(fname, 'r') as fp:
             soup = BeautifulSoup(fp, 'html.parser')
