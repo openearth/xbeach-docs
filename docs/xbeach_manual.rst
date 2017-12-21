@@ -581,25 +581,26 @@ breaking is determined with the root-mean-square wave height
 the water depth (:math:`h`) plus a fraction of the wave height
 (:math:`\delta H_{rms}`, keyword: :par:`delta`) using a breaker index
 :math:`\gamma` (keyword: :par:`gamma`). In the formulation for
-:math:`{H}_{rms}` the :math:`\rho` represents the water density and g
+:math:`{H}_{rms}` the :math:`\rho` represents the water density and :math:`g`
 the gravitational constant. The total wave energy :math:`{E}_{w}` is
 calculated by integrating over the wave directional bins.
 
 .. math::
-   :label:
+   :label: wave-breaking-roelvink1
 
    \begin{array}{c} {\bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} {\; }} \\ {Q_{b} {=1-exp}\left(-\left(\frac{H_{rms} }{H_{\max } } \right)^{n} \right),\quad H_{rms} =\sqrt{\frac{8E_{w} }{\rho g} } ,\quad H_{\max } =\gamma \cdot (h+\delta H_{rms} )} \\ {E_{w} (x,y,t)=\int _{0}^{2\pi }S_{w} (x,y,t,\theta )d\theta  } \end{array}
 
-In variation of , one could also use another wave breaking
-formulation, presented in . This formulation is somewhat different
-than the formulation of :cite:`Roelvink1993a` and selected using
-keyword :par:`break` = *roelvink2*. The main difference with the
+In variation of :eq:`wave-breaking-roelvink1`, one could also use 
+another wave breaking formulation, presented in :eq:`wave-breaking-roelvink2`. 
+This formulation is somewhat different than the formulation of 
+:cite:`Roelvink1993a` and selected using keyword 
+:par:`break` = *roelvink2*. The main difference with the
 original formulation is that wave dissipation with :par:`break` =
 *roelvink2* is proportional to :math:`{H}^{3} / h` instead of
 :math:`{H}^{2}`.
 
 .. math::
-   :label:
+   :label: wave-breaking-roelvink2
 
    \bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} \frac{H_{rms} }{h}
 
@@ -611,13 +612,13 @@ by :par:`break` = *roelvink\_daly* and the second threshold,
 :math:`\gamma_{2}`, can be set using keyword :par:`gamma2`.
 
 .. math::
-   :label:
+   :label: wave-breaking-daly
 
    \left\{\begin{array}{l} {Q_{b} =1\quad if\quad H_{rms} >\gamma h} \\ {Q_{b} =0\quad if\quad H_{rms} <\gamma _{2} h} \end{array}\right.
 
 In case of stationary waves :cite:`Baldock1998` is applied (keyword:
-:par:`break` = *baldock*), which is presented in . In this breaking
-formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
+:par:`break` = *baldock*), which is presented in :eq:`wave-breaking-baldock`. 
+In this breaking formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
 wave height :math:`{H}_{b}` are calculated differently compared to the
 breaking formulations used for the non-stationary situation. In
 :math:`\alpha` is applied as wave dissipation coefficient,
@@ -625,7 +626,7 @@ breaking formulations used for the non-stationary situation. In
 :math:`y` is a calibration factor.
 
 .. math::
-   :label:
+   :label: wave-breaking-baldock
 
    \begin{array}{l} {\bar{D}_{w} =\frac{1}{4} \alpha Q_{b} \rho gf_{rep} \left(H_{b}^{2} +H_{rms}^{2} \right)} \\ {Q_{b} =\exp \left[-\left(\frac{H_{b}^{2} }{H_{rms}^{2} } \right)\right]{\; ,\; \; }H_{b} =\frac{0.88}{k} \tanh \left[\frac{\gamma kh}{0.88} \right]} \end{array}
 
@@ -636,14 +637,14 @@ wave breaking of stationary waves (keyword: :par:`break` =
 .. math::
    :label:
 
-   \begin{array}{l} {\bar{D}_{w} =\frac{3\sqrt{\pi } \alpha f_{rep} \rho gH_{rms}^{3} }{16} Q_{b} } \\ {Q_{b} =1+\frac{4}{3\sqrt{\pi } } \left(R^{3} +\frac{3}{2} R\right)\exp \left(-R^{2} \right)-erf\left(R\right)} \\ {R=\frac{H_{b} }{H_{rms} } } \end{array}
+   \begin{array}{l} {\bar{D}_{w} =\frac{3\sqrt{\pi } \alpha f_{rep} \rho gH_{rms}^{3} }{16 h} Q_{b} } \\ {Q_{b} =1+\frac{4}{3\sqrt{\pi } } \left(R^{3} +\frac{3}{2} R\right)\exp \left(-R^{2} \right)-erf\left(R\right)} \\ {R=\frac{H_{b} }{H_{rms} } } \end{array}
 
 In both the instationary or stationary case the total wave dissipation
 is distributed proportionally over the wave directions with the
-formulation in .
+formulation in :eq:`wave-breaking-distribution`.
 
 .. math::
-   :label:
+   :label: wave-breaking-distribution
 
    D_{w} (x,y,t,\theta )=\frac{S_{w} (x,y,t,\theta )}{E_{w} (x,y,t)} \bar{D}_{w} (x,y,t)
 
@@ -2326,6 +2327,16 @@ In addition to the propagation of ship-induced waves, XBeach computes
 the forces and moments acting on the ship body. With this functionality,
 passing ship effects can be analyzed (e.g. :cite:`Zhou2013`).
 
+
+Gravel (XBeach-G)
+-------------------------
+XBeach-G was a branch of the main XBeach development that has been developed to simulate storm impacts on gravel beaches. The development of XBeach-G have been taking place as a joint collaboration between Plymouth University and Deltares, as part of the EPSRC-funded NUPSIG-project. The relevant XBeach-G formulations have been merged back into to the XBeach trunk for the XBeachX release (fall 2017). XBeach-G formulations can be activated with the keyword :par:`useXBeachGSettings` = *1*). 
+
+XBeach-G uses the one-layer, depth-averaged, non-hydrostatic extension to the XBeach model (nonh=1), which is similar to the SWASH model (:cite:`Zijlema2011a`) to solve wave-by-wave flow and surface elevation variations due to short waves in intermediate and shallow water depths. This is particularly important for application on gravel beaches, where due to steep slopes swash motion is mainly at incident wave frequencies, and infragravity wave motion, which dominates the inner surf and swash zone on sandy beaches during storms, is of secondary importance. To correctly account for upper swash infiltration losses and exfiltration effects on lower swash hydrodynamics on gravel beaches, XBeach-G computes groundwater dynamics and the exchange between groundwater and surface water using the XBeach groundwater model (:par:`gwflow` = *1*). Again, interaction between swash flows and the beach groundwater table are considered particularly important on gravel beaches due to the relatively large hydraulic conductivity of the sediment, while on sandy beaches this process is of significantly less importance. Finally, gravel sediment transport processes (McCall & Van Rijn) have been included in XBeach-G to simulate the morphodynamics of gravel beaches during storms. These transport processes are currently under further development and validation.
+
+For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: *http://hdl.handle.net/10026.1/3929*.
+
+
 Boundary conditions
 ===================
 
@@ -2592,8 +2603,8 @@ Tide and surge
 ~~~~~~~~~~~~~~
 
 XBeach can take in up to four time-vary tidal signals to be applied to
-the four boundaries (offshore-left, backshore-left, backshore-right,
-offshore-right). A time-varying water level signal is read into XBeach
+the four boundaries (offshore-right, offshore-left, backshore-left,
+backshore-right). A time-varying water level signal is read into XBeach
 by reading the specified file in zs0file. The input signal will be
 interpolated to the local time step of the simulation; therefore the
 signals only need to be long enough and temporally-fine enough to
