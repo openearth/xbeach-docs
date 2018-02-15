@@ -1202,7 +1202,7 @@ order of :math:`0.02 s/{m}^{1/3}`.
 .. math::
    :label: dimensionless-manning
            
-   c_{f} =\sqrt{\frac{gn^{2} }{h^{1/12} } }
+   c_{f} =\sqrt{\frac{gn^{2} }{h^{1/3} } }
 
 In the White-Colebrook formulation the geometrical roughness of
 Nikuradse (:math:`{k}_{s}`) must be specified. The dimensionless
