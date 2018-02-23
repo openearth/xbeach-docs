@@ -1417,7 +1417,13 @@ To make the simplification of the reduced layer, the layer velocities are transf
 	  u_1 \\[0.3em]
 	  u_2 \\[0.3em]
 	\end{bmatrix}			 
-			 
+
+Apart from the equation for :math:`U`, also a equation for :math:`\Delta u` needs to be descibed. The time-evolution equation for :math:`\Delta u` is given as,
+
+.. math::
+   :label:
+   
+   \frac{\partial h \Delta u}{\partial t} + \frac{\partial h\Delta u U}{\partial x} + \cancel{\frac{\omega_1 \bar{u}_1}{\alpha(1-\alpha)}} + \frac{\partial}{\partial x}\left(\frac{hq}{2}\right) + \frac{hq}{2-2\alpha}\frac{\partial \alpha}{\partial x} - \frac{q}{1-1\alpha}\frac{\partial \xi}{\partial x} = - \frac{\tau_{0}}{\alpha} + \frac{\tau_{1}}{\alpha(1-\alpha)}
 
 Groundwater flow
 ----------------
