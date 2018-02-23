@@ -1371,6 +1371,17 @@ the flow, without requiring computationally expensive high-resolution
 discretization of the vertical and surface tracking of overturning
 waves.
 
+.. XBeach-nh+ description. 
+Reduced two layer model (nh+)
+-----------------------------------
+
+.. seealso:: The non-hydrostatic pressure correction is implemented
+             in `mod:nonh_module`.
+
+The reduced two layer model was implemented to improve the dispersive behaviour of the non-hydrodtatic model.			 
+			 
+			 
+
 Groundwater flow
 ----------------
 
