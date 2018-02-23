@@ -1383,7 +1383,40 @@ The accuracy the dispersive behaviour depends on the number of layer in the vert
 However, the inclusion of a extra layer will increase the computional time significantly. 
 Therefore, a simplified (reduced) lower layer is applied, where it is assumed that the non-hydrostatic pressure is constant in the lower layer. 
 This mode has a better disperisve behaviour, but requires less additional computional time.
-			 
+
+To make the simplification of the reduced layer, the layer velocities are transformed to a depth-averaged velocity :math:`U` and a velocity difference :math:`\Delta u` according to, 
+
+.. math::
+   :label:
+
+	\begin{bmatrix}
+	  u_1 \\[0.3em]
+	  u_2 \\[0.3em]
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+	  1 & 1-\alpha \\[0.3em]
+	  1 & -\alpha \\[0.3em]
+	\end{bmatrix}
+	\begin{bmatrix}
+	  U \\[0.3em]
+	  \Delta u \\[0.3em]
+	\end{bmatrix}
+	;
+	\quad
+	\begin{bmatrix}
+	  U \\[0.3em]
+	  \Delta u \\[0.3em]
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+	  1 & 1-\alpha \\[0.3em]
+	  1 & -1 \\[0.3em]
+	\end{bmatrix}
+	\begin{bmatrix}
+	  u_1 \\[0.3em]
+	  u_2 \\[0.3em]
+	\end{bmatrix}			 
 			 
 
 Groundwater flow
