@@ -1378,7 +1378,11 @@ Reduced two layer model (nh+)
 .. seealso:: The non-hydrostatic pressure correction is implemented
              in `mod:nonh_module`.
 
-The reduced two layer model was implemented to improve the dispersive behaviour of the non-hydrodtatic model.			 
+The reduced two layer model was implemented to improve the dispersive behaviour of the non-hydrodtatic model (keyword: par:`nhq3d`). 
+The accuracy the dispersive behaviour depends on the number of layer in the vertical :cite:`Stelling2003b`. 
+However, the inclusion of a extra layer will increase the computional time significantly. 
+Therefore, a simplified (reduced) lower layer is applied, where it is assumed that the non-hydrostatic pressure is constant in the lower layer. 
+This mode has a better disperisve behaviour, but requires less additional computional time.
 			 
 			 
 
