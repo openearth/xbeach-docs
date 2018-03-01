@@ -1276,9 +1276,9 @@ where :math:`\widetilde{C}_{D,i}` is a (bulk) drag coefficient,
 Porous in-canopy flow
 ~~~~~~~~~~~~~~~~~~~~~
 
-To determine the resistance of corals or when the in-canopy velocity is required, a porous in-canopy model can be applied. 
+To determine the resistance of corals or when the in-canopy velocity is required, the porous in-canopy model can be applied. 
 This model computes the flow though the coral canopy, based on the canopy porosity (:math:`\epsilon`) and canopy height (:math:`h_c`).
-The in-canopy cell is formulated within the flow grid-cell, which means that the forcing of the flow can be used as forcing terms in the canopy cell.
+The in-canopy cell is formulated within the flow grid-cell, which means that the forcing of the flow is used as forcing terms in the canopy cell.
 The horizontal in-canopy momentum equation, derived by :math:`lowe2008`, is given as,
 
 .. math::
@@ -1286,7 +1286,7 @@ The horizontal in-canopy momentum equation, derived by :math:`lowe2008`, is give
 	\underbrace{\frac{d U_c}{dt}}_\textrm{Local acceleration} = \underbrace{-g \frac{\partial \eta}{dx}}_\textrm{Pressure gradient} - \underbrace{\frac{\mu (1-\lambda_p)}{K_p}\bar{U}_c}_\textrm{Laminar resisting force} -\underbrace{\beta U_c|U_c|}_\textrm{Drag} - \underbrace{\frac{C_M\lambda_p}{1-\lambda_p}\frac{dU_c}{dt}}_\textrm{Inertia force} + \underbrace{\frac{|U-U_c|U-U_c}{2h_c/C_f}}_\textrm{Shear stress}
 
 Where :math:`\lambda_p` is the dimensional plan area (:math:`1-\epsilon`), :math:`h_c` the canopy height, :math:`\mu` the kinematic viscosity, :math:`K_p` the laminar permeability, :math:`\beta` a drag coefficient  and :math:`C_f` an empirical friction factor.
-Based on the in-canopy flow, the canopy induced force (on the mean flow) can be derived. This canopy-induced force is given as,
+Based on the in-canopy flow, the canopy-induced force (on the mean flow) can be derived. This canopy-induced force is given as,
 
 .. math::
    :label:
@@ -3930,11 +3930,12 @@ the keyword :par:`vegetation` should be set to 1.
 
 Porous in-canopy model input
 ----------------
-To apply the porous in-canopy model the keyword :par:`porcanflow` has to be set to one and the physical proccess vegetation must be included (:par:`vegetation`).
+The porous in-canopy model is aplied when the keyword :par:`porcanflow` is set and the the physical process :par:`vegetation` is included.
 A spatial varying canopy property can be used within the in-canopy model. This input is according to the vegetation input.
 Thus, the different coral types are described  in the :par:`veggiefile` and the location in the :par:`veggiemapfile`. 
 It is not possible to have different vertical sections in the canopy. Only the first vertical section is applied  in the in-canopy model (*nsec=1*).
-The property file describes  the canopy parameters  *ah*, *Cd*, *bv* and *N* that represent the canopy height, drag coefficient, friction coefficient and the porosity (in percetage).
+The property file describes  the canopy parameters  *ah*, *Cd*, *bv* and *N* that represent the canopy height, drag coefficient, friction coefficient and the porosity (in percentage).
+The inertia coefficient is set by the keyword :par:`Cm` and the permeability is set by the keyword :par:`Kp`.
 An example of a property file is shown below for a coral,
 
 **coral.txt**
@@ -3947,7 +3948,6 @@ An example of a property file is shown below for a coral,
    bv = 0.1
    N = 85
 
-The inertia coefficient is set by the keyword :par:`Cm` and the permeability is set by the keyword :par:`Kp`
    
 Discharge input
 ---------------
