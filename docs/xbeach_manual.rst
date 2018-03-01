@@ -1420,10 +1420,10 @@ To make the simplification of the reduced layer, the layer velocities are transf
 	\end{bmatrix}
 Where :math:`\alpha` is the layer distribution.
 Then the momentum equations for :math:`U`, :math:`\Delta u` and :math:`w_2` are given by,
+
 .. math::
-   :label:	
+   :label:
 	\frac{\partial (h U)}{\partial t} + g h\frac{\partial \xi}{\partial x} + \frac{\partial}{\partial x}\left(hU^2\right) + \frac{\partial}{\partial x} \left(\frac{1+\alpha}{2}hq\right) - q \frac{\partial d}{\partial x} = \tau_0 
-	
 
 .. math::
    :label:
