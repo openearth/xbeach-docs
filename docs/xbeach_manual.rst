@@ -5901,10 +5901,10 @@ The radial frequency and wave number of this bound wave are given by,
    :label:
 	k_3 = |\vec{k_1} \pm \vec{k_2}| = \sqrt{k_1^2 + k_2^2 \pm 2 k_1 k_2 \cos{(\Delta \theta)}}
 	
-Where $\Delta \theta$ is the difference in direction between the two primary waves ($\Delta \theta = \theta_1 - \theta_2$). 
+Where :math:`\Delta \theta` is the difference in direction between the two primary waves (:math:`\Delta \theta = \theta_1 - \theta_2`). 
 Summation result in the super-harmonic and substraction result in the sub-harmonic.
-\cite{Hasselmann1962} derived a theory, based on a weakly non-linear wave theory, to determine the amplitude of these bound waves (:math:`a/d<<1`). 
-In \cite{Okihiro1992} this theory is used to derive an expression for the second order energy density of a given  wave-spectrum. 
+:cite:`Hasselmann1962` derived a theory, based on a weakly non-linear wave theory, to determine the amplitude of these bound waves (:math:`a/d<<1`). 
+In :cite:`Okihiro1992` this theory is used to derive an expression for the second order energy density of a given  wave-spectrum. 
 According to this theory the energy of the super-harmonics is given by,
 
 .. math::
