@@ -1276,23 +1276,23 @@ where :math:`\widetilde{C}_{D,i}` is a (bulk) drag coefficient,
 Porous in-canopy flow
 ~~~~~~~~~~~~~~~~~~~~~
 
-To determine the resistance of corals, a porous in-canopy model can be used. 
-With the in-canopy model the flow through the coral canopy is computed, which can be used to determine the canopy-induced force.
-The in-canopy velocity is based on the formulation derived by :math:`lowe2008`,
+To determine the resistance of corals or when the in-canopy velocity is required, a porous in-canopy model can be applied. 
+This model computes the flow though the coral canopy, based on the canopy porosity (:math:`\epsilon`) and canopy height (:math:`h_c`).
+The in-canopy cell is formulated within the flow grid-cell, which means that the forcing of the flow can be used as forcing terms in the canopy cell.
+The horizontal in-canopy momentum equation, derived by :math:`lowe2008`, is given as,
 
 .. math::
    :label:
-	\underbrace{\frac{d U_c}{dt}}_\textrm{Local acceleration} = \underbrace{-g \frac{\partial \eta}{dx}}_\textrm{Pressure gradient} - \underbrace{\frac{\mu (1-\lambda_p)}{K_p}\bar{U}_c}_\textrm{Laminair resisting force} -\underbrace{\beta U_c|U_c|}_\textrm{Drag} - \underbrace{\frac{C_m\lambda_p}{1-\lambda_p}\frac{dU_c}{dt}}_\textrm{Inertia force} + \underbrace{\frac{|U_{\infty}-U_c|U_{\infty}-U_c}{2h_c/C_f}}_\textrm{Shear stress}
+	\underbrace{\frac{d U_c}{dt}}_\textrm{Local acceleration} = \underbrace{-g \frac{\partial \eta}{dx}}_\textrm{Pressure gradient} - \underbrace{\frac{\mu (1-\lambda_p)}{K_p}\bar{U}_c}_\textrm{Laminar resisting force} -\underbrace{\beta U_c|U_c|}_\textrm{Drag} - \underbrace{\frac{C_M\lambda_p}{1-\lambda_p}\frac{dU_c}{dt}}_\textrm{Inertia force} + \underbrace{\frac{|U-U_c|U-U_c}{2h_c/C_f}}_\textrm{Shear stress}
 
-Where :math:`\lambda_p` is the dimensional plan area (1 - the porosity), :math:`h_c` the canopy height, :math:`\mu` the kinematic viscosity, :math:`K_p` the laminair permeability, :math:`\beta` a drag coefficent and :math:`C_f` an empirical friction factor.
-The canopy-induced force is given as,
+Where :math:`\lambda_p` is the dimensional plan area (:math:`1-\epsilon`), :math:`h_c` the canopy height, :math:`\mu` the kinematic viscosity, :math:`K_p` the laminar permeability, :math:`\beta` a drag coefficient  and :math:`C_f` an empirical friction factor.
+Based on the in-canopy flow, the canopy induced force (on the mean flow) can be derived. This canopy-induced force is given as,
 
 .. math::
    :label:
    F_{v} = -\rho h_c \left[ \beta |U_c|U_c +  \frac{\mu (1-\lambda_p)}{K_p}U_c +  \frac{C_m\lambda_p}{1-\lambda_p}\frac{dU_c}{dt} \right]
 
-This canopy-induced force is included in the horizontal momentum equation :eq:`glm-momentum`.
-   
+This canopy-induced force is included in the horizontal momentum equation :eq:`glm-momentum` to represent the resitsance of the corals. For emergent corals, the canopy height is bounded by the water depth.   
    
 Wind
 ~~~~
@@ -1400,12 +1400,11 @@ Reduced two layer model (nh+)
              in `mod:nonh_module`.
 
 The reduced two layer model was implemented to improve the dispersive behaviour of the non-hydrostatic model (keyword: par:`nhq3d`). 
-Due to the additional layer frequency dispersion is more accurately modelled than in the depth-averaged formulation. 
+Due to the additional layer, frequency dispersion is more accurately modelled than with the depth-averaged formulation. 
 Mostly, the addition of an extra layer will increase the computational time significantly, but a simplified (reduced) lower layer is applied to reduce the extra computational effort.
 It is assumed that the non-hydrostatic pressure is constant in the lower layer. 
 This means that the non-hydrostatic pressure at the bottom has the same value as the non-hydrostatic pressure between the layers.
 Still the non-hydrostatic pressure at the surface is zero, which means that for every location in the domain there is one non-hydrostatic unknown.
-
 
 To make the simplification of the reduced layer, the layer velocities are transformed to a depth-averaged velocity :math:`U` and a velocity difference :math:`\Delta u` according to, 
 
@@ -1456,8 +1455,24 @@ Then, the momentum equations for :math:`U`, :math:`\Delta u` and :math:`w_2` are
    :label:
 	\frac{\partial h w_2}{\partial t} + \frac{\partial}{\partial x} \left(hU w_2 \right) - \frac{ q}{(1-\alpha)} = 0   
 
+Due to the simplified non-hydrostatic pressure in the lower layer, the vertical velocity between the layers is neglected. 
+Thus, only the continuity relation for the upper layer is required. This relation in terms of the reduced two layer formulation is given as,
+
+.. math::
+   :label:
+	\frac{\partial}{\partial x} \left[(1+\alpha)hU + (1-\alpha)h\alpha\Delta u\right] + 2 w_2-\bar{u}_2\frac{\partial \xi}{\partial x} - \bar{u}_1\frac{\partial z_1}{\partial x} = 0  
+
+To determine the water elevation, the global continuity equation is applied, 
+
+.. math::
+   :label:
+	\frac{\partial \xi}{\partial t} + frac{\partial hU}{\partial x} = 0
+	
+These equatuons are used to solve :math:`U`, :math:`\Delta u`, :math:`w_2` and :math:`\xi`
+	
 When using the reduced two layer model, the model is forced with both :math:`U` and :math:`\Delta u`. 
-Linear wave theory is used to generate the layer-averaged velocities and by applying equation :eq:`layer_transformation` :math:`U` and :math:`\Delta u` are computed.
+Linear wave theory is used to generate the layer-averaged velocities, which can be transformed to :math:`U` and :math:`\Delta u` by applying equation :eq:`layer_transformation`.
+
 	
    
 Groundwater flow
@@ -3913,6 +3928,27 @@ the keyword :par:`vegetation` should be set to 1.
 
 .. include:: tables/partable_vegetation_parameters.tab
 
+Porous in-canopy model input
+----------------
+To apply the porous in-canopy model the keyword :par:`porcanflow` has to be set to one and the physical proccess vegetation must be included (:par:`vegetation`).
+A spatial varying canopy property can be used within the in-canopy model. This input is according to the vegetation input.
+Thus, the different coral types are described  in the :par:`veggiefile` and the location in the :par:`veggiemapfile`. 
+It is not possible to have different vertical sections in the canopy. Only the first vertical section is applied  in the in-canopy model (*nsec=1*).
+The property file describes  the canopy parameters  *ah*, *Cd*, *bv* and *N* that represent the canopy height, drag coefficient, friction coefficient and the porosity (in percetage).
+An example of a property file is shown below for a coral,
+
+**coral.txt**
+
+.. code-block:: text
+                
+   nsec = 1
+   ah = 0.2
+   Cd = 15
+   bv = 0.1
+   N = 85
+
+The inertia coefficient is set by the keyword :par:`Cm` and the permeability is set by the keyword :par:`Kp`
+   
 Discharge input
 ---------------
 
