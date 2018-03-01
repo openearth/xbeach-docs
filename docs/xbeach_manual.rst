@@ -1379,10 +1379,11 @@ Reduced two layer model (nh+)
              in `mod:nonh_module`.
 
 The reduced two layer model was implemented to improve the dispersive behaviour of the non-hydrodtatic model (keyword: par:`nhq3d`). 
-The accuracy the dispersive behaviour depends on the number of layer in the vertical :cite:`Stelling2003b`. 
-However, the inclusion of a extra layer will increase the computional time significantly. 
-Therefore, a simplified (reduced) lower layer is applied, where it is assumed that the non-hydrostatic pressure is constant in the lower layer. 
-This mode has a better disperisve behaviour, but requires less additional computional time.
+Due to the additional layer frequency disperion is more accuratly modelled than in the depth-averaged formualtion. 
+Mostly, the addition of an extra layer will increase the computional time significantly, but a simplified (reduced) lower layer is applied to reduce the extra computinal effort.
+It is assumed that the non-hydrostatic pressure is constant in the lower layer. 
+This means that the non-hyrostatic pressure at the bottom has the same value as the non-hydrostatic pressure between the layers.
+Still the non-hydrostatic pressure at the surafce is zero, which means that for every location in the domain there is one non-hydrostatic unkown.
 
 To make the simplification of the reduced layer, the layer velocities are transformed to a depth-averaged velocity :math:`U` and a velocity difference :math:`\Delta u` according to, 
 
@@ -1416,15 +1417,25 @@ To make the simplification of the reduced layer, the layer velocities are transf
 	\begin{bmatrix}
 	  u_1 \\[0.3em]
 	  u_2 \\[0.3em]
-	\end{bmatrix}			 
-
-Apart from the equation for :math:`U`, also a equation for :math:`\Delta u` needs to be descibed. The time-evolution equation for :math:`\Delta u` is given as,
+	\end{bmatrix}
+Where :math:`\alpha` is the layer distribution.
+Then the momentum equations for :math:`U`, :math:`\Delta u` and :math:`w_2` are given by,
+.. math::
+   :label:	
+	\frac{\partial (h U)}{\partial t} + g h\frac{\partial \xi}{\partial x} + \frac{\partial}{\partial x}\left(hU^2\right) + \frac{\partial}{\partial x} \left(\frac{1+\alpha}{2}hq\right) - q \frac{\partial d}{\partial x} = \tau_0 
+	
 
 .. math::
    :label:
    
-   \frac{\partial h \Delta u}{\partial t} + \frac{\partial h\Delta u U}{\partial x} + \cancel{\frac{\omega_1 \bar{u}_1}{\alpha(1-\alpha)}} + \frac{\partial}{\partial x}\left(\frac{hq}{2}\right) + \frac{hq}{2-2\alpha}\frac{\partial \alpha}{\partial x} - \frac{q}{1-1\alpha}\frac{\partial \xi}{\partial x} = - \frac{\tau_{0}}{\alpha} + \frac{\tau_{1}}{\alpha(1-\alpha)}
+   \frac{\partial h \Delta u}{\partial t} + \frac{\partial h\Delta u U}{\partial x} + \frac{\partial}{\partial x}\left(\frac{hq}{2}\right) + \frac{hq}{2-2\alpha}\frac{\partial \alpha}{\partial x} - \frac{q}{1-1\alpha}\frac{\partial \xi}{\partial x} = - \frac{\tau_{0}}{\alpha} + \frac{\tau_{1}}{\alpha(1-\alpha)}
 
+.. math::
+   :label:
+	\frac{\partial h w_2}{\partial t} + \frac{\partial}{\partial x} \left(hU w_2 \right) - \frac{ q}{(1-\alpha)} = 0   
+
+	
+   
 Groundwater flow
 ----------------
 
