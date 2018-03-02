@@ -1276,8 +1276,8 @@ where :math:`\widetilde{C}_{D,i}` is a (bulk) drag coefficient,
 Porous in-canopy flow
 ~~~~~~~~~~~~~~~~~~~~~
 
-To determine the resistance of corals or when the in-canopy velocity is required, the porous in-canopy model can be applied. 
-This model computes the flow though the coral canopy, based on the canopy porosity (:math:`\epsilon`) and canopy height (:math:`h_c`).
+To include the resistance of corals in the simulations or when the in-canopy velocity is required, the porous in-canopy model can be applied. 
+This model computes the flow though the coral canopy, based on the porosity (:math:`\epsilon`) and canopy height (:math:`h_c`).
 The in-canopy cell is formulated within the flow grid-cell, which means that the forcing of the flow is used as forcing terms in the canopy cell.
 The horizontal in-canopy momentum equation, derived by :math:`lowe2008`, is given as,
 
