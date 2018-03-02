@@ -5985,6 +5985,7 @@ The interaction coefficient, :math:`D(\omega_1,\omega_2,\Delta \theta)`, is give
 
 The phase of the bound wave is given by the sign of the coefficient.
 The amplitude of the bound wave for every pair of primary waves can be found with,
+
 .. math::
    :label:
    A_3 = \sqrt{2 E_3 df} sgn(D)
