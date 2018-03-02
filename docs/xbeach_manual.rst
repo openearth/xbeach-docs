@@ -1394,8 +1394,8 @@ the flow, without requiring computationally expensive high-resolution
 discretization of the vertical and surface tracking of overturning
 waves.
 
-   Reduced two layer model (nh+)
---------------------------------
+Reduced two layer model (nh+)
+-----------------------------
 
 .. seealso:: The non-hydrostatic pressure correction is implemented
              in `mod:nonh_module`.
