@@ -23,10 +23,20 @@ MATLAB Toolbox for XBeach
 
 For users that have access to MATLAB, it is recommended to download the XBeach MATLAB Toolbox, which can be accessed via the Open Earth initiative (https://publicwiki.deltares.nl/display/OET/OpenEarth). The toolbox contains a variety of handy functions that can help you set up your model. To give you an idea on how you can use the toolbox for this particular tutorial, a script was added that will generate all the model files itself ('files/MatlabScripts/setup_xbveg_2D.m'). This script makes use of another file that defines the area with mangroves ('files/MatlabScripts/mangrove_forest.txt'). In addition, a script is added that can plot some of the results ('files/MatlabScripts/plot_waveheight.m', see also Fig.2).
 
-Please note that XBeach is entirely independent from MATLAB and you do not need MATLAB in order to use XBeach. It is, however, handy for pre- and postprocessing.
+Please note that XBeach is entirely independent from MATLAB and you do not need MATLAB in order to use XBeach. It is, however, handy for pre- and postprocessing. 
 
 .. figure:: images/xbveg_mangrove_waveheight.png
    :width: 400px
    :align: center
    
    Fig. 2. Sea swell and infragravity wave height as computed by XBeach.
+   
+
+References
+---------------
+
+Phan, L. K., van Thiel de Vries, J. S., & Stive, M. J. (2014). Coastal mangrove squeeze in the Mekong Delta. Journal of coastal Research, 31(2), 233-243.
+
+Roelvink, D., van Dongeren, A., McCall, R., Hoonhout, B., van Rooijen, A., Van Geer, P., De Vet, L., Nederhoff, K. & Quataert, E. (2015). XBeach Technical Reference: Kingsday Release.
+
+van Rooijen, A. A., McCall, R. T., van Thiel de Vries, J. S. M., van Dongeren, A. R., Reniers, A. J. H. M., & Roelvink, J. A. (2016). Modeling the effect of wave?vegetation interaction on wave setup. Journal of Geophysical Research: Oceans.
