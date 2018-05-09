@@ -1228,7 +1228,35 @@ derived from field and laboratory data in previous studies for different
 bed friction coefficients. The value of the friction coefficient (:math:`C`,
 :math:`{c}_{f}`, :math:`n` or :math:`{k}_{s}`) can be defined with one
 single value (keyword: :par:`bedfriccoef`) or for a separate value per grid
-cell (keyword: :par:`bedfricfile`)
+cell (keyword: :par:`bedfricfile`).
+
+In XBeach-G, the bed shear stress is described in terms of a drag and an inertia component. This approach allows the effect of acceleration on sediment transport to be explicitly taken into account in the bed shear stress, rather than in a modification of the effective Shields parameter.
+
+.. math::
+   :label: tau-drag-and-inertia
+           
+   \tau_{b}=\tau_{bd}+\tau_{bi}\label{eq:bed_friction_total}
+
+where :math:`\tau_{bd}` and :math:`\tau_{bi}` are bed shear stress terms due to drag and inertia, respectively. Note that the inertia component of the bed shear stress does not represent the actual inertia of the particles, but refers to the force on particles in the bed due to pressure gradients, as well as due to the disturbance of the accelerating flow, following potential flow theory.
+
+The bed shear stress due to drag is computed with the XBeach-G default of White-Colebrook grain size (keyword: :par:`bedfriction=white-colebrook-grainsize`). The bed friction factor :math:`c_{f}` is computed following the description of XXX to account for modified bed shear stress due to ventilated boundary layer effects in areas of infiltration and exfiltration 
+
+.. math::
+   :label: cf-infiltration
+   
+   c_{f}=c_{f,0}\left(\frac{\Phi}{e^{\Phi}-1}\right)\label{eq:Conley_Inman}
+
+Bed shear due to inertia effects (keyword: :par:`friction_acceleration`) is computed through analogy with the force exerted by water on a sphere in non-stationary flow. In this case, the force on an object due to inertia :math:`F_{i}` can be computed from the local flow acceleration:
+
+.. math::
+   :label: tau-inertia
+	F_{i}=\rho c_{m}c_{v}D^{3}\frac{\partial u}{\partial t}
+
+where :math:`c_{m}=1+c_{a}` is an inertia coefficient, :math:`c_{a}` is the added mass coefficient :math:`c_{a}=0.5` for spheres with zero autonomous acceleration), 
+:math:`c_{v}` is the volume shape factor (:math:`c_{v}=\frac{\pi}{6}` for spheres) and :math:`D` is the characteristic grain size. Note that the inertial force is therefore the sum of the Froude Krylov force :math:`\rho c_{v}D^{3}\frac{\partial u}{\partial t}` and the hydrodynamic mass force :math:`\rho c_{a}c_{v}D^{3}\frac{\partial u}{\partial t}`.
+
+XBeach-G supports two different formulation to compute the bed shear due to inertia effects. Check Robert
+
 
 Damping by vegetation
 ~~~~~~~~~~~~~~~~~~~~~
