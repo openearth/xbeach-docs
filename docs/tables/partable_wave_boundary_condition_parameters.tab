@@ -15,13 +15,19 @@
      :units:         s
      :default:       10.0
      :range:         1.0 - 20.0
+   bclwonly
+     :advanced,silent:
+     :description:   Switch to run boundary conditions with long waves only
+     :units:         -
+     :default:       0
+     :range:         0 - 1
    dir0
      :description:   Mean wave direction for instat = stat, bichrom, ts_1 or ts_2 (nautical convention)
      :units:         deg
      :default:       270.0
-     :range:         180.0 - 360.0
+     :range:         -360.0 - 360.0
    instat
-     :description:   Wave boundary condition type
+     :description:   Old wave boundary condition type
      :units:         
      :default:       bichrom
      :range:         stat, bichrom, ts_1, ts_2, jons, swan, vardens, reuse, ts_nonh, off, stat_table, jons_table
@@ -46,4 +52,9 @@
      :units:         s
      :default:       100.0
      :range:         0.0 - 1000.0
+   wbctype
+     :description:   New wave boundary condition type
+     :units:         
+     :default:       params
+     :range:         params, parametric, swan, vardens, off, jonstable, reuse, ts_1, ts_2, ts_nonh
 

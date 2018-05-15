@@ -1,25 +1,9 @@
 .. partable:: Overview of available keywords related to output variables
 
-   globalvars
-     :advanced:
-     :description:   Mnems of global output variables, not per se the same size as nglobalvar (invalid variables, defaults)
-     :units:         -
-     :default:       'abc'
-   meanvars
-     :advanced:
-     :description:   Mnems of mean output variables (by variables)
-     :units:         -
-     :default:       'abc'
    ncfilename
      :advanced:
      :description:   Xbeach netcdf output file name
      :units:         <file>
-   ncross
-     :advanced:
-     :description:   Number of output cross sections
-     :units:         -
-     :default:       0
-     :range:         0 - 50
    nglobalvar
      :description:   Number of global output variables (as specified by user)
      :units:         -
@@ -57,22 +41,11 @@
      :units:         
      :default:       fortran
      :range:         fortran, netcdf, debug
-   pointtypes
-     :advanced:
-     :description:   Point types (0 = point, 1 = rugauge)
-     :units:         -
-     :default:       > NULL()
-   pointvars
-     :advanced:
-     :description:   Mnems of point output variables (by variables)
-     :units:         -
-     :default:       'abc'
-   rugdepth
-     :advanced:
-     :description:   Minimum depth for determination of last wet point in runup gauge
-     :units:         m
-     :default:       0.0
-     :range:         0.0 - 0.1
+   outputprecision
+     :description:   Switch between single and double precision output in netcdf
+     :units:         
+     :default:       double
+     :range:         single, double
    timings
      :advanced:
      :description:   Switch enable progress output to screen
@@ -83,13 +56,12 @@
      :advanced:
      :description:   Interval time of cross section output
      :units:         s
-     :default:       1.0
-     :range:         0.01 - 100000.0
+     :default:       -123
    tintg
      :description:   Interval time of global output
      :units:         s
      :default:       1.0
-     :range:         0.01 - 100000.0
+     :range:         0.01 - par\%tstop-par\%tstart
    tintm
      :description:   Interval time of mean, var, max, min output
      :units:         s
@@ -99,12 +71,7 @@
      :description:   Interval time of point and runup gauge output
      :units:         s
      :default:       1.0
-     :range:         0.01 - 100000.0
-   tscross
-     :advanced:
-     :description:   Name of file containing timings of cross section output
-     :units:         -
-     :default:       
+     :range:         0.01 - par\%tstop-par\%tstart
    tsglobal
      :advanced:
      :description:   Name of file containing timings of global output
@@ -123,6 +90,6 @@
    tstart
      :description:   Start time of output, in morphological time
      :units:         s
-     :default:       1.0
-     :range:         0.0 - 1000000.0
+     :default:       0.0
+     :range:         0.0 - par\%tstop
 

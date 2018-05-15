@@ -581,25 +581,26 @@ breaking is determined with the root-mean-square wave height
 the water depth (:math:`h`) plus a fraction of the wave height
 (:math:`\delta H_{rms}`, keyword: :par:`delta`) using a breaker index
 :math:`\gamma` (keyword: :par:`gamma`). In the formulation for
-:math:`{H}_{rms}` the :math:`\rho` represents the water density and g
+:math:`{H}_{rms}` the :math:`\rho` represents the water density and :math:`g`
 the gravitational constant. The total wave energy :math:`{E}_{w}` is
 calculated by integrating over the wave directional bins.
 
 .. math::
-   :label:
+   :label: wave-breaking-roelvink1
 
    \begin{array}{c} {\bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} {\; }} \\ {Q_{b} {=1-exp}\left(-\left(\frac{H_{rms} }{H_{\max } } \right)^{n} \right),\quad H_{rms} =\sqrt{\frac{8E_{w} }{\rho g} } ,\quad H_{\max } =\gamma \cdot (h+\delta H_{rms} )} \\ {E_{w} (x,y,t)=\int _{0}^{2\pi }S_{w} (x,y,t,\theta )d\theta  } \end{array}
 
-In variation of , one could also use another wave breaking
-formulation, presented in . This formulation is somewhat different
-than the formulation of :cite:`Roelvink1993a` and selected using
-keyword :par:`break` = *roelvink2*. The main difference with the
+In variation of :eq:`wave-breaking-roelvink1`, one could also use 
+another wave breaking formulation, presented in :eq:`wave-breaking-roelvink2`. 
+This formulation is somewhat different than the formulation of 
+:cite:`Roelvink1993a` and selected using keyword 
+:par:`break` = *roelvink2*. The main difference with the
 original formulation is that wave dissipation with :par:`break` =
 *roelvink2* is proportional to :math:`{H}^{3} / h` instead of
 :math:`{H}^{2}`.
 
 .. math::
-   :label:
+   :label: wave-breaking-roelvink2
 
    \bar{D}_{w} =2\frac{\alpha }{T_{rep} } Q_{b} E_{w} \frac{H_{rms} }{h}
 
@@ -611,13 +612,13 @@ by :par:`break` = *roelvink\_daly* and the second threshold,
 :math:`\gamma_{2}`, can be set using keyword :par:`gamma2`.
 
 .. math::
-   :label:
+   :label: wave-breaking-daly
 
    \left\{\begin{array}{l} {Q_{b} =1\quad if\quad H_{rms} >\gamma h} \\ {Q_{b} =0\quad if\quad H_{rms} <\gamma _{2} h} \end{array}\right.
 
 In case of stationary waves :cite:`Baldock1998` is applied (keyword:
-:par:`break` = *baldock*), which is presented in . In this breaking
-formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
+:par:`break` = *baldock*), which is presented in :eq:`wave-breaking-baldock`. 
+In this breaking formulation the fraction breaking waves :math:`{Q}_{b}` and breaking
 wave height :math:`{H}_{b}` are calculated differently compared to the
 breaking formulations used for the non-stationary situation. In
 :math:`\alpha` is applied as wave dissipation coefficient,
@@ -625,7 +626,7 @@ breaking formulations used for the non-stationary situation. In
 :math:`y` is a calibration factor.
 
 .. math::
-   :label:
+   :label: wave-breaking-baldock
 
    \begin{array}{l} {\bar{D}_{w} =\frac{1}{4} \alpha Q_{b} \rho gf_{rep} \left(H_{b}^{2} +H_{rms}^{2} \right)} \\ {Q_{b} =\exp \left[-\left(\frac{H_{b}^{2} }{H_{rms}^{2} } \right)\right]{\; ,\; \; }H_{b} =\frac{0.88}{k} \tanh \left[\frac{\gamma kh}{0.88} \right]} \end{array}
 
@@ -636,14 +637,14 @@ wave breaking of stationary waves (keyword: :par:`break` =
 .. math::
    :label:
 
-   \begin{array}{l} {\bar{D}_{w} =\frac{3\sqrt{\pi } \alpha f_{rep} \rho gH_{rms}^{3} }{16} Q_{b} } \\ {Q_{b} =1+\frac{4}{3\sqrt{\pi } } \left(R^{3} +\frac{3}{2} R\right)\exp \left(-R^{2} \right)-erf\left(R\right)} \\ {R=\frac{H_{b} }{H_{rms} } } \end{array}
+   \begin{array}{l} {\bar{D}_{w} =\frac{3\sqrt{\pi } \alpha f_{rep} \rho gH_{rms}^{3} }{16 h} Q_{b} } \\ {Q_{b} =1+\frac{4}{3\sqrt{\pi } } \left(R^{3} +\frac{3}{2} R\right)\exp \left(-R^{2} \right)-erf\left(R\right)} \\ {R=\frac{H_{b} }{H_{rms} } } \end{array}
 
 In both the instationary or stationary case the total wave dissipation
 is distributed proportionally over the wave directions with the
-formulation in .
+formulation in :eq:`wave-breaking-distribution`.
 
 .. math::
-   :label:
+   :label: wave-breaking-distribution
 
    D_{w} (x,y,t,\theta )=\frac{S_{w} (x,y,t,\theta )}{E_{w} (x,y,t)} \bar{D}_{w} (x,y,t)
 
@@ -656,24 +657,25 @@ Bottom friction
 The short wave dissipation by bottom friction is modeled as
 
 .. math::
-   :label:
+   :label: sw-bottom-friction
 
    D_{f} =\frac{2}{3\pi } \rho f_{w} \left(\frac{\pi H_{rms} }{T_{m01} \sinh kh} \right)^{3}
 
-In the :math:`{f}_{w}` is the short-wave friction coefficient. This
-value only affects the wave action equation and is unrelated to bed
-friction in the flow equation. Studies conducted on reefs
-(e.g. :cite:`Lowe2007`) indicate that :math:`{f}_{w}` should be an
-order of magnitude (or more) larger than the friction coefficient for
-flow (:math:`{c}_{f}`) due to the dependency of wave frictional
-dissipation rates on the frequency of the motion.
+In :eq:`sw-bottom-friction` the :math:`{f}_{w}` is the short-wave
+friction coefficient. This value only affects the wave action equation
+and is unrelated to bed friction in the flow equation. Studies
+conducted on reefs (e.g. :cite:`Lowe2007`) indicate that
+:math:`{f}_{w}` should be an order of magnitude (or more) larger than
+the friction coefficient for flow (:math:`{c}_{f}`) due to the
+dependency of wave frictional dissipation rates on the frequency of
+the motion.
 
 The derivation of the short wave dissipation term is based
 time-averaged instantaneous bottom dissipation using the Johnson
 friction factor :math:`{f}_{w}` of the bed shear stress:
 
 .. math::
-   :label:
+   :label: sw-bottom-friction-0
 
    \tilde{D}_{f} =\left|\tau u\right|=\frac{1}{2} \rho f_{w} \left|\tilde{u}\right|^{3}
 
@@ -684,7 +686,7 @@ we need expressions for the orbital velocity amplitude, which is
 expressed as:
 
 .. math::
-   :label:
+   :label: orbital-velocity
 
    u_{orb} =\frac{\pi H_{rms} }{T_{p} \sinh (kh)}
 
@@ -703,32 +705,35 @@ cases.
 For the monochromatic case:
 
 .. math::
-   :label:
+   :label: orbital-velocity-monochomatic
 
    \left\langle \left|\tilde{u}\right|^{3} \right\rangle =1.20\left\langle \left|\tilde{u}\right|^{2} \right\rangle ^{3/2} =1.20\left(\frac{1}{2} u_{orb}^{2} \right)^{3/2} =0.42u_{orb}^{3}
 
 For the linear Gaussian approximation:
 
 .. math::
-   :label:
+   :label: orbital-velocity-gaussian
 
    \left\langle \left|\tilde{u}\right|^{3} \right\rangle =1.60\left\langle \left|\tilde{u}\right|^{2} \right\rangle ^{3/2} =1.60\left(\frac{1}{2} u_{orb}^{2} \right)^{3/2} =0.57u_{orb}^{3}
 
-Combining and we get:
+Combining :eq:`sw-bottom-friction-0` and
+:eq:`orbital-velocity-monochromatic` we get:
 
 .. math::
-   :label:
+   :label: sw-bottom-friction-instationary
 
    \left\langle \tilde{D}_{f} \right\rangle =0.21\rho f_{w} u_{orb}^{3}
 
-In XBeach the orbital velocity amplitude is computed as in end the
-dissipation according to which is correct for the case of instationary
-simulations on wave-group scale.
+In XBeach the orbital velocity amplitude is computed as in
+:eq:`orbital-velocity-monochromatic` and the dissipation according to
+:eq:`sw-bottom-friction-instationary`, which is correct for the case
+of instationary simulations on wave-group scale.
 
-For the stationary case formulations and are similarly combined into:
+For the stationary case formulations :eq:`sw-bottom-friction-0` and
+:eq:`orbital-velocity-gaussian` are similarly combined into:
 
 .. math::
-   :label:
+   :label: sw-bottom-friction-stationary
 
    \left\langle \tilde{D}_{f} \right\rangle =0.28\rho f_{w} u_{orb}^{3}
 
@@ -1301,6 +1306,29 @@ where :math:`\widetilde{C}_{D,i}` is a (bulk) drag coefficient,
 :math:`{n}_{v,i}` is the vegetation density, and
 :math:`{h}_{v,i}` is the vegetation height for layer :math:`i`.
 
+Porous in-canopy flow
+~~~~~~~~~~~~~~~~~~~~~
+
+To include the resistance of corals in the simulations or when the in-canopy velocity is required, the porous in-canopy model can be applied. 
+This model computes the flow though the coral canopy, based on the porosity (:math:`\epsilon`) and canopy height (:math:`h_c`).
+The in-canopy cell is formulated within the flow grid-cell, which means that the forcing of the flow is used as forcing terms in the canopy cell.
+The horizontal in-canopy momentum equation, derived by :math:`lowe2008`, is given as,
+
+.. math::
+   :label:
+      
+   \underbrace{\frac{d U_c}{dt}}_\textrm{Local acceleration} = \underbrace{-g \frac{\partial \eta}{dx}}_\textrm{Pressure gradient} - \underbrace{\frac{\mu (1-\lambda_p)}{K_p}\bar{U}_c}_\textrm{Laminar resisting force} -\underbrace{\beta U_c|U_c|}_\textrm{Drag} - \underbrace{\frac{C_M\lambda_p}{1-\lambda_p}\frac{dU_c}{dt}}_\textrm{Inertia force} + \underbrace{\frac{|U-U_c|U-U_c}{2h_c/C_f}}_\textrm{Shear stress}
+
+Where :math:`\lambda_p` is the dimensional plan area (:math:`1-\epsilon`), :math:`h_c` the canopy height, :math:`\mu` the kinematic viscosity, :math:`K_p` the laminar permeability, :math:`\beta` a drag coefficient  and :math:`C_f` an empirical friction factor.
+Based on the in-canopy flow, the canopy-induced force (on the mean flow) can be derived. This canopy-induced force is given as,
+
+.. math::
+   :label:
+      
+   F_{v} = -\rho h_c \left[ \beta |U_c|U_c +  \frac{\mu (1-\lambda_p)}{K_p}U_c +  \frac{C_m\lambda_p}{1-\lambda_p}\frac{dU_c}{dt} \right]
+
+This canopy-induced force is included in the horizontal momentum equation :eq:`glm-momentum` to represent the resitsance of the corals. For emergent corals, the canopy height is bounded by the water depth.   
+   
 Wind
 ~~~~
 
@@ -1399,6 +1427,93 @@ the flow, without requiring computationally expensive high-resolution
 discretization of the vertical and surface tracking of overturning
 waves.
 
+Reduced two layer model (nh+)
+-----------------------------
+
+.. seealso:: The non-hydrostatic pressure correction is implemented
+             in `mod:nonh_module`.
+
+The reduced two layer model was implemented to improve the dispersive behaviour of the non-hydrostatic model (keyword: par:`nhq3d`). 
+Due to the additional layer, frequency dispersion is more accurately modelled than with the depth-averaged formulation. 
+Mostly, the addition of an extra layer will increase the computational time significantly, but a simplified (reduced) lower layer is applied to reduce the extra computational effort.
+It is assumed that the non-hydrostatic pressure is constant in the lower layer. 
+This means that the non-hydrostatic pressure at the bottom has the same value as the non-hydrostatic pressure between the layers.
+Still the non-hydrostatic pressure at the surface is zero, which means that for every location in the domain there is one non-hydrostatic unknown.
+
+To make the simplification of the reduced layer, the layer velocities are transformed to a depth-averaged velocity :math:`U` and a velocity difference :math:`\Delta u` according to, 
+
+.. math::
+   :label: layer_transformation
+
+	\begin{bmatrix}
+	  u_1 \\[0.3em]
+	  u_2 \\[0.3em]
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+	  1 & 1-\alpha \\[0.3em]
+	  1 & -\alpha \\[0.3em]
+	\end{bmatrix}
+	\begin{bmatrix}
+	  U \\[0.3em]
+	  \Delta u \\[0.3em]
+	\end{bmatrix}
+	;
+	\quad
+	\begin{bmatrix}
+	  U \\[0.3em]
+	  \Delta u \\[0.3em]
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+	  1 & 1-\alpha \\[0.3em]
+	  1 & -1 \\[0.3em]
+	\end{bmatrix}
+	\begin{bmatrix}
+	  u_1 \\[0.3em]
+	  u_2 \\[0.3em]
+	\end{bmatrix}
+        
+Where :math:`\alpha` is the layer distribution.
+Then, the momentum equations for :math:`U`, :math:`\Delta u` and :math:`w_2` are given by,
+
+.. math::
+   :label:
+      
+   \frac{\partial (h U)}{\partial t} + g h\frac{\partial \xi}{\partial x} + \frac{\partial}{\partial x}\left(hU^2\right) + \frac{\partial}{\partial x} \left(\frac{1+\alpha}{2}hq\right) - q \frac{\partial d}{\partial x} = \tau_0 
+
+.. math::
+   :label:
+   
+   \frac{\partial h \Delta u}{\partial t} + \frac{\partial h\Delta u U}{\partial x} + \frac{\partial}{\partial x}\left(\frac{hq}{2}\right) + \frac{hq}{2-2\alpha}\frac{\partial \alpha}{\partial x} - \frac{q}{1-1\alpha}\frac{\partial \xi}{\partial x} = - \frac{\tau_{0}}{\alpha} + \frac{\tau_{1}}{\alpha(1-\alpha)}
+
+.. math::
+   :label:
+      
+   \frac{\partial h w_2}{\partial t} + \frac{\partial}{\partial x} \left(hU w_2 \right) - \frac{ q}{(1-\alpha)} = 0   
+
+Due to the simplified non-hydrostatic pressure in the lower layer, the vertical velocity between the layers is neglected. 
+Thus, only the continuity relation for the upper layer is required. This relation in terms of the reduced two layer formulation is given as,
+
+.. math::
+   :label:
+      
+   \frac{\partial}{\partial x} \left[(1+\alpha)hU + (1-\alpha)h\alpha\Delta u\right] + 2 w_2-\bar{u}_2\frac{\partial \xi}{\partial x} - \bar{u}_1\frac{\partial z_1}{\partial x} = 0  
+
+To determine the water elevation, the global continuity equation is applied, 
+
+.. math::
+   :label:
+      
+   \frac{\partial \xi}{\partial t} + frac{\partial hU}{\partial x} = 0
+	
+These equatuons are used to solve :math:`U`, :math:`\Delta u`, :math:`w_2` and :math:`\xi`
+	
+When using the reduced two layer model, the model is forced with both :math:`U` and :math:`\Delta u`. 
+Linear wave theory is used to generate the layer-averaged velocities, which can be transformed to :math:`U` and :math:`\Delta u` by applying equation :eq:`layer_transformation`.
+
+	
+   
 Groundwater flow
 ----------------
 
@@ -2687,8 +2802,8 @@ Tide and surge
 ~~~~~~~~~~~~~~
 
 XBeach can take in up to four time-vary tidal signals to be applied to
-the four boundaries (offshore-left, backshore-left, backshore-right,
-offshore-right). A time-varying water level signal is read into XBeach
+the four boundaries (offshore-right, offshore-left, backshore-left,
+backshore-right). A time-varying water level signal is read into XBeach
 by reading the specified file in zs0file. The input signal will be
 interpolated to the local time step of the simulation; therefore the
 signals only need to be long enough and temporally-fine enough to
@@ -3908,6 +4023,28 @@ the keyword :par:`vegetation` should be set to 1.
 
 .. include:: tables/partable_vegetation_parameters.tab
 
+Porous in-canopy model input
+----------------------------
+
+The porous in-canopy model is aplied when the keyword :par:`porcanflow` is set and the the physical process :par:`vegetation` is included.
+A spatial varying canopy property can be used within the in-canopy model. This input is according to the vegetation input.
+Thus, the different coral types are described  in the :par:`veggiefile` and the location in the :par:`veggiemapfile`. 
+It is not possible to have different vertical sections in the canopy. Only the first vertical section is applied  in the in-canopy model (*nsec=1*).
+The property file describes  the canopy parameters  *ah*, *Cd*, *bv* and *N* that represent the canopy height, drag coefficient, friction coefficient and the porosity (in percentage).
+The inertia coefficient is set by the keyword :par:`Cm` and the permeability is set by the keyword :par:`Kp`.
+An example of a property file is shown below for a coral,
+
+**coral.txt**
+
+.. code-block:: text
+                
+   nsec = 1
+   ah = 0.2
+   Cd = 15
+   bv = 0.1
+   N = 85
+
+   
 Discharge input
 ---------------
 
@@ -4145,7 +4282,7 @@ XBeach supports four different types of output: 1) instantaneous
 spatial output 2) time-averaged spatial output 3) fixed point output
 or 4) run-up gauge output. In principle any variable in XBeach can be
 outputted as long as it is part of the *spaceparams* structure defined
-in *spaceparams.tmpl* in the XBeach source code. An overview of all
+in *variables.f90* in the XBeach source code. An overview of all
 currently supported parameters in this file is presented in
 :numref:`tab-output-parameters`.
 
@@ -5897,6 +6034,95 @@ and long-wave mass flux data is stored in other files. These files have
 *E\_* and *q\_* prefixes. The main XBeach program uses these files for
 the actual forcing along the offshore edge.
 
+
+Description second order waves
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the keyword :par:`order` is set to 2, the second order bound waves are included at the boundary. 
+With the keyword :par:`highcomp` both the sub-harmonics and the super-harmonics are included and otherwise only the sub-harmonics are included.
+A boundary without these bound waves will generate spurious free waves at the frequency of the bound waves with an equal amplitude but oppsing phase.
+These bound waves are generated by a pair of primairy waves or by the self-interaction of a single primairy wave. 
+Thus, when a spectrum is forced at the boundary, the wave interactions for every component within the spectrum are computed. 
+
+The radial frequency and wave number of these bound waves are given by,
+
+.. math::
+   :label:
+      
+   $\omega_3 = \omega_1 \pm \omega_2$
+	
+.. math::
+   :label:
+      
+   k_3 = |\vec{k_1} \pm \vec{k_2}| = \sqrt{k_1^2 + k_2^2 \pm 2 k_1 k_2 \cos{(\Delta \theta)}}
+	
+Where :math:`\Delta \theta` is the difference in direction between the two primary waves (:math:`\Delta \theta = \theta_1 - \theta_2`). 
+Summation result in the super-harmonic and substraction result in the sub-harmonic.
+:cite:`Hasselmann1962` derived a theory, based on a weakly non-linear wave theory, to determine the amplitude of these bound waves (:math:`a/d<<1`). 
+In :cite:`Okihiro1992` this theory is used to derive an expression for the second order energy density of a given  wave-spectrum. 
+According to this theory the energy of the super-harmonics is given by,
+
+.. math::
+   :label:
+      
+   E_3(\omega_3) = 2 \int_{\Delta f}^{\infty} \int_0^{2\pi} \int_0^{2\pi} D(\omega_1,\omega_2,\Delta \theta)^2 E_1(\omega_1,\theta_1) E_2(\omega_2,\theta_2) d\theta_2 d\theta_1 df
+
+and the energy of the sub-harmonics is given by,
+	
+.. math::
+   :label:
+      
+   E_3(\omega_3) = 2 \int_{\Delta f}^{\infty} \int_0^{2\pi} \int_0^{2\pi} D(\omega_1,-\omega_2,\Delta \theta+\pi)^2 E_1(\omega_1,\theta_1) E_2(\omega_2,\theta_2) d\theta_2 d\theta_1 df	
+
+Where :math:`E_1` is the energy density of the first primary wave, :math:`E_2` the energy density of the second primary wave and :math:`E_3` the energy of the generated bound wave.
+The interaction coefficient, :math:`D(\omega_1,\omega_2,\Delta \theta)`, is given by,
+
+.. math::
+   :label:
+      
+   D(\omega_1,\omega_2,\Delta \theta) & =  -\frac{g  k_1  k_2  \cos{(\Delta \theta)}}{2\omega_1\omega_2} + \frac{(\omega_1+\omega_2)^2}{2g} + 
+	\left\{ (\omega_1+\omega_2)\left[\frac{(\omega_1 \omega_2)^2}{g^2} - k_1 k_2 \cos{(\Delta \theta)}\right] - 0.5\left(\frac{\omega_1 k_2^2}{\cosh{(k_2 d)}} + \frac{\omega_2 k_1^2}{\cosh{(k_1 d)}}\right)\right\} 
+	\frac{g (\omega_1 + \omega_2)}{\left[g k_3 \tanh{(k_3 d)} - (\omega_1+\omega_2)^2\right](\omega_1+\omega_2)}
+
+The phase of the bound wave is given by the sign of the coefficient.
+The amplitude of the bound wave for every pair of primary waves can be found with,
+
+.. math::
+   :label:
+      
+   A_3 = \sqrt{2 E_3 df} sgn(D)
+   
+Where :math:`df` is the resolution of the primary spectrum and :math:`sgn(D)` the sign of the interaction coefficient. 
+Note that the :math:`df` is different than the difference frequency :math:`f_3=f_2-f_1`. 
+The direction of the bound wave can be derived from geometry relations and it is given by,
+
+.. math::
+   :label:
+      
+   \theta_3 = \arctan{\left(\frac{k_2\sin{\theta_2}-k_1\sin{\theta_1}}{k_2\cos{\theta_2}-k_1\cos{\theta_1}} \right)}
+
+Combing all these wave properties the following wave can be constructed,
+
+.. math::
+   :label:
+   
+   \eta_3(\vec{x},t) = A_3 \cos{(\vec{k_3}\vec{x} - \omega_3 t + \phi_3)}
+
+For every par of primary waves, the bound wave is included in the boundary signal. 
+When there are :math:`n` primary components in the spectrum, :math:`n-1` sub-harmonics will be generated and :math:`2n-1` super-harmonics will be generated.
+In the case of the reduced two layer model (nh+), the bound wave velocity will be divided over both layers.
+ 
+.. _fig-boundwaves:
+
+.. figure:: images/boundwaves.png
+   :width: 400px
+   :align: center
+
+   Second order wave interaction for a given spectrum. 
+   The grey lines represent the primary waves and the coloured lines show the bound waves. 
+   The arrows indicate the interaction between two waves. The dots show the self-interaction of the primary waves.
+ 
+	
 Non-hydrostatic
 ~~~~~~~~~~~~~~~
 

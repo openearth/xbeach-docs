@@ -1,25 +1,37 @@
 .. partable:: Overview of available keywords related to q3d sediment transport parameters
 
+   deltar
+     :advanced,silent:
+     :description:   Estimated ripple height
+     :units:         -
+     :default:       0.025
+     :range:         0.001 - 1.0
    kmax
-     :advanced:
+     :advanced,silent:
      :description:   Number of sigma layers in quasi-3d model; kmax = 1 is without vertical structure of flow and suspensions
      :units:         -
-     :default:       1
+     :default:       100
      :range:         1 - 1000
+   rwave
+     :advanced,silent:
+     :description:   User-defined wave roughness adjustment factor
+     :units:         -
+     :default:       2.0
+     :range:         0.1 - 10.0
    sigfac
-     :advanced:
+     :advanced,silent:
      :description:   Dsig scales with log(sigfac)
      :units:         -
      :default:       1.3
      :range:         0.0 - 10.0
    vicmol
-     :advanced:
+     :advanced,silent:
      :description:   Molecular viscosity
      :units:         -
      :default:       1e-06
      :range:         0.0 - 0.001
    vonkar
-     :advanced:
+     :advanced,silent:
      :description:   Von karman constant
      :units:         -
      :default:       0.4

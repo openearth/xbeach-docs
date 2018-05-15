@@ -1,3 +1,9 @@
+alabaster==0.7.10
+Babel==2.4.0
+beautifulsoup4==4.3.2
+breathe==4.0.0
+pybtex==0.21
+pybtex-docutils==0.2.1
 Sphinx==1.3.1
 sphinx-rtd-theme==0.1.7
 sphinxcontrib-bibtex==0.3.2

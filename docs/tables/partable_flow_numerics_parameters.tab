@@ -16,7 +16,7 @@
      :default:       0.2
      :range:         0.001 - 1.0
    oldhu
-     :advanced:
+     :advanced,silent:
      :description:   Switch to enable old hu calculation
      :units:         -
      :default:       0

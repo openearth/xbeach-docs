@@ -17,6 +17,11 @@
      :units:         m
      :default:       0.1
      :range:         0.01 - 1.0
+   lsgrad
+     :description:   Factor to include longshore transport gradient in 1d simulationsdsy/dy=lsgrad*sy; dimension 1/length scale of longshore gradients
+     :units:         1/m
+     :default:       0.0
+     :range:         -0.1 - 0.1
    morfac
      :description:   Morphological acceleration factor
      :units:         -
@@ -31,15 +36,15 @@
    morstart
      :description:   Start time morphology, in morphological time
      :units:         s
-     :default:       120.0
-     :range:         0.0 - 10000000.0
+     :default:       0.0
+     :range:         0.0 - par\%tstop
    morstop
      :description:   Stop time morphology, in morphological time
      :units:         s
      :default:       2000.0
      :range:         0.0 - 10000000.0
    ne_layer
-     :description:   Name of file containing depth of hard structure
+     :description:   Name of file containing thickness of the erodible layer
      :units:         <file>
    struct
      :description:   Switch for enabling hard structures

@@ -4,7 +4,12 @@
      :advanced:
      :description:   Projection string
      :units:         -
-     :default:       ' '
+     :default:        
+   remdryoutput
+     :description:   Remove dry output points from output data of zs etc.
+     :units:         -
+     :default:       1
+     :range:         0 - 1
    rotate
      :description:   Rotate output as postprocessing with given angle
      :units:         -

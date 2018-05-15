@@ -1,6 +1,7 @@
-# XBeach documentation
-
 [![CircleCI](https://circleci.com/gh/openearth/xbeach-docs.svg?style=svg)](https://circleci.com/gh/openearth/xbeach-docs)
+[![ReadTheDocs](http://readthedocs.org/projects/xbeach/badge/?version=latest)](http://xbeach.readthedocs.io/en/latest/)
+
+# XBeach documentation
 
 This repository holds the latest built of the XBeach documentation.
 

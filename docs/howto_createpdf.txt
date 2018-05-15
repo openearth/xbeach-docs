@@ -3,7 +3,7 @@ Basics
 
 * Run "make latex"
 * Go to _build/latex
-* Run "pdflatex -interactive=nonstopmode XBeach" 3 times to fix all references
+* Run "pdflatex -interaction=nonstopmode XBeach" 3 times to fix all references
 
 Troubleshoot
 ------------
@@ -21,7 +21,8 @@ Most likely the above will result in latex errors. The most common are:
      \begin{longtable}{|p{0.2\textwidth}
                        |p{0.4\textwidth}
                        |p{0.2\textwidth}
+                       |p{0.1\textwidth}
                        |p{0.1\textwidth}|}
 * Long tables are rendered to a length greater than the page height
   * Change the environment from "tabulary" to "longtable"
-
+* Remove author
