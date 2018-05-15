@@ -1166,9 +1166,7 @@ There are 5 different formulations in order to determine the
 dimensionless bed friction coefficient :math:`{c}_{f}` (keyword:
 :par:`bedfriction`) implemented in XBeach (:numref:`tab-bed-friction`).
 
-.. _tab-bed-friction:
-
-.. table:: Different bed friction formulations implemented
+.. partable:: Different bed friction formulations implemented
 
    +--------------------------------------+------------------------+-----------------------------+
    | Bed friction formulation             | Relevant coefficient   | keyword                     |
@@ -1221,6 +1219,7 @@ on the relation between the :math:`{D}_{90}` of the top bed layer and
 the geometrical roughness of Nikuradse according to equation
 :eq:`dimensionless-nikuradse2`.  The user does not have to specify a
 value for the bed friction coefficient.
+
 
 .. math::
    :label: dimensionless-nikuradse2
@@ -2131,7 +2130,7 @@ In the case of the Nielsen equation is applied, the sediment transport model is 
 
 Besides the McCall - Van Rijn and the Nielsen equation there are several other sediment gravel transport formulae implemented in XBeach-G. For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: *http://hdl.handle.net/10026.1/3929*.
 
-.. table:: Sediment gravel transport formulae implemented in XBeach-G
+.. partable:: Sediment gravel transport formulae implemented in XBeach-G
 
    +--------------------------------------+-------------------------+
    | Sediment transport formulae          | keyword                 |
