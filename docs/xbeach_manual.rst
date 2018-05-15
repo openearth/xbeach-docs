@@ -1239,7 +1239,7 @@ In XBeach-G, the bed shear stress is described in terms of a drag and an inertia
 
 where :math:`\tau_{bd}` and :math:`\tau_{bi}` are bed shear stress terms due to drag and inertia, respectively. Note that the inertia component of the bed shear stress does not represent the actual inertia of the particles, but refers to the force on particles in the bed due to pressure gradients, as well as due to the disturbance of the accelerating flow, following potential flow theory.
 
-The bed shear stress due to drag is computed with the XBeach-G default of White-Colebrook grain size (keyword: :par:`bedfriction=white-colebrook-grainsize`). The bed friction factor :math:`c_{f}` is computed following the description of XXX to account for modified bed shear stress due to ventilated boundary layer effects in areas of infiltration and exfiltration 
+The bed shear stress due to drag is computed with the XBeach-G default of White-Colebrook grain size (keyword: :par:`bedfriction=white-colebrook-grainsize`). The bed friction factor :math:`c_{f}` is computed following the description of :cite:`conley1994` to account for modified bed shear stress due to ventilated boundary layer effects in areas of infiltration and exfiltration 
 
 .. math::
    :label: cf-infiltration
@@ -1253,9 +1253,14 @@ Bed shear due to inertia effects (keyword: :par:`friction_acceleration`) is comp
 	F_{i}=\rho c_{m}c_{v}D^{3}\frac{\partial u}{\partial t}
 
 where :math:`c_{m}=1+c_{a}` is an inertia coefficient, :math:`c_{a}` is the added mass coefficient :math:`c_{a}=0.5` for spheres with zero autonomous acceleration), 
-:math:`c_{v}` is the volume shape factor (:math:`c_{v}=\frac{\pi}{6}` for spheres) and :math:`D` is the characteristic grain size. Note that the inertial force is therefore the sum of the Froude Krylov force :math:`\rho c_{v}D^{3}\frac{\partial u}{\partial t}` and the hydrodynamic mass force :math:`\rho c_{a}c_{v}D^{3}\frac{\partial u}{\partial t}`.
+:math:`c_{v}` is the volume shape factor (:math:`c_{v}=\frac{\pi}{6}` for spheres) and :math:`D` is the characteristic grain size. Note that the inertial force is therefore the sum of the Froude Krylov force :math:`\rho c_{v}D^{3}\frac{\partial u}{\partial t}` and the hydrodynamic mass force :math:`\rho c_{a}c_{v}D^{3}\frac{\partial u}{\partial t}`. For the purpose of XBeach-G, the shear stress on the bed due to inertia is computed by assuming the characteristic grain size
+to be the median sediment grain size and the number of grains affected by flow acceleration per unit area to scale with :math:`c_{n} {D_{50}` such that:
 
-XBeach-G supports two different formulation to compute the bed shear due to inertia effects. Check Robert
+.. math::
+   :label: tau-bi
+	\tau_{bi}=\rho c_{m}c_{v}c_{n}\mathit{D_{50}}\frac{\partial u}{\partial t}\label{eq:taubx_cm}
+
+XBeach-G supports two different formulation to compute the bed shear due to inertia effects (keyword: :par:`friction_acceleration`): the McCall equation and the Nielsen equation. In the case of the McCall equation (keyword: :par:`friction_acceleration` = McCall), ROBERT. In the case of the Nielsen equation (keyword: :par:`friction_acceleration` = Nielsen), ROBERT. 
 
 
 Damping by vegetation
@@ -1987,6 +1992,53 @@ For the suspended-load, first the reference concentration is calculated in accor
 Secondly, the concentration profile is resolved by calculating the bed-shear stresses due to waves and currents and estimating the concentration profile where the combined bed shear stress exceeds the critical bed shear stress. Depth-averaged mixing due to waves and currents.
 
 
+Gravel formulations
+^^^^^^^^^^^^^^^^^^
+In XBeach-G, gravel sediment transport is, by default, computed using the bed load transport equation of :cite:`VanRijn2007a`, excluding coefficients for silt:
+
+.. math::
+   :label:
+	q_{b}=\gamma D_{50}D_{*}^{-0.3}\sqrt{\frac{\tau_{b}}{\rho}}\frac{\theta'-\mathit{\theta_{cr}}}{\mathit{\theta_{cr}}}\frac{\tau_{b}}{\left|\tau_{b}\right|}
+
+where :math:`q_{b}` is the volumetric bed load transport rate (excluding pore space), :math:`gamma`is a calibration coefficient, set to 0.5 in :cite:`VanRijn2007a`, 
+:math:`D_{*}=D_{50}\left(\frac{\Delta g}{\nu^{2}}\right)^{\frac{1}{3}}` is the non-dimensional grain size, and :math:`theta_{cr}` is the critical Shields parameter for the initiation of transport, in this thesis computed using the relation of :cite:`Soulsby1997a`.
+
+.. math::
+   :label:
+	\mathit{\theta_{cr}}=\frac{0.30}{1+1.2D_{*}}+0.055\left(1-e^{-0.020D_{*}}\right)
+
+
+In the case of the Nielsen equation is applied, the sediment transport model is modified slightly from that presented in Chapter \ref{chap:Morphodynamics}. In this model the total gravel sediment transport is computed using a modification of the \citet{Meyer-Peter1948} equation for bed load transport derived by \citet{Nielsen2002}: 
+
+.. math::
+   :label:
+	q_{b}=12\left(\theta'-0.05\right)\sqrt{\theta'}\sqrt{\Delta g\mathit{D_{50}^{3}}}\frac{u_{*}}{\left|u_{*}\right|}
+
+Besides the McCall - Van Rijn and the Nielsen equation there are several other sediment gravel transport formulae implemented in XBeach-G. For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: *http://hdl.handle.net/10026.1/3929*.
+
+.. table:: Sediment gravel transport formulae implemented in XBeach-G
+
+   +--------------------------------------+-------------------------+
+   | Sediment transport formulae          | keyword                 |
+   +======================================+=========================+
+   | McCall - Van Rijn   		  | mccall_vanrijn          | 
+   +--------------------------------------+-------------------------+
+   | Nielsen (2006)                       | nielsen2006             | 
+   +--------------------------------------+-------------------------+
+   | Wilcock & Crow                       | wilcock_crow            | 
+   +--------------------------------------+-------------------------+
+   | Engelund & Fredsoe                   | engelund_fredsoe        | 
+   +--------------------------------------+-------------------------+
+   | Meyer-Peter & Müller                 | mpm                     | 
+   +--------------------------------------+-------------------------+
+   | Wong & Parker                        | wong_parker             | 
+   +--------------------------------------+-------------------------+
+   | Fernandez Luque & van Beek           | fl_vb                   | 
+   +--------------------------------------+-------------------------+
+   | Fredoe & Deigaard 	           	  | fredsoe_deigaard        | 
+   +--------------------------------------+-------------------------+
+
+
 Effects of wave non-linearity 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -2127,6 +2179,15 @@ the dilatancy concept if the adjustment to the initiation of motion is
 considered.
 
 It is also possible to prescribe a given bed slope. The result is that the swash zone profile is teased towards a given bermslope. This functionality Works in surfbeat mode (where H/h>1) and in stationary mode (where h<1m) and have been tested for profiles Praia de Faro (keyword: :par:`bermslope` = desired slope).
+
+In XBeach-G, bed slope effects on sediment transport are included by changing the effective Shields parameter :math:`theta'` is modified according to :cite:`Fredsoee1992`:
+
+.. math::
+   :label:
+   \theta'=\theta\cos\beta\left(1\pm\frac{\tan\beta}{\tan\phi}\right)\label{eq:Fredsoe_bedslope}
+
+where :math:`beta` is the local angle of the bed, :math:`phi` is the angle of repose of the sediment (approximately 30º--40º), and the right-hand term is less than 1 for up-slope transport, and greater than 1 for down-slope transport. 
+
 
 .. _sec-bottom-updating:
 
