@@ -4677,8 +4677,7 @@ most recent source code at hand. It also allows developers to commit
 changes to the source code, without interfering with other developers.
 In order to use Subversion, you will need a Subversion client. A
 well-known client for Windows is Tortoise. If you have registered, you
-can download the source code via the following URL:
-*https://svn.oss.deltares.nl/repos/xbeach/Courses/DSD2014/. 
+can download the source code via the following URL: https://svn.oss.deltares.nl/repos/xbeach/Courses/DSD2014/.
 For the tools like Quickplot and Quickin the Delft3D environment
 is needed.
 
