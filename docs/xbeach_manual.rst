@@ -1166,6 +1166,8 @@ There are 5 different formulations in order to determine the
 dimensionless bed friction coefficient :math:`{c}_{f}` (keyword:
 :par:`bedfriction`) implemented in XBeach (:numref:`tab-bed-friction`).
 
+.. _tab-bed-friction:
+
 .. table:: Different bed friction formulations implemented	
 
    +--------------------------------------+------------------------+-----------------------------+
@@ -3236,8 +3238,10 @@ JONSWAP spreading parameter.
 
    Effect a variation in s for the direction spreading of wave energy
 
+.. _partable-jonswap:
+   
+.. partable:: Overview of available keywords in JONSWAP definition file
 
-.. table:: Overview of available keywords in JONSWAP definition file
    Hm0
      :description: Hm0 of the wave spectrum, significant wave height [m]
      :range:       0.0 - 5.0
