@@ -270,15 +270,15 @@ the circumstances:
    available:
 
    #. Retaining directional spreading (keyword: :par:`dtheta` <
-   :par:`thetamax` â :par:`thetamin`); this has a limited effect on
+   :par:`thetamax` - :par:`thetamin`); this has a limited effect on
    the wave heights because of refraction, but can also allow
    obliquely incident waves and the resulting longshore currents;
 
    #. Using a single directional bin (keyword: :par:`dtheta` =
-   :par:`thetamax` â :par:`thetamin`); this leads to perpendicular
+   :par:`thetamax`- :par:`thetamin`); this leads to perpendicular
    waves always and ignores refraction. If the keyword :par:`snells` =
    *1* is applied, the mean wave direction is determined based on
-   Snellâs law. In this case also longshore currents are generated.
+   Snells law. In this case also longshore currents are generated.
 
 #. **2DH area;** the model is solved on a curvilinear staggered grid
    (rectilinear is a special case). The incoming short wave energy will
@@ -286,7 +286,7 @@ the circumstances:
    boundary conditions. This variation is propagated into the model
    domain. Within this mode the following options are available:
 
-   #. Resolving the wave refraction âon the flyâ using the propagation
+   #. Resolving the wave refraction 'on the fly' using the propagation
       in wave directional space. For large directional spreading or
       long distances this can lead to some smoothing of groupiness
       since the waves from different directions do not interfere but
@@ -305,7 +305,7 @@ the circumstances:
       the stationary solver (keyword: :par:`dtheta_s`).
 
    #. For schematic, longshore uniform cases the mean wave direction
-      can also be computed using Snellâs law (keyword: :par:`snells` =
+      can also be computed using Snells law (keyword: :par:`snells` =
       1). This will then give comparable results to the
       :par:`single_dir` option.
 
@@ -410,7 +410,7 @@ Short wave action balance
 
 The wave forcing in the shallow water momentum equation is obtained
 from a time dependent version of the wave action balance
-equation. Similar to Delft Universityâs (stationary) HISWA model
+equation. Similar to Delft University (stationary) HISWA model
 (:cite:`Holthuijsen1989`) the directional distribution of the action
 density is taken into account, whereas the frequency spectrum is
 represented by a frequency, best represented by the spectral parameter
@@ -632,7 +632,7 @@ breaking formulations used for the non-stationary situation. In
 
 Finally, it is possible to use the :cite:`Janssen2007` formulation for
 wave breaking of stationary waves (keyword: :par:`break` =
-*janssen*). This formulation is a revision of Baldockâs formulation.
+*janssen*). This formulation is a revision of Baldock's formulation.
 
 .. math::
    :label:
@@ -1064,7 +1064,7 @@ gradient can be derived from the wave and roller energy balances and :
 
    \begin{array}{l} {F_{y} =-\frac{\partial S_{xy} }{\partial x} =-\frac{\partial }{\partial x} \left[\frac{c_{g} }{c} \left(E\cos \left(\theta \right)\sin \left(\theta \right)\right)+E_{r} \cos \left(\theta \right)\sin \left(\theta \right)\right]} \\ {\, \, \, \, \, \, \, \, \, \, \, =-\frac{\partial }{\partial x} \left[\frac{\sin \left(\theta \right)}{c} \left(Ec_{g} \cos \left(\theta \right)+E_{r} c\cos \left(\theta \right)\right)\right]} \\ {\, \, \, \, \, \, \, \, \, \, \, =-\left(Ec_{g} \cos \left(\theta \right)+E_{r} c\cos \left(\theta \right)\right)\frac{\partial }{\partial x} \left[\frac{\sin \left(\theta \right)}{c} \right]\, \, } \\ {\, \, \, \, \, \, \, \, \, \, \, \, \, \, \, -\frac{\sin \left(\theta \right)}{c} \frac{\partial }{\partial x} \left(Ec_{g} \cos \left(\theta \right)+E_{r} c\cos \left(\theta \right)\right)} \end{array}
 
-In a longshore uniform situation, according to Snellâs law, the first
+In a longshore uniform situation, according to Snell's law, the first
 term on the right-hand side equals zero; the second term exactly equals
 the sum of the wave energy dissipation and the roller energy input and
 dissipation terms, so the forcing term reduces to:
@@ -1173,7 +1173,7 @@ dimensionless bed friction coefficient :math:`{c}_{f}` (keyword:
    +======================================+========================+=============================+
    | Dimensionless friction coefficient   | :math:`{c}_{f}`        | cf                          |
    +--------------------------------------+------------------------+-----------------------------+
-   | ChÃ©zy                                | C                      | chezy                       |
+   | Chezy                                | C                      | chezy                       |
    +--------------------------------------+------------------------+-----------------------------+
    | Manning                              | n                      | manning                     |
    +--------------------------------------+------------------------+-----------------------------+
@@ -1182,8 +1182,8 @@ dimensionless bed friction coefficient :math:`{c}_{f}` (keyword:
    | White-Colebrook grain size           | D90                    | white-colebrook-grainsize   |
    +--------------------------------------+------------------------+-----------------------------+
 
-The dimensionless friction coefficient can be calculated from the ChÃ©zy
-value with equation :eq:`dimensionless-chezy`. A typical ChÃ©zy
+The dimensionless friction coefficient can be calculated from the Chezy
+value with equation :eq:`dimensionless-chezy`. A typical Chezy
 value is in the order of :math:`55 {m}^{1/2}/s`.
 
 .. math::
@@ -1194,7 +1194,7 @@ value is in the order of :math:`55 {m}^{1/2}/s`.
 In the Manning formulation the Manning coefficient (:math:`n`) must be
 specified. The dimensionless friction coefficient is calculated from
 equation :eq:`dimensionless-manning`. Manning can be seen as a
-depth-dependent ChÃ©zy value and a typical Manning value would be in the
+depth-dependent Chezy value and a typical Manning value would be in the
 order of :math:`0.02 s/{m}^{1/3}`.
 
 .. math::
@@ -1634,7 +1634,7 @@ expense of numerical accuracy.
 Groundwater flow in the swash and surf zone has been shown to be
 non-hydrostatic (e.g., :cite:`Li2000`; :cite:`Lee2007a`). In order to
 capture this, it may be necessary in certain cases to reject the
-DupuitâForchheimer assumption of hydrostatic groundwater pressure.
+Dupuit–Forchheimer assumption of hydrostatic groundwater pressure.
 
 In the non-hydrostatic approach, the groundwater head is not assumed to
 be constant in the vertical. Since XBeach is depth-averaged, the model
@@ -2032,7 +2032,7 @@ Van Thiel-Van Rijn
 
 The second possible sediment transport formulation are the Van Thiel-Van
 Rijn transport equations (keyword: :par:`form` = *vanthiel\_vanrijn*) (:cite:`VanRijn2007a`; :cite:`VanThieldeVries2009a`). The major difference between the
-Soulsby â Van Rijn equations is twofold. First of all, there is no drag
+Soulsby - Van Rijn equations is twofold. First of all, there is no drag
 coefficient calculated anymore and secondly the critical velocity is
 determined by calculating separately the critical velocity for currents
 (:math:`{U}_{crc}`) according to :cite:`Shields1936` and for waves
@@ -2414,11 +2414,11 @@ different sediment fractions both in the horizontal and in the vertical.
 Coarse sediments may be deposited on top of fine sediment after which
 erosion of the coarse sediment is needed to expose the fine sediment
 again, effectively armoring the bed. Three types of bed layers are
-distinguished: 1) the top layers 2) the variable or âbreathingâ layer
+distinguished: 1) the top layers 2) the variable or 'breathing' layer
 and 3) the bottom layers. The top layer is the only layer that interacts
 with the water column and can be eroded, but preserves its thickness.
 The bottom layers are layers of constant thickness that move with the
-top layer. A single variable or âbreathingâ layer is defined that adapts
+top layer. A single variable or'breathing' layer is defined that adapts
 its thickness to the erosion and sedimentation of the bed. For example:
 if a grid cell is eroded, particular fractions of sediment are removed
 from the top layer, but the top layer preserves its thickness and thus
@@ -2426,7 +2426,7 @@ it takes the same volume of sediment, likely of different composition
 than the eroded sediment, from the layer below. If this layer is a top
 layer as well, the thickness is preserved and again the same volume of
 sediment is taken form a lower bed layer. This continues until the
-variable or âbreathingâ layer is reached. This layer adapts its
+variable or 'breathing' layer is reached. This layer adapts its
 thickness to the amount of erosion. If the thickness of the layer
 becomes too small, the variable layer is merged with an adjacent bottom
 layer and a new bottom layer is defined underneath the existing ones to
@@ -2435,7 +2435,7 @@ accreting, the thickness of the variable layer will be increased and
 with sufficient increase the variable layer will be split in two
 effectively creating a new bottom layer. The lowest existing bottom
 layer is then discarded to ensure a constant number of bed layers. The
-âbreathingâ layer can be the upper or bottom layer in which case the top
+'breathing' layer can be the upper or bottom layer in which case the top
 layer or bottom layer class does not exist. The thickness of the
 different layer classes can be set separately (keyword: :par:`dzg1`, :par:`dzg2` and
 :par:`dzg3`) or at once (keyword: :par:`dzg`).
@@ -2671,7 +2671,7 @@ automatically computes a consistent 1D solution.
 
 For the surfbeat mode (keyword: :par:`wavemodel` = *surfbeat*), Neumann leads
 to shadow zones, not so much in the wave height, but in the groupiness;
-the âblobsâ propagating in the mean wave direction turn into elongated,
+the 'blobs' propagating in the mean wave direction turn into elongated,
 longshore uniform patches. To reduce this effect, the gradient along the
 wave crests of the wave energy can be set to zero, instead of the
 longshore gradient (keyword: :par:`lateralwave` = *wavecrest*). This way the
@@ -2722,7 +2722,7 @@ minimum of reflection. It is therefore only useful for 1D (flume like)
 simulations.
 
 With option :par:`front` = *abs2d* (default value) the formulation by :cite:`VanDongeren1997` is activated which in turn is based on
-:cite:`Verboom1981` and is based on the âMethod of Characteristicsâ.
+:cite:`Verboom1981` and is based on the ‘Method of Characteristics’.
 This boundary condition allows for obliquely-incident and
 obliquely-reflected waves to pass through the boundary. It is possible
 to account for situations with boundary-perpendicular and
@@ -2762,7 +2762,7 @@ the physical coast will continue. At these boundaries (keywords: :par:`left`
 & :par:`right`) we need to prescribe information about the area beyond the
 numerical model domain in such a way that the boundary condition does
 not influence the results in an adverse way. One way to do this is to
-prescribe a so-called âno-gradientâ or Neumann boundaries (XBeach
+prescribe a so-called 'no-gradient' or Neumann boundaries (XBeach
 default), which state that there is locally no change in surface
 elevation and velocity, but there are also other possibilities
 implemented into XBeach. This method is recommended and is therefore the
@@ -3007,7 +3007,7 @@ on or off physical processes in XBeach.
 Grid and bathymetry
 -------------------
 
-XBeachâ spatial grid size is defined by the keywords :par:`nx` and :par:`ny`. Here
+XBeach spatial grid size is defined by the keywords :par:`nx` and :par:`ny`. Here
 nx are the number of grid points in the cross-shore direction and ny the
 number in the alongshore direction. The size of the computational grid
 will be :par:`nx` +1 by :par:`ny` +1 cells large. The initial bathymetry is provided
@@ -3015,7 +3015,7 @@ using a separate file that is referred to by the :par:`depfile` keyword,
 which has to have a size of [nx+1, ny+1]. This file contains an initial
 bed level for each grid cell where each line corresponds to a transect
 in x-direction (cross-shore). The values are positive down by default
-(so e.g. a value of â10â is 10 meters depth), but this can be changed
+(so e.g. a value of '10' is 10 meters depth), but this can be changed
 using the :par:`posdwn` keyword.
 
 Three main types of XBeach grids are supported: fast 1D, 1D and 2DH.
@@ -3294,7 +3294,7 @@ An example of a 2D SWAN spectrum is given below:
                 
    SWAN 1 Swan standard spectral file
    $ Data produced by SWAN version 40.51
-   $ Project:âprojnameâ ; run number:ârunnumâ
+   $ Project:’projname’ ; run number:’runnum’
    LOCATIONS locations in x-y-space
    1 number of locations
    22222.22 0.00
@@ -3794,7 +3794,7 @@ Water levels can be imposed on the model boundaries as explained in
 force the water body in the model domain. Specific applications may
 require the initialization of the entire water body in the model domain
 at the start of the simulation. For example, an initial significant
-gradient in the water level that âcollapsesâ at the start of the
+gradient in the water level that 'collapses' at the start of the
 simulation may simulate a dam break. The initialization of the water
 level in the model domain is governed by the keywords listed in the
 table below.
@@ -3860,7 +3860,7 @@ layers are needed as well. The number of bed layers can be defined
 using the keyword :par:`nd`.
 
 Three types of bed layers are distinguished: 1) the top layer 2) the
-variable or âbreathingâ layer and 3) the bottom layers. At least one
+variable or 'breathing' layer and 3) the bottom layers. At least one
 of each type of bed layer is needed, which makes that at least three
 bed layers are required (see :ref:`sec-bed-composition`). Each bed
 layer has a thickness.  Choosing bed layer thicknesses that are in
@@ -4147,7 +4147,7 @@ The table below gives an overview of all keywords related to drifters:
 Ship-induced wave motions
 -------------------------
 
-Ship waves can be simulated by defining the shipsâ geometries and
+Ship waves can be simulated by defining the ships' geometries and
 trajectories in a collection of files. The user can define multiple
 ships. The number of ships is set by the keyword :par:`nship`. In the file
 referenced by the keyword :par:`shipfile` each ship is given a name. The
@@ -4174,12 +4174,12 @@ it is advised to maintain a relatively deep edge of a few grid cells at
 both model boundaries (i.e. front and back side).
 
 Another way to avoid numerical issues at the initialization of a ship
-simulation is to use the âflyingâ option, which can be specified in the
+simulation is to use the 'flying' option, which can be specified in the
 ship file (*flying* = 1). In case the option *flying* is enabled, also a
 z-coordinate is defined in the shiptrack-file indicating the vertical
-position of the ship. In this way, the vessel can âlandâ on the water
+position of the ship. In this way, the vessel can 'land' on the water
 with its correct sailing speed, thereby avoiding unwanted disturbance to
-the water level. Also, the ship can âfly outâ of the model domain before
+the water level. Also, the ship can 'fly out'f the model domain before
 reaching the back boundary. By using this method the spin-up time can be
 reduced considerably and both inflow and outflow boundaries are
 unaffected by the ship
@@ -4556,7 +4556,7 @@ recent functionalities of the XBeach model.
 Fortran binary
 ^^^^^^^^^^^^^^
 
-Output files in Fortran binary format are bare matrix dumps of XBeachâ
+Output files in Fortran binary format are bare matrix dumps of XBeach'
 computational matrices. At each output time, one such matrix block is
 added to the output file. These files can generally be read by binary
 read functions, like *fread* in Matlab and the *struct* package in
@@ -4630,24 +4630,24 @@ the layout of the netcdf file is given below:
          windtime = 2 ;
       variables:
          double x(x) ;
-            x:units = âmâ ;
-            x:long_name = âlocal x coordinateâ ;
+            x:units = 'm' ;
+            x:long_name = 'local x coordinate' ;
          double y(y) ;
-            y:units = âmâ ;
-            y:long_name = âlocal y coordinateâ ;
+            y:units ='m' ;
+            y:long_name = 'local y coordinate';
          double globaltime(globaltime) ;
-            globaltime:units = âsâ ;
+            globaltime:units = 's' ;
          double H(globaltime, y, x) ;
-            H:units = âmâ ;
-            H:long_name = âwave heightâ ;
+            H:units = 'm' ;
+            H:long_name = 'wave height' ;
          double zs(globaltime, y, x) ;
-            zs:units = âmâ ;
-            zs:long_name = âwater levelâ ;
+            zs:units = 'm' ;
+            zs:long_name = 'water level' ;
          double zb(globaltime, y, x) ;
-            zb:units = âmâ ;
-            zb:long_name = âbed levelâ ;
+            zb:units = 'm' ;
+            zb:long_name = 'bed level' ;
          double ue(globaltime, y, x) ;
-            ue:units = âm/sâ ;
+            ue:units = 'm/s' ;
    }
 
 Time parameters
@@ -4676,8 +4676,8 @@ changes to the source code, without interfering with other developers.
 In order to use Subversion, you will need a Subversion client. A
 well-known client for Windows is Tortoise. If you have registered, you
 can download the source code via the following URL:
-*https://svn.oss.deltares.nl/repos/xbeach/Courses/DSD\_2014/Examples â
-Basic*. For the tools like Quickplot and Quickin the Delft3D environment
+*https://svn.oss.deltares.nl/repos/xbeach/Courses/DSD2014/. 
+For the tools like Quickplot and Quickin the Delft3D environment
 is needed.
 
 Dune erosion at Delfland, Netherlands (1D)
@@ -4690,8 +4690,8 @@ Netherlands.
 
 You can work on the following assignments:
 
-#. Go to the folder âExamples\\DelflandStormâ and double click the file
-   ârun\_model.batâ. The simulation will start. The model will run for a
+#. Go to the folder 'Examples\\DelflandStorm'and double click the file
+   'run\_model.bat'. The simulation will start. The model will run for a
    few minutes, but in the meantime you can already work on question 2
    to 5.
 
@@ -4721,23 +4721,23 @@ You can work on the following assignments:
    (A brief tutorial is attached to this document). You can start
    Quickplot via the Delft3D environment we installed (Start Programs
    Deltares Delft3D Delft3D). In the Delft 3D menu choose Utilities
-   Quickplot. Choose Files of type âNetCDF files and GRIB filesâ and
-   open âxboutput.ncâ in the simulation folder.
+   Quickplot. Choose Files of type 'NetCDF files and GRIB files' and
+   open 'xboutput.nc' in the simulation folder.
 
 #. Use the Quickplot tutorial and try to make an animation in which you
    plot short wave height (H), water level (including long wave
    variations, zs) and bed level (zb) as function of time.
 
 #. Plot the offshore water level as function of time. Also open the file
-   âtide.tekâ (Tekal data files format), which contains the imposed
+   'tide.tek' (Tekal data files format), which contains the imposed
    surge level. Did the model correctly simulate the imposed surge
    level?
 
-#. Copy all model files to a new folder named âsuperfastâ. Edit
+#. Copy all model files to a new folder named 'superfast'. Edit
    params.txt and set ny=0 (instead of ny=2), and run the model. What is
    the simulation time compare to the original simulation?
 
-#. Compare simulation results for the âsuperfastâ and âdefaultâ
+#. Compare simulation results for the 'superfast' and 'default'
    simulation. Are these the same? What option will you use in the
    future?
 
@@ -4752,8 +4752,8 @@ can reduce the (dune and beach) erosion during a storm event.
 
 You can work on the following assignments:
 
-#. Go to the folder âExamples\\Nourishment caseâ and double click on the
-   file ârunall.batâ. This batch file will run three simulations
+#. Go to the folder 'Examples\\Nourishment case' and double click on the
+   file 'runall.bat' This batch file will run three simulations
    sequentially in which the profile configuration varies and
    corresponds with the undisturbed profile (folder reference), a
    shoreface nourishment (folder shoreface) and a beach nourishment
@@ -4783,8 +4783,8 @@ You can work on the following assignments:
    stored in the file. What was the total simulation time?
 
 #. Inspect the initial bathymetries of each simulation with QUICKPLOT.
-   Choose Files of type âNetCDF files and GRIB filesâ and open
-   âxboutput.ncâ in the simulation folder).
+   Choose Files of type 'NetCDF files and GRIB files' and open
+   'xboutput.nc' in the simulation folder).
 
    #. At what cross-shore position were the shoreface nourishment and
       beach nourishment placed?
@@ -4801,7 +4801,7 @@ You can work on the following assignments:
    variations, zs) and bed level (zb) as function of time.
 
 #. Plot the offshore water level as function of time. Also open the file
-   âtide.tekâ (Tekal data files format), which contains the imposed
+   'tide.tekâ'(Tekal data files format), which contains the imposed
    surge level. Did the model correctly simulate the imposed surge
    level?
 
@@ -4815,7 +4815,7 @@ You can work on the following assignments:
    #. What nourishment type is most effective in reducing the impact of
       a storm and do you have an explanation for this?
 
-#. In the folder âbanquetteâ you find a final simulation in which a
+#. In the folder 'banquette' you find a final simulation in which a
    special beach nourishment type is evaluated named a banquette. This
    beach nourishment has a highly elevated flat area that connects to
    the dune foot on which beach restaurants can be build.
@@ -4896,8 +4896,8 @@ the morphodynamics.
 
 You can work on the following assignments:
 
-#. Go to the folder âExamples\\YanchepBeachâ and double click the
-   file ârun\_model.batâ. The simulation will start (and will run about
+#. Go to the folder'Examples\\YanchepBeachâ'and double click the
+   file'run\_model.bat'. The simulation will start (and will run about
    15 minutes).
 
 #. Meanwhile, inspect the bathymetry file and the structure file (using
@@ -4914,7 +4914,7 @@ You can work on the following assignments:
    sedimentation/erosion. What happens in the lagoon?
 
 #. How is the lagoon affected by the mean water level? Increase or
-   decrease the mean water level condition (âtide.txâ), run the model
+   decrease the mean water level condition ('tide.txt'), run the model
    again (maybe for a shorter time by reducing keyword: :par:`tstop`). How
    are the circulation and sediment transport affected?
 
@@ -5655,7 +5655,7 @@ groundwater and surface water are connected or unconnected:
    \begin{array}{l} {H_{bc,i,j} =\left(1-\kappa _{r,i,j} \right)\eta _{gw,i,j} +\kappa _{r,i,j} \left(z_{b,i,j} {+}\frac{\left. p_{i,j} \right|^{z=z_{b} } }{\rho g} \right)} \\ {\begin{array}{ccc} {\kappa _{r,i,j} =1-\frac{z_{b,i,j} -\eta _{gw,i,j} }{\varepsilon } } & {} & {0\le \kappa _{r,i,j} \le 1} \end{array}} \end{array}
 
 In the parameter :math:`\kappa_{r}` is the relative
-numerical âconnectednessâ of the groundwater and surface water head,
+numerical 'connectedness' of the groundwater and surface water head,
 determined by linear interpolation across the numerical smoothing
 constant :math:`\varepsilon`.
 
