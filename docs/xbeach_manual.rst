@@ -1166,7 +1166,7 @@ There are 5 different formulations in order to determine the
 dimensionless bed friction coefficient :math:`{c}_{f}` (keyword:
 :par:`bedfriction`) implemented in XBeach (:numref:`tab-bed-friction`).
 
-.. partable:: Different bed friction formulations implemented
+.. table:: Different bed friction formulations implemented	
 
    +--------------------------------------+------------------------+-----------------------------+
    | Bed friction formulation             | Relevant coefficient   | keyword                     |
@@ -2130,7 +2130,7 @@ In the case of the Nielsen equation is applied, the sediment transport model is 
 
 Besides the McCall - Van Rijn and the Nielsen equation there are several other sediment gravel transport formulae implemented in XBeach-G. For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: *http://hdl.handle.net/10026.1/3929*.
 
-.. partable:: Sediment gravel transport formulae implemented in XBeach-G
+.. table:: Sediment gravel transport formulae implemented in XBeach-G
 
    +--------------------------------------+-------------------------+
    | Sediment transport formulae          | keyword                 |
@@ -3236,10 +3236,8 @@ JONSWAP spreading parameter.
 
    Effect a variation in s for the direction spreading of wave energy
 
-.. _partable-jonswap:
-   
-.. partable:: Overview of available keywords in JONSWAP definition file
 
+.. table:: Overview of available keywords in JONSWAP definition file
    Hm0
      :description: Hm0 of the wave spectrum, significant wave height [m]
      :range:       0.0 - 5.0
