@@ -4801,7 +4801,7 @@ You can work on the following assignments:
    variations, zs) and bed level (zb) as function of time.
 
 #. Plot the offshore water level as function of time. Also open the file
-   'tide.tek''(Tekal data files format), which contains the imposed
+   'tide.tek' (Tekal data files format), which contains the imposed
    surge level. Did the model correctly simulate the imposed surge
    level?
 
@@ -4896,7 +4896,7 @@ the morphodynamics.
 
 You can work on the following assignments:
 
-#. Go to the folder'Examples\\YanchepBeach''and double click the
+#. Go to the folder'Examples\\YanchepBeach' and double click the
    file'run\_model.bat'. The simulation will start (and will run about
    15 minutes).
 
