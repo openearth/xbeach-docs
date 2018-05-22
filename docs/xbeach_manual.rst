@@ -4801,7 +4801,7 @@ You can work on the following assignments:
    variations, zs) and bed level (zb) as function of time.
 
 #. Plot the offshore water level as function of time. Also open the file
-   'tide.tekâ'(Tekal data files format), which contains the imposed
+   'tide.tek''(Tekal data files format), which contains the imposed
    surge level. Did the model correctly simulate the imposed surge
    level?
 
@@ -4877,7 +4877,7 @@ You can work on the following assignments.
 If you have time left feel free to:
 
 #. Narrow or broaden the imposed spectrum by changing the parameter
-   directional spreading (:par:`s`) in âjonswap.inpâ (you could for example
+   directional spreading (:par:`s`) in'jonswap.inp' (you could for example
    set s = 100 and s = 2 respectively). Make animations of the
    instantaneous short wave height to see what is happening to the size
    of the wave groups.
@@ -4896,7 +4896,7 @@ the morphodynamics.
 
 You can work on the following assignments:
 
-#. Go to the folder'Examples\\YanchepBeachâ'and double click the
+#. Go to the folder'Examples\\YanchepBeach''and double click the
    file'run\_model.bat'. The simulation will start (and will run about
    15 minutes).
 
@@ -5257,10 +5257,7 @@ subdivided in sub models extending to either the full alongshore or the
 full cross-shore extent of the model domain. In *man* mode the model
 domain is manually subdivided using the values specified with the :par:`mmpi`
 and :par:`nmpi` keywords. The number of sub models is not determined by
-XBeach itself, but by the MPI wrapper (e.g. MPICH2 or OpenMPI). It is
-important to note that information about slopes isnât exchanged over the
-boundaries. Therefore the avalanching algorithm will not function over
-MPI boundaries.
+XBeach itself, but by the MPI wrapper (e.g. MPICH2 or OpenMPI).
 
 .. include:: tables/partable_mpi_parameters.tab
 
@@ -5502,7 +5499,7 @@ Time integration scheme
 
 The time integration of the mass and momentum balance equations is
 combined in an explicit leap-frog scheme, as depicted in :numref:`fig-leapfrog`. The
-velocities (in the â-â points) are updated using the momentum balance,
+velocities are updated using the momentum balance,
 the water levels are updated using the mass balance. The water level
 gradients influence the momentum balance and the velocities and derived
 discharges affect the mass balance. Because of the leap-frog scheme
