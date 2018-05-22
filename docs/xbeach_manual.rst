@@ -1250,21 +1250,22 @@ The bed shear stress due to drag is computed with the XBeach-G default of White-
 .. math::
    :label: cf-infiltration
    
-   c_{f}=c_{f,0}\left(\frac{\Phi}{e^{\Phi}-1}\right)\label{eq:Conley_Inman}
+   {c_f} = {c_{f,0}}\left( {\frac{\Phi }{{{e^\Phi } - 1}}} \right)
 
 Bed shear due to inertia effects (keyword: :par:`friction_acceleration`) is computed through analogy with the force exerted by water on a sphere in non-stationary flow. In this case, the force on an object due to inertia :math:`F_{i}` can be computed from the local flow acceleration:
 
 .. math::
    :label: tau-inertia
-	F_{i}=\rho c_{m}c_{v}D^{3}\frac{\partial u}{\partial t}
+   
+   {F_i} = \rho {c_m}{c_v}{D^3}\frac{{\partial u}}{{\partial t}}
 
-where :math:`c_{m}=1+c_{a}` is an inertia coefficient, :math:`c_{a}` is the added mass coefficient :math:`c_{a}=0.5` for spheres with zero autonomous acceleration), 
-:math:`c_{v}` is the volume shape factor (:math:`c_{v}=\frac{\pi}{6}` for spheres) and :math:`D` is the characteristic grain size. Note that the inertial force is therefore the sum of the Froude Krylov force :math:`\rho c_{v}D^{3}\frac{\partial u}{\partial t}` and the hydrodynamic mass force :math:`\rho c_{a}c_{v}D^{3}\frac{\partial u}{\partial t}`. For the purpose of XBeach-G, the shear stress on the bed due to inertia is computed by assuming the characteristic grain size
-to be the median sediment grain size and the number of grains affected by flow acceleration per unit area to scale with :math:`c_{n} {D_{50}` such that:
+where :math:`c_{m}=1+c_{a}` is an inertia coefficient, :math:`c_{a}` is the added mass coefficient :math:`c_{a}=0.5` for spheres with zero autonomous acceleration),:math:`c_{v}` is the volume shape factor (:math:`c_{v}=\frac{\pi}{6}` for spheres) and :math:`D` is the characteristic grain size. Note that the inertial force is therefore the sum of the Froude Krylov force :math:`\rho c_{v}D^{3}\frac{\partial u}{\partial t}` and the hydrodynamic mass force :math:`\rho c_{a}c_{v}D^{3}\frac{\partial u}{\partial t}`. For the purpose of XBeach-G, the shear stress on the bed due to inertia is computed by assuming the characteristic grain size
+to be the median sediment grain size and the number of grains affected by flow acceleration per unit area to scale with :math:`c_{n} D_{50}` such that:
 
 .. math::
    :label: tau-bi
-	\tau_{bi}=\rho c_{m}c_{v}c_{n}\mathit{D_{50}}\frac{\partial u}{\partial t}\label{eq:taubx_cm}
+   
+	\tau_{b,i}=\rho c_{m}c_{v}c_{n}\mathit{D_{50}}\frac{\partial u}{\partial t}
 
 XBeach-G supports two different formulation to compute the bed shear due to inertia effects (keyword: :par:`friction_acceleration`): the McCall equation and the Nielsen equation. In the case of the McCall equation (keyword: :par:`friction_acceleration` = McCall), ROBERT. In the case of the Nielsen equation (keyword: :par:`friction_acceleration` = Nielsen), ROBERT. 
 
