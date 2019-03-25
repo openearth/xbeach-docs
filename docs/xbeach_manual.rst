@@ -1191,7 +1191,7 @@ value is in the order of :math:`55 {m}^{1/2}/s`.
 .. math::
    :label: dimensionless-chezy
            
-   c_{f} =\sqrt{\frac{g}{C^{2} } }
+   c_{f} =\frac{g}{C^{2} }
 
 In the Manning formulation the Manning coefficient (:math:`n`) must be
 specified. The dimensionless friction coefficient is calculated from
@@ -1202,7 +1202,7 @@ order of :math:`0.02 s/{m}^{1/3}`.
 .. math::
    :label: dimensionless-manning
            
-   c_{f} =\sqrt{\frac{gn^{2} }{h^{1/3} } }
+   c_{f} = \frac{gn^{2} }{h^{1/3} }
 
 In the White-Colebrook formulation the geometrical roughness of
 Nikuradse (:math:`{k}_{s}`) must be specified. The dimensionless
@@ -3215,9 +3215,9 @@ significant wave height should be increased with 0.2 m every hour:
 
 .. code-block:: text
                 
-   0.8 8. 285. 3.3 10. 0.3 3600. 1
-   1.0 8. 285. 3.3 10. 0.3 3600. 1
-   1.2 8. 285. 3.3 10. 0.3 3600. 1
+   0.8 8. 285. 3.3 10. 3600. 1
+   1.0 8. 285. 3.3 10. 3600. 1
+   1.2 8. 285. 3.3 10. 3600. 1
 
 A more generic way of providing time-varying spectral wave boundary
 conditions is using a FILELIST construction as described in
