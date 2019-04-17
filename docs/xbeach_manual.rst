@@ -3227,7 +3227,7 @@ varying boundary conditions as described in the same section.
 
 The parameter s in the JONSWAP spectrum definition is related to the
 directional spreading (in deg.) through the following relation
-:math:`\sigma =\sqrt{\frac{2}{s+1} } \, s=\frac{2}{\sigma ^{2} } -1`.
+:math:`\sigma =\sqrt{\frac{2}{s+1} }` and :math:`s=\frac{2}{\sigma ^{2} } -1`.
 Here :math:`\sigma` is the directional spreading in radians and s the
 JONSWAP spreading parameter.
 
@@ -6047,7 +6047,7 @@ The radial frequency and wave number of these bound waves are given by,
 .. math::
    :label:
       
-   $\omega_3 = \omega_1 \pm \omega_2$
+   \omega_3 = \omega_1 \pm \omega_2
 	
 .. math::
    :label:
