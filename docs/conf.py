@@ -286,6 +286,5 @@ def linkcode_resolve(domain, info):
         return None
     filename = info['module'].replace('.', '/')
     url = 'https://svn.oss.deltares.nl/repos/xbeach/trunk/src/xbeachlibrary/%s.f90' % filename
-    print url
+    print(url)
     return url
-
