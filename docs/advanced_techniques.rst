@@ -1,7 +1,6 @@
 Advanced techniques
 ===================
 
-test
 Traditionally, XBeach is used as a standalone executable that is ran
 on a single XBeach model schematization, possibly distributed over
 multiple processes through MPI. Nowadays, XBeach can also be used as a
