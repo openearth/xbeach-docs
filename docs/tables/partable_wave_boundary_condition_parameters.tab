@@ -57,4 +57,8 @@
      :units:         
      :default:       params
      :range:         params, parametric, swan, vardens, off, jonstable, reuse, ts_1, ts_2, ts_nonh
-
+   wbcevarreduce
+     :description:   Reduction factor of short-wave group variance at the boundary
+     :units:         
+     :default:       1
+     :range:         0-1

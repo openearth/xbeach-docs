@@ -32,4 +32,14 @@
      :units:         m/s
      :default:       0.0
      :range:         0.0 - 0.2
-
+   deltahmin
+     :description:   Dimensionless coefficent to determine the threshold water depth above which stokes drift is included
+     :units:         -
+     :default:       0.1
+     :range:         0.0 - 1.0
+   oldhmin
+     :description:   Switch to apply the old hmin  parameter instead of the deltahmin 
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+~

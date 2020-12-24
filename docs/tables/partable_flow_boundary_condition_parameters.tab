@@ -55,5 +55,5 @@
      :description:   Switch for offfshore boundary, velocity boundary or instant water level boundary
      :units:         
      :default:       velocity
-     :range:         instant, velocity
+     :range:         instant, velocity, hybrid
 

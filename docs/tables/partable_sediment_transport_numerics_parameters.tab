@@ -18,4 +18,16 @@
      :units:         -
      :default:       1.0
      :range:         0.5 - 1.0
+   dtlimts
+     :advanced:
+     :description:   Factor of the timestep to determine the numerical limiter of the adaptation time.
+     :units:         -
+     :default:       1.0
+     :range:         0 - 20.0
+   oldTsmin
+     :advanced:
+     :description:   Switch to apply the tsmin parameter instead of the dtlimts..
+     :units:         -
+     :default:       0
+     :range:         0 - 1
 

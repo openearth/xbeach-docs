@@ -44,9 +44,6 @@ Hurricane Sandy on the New Jersey coast.
 
 .. _fig-photos:
 
-.. figure:: images/blank.jpg
-   :width: 0px
-
    Upper pictures show characteristic examples of damage which
    occurred during Sandy (Lopez-Feliciano, 2014). Bottom pictures
    shows examples of depositional features such as described by

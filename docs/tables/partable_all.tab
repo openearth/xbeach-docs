@@ -1288,7 +1288,7 @@
      :description:   Switch for offfshore boundary, velocity boundary or instant water level boundary
      :units:         
      :default:       velocity
-     :range:         instant, velocity
+     :range:         instant, velocity, hybrid
    timings
      :advanced:
      :description:   Switch enable progress output to screen
@@ -1538,4 +1538,67 @@
    zsinitfile
      :description:   Name of inital water level file
      :units:         <file>
-
+   dtlimts
+     :advanced:
+     :description:   Factor of the timestep to determine the numerical limiter of the adaptation time.
+     :units:         -
+     :default:       1.0
+     :range:         0 - 20.0
+   oldTsmin
+     :advanced:
+     :description:   Switch to apply the tsmin parameter instead of the dtlimts..
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   deltahmin
+     :description:   Dimensionless coefficent to determine the threshold water depth above which stokes drift is included
+     :units:         -
+     :default:       0.1
+     :range:         0.0 - 1.0
+   oldhmin
+     :description:   Switch to apply the old hmin  parameter instead of the deltahmin 
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   rainfall
+     :description:   Apply rainfall in simulation
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   rainfallrate
+     :description:   Constant and uniform rainfall rate
+     :units:         mm/hr
+     :default:       0
+     :range:         0 - 2000
+   rainfallratefile
+     :description:   File with rainfall rate for each grid point
+     :units:         <file>
+   nrainfallrate
+     :description:   Number of moments in time with rainfall specified
+     :units:         <file>
+   writehotstart
+     :description:   Write hotstart during simulation
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   hotstart
+     :description:   Initialize simulation with hotstart
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   hotstartfileno
+     :description:   Number of hotstart file which should be applied as initialization
+     :units:         -
+     :default:       0
+     :range:         0-999
+   tinth
+     :description:   Output interval of writing a hotstart file
+     :units:         -
+     :default:       0
+     :range:         0-tstop
+   alfaD50
+     :description:   calibration coefficent for grain size term
+     :units:         -
+     :default:       0
+     :range:         0-1
+	 
