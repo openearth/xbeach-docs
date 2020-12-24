@@ -377,8 +377,8 @@ and it is likely that changes in the sediment transport formulations
 will be implemented in the near future.
 
 To improve the dispersive behaviour a (reduced) 2-layer non-hydrostatic is implemented as well (:cite:`de2020efficient`).
-In this version (keyword: :par:`nhq3d` = *1*, see Section :ref:`sec-twolayer`) a constant non-hydrostatic pressure is assumed in the lower layer to
-reduce the additional computation time. 
+In this version (keyword: :par:`nhq3d` = *1*, see Section :ref:`sec-twolayer`), the pressure in the vertical is 
+described by a hydrostatic pressure assumption  in the bottom layer, and a non-hydrostatic distribution in the upper layer. 
 
 
 An interesting recent application that has been validated for a number
@@ -1353,8 +1353,8 @@ time varying wind file.
 Rainfall (beta feature)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is possible to include the effects of rainfall in the simulation. Based on
-a constant or spatial varying rainfall rate (:math:`q_{rain}`), the continuity equation is given by,
+It is possible to include rainfall in the simulation. Based on
+a constant or temporally- and/or spatially-varying rainfall rate (:math:`q_{rain}`), the continuity equation is given by,
 
 .. math::
    :label:
@@ -1858,6 +1858,15 @@ depth-averaged data (keyword: :par:`tsfac`).
 
    T_{s} =\max \left(f_{Ts} \frac{h}{w_{s} } ,T_{s,\min } \right)\;
 
+The sediment transport rate, required for the bed level update, is defined as (shown for the
+x-direction),
+
+.. math::
+
+   q_x =\max Ch\rho - \text{diffusion term} 
+
+
+
 The entrainment or deposition of sediment is determined by the mismatch
 between the actual sediment concentration :math:`C` and the equilibrium
 concentration :math:`{C}_{eq}` thus representing the source term in
@@ -2128,11 +2137,9 @@ Implementation of D50 grain size dependency (beta)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To increase the sensitivity of XBeach to grain size variations, an adjusted sediment transport equation 
-can be applied. Note that this implementation is not based on
-a physical grounds and therefore not recommended to apply. This implementation is added to
-verify the behaviour of XBeach when such relation should hold.
+can be applied. Note that this implementation is not well validated, and therefore not a default recommendation in the model. 
 
-Both the bed-load and suspended sediment transport can be multiplied by a grain size depended term,
+Both the bed-load and suspended sediment transport rates can be multiplied by a grain-size–dependent term,
 
 .. math::
    :label:
@@ -2140,15 +2147,15 @@ Both the bed-load and suspended sediment transport can be multiplied by a grain 
    f_{D50} = (225*10^{-6}/D_{50})^{\alpha_{D50}}
 
 where :math:`\alpha_{D50}` is a calibration coefficent (keyword :par:`alfaD50`). 
-This grain size term is included in the depth-averaged advection diffusion equation,
+This grain size term is included in the sediment transport rate,
 
 .. math::
    :label:
 
-   \frac{\partial hC}{\partial t} +\frac{\partial f_{D50}hCu^{E} }{\partial x} +\frac{\partial f_{D50}hCv^{E} }{\partial y} +\frac{\partial }{\partial x} \left[D_{h} h\frac{\partial C}{\partial x} \right]+\frac{\partial }{\partial y} \left[D_{h} h\frac{\partial C}{\partial y} \right]=\frac{hC_{eq} -hC}{T_{s} }
+   q_x = f_{D50} (\max Ch\rho - \text{diffusion term})
 
 In this way the sediment transport rates are influenced  by the grain size diameter. By default, the
-:par:`alfaD50` is set to 0, which means that the original depth-averaged advection diffusion equation is solved. 
+:par:`alfaD50` is set to 0, which means that the sediment transport rate is computed without the grain-size–dependent term. 
 
 Gravel formulations
 ^^^^^^^^^^^^^^^^^^^
@@ -2431,11 +2438,10 @@ the slope back to the critical slope.
 
 To prevent the generation of large shockwaves due to sudden changes of
 the bottom level, bottom updating due to avalanching has been limited to
-a maximum length and time scale. The vertical change in bed level required to fulfill
-the creteria for the critical slope is multiplied with the ratio of the time step
-and a characteristic time scale (:par:`avaltime`). This avaltime is proportional to
-the :par:`trep` by the :par:`nTrepAvaltime` parameter. Moreover, the bed level change is 
-scaled with a horizontal length scale given by a empirical swash motion.
+a maximum speed, defined by a characteristic length and time scale. This speed is found by distributing the vertical change in bed level 
+required to fulfill the criterium for the critical slope over the characteristic time scale (:par:`avaltime`). This avaltime is proportional to
+the :par:`trep` by the :par:`nTrepAvaltime` parameter. Moreover, to remove grid size dependency, the bed level change is 
+scaled with a ratio between the infragravity swash motion (following :cite:`Stockdon2006`) and the local grid size.
 
 .. _sec-bed-composition:
 
@@ -3506,8 +3512,8 @@ An example of a formatted variance density file is given below:
 
 Reduction of short-wave group variance to include the effects of directional spreading in a 1-dimensional model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The infragravity wave is affected by the directional spreading of the short-waves. A wave field with directional spreading
-result in a lower infragravity wave height than a wave field with less directional spreading. Since directional spreading
+Infragravity wave growth is affected by the directional spreading of the short-waves. A wave field with directional spreading
+result in a lower infragravity wave height than a wave field with no directional spreading. Since directional spreading
 can only be modelled in a 2-dimensional model, the infragravity wave is overestimated in a 1-dimensional model.
 Even when boundary conditions including directional spreading are applied in a 1-dimensional model,
 the internal forcing inside the domain result in a larger infragravity wave compared to a 2-dimensional model with directional spreading. 
@@ -3928,10 +3934,10 @@ during a simulation is enabled  (keyword :par:`writehotstart`), it is possible t
 To write a hotstart file during a simulation, the keyword :par:`writehotstart` can be used. With the keyword :par:`tinth` the
 output interval (in seconds) can be specified with respect to t=0. When :par:`tinth` is not specified, the hotstart is written at the end of the simulation.
 
-To start a XBeach model based on a hotstart file,
+To start an XBeach model based on a hotstart file,
 the keyword :par:`hotstart` must be set to 1. The :par:`hotstartfileno` keyword can be used to select the hotstart file number 
 to initialize the simulation. For example, when 6 hotstart files are generated in a previous simulation, :par:`hotstartfileno`
-can be set to 1 till 6. 
+can be set to 1 to 6. 
 
 This functionality is a beta feature and not fully tested. 
 
@@ -3939,10 +3945,10 @@ This functionality is a beta feature and not fully tested.
 
 Rainfall (beta)
 ---------------
-To include rainfall the simulation the keyword :par:`rainfall` can be set to 1. 
-It is possible to specify a constant and spatial uniform rainfallrate with the 
-keyword :par:`rainfallrate` (in mm/hr). Alternatively, by refering par:`rainfallratefile` to a file,
-a spatial varying rainfall can be applied. The number of rainfall moments in the file is specified with the
+To include rainfall in the simulation the keyword :par:`rainfall` can be set to 1. 
+It is possible to specify a constant and spatially-uniform rainfallrate with the 
+keyword :par:`rainfallrate` (in mm/hr). Alternatively, by refering keyword :par:`rainfallratefile` to a file,
+a spatially and/or temporally varying rainfall can be applied. The number of rainfall moments in the file is specified with the
 keyword :par:`nrainfallrate`. This user-input file with rainfall rates is given by the same format as the
 :par:`setbathyfile` (see Section :ref:`sec-bed-update`).
 
@@ -5161,10 +5167,12 @@ by the scale of the simulation the :par:`hmin` is defined as
 
    hmin= \begin{cases} h  & H<=h \\ h+\delta_{hmin}H(H/h-1) & H>h \end{cases} 
 
-when :par:`oldhmin` is 0. This means that hmin is equal to the water depth (:par:`h`)
+when :par:`oldhmin` is 0 (default). This means that hmin is equal to the water depth (:par:`h`)
 when the wave height (:par:`H`) is smaller than the water depth. When the wave height is larger
 than the water depth, the hmin is equal to the water depth plus an additional contribution related
-to the wave height times the (:par:`deltahmin`).  
+to the wave height times the (:par:`deltahmin`). if :par:`oldhmin` is set to 1, the old implementation
+of :par:`hmin` is applied, in which the minimum water depth for the retun flow computation is set to the
+value of :par:`hmin`.
 
 .. include:: tables/partable_flow_numerics_parameters.tab
 
