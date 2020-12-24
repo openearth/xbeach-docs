@@ -1863,7 +1863,7 @@ x-direction),
 
 .. math::
 
-   q_x =\max Ch\rho - \text{diffusion term} 
+   q_x =Ch\rho - \text{diffusion term} 
 
 
 
