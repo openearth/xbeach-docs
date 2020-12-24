@@ -1858,6 +1858,12 @@ depth-averaged data (keyword: :par:`tsfac`).
 
    T_{s} =\max \left(f_{Ts} \frac{h}{w_{s} } ,T_{s,\min } \right)\;
 
+
+The entrainment or deposition of sediment is determined by the mismatch
+between the actual sediment concentration :math:`C` and the equilibrium
+concentration :math:`{C}_{eq}` thus representing the source term in
+the sediment transport equation.
+
 The sediment transport rate, required for the bed level update, is defined as (shown for the
 x-direction),
 
@@ -1865,12 +1871,6 @@ x-direction),
 
    q_x =Ch\rho - \text{diffusion term} 
 
-
-
-The entrainment or deposition of sediment is determined by the mismatch
-between the actual sediment concentration :math:`C` and the equilibrium
-concentration :math:`{C}_{eq}` thus representing the source term in
-the sediment transport equation.
 
 General parameters
 ~~~~~~~~~~~~~~~~~~
