@@ -17,7 +17,7 @@ pybtex-docutils==0.2.2
 Pygments==2.7.3
 pyparsing==2.4.7
 pytz==2020.4
-PyYAML==5.3.1
+PyYAML==5.4
 requests==2.25.0
 six==1.15.0
 snowballstemmer==2.0.0
