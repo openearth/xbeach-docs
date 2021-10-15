@@ -18,12 +18,6 @@
      :units:         
      :default:       warmbeam
      :range:         upwind_1, lax_wendroff, upwind_2, warmbeam
-   swkhmin
-     :advanced,silent:
-     :description:   Minimum kh value to include in wave action balance, lower included in nlswe (default -1.d0)
-     :units:         -
-     :default:       -0.01
-     :range:         -0.01 - 0.35
    wavint
      :description:   Interval between wave module calls (only in stationary wave mode)
      :units:         s

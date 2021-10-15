@@ -15,12 +15,6 @@
      :units:         s
      :default:       10.0
      :range:         1.0 - 20.0
-   bclwonly
-     :advanced,silent:
-     :description:   Switch to run boundary conditions with long waves only
-     :units:         -
-     :default:       0
-     :range:         0 - 1
    dir0
      :description:   Mean wave direction for instat = stat, bichrom, ts_1 or ts_2 (nautical convention)
      :units:         deg
@@ -41,12 +35,6 @@
      :units:         -
      :default:       10
      :range:         2 - 128
-   nmax
-     :advanced:
-     :description:   Maximum ratio of cg/c for computing long wave boundary conditions
-     :units:         -
-     :default:       0.8
-     :range:         0.5 - 1.0
    taper
      :description:   Spin-up time of wave boundary conditions, in morphological time
      :units:         s
@@ -57,8 +45,3 @@
      :units:         
      :default:       params
      :range:         params, parametric, swan, vardens, off, jonstable, reuse, ts_1, ts_2, ts_nonh
-   wbcevarreduce
-     :description:   Reduction factor of short-wave group variance at the boundary
-     :units:         
-     :default:       1
-     :range:         0-1

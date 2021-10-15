@@ -1601,4 +1601,18 @@
      :units:         -
      :default:       0
      :range:         0-1
-	 
+   wbcRemoveStokes 
+     :description:   Switch to remove long wave Stokes drift component at the offshore boundary
+     :units:         -
+     :default:       1
+     :range:         0-1
+   wbcScaleEnergy  
+     :description:   Switch to correct random time series of wave height to exactly match input Hm0
+     :units:         -
+     :default:       0
+     :range:         0-1
+   cyclicdiradjust   
+     :description:   Adjust alongshore wave length to fit inside domain with cyclic boundary conditions
+     :units:         -
+     :default:       0
+     :range:         0-1	 
