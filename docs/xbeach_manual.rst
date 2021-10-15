@@ -376,7 +376,7 @@ using the wave-resolving mode, it has not been extensively validated
 and it is likely that changes in the sediment transport formulations
 will be implemented in the near future.
 
-To improve the dispersive behaviour a (reduced) 2-layer non-hydrostatic is implemented as well (:cite:`de2020efficient`).
+To improve the dispersive behaviour a (reduced) 2-layer non-hydrostatic is implemented as well (:cite:`de2021efficient`).
 In this version (keyword: :par:`nhq3d` = *1*, see Section :ref:`sec-twolayer`), the pressure in the vertical is 
 described by a hydrostatic pressure assumption  in the bottom layer, and a non-hydrostatic distribution in the upper layer. 
 
@@ -1518,7 +1518,7 @@ To determine the water elevation, the global continuity equation is applied,
 .. math::
    :label:
       
-   \frac{\partial \xi}{\partial t} + frac{\partial hU}{\partial x} = 0
+   \frac{\partial \xi}{\partial t} + \frac{\partial hU}{\partial x} = 0
 	
 These equatuons are used to solve :math:`U`, :math:`\Delta u`, :math:`w_2` and :math:`\xi`
 	
@@ -2133,29 +2133,34 @@ For the suspended-load, first the reference concentration is calculated in accor
 Secondly, the concentration profile is resolved by calculating the bed-shear stresses due to waves and currents and estimating the concentration profile where the combined bed shear stress exceeds the critical bed shear stress. Depth-averaged mixing due to waves and currents.
 
 
-Implementation of D50 grain size dependency (beta)
+Implementation of increased sediment grain size dependency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The default sediment transport relations in XBeach are not greatly sensitive to the sediment grain size (equilibrium sediment concentration approximately proportional to 
+:math:`{D}_{50}^{-0.8}` and bed load transport approximately proportional to :math:`{D}_{50}^{0.45}`. Addition processes such as infragravity waves and wave turbulence often further decrease the sensitivity of the model morphodynamics to the grain size. 
 
-To increase the sensitivity of XBeach to grain size variations, an adjusted sediment transport equation 
-can be applied. Note that this implementation is not well validated, and therefore not a default recommendation in the model. 
+To increase model sensitivity to grain size, a calibration term on the equilibrium sediment concentration and nonlinear wave-driven transport has been developed based on the work of :cite:`Steetzel1993`. 
 
-Both the bed-load and suspended sediment transport rates can be multiplied by a grain-size–dependent term,
+The increased grain size sensitivity in this approach is achieved firstly by updating the equilibrium concentration at each time step, such that this concentration becomes relatively larger for small grain sizes, and smaller of large grain sizes:
 
-.. math::
-   :label:
 
-   f_{D50} = (225*10^{-6}/D_{50})^{\alpha_{D50}}
-
-where :math:`\alpha_{D50}` is a calibration coefficent (keyword :par:`alfaD50`). 
-This grain size term is included in the sediment transport rate,
 
 .. math::
    :label:
 
-   q_x = f_{D50} (\max Ch\rho - \text{diffusion term})
+   C_{eq,update} = (\frac{D_{50,ref}}{D_{50}})^{\alpha_{D50}}C_{eq}
 
-In this way the sediment transport rates are influenced  by the grain size diameter. By default, the
-:par:`alfaD50` is set to 0, which means that the sediment transport rate is computed without the grain-size–dependent term. 
+In which :math:`{C}_{eq,update}` is the updated equilibrium concentration, :math:`{D}_{50,ref}=225 \mu m` is a fixed reference grain size, and :math:`\alpha_{D50} \geq 0` is a calibration factor for the sensitivity set by keyword :par:`alfaD50`.
+
+The sensitivity to grain size is secondly increased through a modification of the effective sediment transport velocity in the direction of the waves due to nonlinear wave effects (:math:`u_{a}` , see Section :ref:`sec-effects-of-wave-non-linearity` ):
+
+.. math::
+   :label:
+
+   U_{a,update} = (\frac{D_{50}}{D_{50,ref}})^{\alpha_{D50}}u_{a}
+
+In which :math:`{u}_{a,update}` is the updated effective transport velocity. 
+In this approach, the effective transport velocity in the direction of the waves increases (i.e., greater onshore transport) for grainsizes greater than :math:`{D}_{50,ref}`, and decreases for grain sizes smaller than  :math:`{D}_{50,ref}`. By default, :par:`alfaD50` is set to 0, which means that the sediment transport rate is computed without increased grain size sensitivity.
+
 
 Gravel formulations
 ^^^^^^^^^^^^^^^^^^^
@@ -2203,9 +2208,10 @@ Besides the McCall - Van Rijn and the Nielsen equation there are several other s
    | Fredoe & Deigaard 	           	  | fredsoe_deigaard        | 
    +--------------------------------------+-------------------------+
 
-
-Effects of wave non-linearity 
+.. _sec-effects-of-wave-non-linearity:
+Effects of wave non-linearity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Effects of wave skewness and asymmetry are accounted for in the
 advection-diffusion equation, repeated here:
@@ -5078,6 +5084,13 @@ listed in the following subsections grouped by process. Most parameters
 are not relevant for the average XBeach user. Parameters marked with a
 plus (+) are considered advanced options that are recommended to stay
 untouched unless you know what you are doing.
+
+
+Long and short wave boundary conditions
+~~~~~~~~~~~~~
+The parameters listed in the table below relate to boundary conditions for short waves (wave action balance model) and long waves (infragravity waves).
+
+.. include:: tables/partable_advanced_boundary.tab
 
 Wave numerics
 ~~~~~~~~~~~~~
