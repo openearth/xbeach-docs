@@ -1,0 +1,40 @@
+.. partable:: Overview of available keywords related to wind parameters
+
+   nmax
+     :advanced:
+     :description:   Maximum ratio of cg/c for computing long wave boundary conditions
+     :units:         -
+     :default:       0.8
+     :range:         0.5 - 1.0
+   wbcevarreduce
+     :description:   Reduction factor of short-wave group variance at the boundary
+     :units:         
+     :default:       1
+     :range:         0-1
+   bclwonly
+     :advanced,silent:
+     :description:   Switch to run boundary conditions with long waves only
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   swkhmin
+     :advanced,silent:
+     :description:   Minimum kh value to include in wave action balance, lower included in nlswe
+     :units:         -
+     :default:       -0.01
+     :range:         -0.01 - 0.35
+   wbcRemoveStokes 
+     :description:   Switch to remove long wave Stokes drift component at the offshore boundary
+     :units:         -
+     :default:       1
+     :range:         0-1
+   wbcScaleEnergy  
+     :description:   Switch to correct random time series of wave height to exactly match input Hm0
+     :units:         -
+     :default:       0
+     :range:         0-1
+   cyclicdiradjust   
+     :description:   Adjust alongshore wave length to fit inside domain with cyclic boundary conditions
+     :units:         -
+     :default:       0
+     :range:         0-1
