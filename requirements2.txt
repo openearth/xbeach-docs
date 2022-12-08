@@ -1,7 +1,7 @@
 alabaster==0.7.12
 Babel==2.9.0
 breathe==4.25.1
-certifi==2020.12.5
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.4.4
 docutils==0.16
