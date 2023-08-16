@@ -111,6 +111,7 @@ Contents:
    :Caption: Examples
    
    examples
+   gallery
 
 .. toctree::
    :maxdepth: 3
