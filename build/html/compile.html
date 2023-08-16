@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to compile &mdash; XBeach manual 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            XBeach manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="xbeach_manual.html">Processes and model formulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xbeach_manual.html#id117">Boundary conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xbeach_manual.html#input-description">Input description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Input parameters</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="input_parameters.html">Input parameters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Output_variables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output_variables.html">Output variables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Numerical implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="numerical_implementation.html">Numerical implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_implementation.html#advanced-model-coefficients">Advanced model coefficients</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other functionalities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced_techniques.html">Advanced techniques</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matlab_tutorials.html">XBeach Matlab Toolbox (tutorial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab_toolbox.html">XBeach Matlab Toolbox (reference)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Instruction for manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">Sphinx cheatsheet</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">XBeach manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to compile</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/compile.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-compile">
+<h1>How to compile<a class="headerlink" href="#how-to-compile" title="Permalink to this heading"></a></h1>
+<p>XBeach can be downloaded as executable, see:
+<a class="reference external" href="https://download.deltares.nl/xbeach">https://download.deltares.nl/xbeach</a></p>
+<p>However it is also possible to compile XBeach yourself. Both a windows and a Linux version can be compiled.</p>
+<section id="compile-on-windows">
+<h2>Compile on Windows<a class="headerlink" href="#compile-on-windows" title="Permalink to this heading"></a></h2>
+<p>To compile on Windows a Fortran compiler is required.</p>
+</section>
+<section id="compile-on-linux">
+<h2>Compile on Linux<a class="headerlink" href="#compile-on-linux" title="Permalink to this heading"></a></h2>
+<p>Before XBeach can be compiled several libraries are requried. XBeach requires:</p>
+<ol class="arabic simple">
+<li><p>gcc</p></li>
+<li><p>hdf5</p></li>
+<li><p>netcdf</p></li>
+<li><p>openmpi</p></li>
+<li><p>anaconda3</p></li>
+</ol>
+<p>To load the libraries the following code can be used:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load anaconda3/py39_23.1.0-1
+module load gcc/12.2.0_gcc12.2.0
+module load hdf5/1.14.0_gcc12.2.0
+module load netcdf/4.9.2_4.6.1_gcc12.2.0
+module load openmpi/4.1.5_gcc12.2.0
+</pre></div>
+</div>
+<p>Next to Python, the mako package is required. To install mako run pip install mako in a Python terminal.</p>
+<p>To compile XBeach the following commands can be run:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make distclean
+./autogen.sh
+FCFLAGS=&quot;-mtune=corei7-avx -funroll-loops --param max-unroll-times=4 -ffree-line-length-none -O3 -ffast-math&quot; ./configure  --with-netcdf --with-mpi
+make
+make install
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Menno de Ridder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

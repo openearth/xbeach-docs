@@ -112,6 +112,11 @@ Contents:
    
    examples
 
+.. toctree::
+   :maxdepth: 3
+   :Caption: How to compile?
+   
+   compile
 
 .. toctree::
    :maxdepth: 3
