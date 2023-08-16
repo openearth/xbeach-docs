@@ -1,0 +1,18 @@
+.. partable:: Overview of available keywords related to rainfall
+
+   rainfall
+     :description:   Apply rainfall in simulation
+     :units:         -
+     :default:       0
+     :range:         0 - 1
+   rainfallrate
+     :description:   Constant and uniform rainfall rate
+     :units:         mm/hr
+     :default:       0
+     :range:         0 - 2000
+   rainfallratefile
+     :description:   File with rainfall rate for each grid point
+     :units:         <file>
+   nrainfallrate
+     :description:   Number of moments in time with rainfall specified
+     :units:         <file>
