@@ -79,16 +79,12 @@ Contents:
 
 .. toctree::
    :maxdepth: 3
-   :Caption: Input parameters
+   :Caption: Parameters
    
    input_parameters
-
-
-.. toctree::
-   :maxdepth: 3
-   :Caption: Output_variables
-   
    output_variables
+
+   
 
 .. toctree::
    :maxdepth: 3
@@ -108,9 +104,13 @@ Contents:
    
    matlab_tutorials
    matlab_toolbox
-   quickplot
-   rfgrid
+   python_tools
 
+.. toctree::
+   :maxdepth: 3
+   :Caption: Examples
+   
+   examples
 
 
 .. toctree::
