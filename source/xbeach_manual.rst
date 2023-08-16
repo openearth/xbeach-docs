@@ -66,7 +66,7 @@ Hydrodynamics options
 XBeach was originally developed as a short-wave averaged but wave-group
 resolving model, allowing resolving the short wave variations on the
 wave group scale and the long waves associated with them. Since the
-original paper by :cite:`Roelvink2009` a number of additional model
+original paper by :cite:t:`Roelvink2009` a number of additional model
 options have been implemented, thereby allowing users to choose which
 time-scales to resolve:
 
@@ -115,7 +115,7 @@ period variations. Processes that are resolved are wave propagation,
 directional spreading, shoaling, refraction, bottom dissipation and
 wave breaking, and a roller model is included; these processes are
 usually dominant in nearshore areas of limited extent. For the
-breaking dissipation we use the :cite:`Baldock1998` model, which is
+breaking dissipation we use the :cite:t:`Baldock1998` model, which is
 valid for wave-averaged modeling. The radiation stress gradients from
 the wave and roller model force the shallow water equations, drive
 currents and lead to wave setdown and setup. Additionally, wind and
@@ -131,8 +131,8 @@ user to calibrate the profile shape resulting from these interactions.
 A typical application would be to model morphological changes during
 moderate wave conditions, often in combination with tides. The wave
 boundary conditions can be specified as constant (keyword:
-:par:`wbctype` = stat) or as a time-series of wave conditions
-(keyword: :par:`wbctype` = stat\_table). Typical examples of such
+:par:`wbctype` = params) or as a time-series of wave conditions
+(keyword: :par:`wbctype` = jonstable). Typical examples of such
 model applications are given below for tombolo formation behind an
 offshore breakwater (left panel) and development of an ebb delta at a
 tidal inlet (right panel). A big advantage of the stationary XBeach
@@ -158,7 +158,6 @@ these boundaries.
    .. image:: images/image14.jpg
       :width: 200px
 
-           
    Root-mean square wave height (left panels) and final bathymetry
    (right panels) for an offshore breakwater case (upper panels) and
    a tidal inlet with waves from 330 degrees (lower panels).
@@ -170,17 +169,17 @@ Surf beat mode (instationary)
 
 The short-wave motion is solved using the wave action equation which
 is a time-dependent forcing of the HISWA equations
-(:cite:`Holthuijsen1989`).  This equation solves the variation of
+:cite:`Holthuijsen1989`. This equation solves the variation of
 short-waves envelope (wave height) on the scale of wave groups. It
 employs a dissipation model for use with wave groups
-(:cite:`Roelvink1993a,Daly2012`) and a roller model
-(:cite:`Svendsen1984,Nairn1990,Stive1994`) to represent momentum
+:cite:`Roelvink1993a,Daly2012` and a roller model
+:cite:`Svendsen1984,Nairn1990,Stive1994` to represent momentum
 stored at the surface after breaking. These variations, through
 radiation stress gradients
-(:cite:`Longuet-Higgins1962,LonguetHiggins1964`) exert a force on the
+:cite:`Longuet-Higgins1962,LonguetHiggins1964` exert a force on the
 water column and drive longer period waves (infragravity waves) and
 unsteady currents, which are solved by the nonlinear shallow water
-equations (e.g. :cite:`Phillips1977`). Thus, wave-driven currents
+equations :cite:`Phillips1977`. Thus, wave-driven currents
 (longshore current, rip currents and undertow), and wind-driven
 currents (stationary and uniform) for local wind set-up, long
 (infragravity) waves, and runup and rundown of long waves (swash) are
@@ -202,15 +201,15 @@ the circumstances:
    available:
 
    #. Retaining directional spreading (keyword: :par:`dtheta` <
-   :par:`thetamax` - :par:`thetamin`); this has a limited effect on
-   the wave heights because of refraction, but can also allow
-   obliquely incident waves and the resulting longshore currents;
+      :par:`thetamax` - :par:`thetamin`); this has a limited effect on
+      the wave heights because of refraction, but can also allow
+      obliquely incident waves and the resulting longshore currents;
 
    #. Using a single directional bin (keyword: :par:`dtheta` =
-   :par:`thetamax`- :par:`thetamin`); this leads to perpendicular
-   waves always and ignores refraction. If the keyword :par:`snells` =
-   *1* is applied, the mean wave direction is determined based on
-   Snells law. In this case also longshore currents are generated.
+      :par:`thetamax`- :par:`thetamin`); this leads to perpendicular
+      waves always and ignores refraction. If the keyword :par:`snells` =
+      *1* is applied, the mean wave direction is determined based on
+      Snells law. In this case also longshore currents are generated.
 
 #. **2DH area;** the model is solved on a curvilinear staggered grid
    (rectilinear is a special case). The incoming short wave energy will
@@ -245,7 +244,7 @@ In the figures below some typical applications of 1D and 2D models are
 shown; a reproduction of a large-scale flume test, showing the ability
 of XBeach to model both short-wave (HF) and long-wave (LF) wave
 heights and velocities; and a recent 2DH simulation
-(:cite:`Nederhoff2015`) of the impact of hurricane Sandy on Camp
+:cite:`Nederhoff2015` of the impact of hurricane Sandy on Camp
 Osborne, Brick, NJ.
 
 .. _lip_tests:
@@ -280,7 +279,7 @@ For non-hydrostatic XBeach calculations (keyword: :par:`wavemodel` =
 using the non-linear shallow water equations, including a
 non-hydrostatic pressure. The depth-averaged normalized dynamic
 pressure (:math:`q`) is derived in a method similar to a one-layer
-version of the SWASH model (:cite:`Zijlema2011a`). The depth averaged
+version of the SWASH model :cite:`Zijlema2011a`. The depth averaged
 dynamic pressure is computed from the mean of the dynamic pressure at
 the surface and at the bed by assuming the dynamic pressure at the
 surface to be zero and a linear change over depth.
@@ -306,15 +305,15 @@ resolved by the model and no approximate local model or empirical
 formulation is required for these terms. Finally, in cases where
 diffraction is a dominant process, wave-resolving modeling is needed
 as it is neglected in the short wave averaged mode. The XBeach-G
-formulations for gravel beaches (:cite:`McCall2014`) are based on the
+formulations for gravel beaches :cite:`McCall2014` are based on the
 non-hydrostatic mode.  Although sandy morphology can be simulated
 using the wave-resolving mode, it has not been extensively validated
 and it is likely that changes in the sediment transport formulations
 will be implemented in the near future.
 
-To improve the dispersive behaviour a (reduced) 2-layer non-hydrostatic is implemented as well (:cite:`de2021efficient`).
+To improve the dispersive behaviour a (reduced) 2-layer non-hydrostatic is implemented as well :cite:`de2021efficient`.
 In this version (keyword: :par:`nhq3d` = *1*, see Section :ref:`sec-twolayer`), the pressure in the vertical is 
-described by a hydrostatic pressure assumption  in the bottom layer, and a non-hydrostatic distribution in the upper layer. 
+described by a hydrostatic pressure assumption in the bottom layer, and a non-hydrostatic distribution in the upper layer. 
 
 
 An interesting recent application that has been validated for a number
@@ -1247,7 +1246,7 @@ Porous in-canopy flow
 To include the resistance of corals in the simulations or when the in-canopy velocity is required, the porous in-canopy model can be applied. 
 This model computes the flow though the coral canopy, based on the porosity (:math:`\epsilon`) and canopy height (:math:`h_c`).
 The in-canopy cell is formulated within the flow grid-cell, which means that the forcing of the flow is used as forcing terms in the canopy cell.
-The horizontal in-canopy momentum equation, derived by :math:`lowe2008`, is given as,
+The horizontal in-canopy momentum equation, derived by :cite:`lowe2008`, is given as,
 
 .. math::
    :label:
@@ -2108,7 +2107,7 @@ In XBeach-G, gravel sediment transport is, by default, computed using the bed lo
    :label:
 	q_{b}=\gamma D_{50}D_{*}^{-0.3}\sqrt{\frac{\tau_{b}}{\rho}}\frac{\theta'-\mathit{\theta_{cr}}}{\mathit{\theta_{cr}}}\frac{\tau_{b}}{\left|\tau_{b}\right|}
 
-where :math:`q_{b}` is the volumetric bed load transport rate (excluding pore space), :math:`gamma`is a calibration coefficient, set to 0.5 in :cite:`VanRijn2007a`, 
+where :math:`q_{b}` is the volumetric bed load transport rate (excluding pore space), :math:`gamma` is a calibration coefficient, set to 0.5 in :cite:`VanRijn2007a`, 
 :math:`D_{*}=D_{50}\left(\frac{\Delta g}{\nu^{2}}\right)^{\frac{1}{3}}` is the non-dimensional grain size, and :math:`theta_{cr}` is the critical Shields parameter for the initiation of transport, in this thesis computed using the relation of :cite:`Soulsby1997a`.
 
 .. math::
@@ -2122,7 +2121,7 @@ In the case of the Nielsen equation is applied, the sediment transport model is 
    :label:
 	q_{b}=12\left(\theta'-0.05\right)\sqrt{\theta'}\sqrt{\Delta g\mathit{D_{50}^{3}}}\frac{u_{*}}{\left|u_{*}\right|}
 
-Besides the McCall - Van Rijn and the Nielsen equation there are several other sediment gravel transport formulae implemented in XBeach-G. For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: *http://hdl.handle.net/10026.1/3929*.
+Besides the McCall - Van Rijn and the Nielsen equation there are several other sediment gravel transport formulae implemented in XBeach-G. For more information on XBeach-G, download the PhD thesis of McCall (2015) on URL: URL: [http://hdl.handle.net/10026.1/3929]_.
 
 .. table:: Sediment gravel transport formulae implemented in XBeach-G
 
@@ -2465,7 +2464,7 @@ Ship-induced wave motions
              
 A relatively new application field for XBeach is the generation and
 propagation of waves induced by sailing vessels. This functionality has
-been implemented recently (:cite:`Zhou2013`), and has currently been used in
+been implemented recently :cite:`Zhou2013`, and has currently been used in
 several studies (e.g. :cite:`Zhou2014`, :cite:`DeJong2013`), showing
 very good results.
 
