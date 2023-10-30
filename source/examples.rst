@@ -1,7 +1,7 @@
 Examples
 =========
 
-
+This page shows examples of params files for several  applications. These params files can be used as a reference of starting point for settings up a simulations.
 
 Field experiment: DELILAH
 ---------------------------
@@ -200,3 +200,10 @@ This test simulates dune erosion of a profile at the holland coast during storm 
    hh
    zs
    zb
+
+
+
+
+
+
+

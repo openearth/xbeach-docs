@@ -2,13 +2,16 @@ How to compile
 ===============
 
 XBeach can be downloaded as executable, see:
+
 https://download.deltares.nl/xbeach
 
-However it is also possible to compile XBeach yourself. Both a windows and a Linux version can be compiled.
+However it is also possible to compile XBeach yourself. Both a windows and a Linux version can be compiled. The source code is available at:
+
+https://svn.oss.deltares.nl/repos/xbeach/trunk/
 
 Compile on Windows
 ---------------------------
-To compile on Windows a Fortran compiler is required.
+To compile on Windows a Fortran compiler and visual Studio is required. To compile on Windows a Fortran compiler and visual Studio is required. The Solution file for Visual studio is present at the repository with the source code.
 
 Compile on Linux
 ---------------------------

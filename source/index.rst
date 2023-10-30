@@ -92,38 +92,7 @@ Contents:
    
    numerical_implementation
 
-.. toctree::
-   :maxdepth: 3
-   :Caption: Other functionalities
-   
-   advanced_techniques
 
-.. toctree::
-   :maxdepth: 3
-   :Caption: Tools
-   
-   matlab_tutorials
-   matlab_toolbox
-   python_tools
-
-.. toctree::
-   :maxdepth: 3
-   :Caption: Examples
-   
-   examples
-   gallery
-
-.. toctree::
-   :maxdepth: 3
-   :Caption: How to compile?
-   
-   compile
-
-.. toctree::
-   :maxdepth: 3
-   :Caption: Instruction for manual
-   
-   cheatsheet
 
 
 
