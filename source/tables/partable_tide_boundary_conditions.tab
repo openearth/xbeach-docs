@@ -8,7 +8,7 @@
    tideloc
      :description:   Number of corner points on which a tide time series is specified
      :units:         -
-     :default:       0
+     :default:       2
      :range:         0 - 4
    zs0file
      :description:   Name of tide boundary condition series

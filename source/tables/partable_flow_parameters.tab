@@ -11,7 +11,7 @@
    bedfriction
      :description:   Bed friction formulation
      :units:         
-     :default:       chezy
+     :default:       manning
      :range:         chezy, cf, white-colebrook, manning, white-colebrook-grainsize
    friction_acceleration
      :description:   Turn on or off the effect of acceleration on bed roughness (morrison)
@@ -42,7 +42,7 @@
      :advanced:
      :description:   Viscosity switch for roller induced turbulent horizontal viscosity
      :units:         -
-     :default:       1.0
+     :default:       0.0
      :range:         0.0 - 1.0
    nuhv
      :advanced,silent:

@@ -82,7 +82,7 @@
      :advanced:
      :description:   Calibration factor time averaged flows due to wave asymmetry
      :units:         -
-     :default:       0.1
+     :default:       0.2
      :range:         0.0 - 1.0
    facDc
      :advanced:
@@ -94,7 +94,7 @@
      :advanced:
      :description:   Calibration factor time averaged flows due to wave skewness
      :units:         -
-     :default:       0.1
+     :default:       0.15
      :range:         0.0 - 1.0
    facsl
      :advanced:

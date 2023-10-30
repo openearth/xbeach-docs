@@ -21,6 +21,6 @@
    wavint
      :description:   Interval between wave module calls (only in stationary wave mode)
      :units:         s
-     :default:       60.0
+     :default:       600.0
      :range:         1.0 - 3600.0
 

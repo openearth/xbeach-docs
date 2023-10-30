@@ -13,7 +13,7 @@
    hmin
      :description:   Threshold water depth above which stokes drift is included
      :units:         m
-     :default:       0.2
+     :default:       0.0
      :range:         0.001 - 1.0
    oldhu
      :advanced,silent:

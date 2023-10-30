@@ -9,7 +9,7 @@
    break
      :description:   Type of breaker formulation
      :units:         
-     :default:       roelvink2
+     :default:       roelvink_daly
      :range:         roelvink1, baldock, roelvink2, roelvink_daly, janssen
    breakerdelay
      :advanced:
@@ -43,12 +43,12 @@
    gamma
      :description:   Breaker parameter in baldock or roelvink formulation
      :units:         -
-     :default:       0.55
+     :default:       0.46
      :range:         0.4 - 0.9
    gamma2
      :description:   End of breaking parameter in roelvink daly formulation
      :units:         -
-     :default:       0.3
+     :default:       0.34
      :range:         0.0 - 0.5
    gammax
      :advanced:

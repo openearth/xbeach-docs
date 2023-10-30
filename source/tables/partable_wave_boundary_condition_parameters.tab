@@ -43,5 +43,5 @@
    wbctype
      :description:   New wave boundary condition type
      :units:         
-     :default:       params
+     :default:       jonstable
      :range:         params, parametric, swan, vardens, off, jonstable, reuse, ts_1, ts_2, ts_nonh

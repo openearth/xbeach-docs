@@ -76,7 +76,7 @@
      :advanced:
      :description:   Wave dissipation coefficient in roelvink formulation
      :units:         -
-     :default:       1.0
+     :default:       1.38
      :range:         0.5 - 2.0
    aquiferbot
      :advanced:
@@ -101,12 +101,6 @@
    bcfile
      :description:   Name of spectrum file
      :units:         <file>
-   bchwiz
-     :advanced,silent:
-     :description:   Turn on beachwizard
-     :units:         -
-     :default:       0
-     :range:         0 - 1
    bclwonly
      :advanced,silent:
      :description:   Switch to run boundary conditions with long waves only
@@ -150,7 +144,7 @@
    bedfriction
      :description:   Bed friction formulation
      :units:         
-     :default:       chezy
+     :default:       manning
      :range:         chezy, cf, white-colebrook, manning, white-colebrook-grainsize
    bermslope
      :description:   Swash zone slope for (semi-) reflective beaches
@@ -161,7 +155,7 @@
      :advanced:
      :description:   Breaker slope coefficient in roller model
      :units:         -
-     :default:       0.1
+     :default:       0.08
      :range:         0.05 - 0.3
    betad
      :advanced:
@@ -172,7 +166,7 @@
    break
      :description:   Type of breaker formulation
      :units:         
-     :default:       roelvink2
+     :default:       roelvink_daly
      :range:         roelvink1, baldock, roelvink2, roelvink_daly, janssen
    breakerdelay
      :advanced:
@@ -396,7 +390,7 @@
      :advanced:
      :description:   Calibration factor time averaged flows due to wave asymmetry
      :units:         -
-     :default:       0.1
+     :default:       0.2
      :range:         0.0 - 1.0
    facDc
      :advanced:
@@ -408,7 +402,7 @@
      :advanced:
      :description:   Calibration factor time averaged flows due to wave skewness
      :units:         -
-     :default:       0.1
+     :default:       0.15
      :range:         0.0 - 1.0
    facrun
      :advanced,silent:
@@ -432,7 +426,7 @@
      :advanced:
      :description:   Calibration factor time averaged flows due to wave skewness and asymmetry
      :units:         -
-     :default:       0.1
+     :default:       0.175
      :range:         0.0 - 1.0
    fallvelred
      :description:   Switch to reduce fall velocity for high concentrations
@@ -500,12 +494,12 @@
    gamma
      :description:   Breaker parameter in baldock or roelvink formulation
      :units:         -
-     :default:       0.55
+     :default:       0.46
      :range:         0.4 - 0.9
    gamma2
      :description:   End of breaking parameter in roelvink daly formulation
      :units:         -
-     :default:       0.3
+     :default:       0.34
      :range:         0.0 - 0.5
    gamma_turb
      :description:   Calibration factor for turbulence contribution to bed roughness
@@ -578,7 +572,7 @@
    hmin
      :description:   Threshold water depth above which stokes drift is included
      :units:         m
-     :default:       0.2
+     :default:       0
      :range:         0.001 - 1.0
    hotstartflow
      :advanced:
@@ -1382,7 +1376,7 @@
    vardx
      :description:   Switch for variable grid spacing
      :units:         -
-     :default:       0
+     :default:       1
      :range:         0 - 1
    vegcanflo
      :description:   Include incanopy flow [1] or not [0]
@@ -1450,12 +1444,12 @@
    wavint
      :description:   Interval between wave module calls (only in stationary wave mode)
      :units:         s
-     :default:       60.0
+     :default:       600.0
      :range:         1.0 - 3600.0
    wbctype
      :description:   New wave boundary condition type
      :units:         
-     :default:       params
+     :default:       jonstable
      :range:         params, parametric, swan, vardens, off, jonstable, reuse, ts_1, ts_2, ts_nonh
    wbcversion
      :advanced,silent:
@@ -1477,7 +1471,7 @@
    wetslp
      :description:   Critical avalanching slope under water (dz/dx and dz/dy)
      :units:         -
-     :default:       0.3
+     :default:       0.15
      :range:         0.1 - 1.0
    wind
      :description:   Include wind in flow solver
