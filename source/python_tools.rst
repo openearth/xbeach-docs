@@ -4,7 +4,7 @@ Next to a matlab toolbox also a Python toolbox exists. More information about th
 
 https://xbeach-toolbox.readthedocs.io/en/latest/
 
-This Python toolbox contains functions to setup and analyze XBeach simulations. This toolbox is available via pip:
+This Python toolbox contains functions to setup and analyze XBeach simulations. This toolbox is available via PIP:
 
 .. code-block:: text
 
