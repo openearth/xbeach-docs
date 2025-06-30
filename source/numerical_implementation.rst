@@ -1212,8 +1212,8 @@ Wave dissipation
 The parameters listed in the table below involve the wave dissipation
 process. For instationary model runs use either :par:`break` = *roelvink1*,
 *roelvink2* or *roelvink\_daly.* Note that the standard value
-:par:`gamma` = *0.55* and :par:`n` = *10* was calibrated for option :par:`break`
-= *roelvink1*. For :par:`break` = *roelvink2* the wave dissipation is proportional to
+:par:`gamma` = *0.46* and :par:`n` = *10* was calibrated for option :par:`break`
+= *roelvink_daly*. For :par:`break` = *roelvink2* the wave dissipation is proportional to
 :math:`{H}^{3}/h` instead of :math:`{H}^{2}`; this affects the
 calibration. For stationary runs the :par:`break` = *baldock* option is suitable.
 The :par:`break` = *roelvink\_daly* option is a model in which waves start and
