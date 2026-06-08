@@ -3212,11 +3212,11 @@ varying boundary conditions as described in the same section.
 The parameter s in the JONSWAP spectrum definition is related to the
 directional spreading in radians through the following relation:
 
-:math:`\sigma (in radians) = \sqrt{\frac{2}{s+1} }` 
+:math:`\sigma (radians) = \sqrt{\frac{2}{s+1} }` 
 
 and in degrees:
 
-:math:`\sigma (in degrees) = \sqrt{\frac{2}{s+1} } / \pi * 180`
+:math:`\sigma (degrees) = 180 \pi \sqrt{\frac{2}{s+1} } `
 
 Similarly, s can be calculated from :math:`\sigma` as:
 
