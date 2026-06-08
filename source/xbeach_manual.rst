@@ -3216,7 +3216,7 @@ directional spreading in radians through the following relation:
 
 and in degrees:
 
-:math:`\sigma (degrees) = \frac{180}{\pi} \sqrt{\frac{2}{s+1} } `
+:math:`\sigma (degrees) = \frac{180}{\pi} \sqrt{\frac{2}{s+1} }`
 
 Similarly, s can be calculated from :math:`\sigma` as:
 
