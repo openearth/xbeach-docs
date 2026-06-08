@@ -30,5 +30,5 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-partable @ git+https://github.com/openearth/sphinxcontrib-partable@ca9355b7bb4c39ef33aa2bd355bdd2fe8e2bb593
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
-urllib3==2.0.4
+urllib3==2.7.0
 zipp==3.16.2
