@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  docs:
+    docker:
+      - image: cimg/python:3.11
+    steps:
+      - checkout
+
+      - run:
+          name: Install documentation dependencies
+          command: pip install -r requirements.txt
+
+      - run:
+          name: Build Sphinx HTML docs
+          command: make html
+
+      - store_artifacts:
+          path: build/html
+          destination: xbeach-docs-html
+
+workflows:
+  docs:
+    jobs:
+      - docs
