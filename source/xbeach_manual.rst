@@ -3210,8 +3210,15 @@ with all spectral wave boundary condition types as well as spatially
 varying boundary conditions as described in the same section.
 
 The parameter s in the JONSWAP spectrum definition is related to the
-directional spreading (in deg.) through the following relation
-:math:`\sigma =\sqrt{\frac{2}{s+1} } \, s=\frac{2}{\sigma ^{2} } -1`.
+directional spreading in radians through the following relation:
+:math:`\sigma (in radians) = \sqrt{\frac{2}{s+1} } 
+
+and in degrees:
+:math:`\sigma (in degrees) = \sqrt{\frac{2}{s+1} } / pi * 180
+
+Similarly, s can be calculated from :math:`\sigma` as:
+:math:`s=\frac{2}{\sigma ^{2} } -1`.
+
 Here :math:`\sigma` is the directional spreading in radians and s the
 JONSWAP spreading parameter.
 
