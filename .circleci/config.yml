@@ -6,8 +6,18 @@ jobs:
       - image: cimg/python:3.11
     steps:
       - checkout
-      - run: pip install -r requirements.txt
-      - run: make html
+
+      - run:
+          name: Install documentation dependencies
+          command: pip install -r requirements.txt
+
+      - run:
+          name: Build Sphinx HTML docs
+          command: make html
+
+      - store_artifacts:
+          path: build/html
+          destination: xbeach-docs-html
 
 workflows:
   docs:
